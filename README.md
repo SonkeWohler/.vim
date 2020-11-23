@@ -4,7 +4,7 @@ This is my commandline configuration. Everything necessary to setup the commandl
 
 To set this up first clone this repo to your home folder, usually reffered to as `~`. This `~/.vim` is also where you would put your vim plugins, since that was a convenient place for me to put this. If you have your own folder you can create a subfolder like `~/foreinConfiguration` and you replace any occurance of `~` with that instead. 
 
-No guarantee that this will work on linux. I usually use windows, but setup git to change linendings, so it should work fine on any system.
+No guarantee that this will work on linux. I usually use windows, but setup git to change linendings, so the files are compatible.
 
 ## Software
 
@@ -12,8 +12,8 @@ These are links to the softwares I use, mostly so they are neatly in one place w
 
 * [Git Bash for Windows](https://git-scm.com/downloads)
 * [Vim for Windows](https://www.vim.org/download.php)
-* [AutoHotkey](https://www.autohotkey.com/) 
-* [
+* [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for Linux yet, maybe in the future.
+* *unfinished list...*
 
 ## Configuration Files
 
@@ -31,11 +31,13 @@ Then there is the same for vim. In windows `.vimrc` is called `_vimrc`, so it sh
 ln -sv .vim/.vimrc _vimrc
 ```
 
-Lastly, I use [AutoHotkey](https://www.autohotkey.com/) to remap some keys in certain contexts. I create a symlink such that this script is loaded on system start like this:
+Lastly, I use [AutoHotkey](https://www.autohotkey.com/) to remap some keys in certain contexts. This is specific to windows, although there appear to be [analogues in linux](https://unix.stackexchange.com/questions/165124/autohotkey-equivalent#:~:text=There's%20a%20port%20of%20AutoHotKey,unix%20systems%20is%20the%20shell.). I create a symlink such that my ahk script is loaded on system start like this:
 
 ```
-ln -sv ~/.vim/hotkeysOnStartup.ahk ~/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/hotkeysOnStartup
+ln -sv ~/.vim/hotkeysOnStartup.ahk ~/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/hotkeysOnStartup.ahk
 ```
+
+You'll also have to make sure `.ahk` is registered to run with AutoHotkey in your system.
 
 ## plugins
 
