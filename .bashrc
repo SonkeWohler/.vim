@@ -6,6 +6,7 @@ alias mkd='mkdir -vp'
 alias rmv='rm -rv'
 alias rmd='rm -dv'
 alias mvv='mv -v'
+alias cpv='cp -rv'
 
 
 alias lessx='less -RFX'
