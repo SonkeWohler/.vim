@@ -1,3 +1,2 @@
-#IfWinActive ahk_class mintty   ; --- in git bash for windows, remap capslock to ctrl, so I can use C-[ for Esc, C-h to delete in insert mode etc ---
-CapsLock::Ctrl
-#IfWinActive
+#If WinActive("ahk_class mintty") || WinActive("ahk_class ConsoleWindowClass") ; this may not work when in administrator priviliges 
+Capslock::Ctrl
