@@ -19,6 +19,8 @@ These are links to the softwares I use, mostly so they are neatly in one place w
 
 I moved my configuration files into this folder, so I can back them up easily. Of course that means there has to be a symlink from where the programs look for the files to where they actually are.
 
+Symlinks in most linux shells are of the form `ln [target] [link]`, while on windows it is `mklink [link] [target]`. Keep in mind that some linux shell emulators in windows are unable to create symlinks and you should check the created files are truly links with `ls -al [file]`. In most cases the Windows Subsystem for Linux (wsl) should work, or cmd.
+
 Firstly I have some aliases for my git bash:
 
 ```
