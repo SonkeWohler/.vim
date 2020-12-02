@@ -1,11 +1,14 @@
 #IfWinActive ahk_class Chrome_WidgetWin_1
 Capslock & h::Backspace ; like in bash
-Capslock & j::Enter ; like in bash
-Capslock & l::Del ; not like in bash
+Capslock & j::Enter ; sort of like in bash
+Capslock & m::Enter ; like in bash
+Capslock & l::Del ; not like in bash but i like it like that
 Capslock & w::Send ^{Right} ; like in vim
 Capslock & b::Send ^{Left} ; like in vim
 Capslock & `::Send ^{Backspace} ; backtick : delete entire word before the curser
- ; ignore Capslock + most other keys
+Capslock & 1::Send ^{Del} ; delete entire word after the curser
+Capslock & k::LButton ; allows shifting focus to where the mouse is, if the cursor is placed conveniently
+ ; ignore Capslock in combination with most other keys
 Capslock & r::
 Capslock & e::
 Capslock & q::
@@ -25,9 +28,6 @@ Capslock & x::
 Capslock & c::
 Capslock & v::
 Capslock & n::
-Capslock & m::
-Capslock & k::
-Capslock & 1::
 Capslock & 2::
 Capslock & 3::
 Capslock & 4::
