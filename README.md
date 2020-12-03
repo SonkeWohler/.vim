@@ -33,11 +33,13 @@ Then there is the same for vim. In windows `.vimrc` is called `_vimrc`, so it sh
 ln -sv .vim/.vimrc _vimrc
 ```
 
-Lastly, I use [AutoHotkey](https://www.autohotkey.com/) to remap some keys in certain contexts. This is specific to windows, although there appear to be [analogues in linux](https://unix.stackexchange.com/questions/165124/autohotkey-equivalent#:~:text=There's%20a%20port%20of%20AutoHotKey,unix%20systems%20is%20the%20shell.). Instead of creating a symlink I like to simply copy the directory with my ahk files so that when I tinker with them and anything gets messed up the messed up files aren't also loaded on system startup, should I, for any reason, be forced to restart.
+Lastly, I use [AutoHotkey](https://www.autohotkey.com/) to remap some keys in certain contexts. This is specific to windows, although there appear to be [analogues in linux](https://unix.stackexchange.com/questions/165124/autohotkey-equivalent#:~:text=There's%20a%20port%20of%20AutoHotKey,unix%20systems%20is%20the%20shell.). Instead of creating a symlink I like to simply copy the directory with my ahk files so that when I tinker with them and anything gets messed up the messed up files aren't also loaded on system startup, should I, for any reason, be forced to restart. 
 
 ```
 cp -rvf ~/.vim/hotkeysOnStartup ~/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/
 ```
+
+Additionally, on some systems I've had issues when loading the chrome related hotkeys before those for bash, so it might be better to create a script to load them in that order.
 
 You'll also have to make sure `.ahk` is registered to run with AutoHotkey in your system.
 
