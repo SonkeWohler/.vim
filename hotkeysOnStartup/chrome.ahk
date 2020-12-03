@@ -3,10 +3,10 @@ Capslock & h::Backspace ; like in bash
 Capslock & j::Enter ; sort of like in bash
 Capslock & m::Enter ; like in bash
 Capslock & l::Del ; not like in bash but i like it like that
-Capslock & w::Send ^{Right} ; like in vim
-Capslock & b::Send ^{Left} ; like in vim
-Capslock & `::Send ^{Backspace} ; backtick : delete entire word before the curser
-Capslock & 1::Send ^{Del} ; delete entire word after the curser
+Capslock & w::^Right ; like in vim
+Capslock & b::^Left ; like in vim
+Capslock & `::^Backspace ; backtick : delete entire word before the curser
+Capslock & 1::^Del ; delete entire word after the curser
 Capslock & k::LButton ; allows shifting focus to where the mouse is, if the cursor is placed conveniently
  ; ignore Capslock in combination with most other keys
 Capslock & r::
