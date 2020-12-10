@@ -1,4 +1,12 @@
 #IfWinActive ahk_class Chrome_WidgetWin_1
+ ;;; --- Alt related
+![::Send {U+00FC} ; lowercase ü
+!+[::Send {U+00DC} ; uppercase Ü
+!`;::Send {U+00F6} ; lowercase ö
+!+`;::Send {U+00D6} ; uppercase Ö
+!'::Send {U+00E4} ; lowercase ä
+!+'::Send {U+00C4} ; uppercase Ä
+ ;;; --- Capslock related
  ; single character operations
 Capslock & h::Backspace ; like in bash
 Capslock & j::Enter ; like in bash
@@ -50,11 +58,11 @@ Capslock & .::
 Capslock & /::
 Capslock & Tab::
 Capslock & {::
-Capslock & [::
 Capslock & ]::
 Capslock & }::
 Capslock & '::
 Capslock & @::
 Capslock & #::
-Capslock::Esc
+Capslock::return
+Capslock & [::Esc
 #IfWinActive
