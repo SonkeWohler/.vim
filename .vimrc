@@ -1,9 +1,20 @@
 echo 'default configuration loaded'
 
+""" --- plugin related stuff ---
+" matchit 
+runtime macros/matchit.vim
 """ --- settings ---
-" softwrap lines and set tabwidth to 2
+" these might be enabled by default, but it is recommended to make sure
+" to allow loading filetype specific things that you obviously want
+filetype plugin indent on
+syntax on
+" softwrap lines
 set wrap linebreak nolist
+""" indent related:
+" set tabwidth to 2
 set tabstop=2 shiftwidth=2 expandtab
+" smartindent is better than just autoindent
+set smartindent
 
 """ --- remapping commands ---
 " setup to resemble my bash command
