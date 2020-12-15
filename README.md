@@ -19,32 +19,24 @@ These are links to the softwares I use, mostly so they are neatly in one place w
 
 I moved my configuration files into this folder, so I can back them up easily. Of course that means there has to be a symlink from where the programs look for the files to where they actually are.
 
-Symlinks in most linux shells are of the form `ln [target] [link]`, while on windows it is `mklink [link] [target]`. Keep in mind that some linux shell emulators in windows are unable to create symlinks and you should check the created files are truly links with `ls -al [file]`. In most cases the Windows Subsystem for Linux (wsl) should work, or cmd.
+Symlinks in most linux shells are of the form `ln [target] [link]`, while on windows it is `mklink [link] [target]`. Keep in mind that some linux shell emulators in windows are [unable to create symlinks](https://github.com/git-for-windows/git/wiki/Symbolic-Links) and you should check the created files are truly links with `ls -al [file]`. In most cases the Windows Subsystem for Linux (wsl) should work, or cmd.
 
-Firstly I have some aliases for my git bash:
+Link the bash initialisation script from within your `~/`:
 
 ```
 ln -sv .vim/.bashrc .bashrc
 ```
 
-Then there is the same for vim. In windows `.vimrc` is called `_vimrc`, so it should be this instead:
+Then there is the same for vim. In windows `.vimrc` is called `_vimrc`, so it should be this instead from within your `~/`
 
 ```
 ln -sv .vim/.vimrc _vimrc
 ```
 
-Lastly, I use [AutoHotkey](https://www.autohotkey.com/) to remap some keys in certain contexts. This is specific to windows, although there appear to be [analogues in linux](https://unix.stackexchange.com/questions/165124/autohotkey-equivalent#:~:text=There's%20a%20port%20of%20AutoHotKey,unix%20systems%20is%20the%20shell.). Instead of creating a symlink I like to simply copy the directory with my ahk files so that when I tinker with them and anything gets messed up the messed up files aren't also loaded on system startup, should I, for any reason, be forced to restart. 
+Lastly, I use [AutoHotkey](https://www.autohotkey.com/) to remap some keys in certain contexts. This is specific to windows, although there appear to be [analogues in linux](https://unix.stackexchange.com/questions/165124/autohotkey-equivalent#:~:text=There's%20a%20port%20of%20AutoHotKey,unix%20systems%20is%20the%20shell.). Instead of creating a symlink I like to keep a *development* and a *production* version of these scripts, so that when I tinker with them and anything gets messed up the messed up files aren't also loaded on system startup, should I, for any reason, be forced to restart. 
 
-```
-cp -rvf ~/.vim/hotkeysOnStartup ~/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/
-```
-
-Additionally, on some systems I've had issues when loading the chrome related hotkeys before those for bash, so it might be better to create a script to load them in that order.
-
-You'll also have to make sure `.ahk` is registered to run with AutoHotkey in your system.
+Details on that are in the `hotkeysOnStartup` folder.
 
 ## plugins
 
-So, I don't like the idea of keeping the plugins that I clone off github or similar inside this repo and essentially republishing them here. Perhaps that would be the best way to do this, and I might decide to do that in the future, but for now I just gitignore any third party plugins. This is a list of those plugins I use, links to the repos to clone them from and anything else I need to keep track of. This works for now because I am a beginner in vim and have no idea if I even will be using a great number of plugins in the future.
-
-* [NerdTree](https://github.com/preservim/nerdtree) (simply follow the readme instructions)
+Plugins are added with `git submodules add <link to clone repository>`.
