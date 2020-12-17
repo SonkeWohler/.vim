@@ -6,6 +6,9 @@ cd ~ # sometimes bash is started in a different directory (e.g. in administrator
 
 ## set -o vi # set vi mode 
 
+### --- other utilities
+alias exx='sleep 0.1s ; exit' # prevents issues related to Capslock being mapped to Ctrl
+
 ### --- file manipulation aliases, I like everything verbal
 alias mkd='mkdir -vp'
 alias rmv='rm -rv'
@@ -19,12 +22,14 @@ alias lsa='ls -lAh'
 alias lsx='lsa --color=always | less -RFX'
 
 ### --- git related aliases
-alias gitCC='git add -A ; git commit -m' # with Capital letters in it means it will commit something/ make permanent changes
-alias gitC='git add -A ; git commit'
-alias gitd='git checkout .'
-alias gitch='git checkout --' 
-alias gitvv='git branch -vv'
+# note: with Capital letters in it means it will commit something/ make permanent changes/ delete something that has been staged for commit etc.
+alias gitCC='git add -A ; git commit -m' # easy commit
+alias gitC='git add -A ; git commit' # easy commit
+alias gitd='git checkout .' # undo all unstaged
+alias gitch='git checkout --' # undo specific file
+alias gitvv='git branch -vv' # list all branches
 alias gitdif='git diff --'
+alias gitdiff='git diff --'
 alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
 alias gitqbranches='git branch -d $(git branch --merged |tail -n +2)' # remove any branches that don't exist on origin
