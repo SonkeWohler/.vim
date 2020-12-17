@@ -34,3 +34,15 @@ alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
 alias gitqbranches='git branch -d $(git branch --merged |tail -n +2)' # remove any branches that don't exist on origin
 alias gitQean='git pull ; git reset --hard [HEAD] ; git clean [-f] ; git branch -d $(git branch --merged |tail -n +2)' # thorough cleanup in line with origin
+
+### --- kotlin related
+
+# compile a `kotlin.kt` file to `kotlin.kt.jar`, because it is easier
+kotlinCompile () {
+  kotlinc $1 -include-runtime -d $1.jar
+}
+
+# compile and run `kotlin.kt` file to `kotlin.kt.jar`
+kotlinRun () {
+  kotlinCompile $1 && echo "" && echo "|----- compile done -----|" && echo "" && java -jar $1.jar
+}
