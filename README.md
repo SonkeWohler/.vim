@@ -13,6 +13,8 @@ These are links to the softwares I use, mostly so they are neatly in one place w
 * [Git Bash for Windows](https://git-scm.com/downloads)
 * [Vim for Windows](https://www.vim.org/download.php)
 * [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for Linux yet, maybe in the future.
+* [sdkman](https://sdkman.io/)
+  - note that installing this will add some lines to the `.bashrc` containing absolute paths. These lines should be moved to `~/.sdkman/sourceSDK`.  Since sdkman is probably not in use that often, having to source it manually first should be ok.
 * *unfinished list...*
 
 ## Configuration Files
@@ -39,4 +41,6 @@ Details on that are in the `hotkeysOnStartup` folder.
 
 ## plugins
 
-Plugins are added with `git submodules add <link to clone repository>`.
+Plugins are added with `git submodules add <link to clone repository>`. They are then listed in the `.gitmodules` file.
+
+As recommended by (some) guides introducing you to vim, I am not using a plugin manager yet. I try to follow [this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to organise plugins with this system, except that I can't use `vimfiles` and have to use the `.vim` folder, for some reason (investigations are inconclusive thus far).
