@@ -1,6 +1,8 @@
 # Hotkeys on Startup
 The AutoHotkey scripts in this folder setup remappings based on what window is active. For example, in bash the `<Capslock>` becomes `<Ctrl>`, in chrome it performs a few similar functions but when running a game it has its original function.
 
+For this to work I run the `scripts/*.ahk` files at system startup (hence `hotkeysOnstartup`), but before jumping into that, a few notes of advice.
+
 ## Production vs Development
 In order for the system to run them it is recommended to copy them into `~/hotkeysOnStartup/` or another dedicated directory and link to the `~/hotkeysOnStartup/startHotkeys.sh` script from within the system startup routine (see below). You can deploy the scripts by calling `copyHotkeys.sh`.
 
