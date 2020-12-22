@@ -24,9 +24,21 @@ git submodule update
 
 This will clone the submodules for vim [plugins](#plugins).
 
-You want to then prepare the configuration files following the [instructions below](configuration-files), depending on the OS you are using.
+You want to then prepare the configuration files following the [instructions below](#configuration-files), depending on the OS you are using.
 
-Lastly there are the *AutoHotkey* files, with some important considerations about these in the `hotkeysOnStartup` subfolder. To deploy these run `source hotkeysOnStartup/copyHotkeys.sh` and ensure your system startup routine links to `~/hotkeysOnStartup/startHotkeys.sh`. In windows (while using a bash emulator), you can simply navigate to `~/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup` and execute `echo "source ~/hotkeysOnStartup/startHotkeys.sh" > startHotkeys.sh` and ensure that `.sh` is associated with a program.
+Lastly there are the *AutoHotkey* files, with some important considerations about these in the `hotkeysOnStartup` subfolder. To deploy these run:
+
+```
+source hotkeysOnStartup/copyHotkeys.sh
+```
+
+and ensure your system startup routine links to `~/hotkeysOnStartup/startHotkeys.sh`. In windows (while using a bash emulator), you can simply navigate to `~/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup` and execute 
+
+```
+echo "source ~/hotkeysOnStartup/startHotkeys.sh" > startHotkeys.sh
+```
+
+and ensure that `.sh` is associated with an appropriate program.
 
 Now you should be done. Try it out. Use some aliases, open a plugin in vim, use some commands from my `.vimrc`, see if the *chrome* hotkeys work.
 
