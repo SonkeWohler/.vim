@@ -46,8 +46,8 @@ cda() {
 alias gitCC='git add -A ; git commit -m' # easy commit
 alias gitC='git add -A ; git commit' # easy commit
 #-- diffs related
-alias gitd='git checkout .' # undo all unstaged
-alias gitch='git checkout --' # undo specific file
+alias gitch='git checkout .' # undo all unstaged
+alias gitd='git checkout --' # undo specific file
 alias gitdif='git diff --'
 alias gitdiff='git diff --'
 #-- status
