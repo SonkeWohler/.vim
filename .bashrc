@@ -7,7 +7,7 @@ cd ~ # sometimes bash is started in a different directory (e.g. in administrator
 ##set -x # currently in debugging mode, shouldn't be committed like that
 
 ### --- other utilities
-alias exx='sleep 0.1s ; exit' # prevents issues related to Capslock being mapped to Ctrl
+alias exx='sleep 0.2s ; exit' # prevents issues related to Capslock being mapped to Ctrl
 ## set -o vi # set vi mode 
 
 ### --- file manipulation, I like everything verbal
