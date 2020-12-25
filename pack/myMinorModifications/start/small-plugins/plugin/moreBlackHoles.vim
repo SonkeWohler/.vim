@@ -1,4 +1,5 @@
 """ --- use the black hole register more often
+
 " I find it useful to simply use visual mode if I do want to cut something
 " rather than simply deleting it
 nnoremap d "_d
