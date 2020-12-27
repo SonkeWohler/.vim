@@ -23,12 +23,12 @@ Capslock & 1::^Del ; delete entire word after the curser
  ; line operations
 Capslock & 4::End ; similar to vim in normal mode
 Capslock & 0::Home ; similar to vim in normal mode
-Capslock & o::Up ; almost like in bash
-Capslock & k::Down ; couldn't find a bash equivalent, but this feels good for my fingers
+Capslock & p::Up ; like in bash
+Capslock & n::Down ; like in bash
  ; other convenient operations
 Capslock & Enter::^Enter ; confirm the current input
-Capslock & p::LButton ; allows shifting focus to where the mouse is, if the cursor is placed conveniently
- ; ignore anything else : it's convenient to use any ignored combination for Escape
+Capslock & k::LButton ; allows shifting focus to where the mouse is, if the cursor is placed conveniently
+ ; ignore anything else
 Capslock & r::
 Capslock & e::
 Capslock & q::
@@ -43,7 +43,7 @@ Capslock & z::
 Capslock & x::
 Capslock & c::
 Capslock & v::
-Capslock & n::
+Capslock & o::
 Capslock & 2::
 Capslock & 3::
 Capslock & 5::
