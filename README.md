@@ -85,7 +85,7 @@ mklink ".vimrc" ".vim/.vimrc"
 
 ## plugins
 
-Plugins are added with `git submodules add <link to clone repository>`. They are then listed in the `.gitmodules` file.
+Plugins are added with `git submodules add <link to clone repository>`. They are then listed in the `.gitmodules` file. Make sure you clone them into the right repository.
 
 I also keep small modifications under [pack/myMinorModifications](pack/myMinorModifications/README.md). These are single file modifications that are too small to justify their own repo, but that I don't want in my `.vimrc`.
 
