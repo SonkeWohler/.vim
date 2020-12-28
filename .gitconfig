@@ -1,0 +1,24 @@
+[core]
+  symlinks = true
+	editor = vim
+	autocrlf = true
+[user]
+	name = SonkeWohler
+	email = sonke.a.wohler@gmail.com
+[color]
+	ui = true
+[pull]
+	rebase = false
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
+[difftool "sourcetree"]
+	cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = true
+[submodule]
+	recurse = true
+[diff]
+	tool = vimdiff
