@@ -26,7 +26,7 @@ This will clone the submodules for vim [plugins](#plugins).
 
 You want to then prepare the configuration files following the [instructions below](#configuration-files), depending on the OS you are using.
 
-Lastly there are the *AutoHotkey* files, with some important considerations about these in the `hotkeysOnStartup` subfolder. To deploy these run:
+Lastly there are the *AutoHotkey* files, with some important considerations about these in the [hotkeysOnStartup](hotkeysOnStartup/README.md) subfolder. To deploy these run:
 
 ```
 source hotkeysOnStartup/copyHotkeys.sh
@@ -86,6 +86,8 @@ mklink ".vimrc" ".vim/.vimrc"
 ## plugins
 
 Plugins are added with `git submodules add <link to clone repository>`. They are then listed in the `.gitmodules` file.
+
+I also keep small modifications under [pack/myMinorModifications](pack/myMinorModifications/README.md). These are single file modifications that are too small to justify their own repo, but that I don't want in my `.vimrc`.
 
 As recommended by (some) guides introducing you to vim, I am not using a plugin manager yet. I try to follow [this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to organise plugins with this system, except that I can't use `vimfiles` and have to use the `.vim` folder, for some reason (investigations are inconclusive thus far).
 
