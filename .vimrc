@@ -14,6 +14,7 @@ filetype plugin indent on
 syntax on
 " softwrap lines
 set wrap linebreak nolist
+set encoding=utf-8
 
 """ indent related:
 " set tabwidth to 2
@@ -25,11 +26,11 @@ set smartindent
 """ --- remapping ---
 
 """ keys
-" I wonder why <C-h> works out of the box, but this doesn't
-inoremap <C-d> <Del>
+" I am missing a <Del> key, but <C-d> is already taken
+inoremap <C-l> <Del>
 
 """ commands
 " setup to resemble my bash command
 :command LSA NERDTree
 " easier to type than q!, for my hand at least
-:command QQ q!
+:command QQ qa!
