@@ -7,6 +7,3 @@
 [submodule "pack/vendor/start/repeat"]
 	path = pack/vendor/start/repeat
 	url = https://tpope.io/vim/repeat.git
-[submodule "pack/vendor/start/vim-autoclose"]
-	path = pack/vendor/start/vim-autoclose
-	url = git@github.com:Townk/vim-autoclose.git
