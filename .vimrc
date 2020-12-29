@@ -2,9 +2,10 @@ echo 'default configuration loaded'
 
 """ --- plugin related stuff ---
 
-" matchit 
+" enable matchit that ships with vim
 runtime macros/matchit.vim
-
+" NERDTree show also hidden files
+let NERDTreeShowHidden=1
 
 """ --- settings ---
 
