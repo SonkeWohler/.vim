@@ -51,6 +51,14 @@ alias gitvv='git branch -vv' # list all branches
 #-- cleaning
 alias gitqbranches='git branch -d $(git branch --merged |tail -n +2)' # remove any branches that don't exist on origin
 alias gitQean='git pull ; git reset --hard [HEAD] ; git clean [-f] ; git branch -d $(git branch --merged |tail -n +2)' # thorough cleanup in line with origin
+#-- log
+alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' # to make it easy to change my preferred format :: git log my way
+gitlog() { gitlogm $1 $2 $3 | less -R ; } 
+gitlogp() { gitlogm -p $1 $2 $3 | less -R ; } 
+gitgraph() { git log --pretty=format:"%ar :: %s" --graph $1 $2 $3 | less -R ; }
+# to clear the output with 'q', rather than spamming my screen after I'm done looking at it
+# $1 can be used for other options, but it's intent was to allow specifiying a number of commits to be displayed (although since I use less, why do I care?
+# one day these will be colorful
 
 # create new branch, checkout that branch and push it upstream
 gitbranch() {
