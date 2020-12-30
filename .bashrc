@@ -31,9 +31,9 @@ fi
 
 ### --- file and directory viewing/changing aliases
 alias cd-='cd -'
-alias lessx='less -RFX'
+alias lessx='less -RF'
 alias lsa='ls -lAh'
-alias lsx='lsa --color=always | less -RFX'
+lsx() { lsa --color=always $1 | lessx ; }
 alias root='cd $(git rev-parse --show-toplevel)' # root of git repo
 cda() {
   cd $1
