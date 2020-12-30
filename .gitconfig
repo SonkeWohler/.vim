@@ -13,11 +13,6 @@
 	prune = false
 [rebase]
 	autoStash = false
-[difftool "sourcetree"]
-	cmd = '' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = "'' "
-	trustExitCode = true
 [submodule]
 	recurse = true
 [diff]
