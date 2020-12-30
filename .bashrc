@@ -21,10 +21,10 @@ mkcd() {
   cd $1
 }
 #-- this file holds a few directory locations to make them easier to `cd $location` into
-bashLocationsFile="~/locationsForCD.bash"
-if [ -f bashLocationsFile ]; then
-  echo "sourcing" $bashLocationsFile
+bashLocationsFile="locationsForCD.bash"
+if test -f $bashLocationsFile; then
   source $bashLocationsFile 
+  echo "sourced" $bashLocationsFile
 else
   echo "couldn't source" $bashLocationsFile "see ~/.vim/README.md"
 fi
@@ -44,7 +44,7 @@ cda() {
 # note: with Capital letters in it means it will commit something/ make permanent changes/ delete something that has been staged for commit etc.
 #-- commits
 alias gitCC='git add -A ; git commit -m' # easy commit
-alias gitC='git add -A ; git commit' # easy commit
+alias gitC='git add -A ; git commit -v' # easy commit
 #-- diffs related
 alias gitch='git checkout .' # undo all unstaged
 alias gitd='git checkout --' # undo specific file
