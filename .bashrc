@@ -16,10 +16,7 @@ alias rmv='rm -rv'
 alias rmd='rm -dv'
 alias mvv='mv -v'
 alias cpv='cp -rv'
-mkcd() {
-  mkdir -vp $1
-  cd $1
-}
+mkcd() { mkdir -vp $1 ; cd $1 ; }
 #-- this file holds a few directory locations to make them easier to `cd $location` into
 bashLocationsFile="locationsForCD.bash"
 if test -f $bashLocationsFile; then
@@ -35,10 +32,7 @@ alias lessx='less -RF'
 alias lsa='ls -lAh'
 lsx() { lsa --color=always $1 | lessx ; }
 alias root='cd $(git rev-parse --show-toplevel)' # root of git repo
-cda() {
-  cd $1
-  lsa
-}
+cda() { cd $1 && lsa ; }
 
 ### --- git related aliases
 # note: with Capital letters in it means it will commit something/ make permanent changes/ delete something that has been staged for commit etc.
