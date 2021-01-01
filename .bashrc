@@ -31,11 +31,12 @@ alias cd-='cd -'
 alias lessx='less -RF'
 alias lsa='ls -lAh'
 lsx() { lsa --color=always $1 | lessx ; }
-alias root='cd $(git rev-parse --show-toplevel)' # root of git repo
 cda() { cd $1 && lsa ; }
 
 ### --- git related aliases
 # note: with Capital letters in it means it will commit something/ make permanent changes/ delete something that has been staged for commit etc.
+#-- navigation
+alias root='cd $(git rev-parse --show-toplevel)' # root of git repo
 #-- commits
 alias gitCC='git add -A ; git commit -m' # easy commit
 alias gitC='git add -A ; git commit -v' # easy commit
@@ -49,7 +50,10 @@ alias gitdiff='git diff --staged' # staged changes only
 alias gits='git status'
 alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
+#-- branches
+alias gitch='git checkout'
 alias gitvv='git branch -vv' # list all branches
+gitbranch() { git branch $1 && git checkout $1 && git push --set-upstream origin $1 ; } # create new branch, checkout that branch and push it upstream
 #-- cleaning
 alias gitqbranches='git branch -d $(git branch --merged |tail -n +2)' # remove any branches that don't exist on origin
 alias gitQean='git pull ; git reset --hard [HEAD] ; git clean [-f] ; git branch -d $(git branch --merged |tail -n +2)' # thorough cleanup in line with origin
@@ -61,11 +65,6 @@ gitgraph() { git log --pretty=format:"%ar :: %s" --graph $1 $2 $3 | less -R ; }
 # to clear the output with 'q', rather than spamming my screen after I'm done looking at it
 # $1 can be used for other options, but it's intent was to allow specifiying a number of commits to be displayed (although since I use less, why do I care?
 # one day these will be colorful
-
-# create new branch, checkout that branch and push it upstream
-gitbranch() {
-  git branch $1 && git checkout $1 && git push --set-upstream origin $1
-}
 
 ### --- kotlin related
 
