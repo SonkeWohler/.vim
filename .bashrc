@@ -40,11 +40,13 @@ cda() { cd $1 && lsa ; }
 alias gitCC='git add -A ; git commit -m' # easy commit
 alias gitC='git add -A ; git commit -v' # easy commit
 #-- diffs related
-alias gitch='git checkout .' # undo all unstaged
-alias gitd='git checkout --' # undo specific file
-alias gitdif='git diff --'
-alias gitdiff='git diff --'
+alias gitq='git restore *' # remove all unstaged modifications
+alias gitQ='git restore --staged * ; git restore *' # remove all uncommitted changes, staged or not
+alias gitd='git diff' # list unstaged chenges
+alias gitdif='git diff --staged' # staged changes only
+alias gitdiff='git diff --staged' # staged changes only
 #-- status
+alias gits='git status'
 alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
 alias gitvv='git branch -vv' # list all branches
