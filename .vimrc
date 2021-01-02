@@ -1,5 +1,10 @@
 echo 'default configuration loaded'
 
+" note: it can be better to set an option even if it is set by default to
+" ensure consistency accross environments. This is obviously most useful if
+" you use this vimrc in multiple locations with different OS, vim versions,
+" emulators etc.
+
 """ --- plugin related stuff ---
 
 " enable matchit that ships with vim
@@ -13,9 +18,13 @@ let NERDTreeShowHidden=1
 " to allow loading filetype specific things that you obviously want
 filetype plugin indent on
 syntax on
+set encoding=utf-8
 " softwrap lines
 set wrap linebreak nolist
-set encoding=utf-8
+" line numbers and such
+set number
+set cursorline
+set cursorlineopt=number
 
 """ indent related:
 " set tabwidth to 2
@@ -26,11 +35,17 @@ set smartindent
 
 """ --- remapping ---
 
-""" keys
+""" --- keys
 " I am missing a <Del> key, but <C-d> is already taken
 inoremap <C-l> <Del>
 
-""" commands
+""" --- hotkeys
+" tab navigation
+nnoremap gh gT
+nnoremap gx :tabclose<CR>
+nnoremap gX :tabclose!<CR>
+
+""" --- commands
 " setup to resemble my bash command
 :command LSA NERDTree
 " easier to type than q!, for my hand at least

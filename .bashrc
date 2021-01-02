@@ -17,6 +17,15 @@ alias rmd='rm -dv'
 alias mvv='mv -v'
 alias cpv='cp -rv'
 mkcd() { mkdir -vp $1 ; cd $1 ; }
+
+### --- file and directory viewing/changing aliases
+alias cd-='cd -'
+alias lessx='less -RF'
+alias lsa='ls -lAh'
+lsx() { lsa --color=always $1 | lessx ; }
+cda() { cd $1 && lsa ; }
+alias novim='vim -u NONE' # in case that anything is wrong with vim or special use cases
+
 #-- this file holds a few directory locations to make them easier to `cd $location` into
 bashLocationsFile="locationsForCD.bash"
 if test -f $bashLocationsFile; then
@@ -25,13 +34,6 @@ if test -f $bashLocationsFile; then
 else
   echo "couldn't source" $bashLocationsFile "see ~/.vim/README.md"
 fi
-
-### --- file and directory viewing/changing aliases
-alias cd-='cd -'
-alias lessx='less -RF'
-alias lsa='ls -lAh'
-lsx() { lsa --color=always $1 | lessx ; }
-cda() { cd $1 && lsa ; }
 
 ### --- git related aliases
 # note: with Capital letters in it means it will commit something/ make permanent changes/ delete something that has been staged for commit etc.
