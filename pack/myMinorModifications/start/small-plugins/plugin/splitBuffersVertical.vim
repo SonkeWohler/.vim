@@ -7,6 +7,7 @@ if v:errmsg != ''
   cabbrev split vert split
   cabbrev hsplit split
   cabbrev help vert help
+  cabbrev e vsplit e
   noremap <C-w>] :vert botright wincmd ]<CR>
   noremap <C-w><C-]> :vert botright wincmd ]<CR>
 else

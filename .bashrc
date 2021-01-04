@@ -20,6 +20,7 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 
 ### --- file and directory viewing/changing aliases
 alias cd-='cd -'
+alias cd.='cd ..'
 alias lessx='less -RF'
 alias lsa='ls -lAh'
 lsx() { lsa --color=always $1 | lessx ; }
