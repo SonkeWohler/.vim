@@ -15,3 +15,18 @@ It also allows deleting text into `"_` with `x` or `X` in normal or visual mode.
 ## Split Buffers Vertically
 
 This is a functionality requested so commonly it exists as a [patch](https://github.com/chrisbra/vim-mq-patches/blob/master/verstplit), but not in the default vim compilation. I instead chose to add an implementation from [here](https://www.reddit.com/r/vim/comments/2irn8j/vertical_split_by_default/) to my vimfiles.
+
+## Delete inside Things _**WIP**_ 
+
+This is usually handled by plugins that work with brackets, but I haven't found any that suit my needs just right.
+
+Delete text inside brackets (`"`, `()`, etc.) but not the brackets themselves.
+
+### On This Line
+
+Use:
+```
+dd"
+```
+
+to search for all pairs of `""` on the current line and request confirmation to delete the text inside (with `y`/`n`/`a` etc).

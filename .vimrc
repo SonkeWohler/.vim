@@ -4,6 +4,11 @@ echo 'default configuration loaded'
 " ensure consistency accross environments. This is obviously most useful if
 " you use this vimrc in multiple locations with different OS, vim versions,
 " emulators etc.
+"
+" note: most customisation options that can be grouped will be found under
+" `pack/myMinorModifications/` usually under `start/`. If they are present
+" here instead they are either experimental or very minor and can't be grouped
+" into their own file.vim.
 
 """ --- plugin related stuff ---
 
@@ -36,14 +41,10 @@ set smartindent
 """ --- remapping ---
 
 """ --- keys
-" I am missing a <Del> key, but <C-d> is already taken
+" I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
 """ --- hotkeys
-" tab navigation
-nnoremap gh gT
-nnoremap gx :tabclose<CR>
-nnoremap gX :tabclose!<CR>
 
 """ --- commands
 " setup to resemble my bash command
