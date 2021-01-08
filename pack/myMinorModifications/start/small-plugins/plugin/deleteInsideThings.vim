@@ -21,17 +21,17 @@ nnoremap d> T<dt>
 
 " -- delete all occurances on current line
 " single and double quotes, backticks
-nnoremap dd" :s/".\{-}"/""/gc<CR>
-nnoremap dd' :s/'.\{-}'/''/gc<CR>
-nnoremap dd` :s/`.\{-}`/``/gc<CR>
+nnoremap dl" :s/".\{-}"/""/gc<CR>
+nnoremap dl' :s/'.\{-}'/''/gc<CR>
+nnoremap dl` :s/`.\{-}`/``/gc<CR>
 " brackets, can use open or close to run command
-nnoremap dd( :s/(.\{-})/()/gc<CR>
-nnoremap dd) :s/(.\{-})/()/gc<CR>
-nnoremap dd[ :s/[.\{-}]/[]/gc<CR>
-nnoremap dd] :s/[.\{-}]/[]/gc<CR>
-nnoremap dd{ :s/{.\{-}}/{}/gc<CR>
-nnoremap dd} :s/{.\{-}}/{}/gc<CR>
-nnoremap dd< :s/<.\{-}>/<>/gc<CR>
-nnoremap dd> :s/<.\{-}>/<>/gc<CR>
-nnoremap dd</ :s/</.\{-}>/</>/gc<CR>
-nnoremap ddt :s/>.\{-}<\//><\//gc<CR>
+nnoremap dl( :s/(.\{-})/()/gc<CR>
+nnoremap dl) :s/(.\{-})/()/gc<CR>
+nnoremap dl[ :s/[.\{-}]/[]/gc<CR>
+nnoremap dl] :s/[.\{-}]/[]/gc<CR>
+nnoremap dl{ :s/{.\{-}}/{}/gc<CR>
+nnoremap dl} :s/{.\{-}}/{}/gc<CR>
+nnoremap dl< :s/<.\{-}>/<>/gc<CR>
+nnoremap dl> :s/<.\{-}>/<>/gc<CR>
+nnoremap dl</ :s/</.\{-}>/</>/gc<CR>
+nnoremap dlt :s/>.\{-}<\//><\//gc<CR>
