@@ -43,6 +43,14 @@ set smartindent
 """ --- keys
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
+" I am trying out <c-q> instead of <c-[>
+inoremap <c-q> <Esc>
+vnoremap <c-q> <Esc>
+cnoremap <c-q> <Esc>
+nnoremap <c-q> <Esc>
+xnoremap <c-q> <Esc>
+snoremap <c-q> <Esc>
+onoremap <c-q> <Esc>
 
 """ --- hotkeys
 
