@@ -43,6 +43,8 @@ set smartindent
 """ --- keys
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
+" I feel like inserting a single new line should be done in normal mode
+nnoremap <C-j> o<Esc>
 " I am trying out <c-q> instead of <c-[>
 inoremap <c-q> <Esc>
 vnoremap <c-q> <Esc>
@@ -53,6 +55,14 @@ snoremap <c-q> <Esc>
 onoremap <c-q> <Esc>
 
 """ --- hotkeys
+" -- interrupt insert
+" when typing long paragraphs I need to remind myself to interrupt insert mode
+" and reenter it. There are various downsides to staying in insert mode for
+" too long, like loosing granularity in undoing or the memory use of the ".
+" register. These hotkeys help remind me to do that.
+inoremap <Leader>. .<C-G>u<Esc>a 
+inoremap <Leader>q <C-G>u<Esc>a
+inoremap <C-R> <C-G>u<C-R>
 
 """ --- commands
 " setup to resemble my bash command
