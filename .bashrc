@@ -44,8 +44,10 @@ alias root='cd $(git rev-parse --show-toplevel)' # root of git repo
 alias gitCC='git add -A ; git commit -m' # easy commit
 alias gitC='git add -A ; git commit -v' # easy commit
 #-- diffs related
-alias gitq='git restore :/' # remove all unstaged modifications
-alias gitQ='git restore --staged :/ ; git restore :/' # remove all uncommitted changes, staged or not
+alias gitq='git restore --staged' # unstage a list of files
+alias gitqa='git restore --staged :/' # unstage all changes
+gitQ() { git restore --staged $1 ; git restore $1 ; } # completely restore a file to <HEAD>
+alias gitQa='git restore --staged :/ ; git restore :/' # restore to <HEAD>
 alias gitd='git diff' # list unstaged chenges
 alias gitdif='git diff --staged' # staged changes only
 alias gitdiff='git diff --staged' # staged changes only
