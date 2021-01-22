@@ -14,8 +14,6 @@ echo 'default configuration loaded'
 
 " enable matchit that ships with vim
 runtime macros/matchit.vim
-" NERDTree show also hidden files
-let NERDTreeShowHidden=1
 
 """ --- settings ---
 
@@ -65,7 +63,5 @@ inoremap <Leader>q <C-G>u<Esc>a
 inoremap <C-R> <C-G>u<C-R>
 
 """ --- commands
-" setup to resemble my bash command
-:command LSA NERDTree
 " easier to type than q!, for my hand at least
 :command QQ qa!
