@@ -1,53 +1,71 @@
 echo 'default configuration loaded'
 
+" note: most customisation options that can be grouped will be found under
+" `pack/myMinorModifications/` usually under `start/`. Anything present
+" here instead is either experimental or very minor and can't be grouped
+" into its own file.vim. I like to keep changes to settings here though.
+" 
 " note: it can be better to set an option even if it is set by default to
-" ensure consistency accross environments. This is obviously most useful if
+" ensure consistency across environments. This is obviously most useful if
 " you use this vimrc in multiple locations with different OS, vim versions,
 " emulators etc.
-"
-" note: most customisation options that can be grouped will be found under
-" `pack/myMinorModifications/` usually under `start/`. If they are present
-" here instead they are either experimental or very minor and can't be grouped
-" into their own file.vim.
 
 """ --- plugin related stuff ---
 
 " enable matchit that ships with vim
 runtime macros/matchit.vim
-" NERDTree show also hidden files
-let NERDTreeShowHidden=1
 
 """ --- settings ---
 
-" these might be enabled by default, but it is (apparently) recommended to make sure
-" to allow loading filetype specific things that you obviously want
+" to allow loading file type stuff
 filetype plugin indent on
 syntax on
 set encoding=utf-8
 " softwrap lines
 set wrap linebreak nolist
+" auto-format
+set formatoptions=croqlnj
 " line numbers and such
 set number
 set cursorline
 set cursorlineopt=number
-
-""" indent related:
+" buffer or window related
+set nohidden
+" -- indent related:
 " set tabwidth to 2
 set tabstop=2 shiftwidth=2 expandtab
 " smartindent is better than just autoindent
 set smartindent
-
+" -- spell
+set spell
+set spellfile=pack/myMinorModifications/config/en.utf-8.add
 
 """ --- remapping ---
 
-""" --- keys
+" -- keys
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
+" I feel like inserting a single new line should be done in normal mode
+nnoremap <C-j> o<Esc>
+" I am trying out <c-q> instead of <c-[>
+inoremap <c-q> <Esc>
+vnoremap <c-q> <Esc>
+cnoremap <c-q> <Esc>
+nnoremap <c-q> <Esc>
+xnoremap <c-q> <Esc>
+snoremap <c-q> <Esc>
+onoremap <c-q> <Esc>
 
-""" --- hotkeys
+""" --- hotkeys ---
+" -- interrupt insert
+" when typing long paragraphs in text flies (like markdown) I need to remind
+" myself to interrupt insert mode and reenter it. There are various downsides to
+" staying in insert mode for too long, like loosing granularity in undoing or
+" the size of the `".` register. These hotkeys help remind me to do that.
+inoremap <Leader>. .<C-G>u<Esc>a 
+inoremap <Leader>q <C-G>u<Esc>a
+inoremap <C-R> <C-G>u<Esc>a<C-R>
 
-""" --- commands
-" setup to resemble my bash command
-:command LSA NERDTree
+""" --- commands ---
 " easier to type than q!, for my hand at least
 :command QQ qa!

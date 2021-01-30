@@ -16,27 +16,26 @@ Capslock & d::Del ; like in bash
 Capslock & o::Right ; convenient to reach and not already used
 Capslock & i::Left ; convenient to reach and not already used
  ; whole word operations
-Capslock & w::^Right ; like in vim in normal mode
-Capslock & b::^Left ; like in vim in normal mode
-Capslock & `::^Backspace ; backtick : delete entire word before the curser
-Capslock & 1::^Del ; delete entire word after the curser
+Capslock & f::^Right ; like in bash
+Capslock & b::^Left ; like in bash
+Capslock & w::^Backspace ; as in bash
+Capslock & `::^Del ; backtick : delete entire word after the curser
  ; line operations
-Capslock & e::End ; like to bash
-Capslock & a::Home ; like to bash
+Capslock & e::End ; like in bash
+Capslock & a::Home ; like in bash
 Capslock & p::Up ; like in bash
 Capslock & n::Down ; like in bash
  ; large text operations
 Capslock & g::^End ; kinda like G in vim and vimium, but specific to the text area
 Capslock & t::^Home ; couldn't use gg and Caps+g is much like Shift+g
  ; other convenient operations
+Capslock & q::Esc ; like in my .vimrc
 Capslock & Enter::^Enter ; confirm the current input
 Capslock & k::LButton ; allows shifting focus to where the mouse is, if the cursor is placed conveniently
  ; ignore anything else
 Capslock & r::
-Capslock & q::
 Capslock & s::
 Capslock & l::
-Capslock & f::
 Capslock & y::
 Capslock & u::
 Capslock & z::
@@ -44,6 +43,7 @@ Capslock & x::
 Capslock & c::
 Capslock & v::
 Capslock & 0::
+Capslock & 1::
 Capslock & 2::
 Capslock & 3::
 Capslock & 4::
