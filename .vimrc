@@ -17,6 +17,8 @@ runtime macros/matchit.vim
 
 """ --- settings ---
 
+" automatically load `.vimrc` inside the current directory as well
+""set exrc
 " to allow loading file type stuff
 filetype plugin indent on
 syntax on
@@ -38,7 +40,7 @@ set tabstop=2 shiftwidth=2 expandtab
 set smartindent
 " -- spell
 set spell
-set spellfile=pack/myMinorModifications/config/en.utf-8.add
+set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 
 """ --- remapping ---
 
@@ -50,7 +52,8 @@ nnoremap <C-j> o<Esc>
 " I am trying out <c-q> instead of <c-[>
 inoremap <c-q> <Esc>
 vnoremap <c-q> <Esc>
-cnoremap <c-q> <Esc>
+" See Issue #5 https://github.com/SonkeWohler/.vim/issues/5
+""cnoremap <c-q> <Esc>
 nnoremap <c-q> <Esc>
 xnoremap <c-q> <Esc>
 snoremap <c-q> <Esc>
