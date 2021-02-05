@@ -1,3 +1,14 @@
-# temporary files
+### --- temporary files
+# vim swap files
 *.swp
+*.swo
+*.swn
+*.swm
+*.swl
+*.swk
+# common temp files
 *~
+
+### --- compiled files
+# vim spell files
+*.add.spl
