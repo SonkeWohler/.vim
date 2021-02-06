@@ -10,3 +10,6 @@
 [submodule "pack/myMajorModifications/start/CreateCodeBlocks"]
 	path = pack/myMajorModifications/start/CreateCodeBlocks
 	url = git@github.com:SonkeWohler/CreateCodeBlocks.git
+[submodule "pack/myMajorModifications/start/vimkasten"]
+	path = pack/myMajorModifications/start/vimkasten
+	url = git@github.com:SonkeWohler/vimkasten.git
