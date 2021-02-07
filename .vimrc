@@ -1,14 +1,17 @@
 echo 'default configuration loaded'
 
 " note: most customisation options that can be grouped will be found under
-" `pack/myMinorModifications/` usually under `start/`. Anything present
-" here instead is either experimental or very minor and can't be grouped
-" into its own file.vim. I like to keep changes to settings here though.
+" `pack/myMinorModifications/` usually under `start/`. Anything present here
+" instead is either experimental or very minor and can't be grouped into its
+" own file.vim. I like to keep changes to settings here though.
 " 
 " note: it can be better to set an option even if it is set by default to
-" ensure consistency across environments. This is obviously most useful if
-" you use this vimrc in multiple locations with different OS, vim versions,
+" ensure consistency across environments. This is obviously most useful if you
+" use this vimrc in multiple locations with different OS, vim versions,
 " emulators etc.
+"
+" note: I usually have Ctrl mapped to Capslock in my system, at least for
+" terminals and vim, which makes some things easier
 
 """ --- plugin related stuff ---
 
@@ -17,6 +20,8 @@ runtime macros/matchit.vim
 
 """ --- settings ---
 
+" automatically load `.vimrc` inside the current directory as well
+""set exrc
 " to allow loading file type stuff
 filetype plugin indent on
 syntax on
@@ -38,7 +43,7 @@ set tabstop=2 shiftwidth=2 expandtab
 set smartindent
 " -- spell
 set spell
-set spellfile=pack/myMinorModifications/config/en.utf-8.add
+set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 
 """ --- remapping ---
 
@@ -47,10 +52,11 @@ set spellfile=pack/myMinorModifications/config/en.utf-8.add
 inoremap <C-l> <Del>
 " I feel like inserting a single new line should be done in normal mode
 nnoremap <C-j> o<Esc>
-" I am trying out <c-q> instead of <c-[>
+"-- use <c-q> instead of <c-[> or <Esc>, both of which are annoying
 inoremap <c-q> <Esc>
 vnoremap <c-q> <Esc>
-cnoremap <c-q> <Esc>
+" See Issue #5 https://github.com/SonkeWohler/.vim/issues/5
+cnoremap <c-q> <c-u><c-h>
 nnoremap <c-q> <Esc>
 xnoremap <c-q> <Esc>
 snoremap <c-q> <Esc>

@@ -6,6 +6,7 @@ function FormatThisBuffer()
   norm gggqG
   norm `q
 endfunction
+
 " I'd rather have a command than a normal mode mapping
 :command Format call FormatThisBuffer()
 
@@ -14,6 +15,8 @@ endfunction
 function FormatThisMarkdownBuffer()
   call FormatThisBuffer()
   :%s/\(\w\).  \(\w\)/\1. \2/g
+  norm `q
 endfunction
+
 " again, I'd rather use command mode to call this
 :command FormatM call FormatThisMarkdownBuffer()
