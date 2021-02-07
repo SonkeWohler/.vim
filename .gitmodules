@@ -13,3 +13,6 @@
 [submodule "pack/myMajorModifications/start/vimkasten"]
 	path = pack/myMajorModifications/start/vimkasten
 	url = git@github.com:SonkeWohler/vimkasten.git
+[submodule "pack/myMajorModifications/opt/vim-markdown"]
+	path = pack/myMajorModifications/opt/vim-markdown
+	url = git@github.com:SonkeWohler/vim-markdown.git
