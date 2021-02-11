@@ -7,7 +7,9 @@ cd ~ # sometimes bash is started in a different directory (e.g. in administrator
 ##set -x # currently in debugging mode, shouldn't be committed like that
 
 ### --- other utilities
-alias exx='sleep 0.2s ; exit' # prevents issues related to Capslock being mapped to Ctrl
+alias exx='sleep 0.2s ; exit' # reduces issues related to Capslock being mapped to Ctrl
+bind '"\C-l":" | lessx"' # i prefer to type `clear` out and now I found a use for \C-l
+bind -r "\C-i" # this sometimes annoys me as on windows autocomplete can take a while in certain situations
 ## set -o vi # set vi mode 
 
 ### --- file manipulation, I like everything verbal
@@ -41,14 +43,14 @@ fi
 #-- navigation
 alias root='cd $(git rev-parse --show-toplevel)' # root of git repo
 #-- commits
-alias gitCC='git add -A ; git commit -m' # easy commit
-alias gitC='git add -A ; git commit -v' # easy commit
+alias gitCC='git add -A ; git commit -m' # easy commit everything
+alias gitC='git add -A ; git commit -v' # easy commit everything
 #-- diffs related
 alias gitq='git restore --staged' # unstage a list of files
 alias gitqa='git restore --staged :/' # unstage all changes
 gitQ() { git restore --staged $1 ; git restore $1 ; } # completely restore a file to <HEAD>
 alias gitQa='git restore --staged :/ ; git restore :/' # restore to <HEAD>
-alias gitd='git diff' # list unstaged chenges
+alias gitd='git diff' # list unstaged changes
 alias gitdif='git diff --staged' # staged changes only
 alias gitdiff='git diff --staged' # staged changes only
 #-- status
@@ -60,15 +62,16 @@ alias gitch='git checkout'
 alias gitvv='git branch -vv' # list all branches
 gitbranch() { git branch $1 && git checkout $1 && git push --set-upstream origin $1 ; } # create new branch, checkout that branch and push it upstream
 #-- cleaning
-alias gitqbranches='git branch -d $(git branch --merged |tail -n +2)' # remove any branches that don't exist on origin
-alias gitQean='git pull ; git reset --hard [HEAD] ; git clean [-f] ; git branch -d $(git branch --merged |tail -n +2)' # thorough cleanup in line with origin
+# something with gitqbranches isn't working quite as it should
+##alias gitqbranches='git branch -d $(git branch --merged |tail -n +2)' # remove any branches that don't exist on origin
+##alias gitQean='git pull ; git reset --hard [HEAD] ; git clean [-f] ; git branch -d $(git branch --merged |tail -n +2)' # thorough cleanup in line with origin
 #-- log
-alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' # to make it easy to change my preferred format :: git log my way
+alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' # git log my way ; to make it easy to change my preferred format 
 gitlog() { gitlogm $1 $2 $3 | less -R ; } 
 gitlogp() { gitlogm -p $1 $2 $3 | less -R ; } 
-gitgraph() { git log --pretty=format:"%ar :: %s" --graph $1 $2 $3 | less -R ; }
+gitgraph() { git log --pretty=format:"%ar :: %s" --graph $1 $2 $3 | less -R ; } # doesn't use default format
 # to clear the output with 'q', rather than spamming my screen after I'm done looking at it
-# $1 can be used for other options, but it's intent was to allow specifiying a number of commits to be displayed (although since I use less, why do I care?
+# $1 can be used for other options, but it's intent was to allow specifying a number of commits to be displayed (although since I use less, why do I care?
 # one day these will be colorful
 
 ### --- kotlin related
