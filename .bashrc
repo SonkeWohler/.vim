@@ -9,7 +9,7 @@ cd ~ # sometimes bash is started in a different directory (e.g. in administrator
 ### --- other utilities
 alias exx='sleep 0.2s ; exit' # reduces issues related to Capslock being mapped to Ctrl
 bind '"\C-l":" | lessx"' # i prefer to type `clear` out and now I found a use for \C-l
-bind -r "\C-i" # this sometimes annoys me as on windows autocomplete can take a while in certain situations
+##bind -r "\C-i" # this sometimes annoys me as on windows autocomplete can take a while in certain situations
 ## set -o vi # set vi mode 
 
 ### --- file manipulation, I like everything verbal
