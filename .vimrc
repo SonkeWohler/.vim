@@ -51,7 +51,7 @@ set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 " I feel like inserting a single new line should be done in normal mode
-nnoremap <C-j> o<Esc>
+nnoremap <C-j> o<Esc>0d$
 "-- use <c-q> instead of <c-[> or <Esc>, both of which are annoying
 inoremap <c-q> <Esc>
 vnoremap <c-q> <Esc>

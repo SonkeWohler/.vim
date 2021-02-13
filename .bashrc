@@ -7,7 +7,7 @@ cd ~ # sometimes bash is started in a different directory (e.g. in administrator
 ##set -x # currently in debugging mode, shouldn't be committed like that
 
 ### --- other utilities
-alias exx='sleep 0.2s ; exit' # reduces issues related to Capslock being mapped to Ctrl
+alias exx='sleep 0.25s ; exit' # reduces issues related to Capslock being mapped to Ctrl
 bind '"\C-l":" | lessx"' # i prefer to type `clear` out and now I found a use for \C-l
 ##bind -r "\C-i" # this sometimes annoys me as on windows autocomplete can take a while in certain situations
 ## set -o vi # set vi mode 
@@ -49,7 +49,7 @@ alias gitC='git add -A ; git commit -v' # easy commit everything
 alias gitq='git restore --staged' # unstage a list of files
 alias gitqa='git restore --staged :/' # unstage all changes
 gitQ() { git restore --staged $1 ; git restore $1 ; } # completely restore a file to <HEAD>
-alias gitQa='git restore --staged :/ ; git restore :/' # restore to <HEAD>
+alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/' # restore to <HEAD>
 alias gitd='git diff' # list unstaged changes
 alias gitdif='git diff --staged' # staged changes only
 alias gitdiff='git diff --staged' # staged changes only
@@ -62,9 +62,13 @@ alias gitch='git checkout'
 alias gitvv='git branch -vv' # list all branches
 gitbranch() { git branch $1 && git checkout $1 && git push --set-upstream origin $1 ; } # create new branch, checkout that branch and push it upstream
 #-- cleaning
-# something with gitqbranches isn't working quite as it should
-##alias gitqbranches='git branch -d $(git branch --merged |tail -n +2)' # remove any branches that don't exist on origin
-##alias gitQean='git pull ; git reset --hard [HEAD] ; git clean [-f] ; git branch -d $(git branch --merged |tail -n +2)' # thorough cleanup in line with origin
+# remove dead branches ( https://medium.com/@kcmueller/delete-local-git-branches-that-were-deleted-on-remote-repository-b596b71b530c  )
+gitqbranches() { 
+  git checkout master
+  git remote prune origin
+  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D 
+}
+alias gitQean='gitqbranches ; git pull ; gitQa' # thorough cleanup in line with origin
 #-- log
 alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' # git log my way ; to make it easy to change my preferred format 
 gitlog() { gitlogm $1 $2 $3 | less -R ; } 
