@@ -11,7 +11,7 @@
 	path = pack/myMajorModifications/start/CreateCodeBlocks
 	url = git@github.com:SonkeWohler/CreateCodeBlocks.git
 [submodule "pack/myMajorModifications/start/vimkasten"]
-	path = pack/myMajorModifications/start/vimkasten
+	path = pack/myMajorModifications/opt/vimkasten
 	url = git@github.com:SonkeWohler/vimkasten.git
 [submodule "pack/myMajorModifications/opt/vim-markdown"]
 	path = pack/myMajorModifications/opt/vim-markdown
