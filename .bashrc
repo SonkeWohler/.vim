@@ -21,21 +21,26 @@ alias cpv='cp -rv'
 mkcd() { mkdir -vp $1 ; cd $1 ; }
 
 ### --- file and directory viewing/changing aliases
-alias cd-='cd -'
-alias cd.='cd ..'
+# -- ls etc
 alias lessx='less -RF'
 alias lsa='ls -lAh'
 lsx() { lsa --color=always $1 | lessx ; }
-cda() { cd $1 && lsa ; }
 alias novim='vim -u NONE' # in case that anything is wrong with vim or special use cases
-
-#-- this file holds a few directory locations to make them easier to `cd $location` into
+# -- cd
+alias cd-='cd -' # back
+alias cd.='cd ..' # up
+cda() { cd $1 && lsa ; }
+# -- oversimplified bookmarks
+alias cdd='cd $journalCD'
+alias cdw='cd $workCD'
+alias cdt='cd $tempCD'
+# define bookmarks above in this file, specific to the machine I am working on
 bashLocationsFile="locationsForCD.bash"
 if test -f $bashLocationsFile; then
   source $bashLocationsFile 
   echo "sourced" $bashLocationsFile
 else
-  echo "couldn't source" $bashLocationsFile "see ~/.vim/README.md"
+  echo "couldn't source" $bashLocationsFile "see ~/.vim/README.md under '#### Bash'"
 fi
 
 ### --- git related aliases

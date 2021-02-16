@@ -75,6 +75,12 @@ Or:
 mklink ".bashrc" ".vim/.bashrc"
 ```
 
+Optionally you can setup my *oversimplified bookmarks* (setup inside [`.bashrc`](.bashrc)). The `~/locationsForCD.bash` file can be used to detail the following "*bookmarks*":
+
+* `journalCD` for diary, use `cdd`
+* `tempCD` for temp files, use `cdt`
+* `workCD` for work repo, use `cdw`
+
 #### Vim
 
 Then there is the same for vim. If you are using vim as an application on windows `.vimrc` is called `_vimrc`. If you prefer to use vim inside git bash it still uses `.vimrc`. Feel free to link them all together from within your `~/`
