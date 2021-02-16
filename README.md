@@ -73,10 +73,10 @@ and ensure that `.sh` is associated with an appropriate program.
 
 I moved my configuration files into this folder, to make them part of this
 repository. Of course that means there has to be a link from where the programs
-look for the files (in `~`) to where they actually are (here, which I will
+look for the files (in `~/`) to where they actually are (here, which I will
 assume is `~/.vim/`).
 
-Keep in mind that if you are using cmd `~` is `C:/Users/<user-name>`. I assume
+Keep in mind that if you are using cmd `~/` is `C:/Users/<user-name>`. I assume
 you are performing any operations from `~/` with many relative paths.
 
 Symlinks in most linux shells are of the form `ln [target] [link]`, while on
