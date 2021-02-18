@@ -106,8 +106,9 @@ Optionally you can setup my *oversimplified bookmarks* (setup inside
 the following "*bookmarks*":
 
 * `journalCD` for diary, use `cdd`
-* `tempCD` for temp files, use `cdt`
+* `tempCD` for temp files, use `cdt` - defaults to `/d/temp`
 * `workCD` for work repo, use `cdw`
+* `vimCD` for this repo location, use `cdv` - defaults to `~/.vim`
 
 #### Vim
 

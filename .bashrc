@@ -33,7 +33,10 @@ cda() { cd $1 && lsa ; }
 # -- oversimplified bookmarks
 alias cdd='cd $journalCD'
 alias cdw='cd $workCD'
+tempCD="/d/temp"
 alias cdt='cd $tempCD'
+vimCD="~/.vim"
+alias cdv='cd $vimCD'
 # define bookmarks above in this file, specific to the machine I am working on
 bashLocationsFile="locationsForCD.bash"
 if test -f $bashLocationsFile; then
@@ -77,7 +80,8 @@ alias gitQean='gitqbranches ; git pull ; gitQa' # thorough cleanup in line with 
 #-- log
 alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' # git log my way ; to make it easy to change my preferred format 
 gitlog() { gitlogm $1 $2 $3 | less -R ; } 
-gitlogp() { gitlogm -p $1 $2 $3 | less -R ; } 
+gitlogp() { gitlogm -p $1 $2 $3 ; } 
+gitlogpx() { gitlogp | less -R ; }
 gitgraph() { git log --pretty=format:"%ar :: %s" --graph $1 $2 $3 | less -R ; } # doesn't use default format
 # to clear the output with 'q', rather than spamming my screen after I'm done looking at it
 # $1 can be used for other options, but it's intent was to allow specifying a number of commits to be displayed (although since I use less, why do I care?
