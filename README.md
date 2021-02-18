@@ -134,7 +134,7 @@ symlinks](https://github.com/SonkeWohler/.vim/issues/3) so you should instead
 copy the file regularly with:
 
 ```
-cp -v .vim/.gitconfig /.gitconfig
+cp -v .vim/.gitconfig /gitconfig
 ```
 
 Now you should be done. Try it out. Use some aliases, open a plugin in vim, use
