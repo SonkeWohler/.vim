@@ -1,3 +1,9 @@
+---
+name: Enhancement
+about: "Feature Request, Improvement."
+labels: enhancement
+---
+
 ## Scripts/Scope
 
 [script](link)

@@ -1,3 +1,9 @@
+---
+name: Bug
+about: One of my scripts isn't working as it should.
+labels: bug
+---
+
 ## Scripts/Scope
 
 [script](link)

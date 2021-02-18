@@ -1,3 +1,9 @@
+---
+name: Configuration
+about: The fault is likely with third party software.
+labels: configuration
+---
+
 ## Software
 
 bash, git, vim
