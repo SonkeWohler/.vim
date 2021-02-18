@@ -1,5 +1,4 @@
-echo configuration loaded: Soenke Default # sometimes used for debugging
-cd ~ # sometimes bash is started in a different directory (e.g. in administrator rights)
+echo configuration loading: Soenke Default # sometimes used for debugging
 
 ### --- note: single `#` is used for comments, usually at the end of the line
 ### --- note: double `##` is used to comment out lines of code, much like is convention in vimrc
@@ -35,7 +34,7 @@ alias cdd='cd $journalCD'
 alias cdw='cd $workCD'
 tempCD="/d/temp"
 alias cdt='cd $tempCD'
-vimCD="~/.vim"
+vimCD="$HOME/.vim"
 alias cdv='cd $vimCD'
 # define bookmarks above in this file, specific to the machine I am working on
 bashLocationsFile="locationsForCD.bash"
@@ -102,3 +101,7 @@ kotlinRun () {
 ### --- sourcing optional content
 # sdkman https://sdkman.io/
 alias sdkSource='source ~/.sdkman/sourceSDK'
+
+
+### --- final toughes
+cdv # sometimes bash is started in a different directory from ~ (e.g. in administrator rights)

@@ -1,4 +1,4 @@
-echo 'default configuration loaded'
+echo 'default configuration loading'
 
 " note: most customisation options that can be grouped will be found under
 " `pack/myMinorModifications/` usually under `start/`. Anything present here

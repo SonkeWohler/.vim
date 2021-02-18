@@ -102,10 +102,10 @@ Optionally you can setup my *oversimplified bookmarks* (setup inside
 [`.bashrc`](.bashrc)). The `~/locationsForCD.bash` file can be used to detail
 the following "*bookmarks*":
 
-* `journalCD` for diary, use `cdd`
 * `tempCD` for temp files, use `cdt` - defaults to `/d/temp`
+* `vimCD` for this repo location, use `cdv` - defaults to `$HOME/.vim`
+* `journalCD` for diary, use `cdd`
 * `workCD` for work repo, use `cdw`
-* `vimCD` for this repo location, use `cdv` - defaults to `~/.vim`
 
 #### Vim
 
