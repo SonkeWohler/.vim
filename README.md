@@ -42,11 +42,8 @@ Clone this repository with the `--recursive` flag:
 git clone --recursive git@github.com:SonkeWohler/.vim.git
 ```
 
-This will clone the repository along with its submodules (some more info under
-[plugins](#plugins)).
-
-Read up on how to manage submodules
-[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+This will clone the repository along with its submodules. Read up on what submodules are and how to manage them
+[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Some more notes on how I use them [below](#plugins-and-submodules).
 
 ### AutoHotkey (Windows Specific)
 
@@ -144,13 +141,9 @@ Now you should be done. Try it out. Use some aliases, open a plugin in vim, use
 some commands from my `.vimrc`, see if the *chrome* hotkeys from AutoHotkey
 work.
 
-## plugins
+## Plugins and Submodules
 
-Plugins are added with `git submodules add <link to clone repository>`. They
-are then listed in the `.gitmodules` file. Make sure you clone them into the
-right repository.
-
-I also keep small modifications under
+Vim plugins are usually added as submodules. I also keep small modifications under
 [pack/myMinorModifications](pack/myMinorModifications/README.md). These are
 single file modifications that are too small to justify their own repo, but
 that I don't want in my `.vimrc`.
@@ -159,6 +152,11 @@ As recommended by (some) guides introducing you to vim, I am not using a plugin
 manager yet. I try to follow
 [this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to
 organise plugins with this system.
+
+This does require me to adapt filetype plugins to my setup like I [did with vim-markdown for example](https://github.com/plasticboy/vim-markdown/commit/b93b0b4881872d3a1e46a84547e3df490b82b57b). They are then cloned into [`.vim/pack/.../opt`] where they are loaded from with [`.vim/ftplugin`](ftplugin/) with [a small script](ftplugin/markdown.vim). I also copy over any filetype detect to [`.vim/ftdetect`](ftdetect).
+
+Submodules are added to the current directory with `git submodules add <link to clone repository>`. They
+are then listed in the `.gitmodules` file. Read up on submodules [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 ## License
 
