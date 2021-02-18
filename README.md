@@ -82,20 +82,20 @@ use is [unable to create
 symlinks](https://github.com/git-for-windows/git/wiki/Symbolic-Links), and
 other emulators may have a similar problem, you should check the created files
 are truly links with `ls -al [file]` when you're done. It should look something
-like `.bashrc --> .vim/.bashrc`.
+like `.bashrc --> .vim/bash/bashrc`.
 
 #### Bash
 
 Link the bash initialisation script from within your `~/`:
 
 ```
-ln -sv .vim/.bashrc .bashrc
+ln -sv .vim/bash/bashrc .bashrc
 ```
 
 Or:
 
 ```
-mklink ".bashrc" ".vim/.bashrc"
+mklink ".bashrc" ".vim/bash/bashrc"
 ```
 
 Optionally you can setup my *oversimplified bookmarks* (setup inside
@@ -115,13 +115,13 @@ it still uses `.vimrc`. Feel free to link them all together from within your
 `~/`
 
 ```
-ln -sv .vim/.vimrc .vimrc
+ln -sv .vim/vimrc .vimrc
 ```
 
 Or:
 
 ```
-mklink ".vimrc" ".vim/.vimrc"
+mklink ".vimrc" ".vim/vimrc"
 ```
 
 Also, using vim as an application on windows uses `~/vimfiles` rather than
