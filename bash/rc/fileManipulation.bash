@@ -15,8 +15,6 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 alias lessx='less -RF'
 alias lsa='ls -lAh'
 lsx() { lsa --color=always $1 | lessx ; }
-# in case that anything is wrong with vim or special use cases
-alias novim='vim -u NONE' 
 
 # -- cd
 # back
