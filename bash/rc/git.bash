@@ -7,6 +7,8 @@
 
 # root of git repo
 alias root='cd $(git rev-parse --show-toplevel)' 
+# return from git submodule to root of superproject
+alias git.='root ; cd .. ; root'
 
 ### --- diffs related
 
@@ -69,11 +71,20 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 # $1 can be used for other options or to specify the number of commits to display before cutting
 # one day these will be colorful
 
-# git log my way ; to make it easy to change my preferred format 
+#-- git log my way ; to make it easy to change my preferred format 
+# default
 alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' 
+# hash
+alias gitlogmh='git log --pretty=format:"%ah, ad :: %s"'
+# graph
+alias gitlogmg='git log --pretty=format:"%ar :: %s"'
+#-- list commits
+#-- note: I haven't figured out how to make less give this in color yet
 gitlog() { gitlogm $1 $2 $3 | less -R ; } 
+gitlogh() { gitlogmh $1 $2 $3 | less -R ; }
 # it can be useful to see in color
 gitlogp() { gitlogm -p $1 $2 $3 ; } 
+# but I usually prefer in less
 gitlogpx() { gitlogp | less -R ; }
-# doesn't use default format
-gitgraph() { git log --pretty=format:"%ar :: %s" --graph $1 $2 $3 | less -R ; } 
+#-- graph
+gitgraph() { gitlogmg --graph $1 $2 $3 | less -R ; } 

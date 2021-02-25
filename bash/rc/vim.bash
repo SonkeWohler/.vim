@@ -8,13 +8,27 @@ alias vimd="vimdd"
 #-- for quick temporary notes
 vimt() {
   cdt
+  if test -f quickNotes.txt; then
+    echo "quickNotes.txt exists already!"
+    echo "remove file (r) or open (o)?"
+    read yesNo
+    # todo lower case yesNo
+    if [ $yesNo = "r" ]; then
+      rmv quickNotes.txt
+    elif [ $yesNo != "o" ]; then
+      echo "invalid reply"
+      rmv quickNotes.txt
+    fi
+  fi
   vim quickNotes.txt
-  rmv quickNotes.txt
+  if test -f quickNotes.txt; then
+    rmv quickNotes.txt
+  fi
   cd-
 }
 
 #-- for quick permanent notes that are accesible online (privately)
-# requires $writingCD to be set
+# requires $writingCD to be set and internet with github credentials saved
 vimNotes(){
   # if required bookmark missing exit
   if [ $writingCD = "" ]; then

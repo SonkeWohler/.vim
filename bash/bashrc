@@ -35,4 +35,5 @@ alias sdkSource='source ~/.sdkman/sourceSDK'
 ### --- final toughes
 
 # sometimes bash is started in a different directory from ~ (e.g. in administrator rights)
+# I prefer to start in $vimCD anyway
 cdv 
