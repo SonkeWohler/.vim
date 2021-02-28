@@ -75,7 +75,7 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 # default
 alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' 
 # hash
-alias gitlogmh='git log --pretty=format:"%ah, ad :: %s"'
+alias gitlogmh='git log --pretty=format:"%h, ad :: %s"'
 # graph
 alias gitlogmg='git log --pretty=format:"%ar :: %s"'
 #-- list commits
