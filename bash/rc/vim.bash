@@ -10,19 +10,39 @@ vimt() {
   cdt
   if test -f quickNotes.txt; then
     echo "quickNotes.txt exists already!"
-    echo "remove file (r) or open (o)?"
+    echo "replace file (r), store file (s) or open (o)?"
     read yesNo
     # todo lower case yesNo
     if [ $yesNo = "r" ]; then
       rmv quickNotes.txt
+    elif [ $yesNo = "s" ]; then
+      if test -f $writingCD/quickNotes/quickNotes.txt; then
+        echo "file already exists, overwrite? (y/n)"
+        read anotherYesNo
+        if [ anotherYesNo = "y" ]; then
+          mvv quickNotes.txt $writingCD/quickNotes/
+        else
+          echo "no action"
+          # todo loop to allow opening file again or if (y/n) was invalid
+        fi
+      fi
     elif [ $yesNo != "o" ]; then
       echo "invalid reply"
       rmv quickNotes.txt
     fi
   fi
-  vim quickNotes.txt
+  vim quickNotes.txt +startinsert
   if test -f quickNotes.txt; then
-    rmv quickNotes.txt
+    echo "save file to writingLibrary (s) or remove (r)?"
+    read yesNo
+    if [ $yesNo = "r" ]; then
+      rmv quickNotes.txt
+    elif [ $yesNo = "s" ]; then
+      mvv quickNotes.txt $writingCD/quickNotes/
+    else
+      echo "invalid response"
+      echo "no action"
+    fi
   fi
   cd-
 }

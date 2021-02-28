@@ -25,6 +25,7 @@ cda() { cd $1 && lsa ; }
 
 ### --- oversimplified bookmarks
 
+alias cdl='cd $writingCD'
 alias cdd='cd $journalCD'
 alias cdw='cd $workCD'
 alias cdt='cd $tempCD'

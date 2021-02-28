@@ -106,6 +106,7 @@ the following "*bookmarks*":
 * `vimCD` for this repo location, use `cdv` - defaults to `$HOME/.vim`
 * `journalCD` for diary, use `cdd`
 * `workCD` for work repo, use `cdw`
+* `writingCD` for my writing library (private repo for notes and stuff), use `cdl` (`cd library`)
 
 #### Vim
 
