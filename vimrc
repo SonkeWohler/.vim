@@ -31,9 +31,6 @@ set wrap linebreak nolist
 " auto-format
 set formatoptions=croqlnj
 " line numbers and such
-set number
-set cursorline
-set cursorlineopt=number
 " buffer or window related
 set nohidden
 " -- indent related:
