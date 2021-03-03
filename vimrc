@@ -26,18 +26,9 @@ runtime macros/matchit.vim
 filetype plugin indent on
 syntax on
 set encoding=utf-8
-" softwrap lines
-set wrap linebreak nolist
-" auto-format
-set formatoptions=croqlnj
-" line numbers and such
-" buffer or window related
+"-- buffer or window related
 set nohidden
-" -- indent related:
-" set tabwidth to 2
-set tabstop=2 shiftwidth=2 expandtab
-" smartindent is better than just autoindent
-set smartindent
+
 " -- spell
 set spell
 set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
