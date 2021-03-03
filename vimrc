@@ -44,21 +44,6 @@ set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 
 """ --- remapping ---
 
-" -- keys
-" I am missing a <Del> key, but <C-d> (used in bash) is already taken
-inoremap <C-l> <Del>
-" I feel like inserting a single new line should be done in normal mode
-nnoremap <C-j> o<Esc>0d$
-"-- use <c-q> instead of <c-[> or <Esc>, both of which are annoying
-inoremap <c-q> <Esc>
-vnoremap <c-q> <Esc>
-" See Issue #5 https://github.com/SonkeWohler/.vim/issues/5
-cnoremap <c-q> <c-u><c-h>
-nnoremap <c-q> <Esc>
-xnoremap <c-q> <Esc>
-snoremap <c-q> <Esc>
-onoremap <c-q> <Esc>
-
 """ --- hotkeys ---
 " -- interrupt insert
 " when typing long paragraphs in text flies (like markdown) I need to remind
