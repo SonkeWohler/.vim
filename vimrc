@@ -20,9 +20,10 @@ runtime macros/matchit.vim
 
 """ --- settings ---
 
-" automatically load `.vimrc` inside the current directory as well
+"-- automatically load `.vimrc` inside the current directory as well
 ""set exrc
-" to allow loading file type stuff
+
+"-- to allow loading file type stuff
 filetype plugin indent on
 syntax on
 set encoding=utf-8
@@ -30,7 +31,12 @@ set encoding=utf-8
 set nohidden
 
 " -- spell
+" I keep hitting by mistake
+nnoremap \= z=
 set spell
+if &diff
+  set nospell
+endif
 set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 
 """ --- remapping ---
