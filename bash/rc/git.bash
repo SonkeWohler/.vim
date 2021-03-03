@@ -30,9 +30,10 @@ alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
 #-- diff
 # list unstaged changes
-alias gitd='git diff'
+gitd() { git diff --color=always $@ | lessx ; }
 # staged changes only
-alias gitdif='git diff --staged'
+gitdif() { git diff --staged --color=always $@ | lessx ; }
+
 # staged changes only
 alias gitdiff='git diff --staged' 
 
@@ -79,12 +80,14 @@ alias gitlogmh='git log --pretty=format:"%h, ad :: %s"'
 # graph
 alias gitlogmg='git log --pretty=format:"%ar :: %s"'
 #-- list commits
-#-- note: I haven't figured out how to make less give this in color yet
-gitlog() { gitlogm $1 $2 $3 | less -R ; } 
-gitlogh() { gitlogmh $1 $2 $3 | less -R ; }
-# it can be useful to see in color
-gitlogp() { gitlogm -p $1 $2 $3 ; } 
-# but I usually prefer in less
-gitlogpx() { gitlogp | less -R ; }
-#-- graph
-gitgraph() { gitlogmg --graph $1 $2 $3 | less -R ; } 
+# history
+gitlog() { gitlogm --color=always $@ | lessx ; } 
+# hashes
+gitlogh() { gitlogmh --color=always $@ | lessx ; }
+# diffs
+gitlogp() { gitlogm -p --color=always $@ | lessx ; }
+# graph
+gitgraph() { gitlogmg --graph --color=always $@ | lessx ; } 
+
+
+
