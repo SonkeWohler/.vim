@@ -54,3 +54,5 @@ inoremap <C-R> <C-G>u<Esc>a<C-R>
 """ --- commands ---
 " easier to type than q!, for my hand at least
 :command QQ qa!
+
+""" --- temporary stuff

@@ -31,3 +31,14 @@ set formatoptions=croqlnj
 " softwrap lines
 set wrap linebreak nolist
 
+""" --- colorscheme
+
+" note: colorschemes are defined in submodules under 'pack/vendor/opt', which vim
+" searches with the colorscheme command automatically
+
+set background=dark
+colorscheme solarized
+
+
+
+
