@@ -16,3 +16,9 @@
 [submodule "pack/myMajorModifications/opt/vim-markdown"]
 	path = pack/myMajorModifications/opt/vim-markdown
 	url = git@github.com:SonkeWohler/vim-markdown.git
+[submodule "pack/vendor/opt/vim-dim"]
+	path = pack/vendor/opt/vim-dim
+	url = git@github.com:jeffkreeftmeijer/vim-dim.git
+[submodule "pack/vendor/opt/vim-colors-solarized"]
+	path = pack/vendor/opt/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
