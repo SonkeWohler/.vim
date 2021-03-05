@@ -23,6 +23,10 @@ Capslock & `::^Del ; backtick : delete entire word after the curser
  ; line operations
 Capslock & e::End ; like in bash
 Capslock & a::Home ; like in bash
+Capslock & u:: ; like in bash
+Send +{Home}
+Send {Backspace}
+return
 Capslock & p::Up ; like in bash
 Capslock & n::Down ; like in bash
  ; large text operations
@@ -37,7 +41,6 @@ Capslock & r::
 Capslock & s::
 Capslock & l::
 Capslock & y::
-Capslock & u::
 Capslock & z::
 Capslock & x::
 Capslock & c::

@@ -8,5 +8,3 @@
   SetCapsLockState, Off
   Send {Ctrl up}
   return
-
-^i::return ; i keep hitting this by accident, and don't need it's functionality at all
