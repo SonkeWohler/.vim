@@ -7,6 +7,8 @@
 
 # root of git repo
 alias root='cd $(git rev-parse --show-toplevel)' 
+# return from git submodule to root of superproject
+alias git.='root ; cd .. ; root'
 
 ### --- diffs related
 
@@ -28,9 +30,10 @@ alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
 #-- diff
 # list unstaged changes
-alias gitd='git diff'
+gitd() { git diff --color=always $@ | lessx ; }
 # staged changes only
-alias gitdif='git diff --staged'
+gitdif() { git diff --staged --color=always $@ | lessx ; }
+
 # staged changes only
 alias gitdiff='git diff --staged' 
 
@@ -69,11 +72,22 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 # $1 can be used for other options or to specify the number of commits to display before cutting
 # one day these will be colorful
 
-# git log my way ; to make it easy to change my preferred format 
+#-- git log my way ; to make it easy to change my preferred format 
+# default
 alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' 
-gitlog() { gitlogm $1 $2 $3 | less -R ; } 
-# it can be useful to see in color
-gitlogp() { gitlogm -p $1 $2 $3 ; } 
-gitlogpx() { gitlogp | less -R ; }
-# doesn't use default format
-gitgraph() { git log --pretty=format:"%ar :: %s" --graph $1 $2 $3 | less -R ; } 
+# hash
+alias gitlogmh='git log --pretty=format:"%h, ad :: %s"'
+# graph
+alias gitlogmg='git log --pretty=format:"%ar :: %s"'
+#-- list commits
+# history
+gitlog() { gitlogm --color=always $@ | lessx ; } 
+# hashes
+gitlogh() { gitlogmh --color=always $@ | lessx ; }
+# diffs
+gitlogp() { gitlogm -p --color=always $@ | lessx ; }
+# graph
+gitgraph() { gitlogmg --graph --color=always $@ | lessx ; } 
+
+
+

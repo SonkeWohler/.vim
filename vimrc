@@ -20,47 +20,26 @@ runtime macros/matchit.vim
 
 """ --- settings ---
 
-" automatically load `.vimrc` inside the current directory as well
+"-- automatically load `.vimrc` inside the current directory as well
 ""set exrc
-" to allow loading file type stuff
+
+"-- to allow loading file type stuff
 filetype plugin indent on
 syntax on
 set encoding=utf-8
-" softwrap lines
-set wrap linebreak nolist
-" auto-format
-set formatoptions=croqlnj
-" line numbers and such
-set number
-set cursorline
-set cursorlineopt=number
-" buffer or window related
+"-- buffer or window related
 set nohidden
-" -- indent related:
-" set tabwidth to 2
-set tabstop=2 shiftwidth=2 expandtab
-" smartindent is better than just autoindent
-set smartindent
+
 " -- spell
+" I keep hitting by mistake
+nnoremap \= z=
 set spell
+if &diff
+  set nospell
+endif
 set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 
 """ --- remapping ---
-
-" -- keys
-" I am missing a <Del> key, but <C-d> (used in bash) is already taken
-inoremap <C-l> <Del>
-" I feel like inserting a single new line should be done in normal mode
-nnoremap <C-j> o<Esc>0d$
-"-- use <c-q> instead of <c-[> or <Esc>, both of which are annoying
-inoremap <c-q> <Esc>
-vnoremap <c-q> <Esc>
-" See Issue #5 https://github.com/SonkeWohler/.vim/issues/5
-cnoremap <c-q> <c-u><c-h>
-nnoremap <c-q> <Esc>
-xnoremap <c-q> <Esc>
-snoremap <c-q> <Esc>
-onoremap <c-q> <Esc>
 
 """ --- hotkeys ---
 " -- interrupt insert
@@ -75,3 +54,5 @@ inoremap <C-R> <C-G>u<Esc>a<C-R>
 """ --- commands ---
 " easier to type than q!, for my hand at least
 :command QQ qa!
+
+""" --- temporary stuff

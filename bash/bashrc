@@ -6,11 +6,15 @@ echo configuration loading: Soenke Default # sometimes used for debugging
 # currently in debugging mode, shouldn't be committed like that
 ##set -x 
 
-### --- some important file locations
-# -- defaults
+### --- file location stuff
+# remember where the bash was started from
+bashStartCD="${PWD}"
+alias cdx='cd $bashStartCD'
+#-- bookmarks
+# defaults
 tempCD="/d/temp"
 vimCD="$HOME/.vim"
-# -- specific to the machine, overwriting defaults
+# specific to the machine, overwriting defaults
 bashLocationsFile="$HOME/locationsForCD.bash"
 if test -f $bashLocationsFile; then
   source $bashLocationsFile 
@@ -31,8 +35,12 @@ done
 # sdkman https://sdkman.io/
 alias sdkSource='source ~/.sdkman/sourceSDK'
 
-
 ### --- final toughes
 
-# sometimes bash is started in a different directory from ~ (e.g. in administrator rights)
+# I usually like to start my bash in my vimfiles
 cdv 
+# but when I call bash explicitly in a particular location I like to stay there
+if [ $bashStartCD != "/" ]; then
+  echo "not default location"
+  cdx
+fi

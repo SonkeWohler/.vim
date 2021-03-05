@@ -27,7 +27,7 @@ when I have to setup a new machine.
   - note that installing this will add some lines to the `.bashrc` containing
     absolute paths. These lines should be moved to `~/.sdkman/sourceSDK`.
     Since sdkman is probably not in use that often, having to source it
-    manually first should be ok.
+    manually first should be ok. See [the bashrc](bash/bashrc) for details
 * *unfinished list...*
 
 #### Linux
@@ -106,6 +106,7 @@ the following "*bookmarks*":
 * `vimCD` for this repo location, use `cdv` - defaults to `$HOME/.vim`
 * `journalCD` for diary, use `cdd`
 * `workCD` for work repo, use `cdw`
+* `writingCD` for my writing library (private repo for notes and stuff), use `cdl` (`cd library`)
 
 #### Vim
 
@@ -143,8 +144,14 @@ work.
 
 ## Plugins and Submodules
 
-Vim plugins are usually added as submodules. I also keep small modifications under
-[pack/myMinorModifications](pack/myMinorModifications/README.md). These are
+Vim plugins are usually added as git submodules with `git submodules add
+<link-to-clone-repository>` inside the directory the module should be added to,
+for example [pack/vendor/start](pack/vendor/start). They are then listed in the
+[`.gitmodules`](.gitmodules) file. Read up on submodules
+[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+
+I also keep small modifications under
+[pack/myMinorModifications](pack/myMinorModifications/). These are
 single file modifications that are too small to justify their own repo, but
 that I don't want in my `.vimrc`.
 
@@ -153,10 +160,14 @@ manager yet. I try to follow
 [this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to
 organise plugins with this system.
 
-This does require me to adapt filetype plugins to my setup like I [did with vim-markdown for example](https://github.com/plasticboy/vim-markdown/commit/b93b0b4881872d3a1e46a84547e3df490b82b57b). They are then cloned into [`.vim/pack/.../opt`] where they are loaded from with [`.vim/ftplugin`](ftplugin/) with [a small script](ftplugin/markdown.vim). I also copy over any filetype detect to [`.vim/ftdetect`](ftdetect).
+This does require me to adapt filetype plugins to my setup like I [did with
+vim-markdown for
+example](https://github.com/plasticboy/vim-markdown/commit/b93b0b4881872d3a1e46a84547e3df490b82b57b).
+They are then cloned into [`.vim/pack/.../opt`] where they are loaded from
+[`.vim/ftplugin`](ftplugin/) with a small script [like this
+one](ftplugin/markdown.vim). I also copy over any filetype detect to
+[`.vim/ftdetect`](ftdetect) manually.
 
-Submodules are added to the current directory with `git submodules add <link to clone repository>`. They
-are then listed in the `.gitmodules` file. Read up on submodules [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 ## License
 
