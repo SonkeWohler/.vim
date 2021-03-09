@@ -1,4 +1,11 @@
-#IfWinActive ahk_class Chrome_WidgetWin_1
+ ;;; --- hokeys for various general use windows ----------------------------------------------------------------- ;;;
+ ; Chrome_WidgetWin_1 is Google Chrome
+ ; Windows.UI.Core.CoreWindow applies to many "windows" that are part of the system, but important to me is:
+ ;  * start menu
+ ;  * desktop selector
+ ;;; --- General Windows ---------------------------------------------------------------------------------------- ;;; 
+
+#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow")
  ;;; --- Alt related
 ![::Send {U+00FC} ; lowercase ü
 !+[::Send {U+00DC} ; uppercase Ü
@@ -20,6 +27,7 @@ Capslock & f::^Right ; like in bash
 Capslock & b::^Left ; like in bash
 Capslock & w::^Backspace ; as in bash
 Capslock & `::^Del ; backtick : delete entire word after the curser
+Capslock & 1::^Del ; might be more comfy than above
  ; line operations
 Capslock & e::End ; like in bash
 Capslock & a::Home ; like in bash
@@ -46,7 +54,6 @@ Capslock & x::
 Capslock & c::
 Capslock & v::
 Capslock & 0::
-Capslock & 1::
 Capslock & 2::
 Capslock & 3::
 Capslock & 4::
