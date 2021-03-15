@@ -22,3 +22,6 @@
 [submodule "pack/vendor/opt/vim-colors-solarized"]
 	path = pack/vendor/opt/vim-colors-solarized
 	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "pack/vendor/start/nerdtree-buffer-ops"]
+	path = pack/vendor/start/nerdtree-buffer-ops
+	url = git@github.com:PhilRunninger/nerdtree-buffer-ops.git
