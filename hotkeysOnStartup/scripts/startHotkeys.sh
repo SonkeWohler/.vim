@@ -9,6 +9,6 @@
 cd ~/hotkeysOnStartup
 
 ### --- Also note: if the scripts are already running the confirmation windows you get might create issues by reversing the order
-start chrome.ahk
+start general.ahk
 ##start windows.ahk
 start bash.ahk
