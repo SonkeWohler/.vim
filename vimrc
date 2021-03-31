@@ -47,9 +47,11 @@ set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 " myself to interrupt insert mode and reenter it. There are various downsides to
 " staying in insert mode for too long, like loosing granularity in undoing or
 " the size of the `".` register. These hotkeys help remind me to do that.
-inoremap <Leader>. .<C-G>u<Esc>a 
+inoremap <Leader>. .<C-G>u<Esc>a  
 inoremap <Leader>q <C-G>u<Esc>a
 inoremap <C-R> <C-G>u<Esc>a<C-R>
+" note the experimental double space after full-stop
+" https://stevelosh.com/blog/2012/10/why-i-two-space/
 
 """ --- commands ---
 " easier to type than q!, for my hand at least
