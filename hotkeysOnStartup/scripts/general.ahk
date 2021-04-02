@@ -1,8 +1,10 @@
- ;;; --- Hokeys for various general use windows ----------------------------------------------------------------- ;;;
+ ;;; --- Hotkeys for various general use windows ----------------------------------------------------------------- ;;;
  ; Chrome_WidgetWin_1 is Google Chrome
  ; Windows.UI.Core.CoreWindow applies to many "windows" that are part of the system, but important to me is:
  ;  * start menu
+ ;  * search function inside menu
  ;  * desktop selector
+ ;  * calender and many taskbar widgets
  ; TaskManagerWindow is the TaskManager
  ; WdcWindow is the resource Monitor Window
  ; CabinetWClass is the Windows Explorer
@@ -10,11 +12,16 @@
  ; IEFrame Internet Explorer
  ; HH is the autohotkey help window
  ; vguiPopupWindow refers various steam windows
- ; UnrealWindow refers to Epic games Launcher, NOTE: that this may apply to unreal games, will have to check
+ ; UnrealWindow refers to Epic games Launcher, NOTE: that this may apply to unreal games, will have to check, see #12
+ ; ApplicationFrameWindow is the windows calculator
+ ; Shell_TrayWnd is the windows taskbar while most widgets opened from there (calender etc) are Windows.UI.Core.CoreWindow
+ ; NotifyIconOverflowWindow is the notification window inside the taskbar (bottom right usually)
  ;;; --- General Windows ---------------------------------------------------------------------------------------- ;;; 
 
 
-#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow")
+#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow")
+
+
  ;;; --- Alt related
 ![::Send {U+00FC} ; lowercase ü
 !+[::Send {U+00DC} ; uppercase Ü

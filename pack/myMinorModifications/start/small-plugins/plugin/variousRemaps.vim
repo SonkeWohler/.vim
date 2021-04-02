@@ -6,6 +6,8 @@
 inoremap <C-l> <Del>
 " I feel like inserting a single new line should be done in normal mode
 nnoremap <C-j> o<Esc>0d$
+" In insert new lines should be a separate atom
+inoremap <C-j> <CR><C-G>u<Esc>i
 
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>

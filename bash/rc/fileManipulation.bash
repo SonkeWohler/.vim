@@ -14,14 +14,15 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 # -- ls etc
 alias lessx='less -RF'
 alias lsa='ls -lAh'
-lsx() { lsa --color=always $1 | lessx ; }
+lsx() { lsa --color=always $@ | lessx ; }
 
 # -- cd
 # back
 alias cd-='cd -' 
 # up
 alias cd.='cd ..' 
-cda() { cd $1 && lsa ; }
+# lsa after cd
+cda() { cd $@ && lsa ; }
 
 ### --- oversimplified bookmarks
 
