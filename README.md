@@ -20,7 +20,8 @@ when I have to setup a new machine.
 #### Windows
 
 * [Git Bash for Windows](https://git-scm.com/downloads)
-* [Vim](https://www.vim.org/download.php)
+  - I like to use the `gruvbox` theme in te settings because it works with my vim color scheme
+* [Vim](https://www.vim.org/download.php) 8.2
 * [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for
   Linux yet, maybe in the future.
 * [sdkman](https://sdkman.io/)
@@ -47,9 +48,11 @@ This will clone the repository along with its submodules. Read up on what submod
 
 ### AutoHotkey (Windows Specific)
 
-There are the *AutoHotkey* files, with some important considerations about
-these in the [hotkeysOnStartup subfolder](hotkeysOnStartup/README.md). To
-deploy these run:
+The *AutoHotkey* files and some important considerations if you want to edit
+them are detailed in the [hotkeysOnStartup
+subfolder](hotkeysOnStartup/README.md).
+
+To deploy them run:
 
 ```
 source ~/.vim/hotkeysOnStartup/copyHotkeys.sh
@@ -74,7 +77,7 @@ look for the files (in `~/`) to where they actually are (here, which I will
 assume is `~/.vim/`).
 
 Keep in mind that if you are using cmd `~/` is `C:/Users/<user-name>`. I assume
-you are performing any operations from `~/` with many relative paths.
+you are performing any operations from `~/` with any relative paths.
 
 Symlinks in most linux shells are of the form `ln [target] [link]`, while on
 windows it is `mklink [link] [target]`. Since the git bash for windows that I
