@@ -16,13 +16,16 @@
  ; ApplicationFrameWindow is the windows calculator
  ; Shell_TrayWnd is the windows taskbar while most widgets opened from there (calender etc) are Windows.UI.Core.CoreWindow
  ; NotifyIconOverflowWindow is the notification window inside the taskbar (bottom right usually)
+ ; Qt5QWindowIcon refers to TexStudio
+ ; Notepad++ is obvious
  ;;; --- General Windows ---------------------------------------------------------------------------------------- ;;; 
 
 
-#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow")
+#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow") || WinActive("ahk_class Qt5QWindowIcon") || WinActive("ahk_class Notepad++")
 
 
  ;;; --- Alt related
+ ; German Letters
 ![::Send {U+00FC} ; lowercase ü
 !+[::Send {U+00DC} ; uppercase Ü
 !`;::Send {U+00F6} ; lowercase ö
@@ -30,6 +33,9 @@
 !'::Send {U+00E4} ; lowercase ä
 !+'::Send {U+00C4} ; uppercase Ä
 !-::Send {U+00DF} ; ß
+ ; Navigation
+!j::Send {WheelDown}
+!k::Send {WheelUp}
  ;;; --- Capslock related
  ; single character operations
 Capslock & h::Backspace ; like in bash
@@ -86,11 +92,11 @@ Capslock & .::
 Capslock & /::
 Capslock & Tab::
 Capslock & {::
+Capslock & [::
 Capslock & ]::
 Capslock & }::
 Capslock & '::
 Capslock & @::
 Capslock & #::
 Capslock::return
-Capslock & [::Esc
 #IfWinActive
