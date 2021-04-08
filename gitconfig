@@ -13,7 +13,5 @@
 	prune = false
 [rebase]
 	autoStash = false
-[submodule]
-	recurse = true
 [diff]
 	tool = vimdiff
