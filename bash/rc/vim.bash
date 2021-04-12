@@ -2,8 +2,6 @@
 
 # in case that anything is wrong with vim or special use cases
 alias novim='vim -u NONE' 
-alias vimdd="cdd && vim && cd-"
-alias vimd="vimdd"
 
 #-- for quick temporary notes
 vimt() {
@@ -71,3 +69,35 @@ vimNotes(){
   # return to previous file location
   cd -
 }
+
+#-- journal entries
+# requires $writingCD to be set and internet with github credentials saved
+alias vimd='vimdd'
+vimdd() {
+  # does library and bookmark exist on this machine?
+  if [ $writingCD ] ; then
+    cd $writingCD/diary
+  else
+    echo "$writingCD undefined, command failed"
+    return
+  fi
+  # get current date
+  title="# $(date +'%d/%m/%Y')"
+  filename="simpleEntries/$(date +'%Y.%m.%d').md"
+  # create... or not?
+  if test -f $filename ; then
+    echo "today's entry has already been started"
+  else
+    echo "$title" > "$filename"
+  fi
+  vim $filename
+  # update remote
+  git restore --staged :/
+  git add $filename
+  git commit -m "diary entry"
+  git pull
+  git push
+  # return to previous file location
+  cd -
+}
+
