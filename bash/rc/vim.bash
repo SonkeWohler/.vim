@@ -5,7 +5,12 @@ alias novim='vim -u NONE'
 
 #-- for quick temporary notes
 vimt() {
-  cdt
+  if [ $tempCD ] ; then
+    cd $tempCD
+  else
+    echo "$tempCD undefined, command failed"
+    return
+  fi
   if test -f quickNotes.txt; then
     echo "quickNotes.txt exists already!"
     echo "replace file (r), store file (s) or open (o)?"
@@ -45,19 +50,20 @@ vimt() {
       echo "no action"
     fi
   fi
-  cd-
+  cd -
 }
 
 #-- for quick permanent notes that are accesible online (privately)
 # requires $writingCD to be set and internet with github credentials saved
 vimNotes(){
   # if required bookmark missing exit
-  if [ $writingCD = "" ]; then
-    echo "missing bookmark 'writingCD'"
+  if [ $writingCD ]; then
+    cd $writingCD
+  else
+    echo "$writingCD undefined, command failed"
     return
   fi
   # write note
-  cd $writingCD
   vim notes.md
   echo " --- uploading to github --- "
   # update remote

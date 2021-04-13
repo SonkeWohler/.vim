@@ -19,6 +19,7 @@ bashLocationsFile="$HOME/locationsForCD.bash"
 if test -f $bashLocationsFile; then
   source $bashLocationsFile 
   echo "sourced" $bashLocationsFile
+  journalCD="$writingCD/diary"
 else
   echo "couldn't source" $bashLocationsFile "see ~/.vim/README.md under '#### Bash'"
 fi
@@ -31,11 +32,11 @@ for file in rc/*; do
   source $file
 done
 
-### --- sourcing optional content
+### --- for sourcing optional content
 # sdkman https://sdkman.io/
 alias sdkSource='source ~/.sdkman/sourceSDK'
 
-### --- final toughes
+### --- final toughts
 
 # I usually like to start my bash in my vimfiles
 cdv 
