@@ -98,11 +98,21 @@ vimdd() {
   fi
   vim $filename
   # update remote
-  git restore --staged :/
-  git add $filename
-  git commit -m "diary entry"
-  git pull
-  git push
+  echo "upload to github? (y/n)"
+  read -n 1 yesNo
+  echo ""
+  # todo lower case yesNo
+  if [ $yesNo = "y" ]; then
+    git restore --staged :/
+    git add $filename
+    git commit -m "diary entry"
+    git pull
+    git push
+  else
+    echo "not uploading"
+    echo "feel free to upload later"
+  fi
+  echo "---"
   # return to previous file location
   cd -
 }
