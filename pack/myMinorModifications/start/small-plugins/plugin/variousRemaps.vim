@@ -5,9 +5,10 @@
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 " I feel like inserting a single new line should be done in normal mode
-nnoremap <C-j> o<Esc>0d$
+nnoremap <C-j> O<Esc>0d$j
 " In insert new lines should be a separate atom
-inoremap <C-j> <C-G>u<Esc>a<CR>
+""inoremap <C-j> <C-G>u<Esc>a<CR>
+inoremap <C-j> <CR><Esc>I
 
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>

@@ -117,3 +117,4 @@ vimdd() {
   cd -
 }
 
+alias diary='cd $writingCD/diary'

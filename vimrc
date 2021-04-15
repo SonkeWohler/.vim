@@ -54,7 +54,10 @@ inoremap <C-R> <C-G>u<Esc>a<C-R>
 " https://stevelosh.com/blog/2012/10/why-i-two-space/
 
 """ --- commands ---
-" easier to type than q!, for my hand at least
+"
+:command Q q!
+"
 :command QQ qa!
+:command QA qa!
 
 """ --- temporary stuff
