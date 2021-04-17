@@ -14,6 +14,8 @@ let g:netrw_browse_split = 0
 let g:netrw_altv = 1
 " turn off banner
 let g:netrw_banner = 0
+" browse from buffer file location, not project location
+let netrw_keepdir = 1
 
 " -- opening related
 " to enable some autocmd when vim opens
@@ -25,9 +27,27 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 " open netr on :tabnew, seems to break something right now
 ""autocmd BufWinEnter * silent Explore
 
-" -- commands
-" similar to my bash
-:command LSA Explore
-:command LSV Vexplore
+""" --- commands
+"-- inspired by my bash lsa
+" exit netr to previous file
+:command LSX Rexplore
+" open netrw in current directory
+" replacing the current buffer
+:command LSA call Netrw_LSA()
+function! Netrw_LSA()
+  :Ntree
+  :Explore
+endfunction
+" splitting vertically from current buffer
+:command LSV call Netrw_LSV()
+function! Netrw_LSV()
+  :Ntree
+  :Vexplore
+endfunction
 " for quick reference for beginners
 :command LSH vert help netrw-quickmaps
+"-- non-netrw file exploring
+" search for filename
+cnoremap ef<Space> e **/*
+cnoremap vf<Space> vsplit **/*
+
