@@ -103,7 +103,7 @@ vimNotes(){
 # requires $writingCD to be set and internet with github credentials saved
 alias vimd='vimdd'
 vimdd() {
-  # does library and bookmark exist on this machine?
+  # does library exist on this machine?
   if [ $writingCD ] ; then
     cd $writingCD/diary
   else
@@ -111,8 +111,14 @@ vimdd() {
     return
   fi
   # get current date
-  title="# $(date +'%d/%m/%Y')"
-  filename="simpleEntries/$(date +'%Y.%m.%d').md"
+  if [ $1 ] ; then
+    ddays="$1 days"
+  else
+    ddays=""
+  fi
+  title=$(date --date +"$ddays")
+  filename="simpleEntries/$(date --date "$title" +'%Y.%m.%d').md"
+  title="# $(date --date "$title" +'%d/%m/%Y')"
   # create... or not?
   if test -f $filename ; then
     echo "today's entry has already been started"
