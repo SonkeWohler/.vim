@@ -107,9 +107,12 @@ the following "*bookmarks*":
 
 * `tempCD` for temp files, use `cdt` - defaults to `/d/temp`
 * `vimCD` for this repo location, use `cdv` - defaults to `$HOME/.vim`
-* `workCD` for work repo, use `cdw`
+* `workCD` for work library, use `cdwork`
+  - use `cdihp` to change into `$workCD/iHP`
 * `writingCD` for my writing library (private repo for notes and stuff), use `cdd` (from `cd diary` used previously)
+  - `journalCD` is set to `$writingCD/diary` by default
 * `librariesCD` for the default libraries location, use `cdl`
+* `wikiCD` for GitHub wikis, use `cdw` - defaults to `$librariesCD/wikis/`
 
 #### Vim
 

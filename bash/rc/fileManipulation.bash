@@ -27,7 +27,9 @@ cda() { cd $@ && lsa ; }
 ### --- oversimplified bookmarks
 
 alias cdd='cd $writingCD'
-alias cdw='cd $workCD'
+alias cdwork='cd $workCD'
+alias cdihp='cd $workCD/iHP'
 alias cdt='cd $tempCD'
 alias cdv='cd $vimCD'
 alias cdl='cd $librariesCD'
+alias cddw='cd $wikiCD'
