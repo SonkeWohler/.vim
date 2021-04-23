@@ -51,3 +51,13 @@ endfunction
 cnoremap ef<Space> e **/*
 cnoremap vf<Space> vsplit **/*
 
+augroup netrw_remaps
+  autocmd!
+  autocmd filetype netrw call Netrw_Mappings()
+augroup END
+
+function! Netrw_Mappings()
+  nmap <buffer> h -
+  nmap <buffer> l <CR>
+endfunction
+
