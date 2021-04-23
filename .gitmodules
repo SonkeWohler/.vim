@@ -7,9 +7,6 @@
 [submodule "pack/vendor/start/repeat"]
 	path = pack/vendor/start/repeat
 	url = https://tpope.io/vim/repeat.git
-[submodule "pack/myMajorModifications/start/CreateCodeBlocks"]
-	path = pack/myMajorModifications/start/CreateCodeBlocks
-	url = git@github.com:SonkeWohler/CreateCodeBlocks.git
 [submodule "pack/myMajorModifications/start/vimkasten"]
 	path = pack/myMajorModifications/opt/vimkasten
 	url = git@github.com:SonkeWohler/vimkasten.git
