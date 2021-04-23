@@ -103,30 +103,37 @@ vimNotes(){
 # requires $writingCD to be set and internet with github credentials saved
 alias vimd='vimdd'
 vimdd() {
-  # does library exist on this machine?
+  #-- does library exist on this machine?
   if [ $writingCD ] ; then
     cd $writingCD/diary
   else
     echo "$writingCD undefined, command failed"
     return
   fi
-  # get current date
-  if [ $1 ] ; then
-    ddays="$1 days"
+  #-- get current date
+  # if $1 is an offset in days i.e. "+4" or "-1"
+  if echo $1 | grep -Eq "[+-][0-9]+" ; then
+    title=$(date --date +"$1 days")
+  # if $1 is the day of the month i.e. "22" or "5"
+  elif echo $1 | grep -Eq "[0-9]+" ; then
+    year=$(date +"%Y")
+    month=$(date +"%m")
+    title=$(date --date "$year-$month-$1" )
+  # if $1 is not a date argument that is currently accepted
   else
-    ddays=""
+    title=$(date)
   fi
-  title=$(date --date +"$ddays")
+  # format the date
   filename="simpleEntries/$(date --date "$title" +'%Y.%m.%d').md"
   title="# $(date --date "$title" +'%d/%m/%Y')"
-  # create... or not?
+  #-- create file... or not?
   if test -f $filename ; then
     echo "today's entry has already been started"
   else
     echo "$title" > "$filename"
   fi
   vim $filename
-  # update remote
+  #-- update remote
   echo "upload to github? (y/n)"
   read -n 1 yesNo
   echo ""
