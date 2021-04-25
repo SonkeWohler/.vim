@@ -1,6 +1,3 @@
-[submodule "pack/vendor/start/nerdtree"]
-	path = pack/vendor/start/nerdtree
-	url = https://github.com/preservim/nerdtree.git
 [submodule "pack/vendor/start/surround"]
 	path = pack/vendor/start/surround
 	url = https://tpope.io/vim/surround.git
@@ -19,9 +16,6 @@
 [submodule "pack/vendor/opt/vim-colors-solarized"]
 	path = pack/vendor/opt/vim-colors-solarized
 	url = git@github.com:altercation/vim-colors-solarized.git
-[submodule "pack/vendor/start/nerdtree-buffer-ops"]
-	path = pack/vendor/start/nerdtree-buffer-ops
-	url = git@github.com:PhilRunninger/nerdtree-buffer-ops.git
 [submodule "pack/vendor/start/vim-vinegar"]
 	path = pack/vendor/start/vim-vinegar
 	url = git@github.com:tpope/vim-vinegar.git
