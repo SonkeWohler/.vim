@@ -20,7 +20,8 @@ when I have to setup a new machine.
 #### Windows
 
 * [Git Bash for Windows](https://git-scm.com/downloads)
-  - I like to use the `gruvbox` theme in te settings because it works with my vim color scheme
+  - I like to use the `gruvbox` theme in te settings because it works with my
+  vim color scheme
 * [Vim](https://www.vim.org/download.php) 8.2
 * [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for
   Linux yet, maybe in the future.
@@ -43,8 +44,10 @@ Clone this repository with the `--recursive` flag:
 git clone --recursive git@github.com:SonkeWohler/.vim.git
 ```
 
-This will clone the repository along with its submodules. Read up on what submodules are and how to manage them
-[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Some more notes on how I use them [below](#plugins-and-submodules).
+This will clone the repository along with its submodules. Read up on what
+submodules are and how to manage them
+[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Some more notes on
+how I use them [below](#plugins-and-submodules).
 
 You should then generate the helptags by running `:helptags ALL` once inside
 vim.  This can be run from anywhere, and only needs to be run once on your
@@ -109,14 +112,18 @@ Optionally you can setup my *oversimplified bookmarks* (setup inside
 [`.bashrc`](.bashrc)). The `~/locationsForCD.bash` file can be used to detail
 the following "*bookmarks*":
 
-* `tempCD` for temp files, use `cdt` - defaults to `/d/temp`
-* `vimCD` for this repo location, use `cdv` - defaults to `$HOME/.vim`
+* `tempCD` for temp files, use `cdt` 
+  - defaults to `/d/temp`
+* `vimCD` for this repo location, use `cdv` 
+  - defaults to `$HOME/.vim`
 * `workCD` for work library, use `cdwork`
   - use `cdihp` to change into `$workCD/iHP`
-* `writingCD` for my writing library (private repo for notes and stuff), use `cdd` (from `cd diary` used previously)
+* `writingCD` for my writing library (private repo for notes and stuff), use
+  `cdd` (from `cd diary` used previously)
   - `journalCD` is set to `$writingCD/diary` by default
 * `librariesCD` for the default libraries location, use `cdl`
-* `wikiCD` for GitHub wikis, use `cdw` - defaults to `$librariesCD/wikis/`
+* `wikiCD` for GitHub wikis, use `cdw` 
+  - defaults to `$librariesCD/wikis/`
 
 #### Vim
 
