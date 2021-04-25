@@ -16,3 +16,6 @@
 [submodule "pack/vendor/start/vim-markdown"]
 	path = pack/vendor/start/vim-markdown
 	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "pack/vendor/start/vimtex"]
+	path = pack/vendor/start/vimtex
+	url = git@github.com:lervag/vimtex.git
