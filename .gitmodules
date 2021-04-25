@@ -13,3 +13,6 @@
 [submodule "pack/vendor/start/vim-vinegar"]
 	path = pack/vendor/start/vim-vinegar
 	url = git@github.com:tpope/vim-vinegar.git
+[submodule "pack/vendor/start/vim-markdown"]
+	path = pack/vendor/start/vim-markdown
+	url = git@github.com:plasticboy/vim-markdown.git
