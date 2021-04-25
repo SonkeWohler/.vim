@@ -4,12 +4,6 @@
 [submodule "pack/vendor/start/repeat"]
 	path = pack/vendor/start/repeat
 	url = https://tpope.io/vim/repeat.git
-[submodule "pack/myMajorModifications/start/vimkasten"]
-	path = pack/myMajorModifications/opt/vimkasten
-	url = git@github.com:SonkeWohler/vimkasten.git
-[submodule "pack/myMajorModifications/opt/vim-markdown"]
-	path = pack/myMajorModifications/opt/vim-markdown
-	url = git@github.com:SonkeWohler/vim-markdown.git
 [submodule "pack/vendor/opt/vim-dim"]
 	path = pack/vendor/opt/vim-dim
 	url = git@github.com:jeffkreeftmeijer/vim-dim.git
