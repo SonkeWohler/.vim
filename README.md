@@ -25,6 +25,8 @@ when I have to setup a new machine.
 * [Vim](https://www.vim.org/download.php) 8.2
 * [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for
   Linux yet, maybe in the future.
+* [pandoc](https://pandoc.org/)
+* [latex](https://www.latex-project.org/get/)
 * [sdkman](https://sdkman.io/)
   - note that installing this will add some lines to the `.bashrc` containing
     absolute paths. These lines should be moved to `~/.sdkman/sourceSDK`.
