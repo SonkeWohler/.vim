@@ -57,7 +57,10 @@ augroup netrw_remaps
 augroup END
 
 function! Netrw_Mappings()
+  "-- remap netrw mappings
   nmap <buffer> h -
   nmap <buffer> l <CR>
+  "-- cursor display
+  let g:netrw_bufsettings = 'nomodifiable nomodified number nobuflist nowrap readonly'
 endfunction
 
