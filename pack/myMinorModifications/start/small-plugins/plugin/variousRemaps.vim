@@ -14,15 +14,15 @@ nnoremap O Ox<BS>
 nnoremap <C-j> Ox<BS><Esc>0d$j
 " In insert new lines should be a separate atom
 ""inoremap <C-j> <C-G>u<Esc>a<CR>
-inoremap <C-j> <CR>x<BS><C-G>u<Esc>I
+inoremap <C-j> <CR>x<BS><Esc>
+inoremap <C-m> <CR>x<BS><C-G>u
 
 "-- bracketing
-" open {} block from inster
+" open {} block from insert
 inoremap \{ <C-G>u<Esc>A{<CR><CR>}<C-G>u<Esc>kA<C-t>
 
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>
-
 inoremap <c-q> <Esc>
 vnoremap <c-q> <Esc>
 nnoremap <c-q> <Esc>
@@ -40,13 +40,5 @@ cnoremap <c-i> <Left>
 cnoremap <c-o> <Right>
 cnoremap <c-b> <S-Left>
 cnoremap <c-f> <S-Right>
-
-" -- interrupt insert
-" when typing long paragraphs in text flies (like markdown) I need to remind
-" myself to interrupt insert mode and reenter it. There are various downsides to
-" staying in insert mode for too long, like loosing granularity in undoing or
-" the size of the `".` register. These hotkeys help remind me to do that.
-inoremap <Leader>. .<C-G>u<Esc>a  
-
 
 

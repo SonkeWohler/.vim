@@ -18,3 +18,13 @@ function! MarkdownHtmlPreview()
 endfunction
 
 command HTML call MarkdownHtmlPreview()
+
+"-- mappings
+" end of sentence
+inoremap .<Space><Space> .<C-G>u<Esc>gqqA  
+inoremap .<C-Q> .gqq<Esc>
+inoremap ?? ?<C-G>u<Esc>gqqA  
+inoremap ?<C-Q> ?gqq<Esc>
+inoremap !! !<C-G>u<Esc>gqqA  
+inoremap !<C-Q> !gqq<Esc>
+
