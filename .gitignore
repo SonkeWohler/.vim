@@ -12,3 +12,8 @@
 ### --- compiled files
 # vim spell files
 *.add.spl
+
+### --- logs, histories, settings, etc
+.netrwhist
+
+

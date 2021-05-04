@@ -70,7 +70,6 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 #-- note:
 # use lessx to clear the output with 'q', rather than spamming my screen after I'm done looking at it
 # $1 can be used for other options or to specify the number of commits to display before cutting
-# one day these will be colorful
 
 #-- git log my way ; to make it easy to change my preferred format 
 # default

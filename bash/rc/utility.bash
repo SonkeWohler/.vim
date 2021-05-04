@@ -12,3 +12,5 @@ bind '"\C-l":" | lessx"'
 
 # reduces issues related to Capslock being mapped to Ctrl
 alias exx='sleep 0.25s ; exit' 
+# sometimes I like to do it this way
+alias :q='exx'

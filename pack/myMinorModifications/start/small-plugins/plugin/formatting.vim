@@ -1,4 +1,13 @@
 """ --- Format the File ---
+"
+""" --- options and settings
+
+" -- cpoptions
+" this is copied from the default
+set cpoptions=aABceFs
+" and 'J' added
+" https://stevelosh.com/blog/2012/10/why-i-two-space/  under the 'Power' heading
+set cpoptions+=J
 
 " -- simple formatting function
 function FormatThisBuffer()
@@ -9,14 +18,3 @@ endfunction
 
 " I'd rather have a command than a normal mode mapping
 :command Format call FormatThisBuffer()
-
-" -- for markdown
-" this is a workaround for an issue with `.`
-function FormatThisMarkdownBuffer()
-  call FormatThisBuffer()
-  :%s/\(\w\).  \(\w\)/\1. \2/g
-  norm `q
-endfunction
-
-" again, I'd rather use command mode to call this
-:command FormatM call FormatThisMarkdownBuffer()

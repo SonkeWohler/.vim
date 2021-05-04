@@ -20,10 +20,13 @@ when I have to setup a new machine.
 #### Windows
 
 * [Git Bash for Windows](https://git-scm.com/downloads)
-  - I like to use the `gruvbox` theme in te settings because it works with my vim color scheme
+  - I like to use the `gruvbox` theme in te settings because it works with my
+  vim color scheme
 * [Vim](https://www.vim.org/download.php) 8.2
 * [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for
   Linux yet, maybe in the future.
+* [pandoc](https://pandoc.org/)
+* [latex](https://www.latex-project.org/get/)
 * [sdkman](https://sdkman.io/)
   - note that installing this will add some lines to the `.bashrc` containing
     absolute paths. These lines should be moved to `~/.sdkman/sourceSDK`.
@@ -43,8 +46,14 @@ Clone this repository with the `--recursive` flag:
 git clone --recursive git@github.com:SonkeWohler/.vim.git
 ```
 
-This will clone the repository along with its submodules. Read up on what submodules are and how to manage them
-[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Some more notes on how I use them [below](#plugins-and-submodules).
+This will clone the repository along with its submodules. Read up on what
+submodules are and how to manage them
+[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Some more notes on
+how I use them [below](#plugins-and-submodules).
+
+You should then generate the helptags by running `:helptags ALL` once inside
+vim.  This can be run from anywhere, and only needs to be run once on your
+machine.
 
 ### AutoHotkey (Windows Specific)
 
@@ -105,11 +114,18 @@ Optionally you can setup my *oversimplified bookmarks* (setup inside
 [`.bashrc`](.bashrc)). The `~/locationsForCD.bash` file can be used to detail
 the following "*bookmarks*":
 
-* `tempCD` for temp files, use `cdt` - defaults to `/d/temp`
-* `vimCD` for this repo location, use `cdv` - defaults to `$HOME/.vim`
-* `journalCD` for diary, use `cdd`
-* `workCD` for work repo, use `cdw`
-* `writingCD` for my writing library (private repo for notes and stuff), use `cdl` (`cd library`)
+* `tempCD` for temp files, use `cdt` 
+  - defaults to `/d/temp`
+* `vimCD` for this repo location, use `cdv` 
+  - defaults to `$HOME/.vim`
+* `workCD` for work library, use `cdwork`
+  - use `cdihp` to change into `$workCD/iHP`
+* `writingCD` for my writing library (private repo for notes and stuff), use
+  `cdd` (from `cd diary` used previously)
+  - `journalCD` is set to `$writingCD/diary` by default
+* `librariesCD` for the default libraries location, use `cdl`
+* `wikiCD` for GitHub wikis, use `cdw` 
+  - defaults to `$librariesCD/wikis/`
 
 #### Vim
 
@@ -147,30 +163,44 @@ work.
 
 ## Plugins and Submodules
 
+### Git Submodules
+
 Vim plugins are usually added as git submodules with `git submodules add
 <link-to-clone-repository>` inside the directory the module should be added to,
 for example [pack/vendor/start](pack/vendor/start). They are then listed in the
 [`.gitmodules`](.gitmodules) file. Read up on submodules
 [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
+### After installing a plugin
+
+If the plugin has helptags run `:helptags` from inside its directory location
+or `:helptags ALL` from anywhere, after installing it.
+
+### My own munor plugins
+
 I also keep small modifications under
 [pack/myMinorModifications](pack/myMinorModifications/). These are
 single file modifications that are too small to justify their own repo, but
 that I don't want in my `.vimrc`.
+
+### Plugin Manager
 
 As recommended by (some) guides introducing you to vim, I am not using a plugin
 manager yet. I try to follow
 [this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to
 organise plugins with this system.
 
-This does require me to adapt filetype plugins to my setup like I [did with
-vim-markdown for
-example](https://github.com/plasticboy/vim-markdown/commit/b93b0b4881872d3a1e46a84547e3df490b82b57b).
-They are then cloned into [`.vim/pack/.../opt`] where they are loaded from
-[`.vim/ftplugin`](ftplugin/) with a small script [like this
-one](ftplugin/markdown.vim). I also copy over any filetype detect to
-[`.vim/ftdetect`](ftdetect) manually.
+### Filetype Plugins
 
+Filetype plugins, counterintuitively, are usually best placed inside `start`,
+usually `pack/vendor/start`, rather than `opt`.  **But only when the plugin is
+setup correctly**.  If the plugins contains a `plugin/` folder vim will load it
+on startup irrespective of the filetype.  A correctly setuo plugin will have
+its files instead in `ftplugin` instead, so look for that.
+
+You don't need to edit `.vim/ftplugin` or `.vim/ftdetect` if your filetype
+plugins are setup correctly because vim will source `pack/*/start/**/ftdetect`
+files on startup and then source `pack/*/start/**/ftplugin` accordingly.
 
 ## License
 

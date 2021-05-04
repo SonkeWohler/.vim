@@ -14,19 +14,22 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 # -- ls etc
 alias lessx='less -RF'
 alias lsa='ls -lAh'
-lsx() { lsa --color=always $1 | lessx ; }
+lsx() { lsa --color=always $@ | lessx ; }
 
 # -- cd
 # back
 alias cd-='cd -' 
 # up
 alias cd.='cd ..' 
-cda() { cd $1 && lsa ; }
+# lsa after cd
+cda() { cd $@ && lsa ; }
 
 ### --- oversimplified bookmarks
 
-alias cdl='cd $writingCD'
-alias cdd='cd $journalCD'
-alias cdw='cd $workCD'
+alias cdd='cd $writingCD'
+alias cdwork='cd $workCD'
+alias cdihp='cd $workCD/iHP'
 alias cdt='cd $tempCD'
 alias cdv='cd $vimCD'
+alias cdl='cd $librariesCD'
+alias cdw='cd $wikiCD'

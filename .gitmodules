@@ -1,24 +1,21 @@
-[submodule "pack/vendor/start/nerdtree"]
-	path = pack/vendor/start/nerdtree
-	url = https://github.com/preservim/nerdtree.git
 [submodule "pack/vendor/start/surround"]
 	path = pack/vendor/start/surround
 	url = https://tpope.io/vim/surround.git
 [submodule "pack/vendor/start/repeat"]
 	path = pack/vendor/start/repeat
 	url = https://tpope.io/vim/repeat.git
-[submodule "pack/myMajorModifications/start/CreateCodeBlocks"]
-	path = pack/myMajorModifications/start/CreateCodeBlocks
-	url = git@github.com:SonkeWohler/CreateCodeBlocks.git
-[submodule "pack/myMajorModifications/start/vimkasten"]
-	path = pack/myMajorModifications/opt/vimkasten
-	url = git@github.com:SonkeWohler/vimkasten.git
-[submodule "pack/myMajorModifications/opt/vim-markdown"]
-	path = pack/myMajorModifications/opt/vim-markdown
-	url = git@github.com:SonkeWohler/vim-markdown.git
 [submodule "pack/vendor/opt/vim-dim"]
 	path = pack/vendor/opt/vim-dim
 	url = git@github.com:jeffkreeftmeijer/vim-dim.git
 [submodule "pack/vendor/opt/vim-colors-solarized"]
 	path = pack/vendor/opt/vim-colors-solarized
 	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "pack/vendor/start/vim-vinegar"]
+	path = pack/vendor/start/vim-vinegar
+	url = git@github.com:tpope/vim-vinegar.git
+[submodule "pack/vendor/start/vim-markdown"]
+	path = pack/vendor/start/vim-markdown
+	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "pack/vendor/start/vimtex"]
+	path = pack/vendor/start/vimtex
+	url = git@github.com:lervag/vimtex.git
