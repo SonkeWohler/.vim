@@ -11,6 +11,7 @@ nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
 
+"-- these aren't much use after you learn di" and f"
 " -- delete inside all occurances of brackets on current line
 " single and double quotes, backticks
 nnoremap dl" :s/".\{-}"/""/gc<CR>

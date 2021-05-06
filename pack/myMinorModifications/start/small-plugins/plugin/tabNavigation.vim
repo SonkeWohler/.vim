@@ -5,6 +5,6 @@ nnoremap gT :tabnew<CR>
 " the little finger movement is annoying and takes too long
 "+ n_gh is not really useful to me
 nnoremap gh gT
-"
-nnoremap gx :tabclose<CR>
+" close current tab, but gx is already taken for opening links
+""nnoremap gx :tabclose<CR>
 nnoremap gX :tabclose!<CR>
