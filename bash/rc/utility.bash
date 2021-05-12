@@ -5,6 +5,11 @@
 # i prefer to type `clear` out and now I found a use for \C-l
 bind '"\C-l":" | lessx"' 
 
+### --- editor related
+
+# for <C-x-e>
+EDITOR="vim"
+
 # set vi mode 
 ##set -o vi 
 
