@@ -43,8 +43,9 @@ endfunction
 " splitting vertically from current buffer
 :command LSV call Netrw_LSV()
 function! Netrw_LSV()
+  :vsplit
   :Ntree
-  :Vexplore
+  :Explore
 endfunction
 " for quick reference for beginners
 :command LSH vert help netrw-quickmaps

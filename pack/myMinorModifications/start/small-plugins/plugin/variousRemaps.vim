@@ -20,7 +20,9 @@ inoremap <C-m> <CR>x<BS><C-G>u
 
 "-- bracketing
 " open {} block from insert
-inoremap \{ <C-G>u<Esc>A{<CR><CR>}<C-G>u<Esc>kA<C-t>
+inoremap \{ <C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA
+inoremap {<CR> <C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA
+inoremap {<C-j> <C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA
 
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>
