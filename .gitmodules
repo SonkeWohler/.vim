@@ -19,3 +19,6 @@
 [submodule "pack/vendor/start/vimtex"]
 	path = pack/vendor/start/vimtex
 	url = git@github.com:lervag/vimtex.git
+[submodule "pack/vendor/start/syntastic"]
+	path = pack/vendor/start/syntastic
+	url = git@github.com:vim-syntastic/syntastic.git
