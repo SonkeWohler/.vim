@@ -22,3 +22,6 @@
 [submodule "pack/vendor/start/syntastic"]
 	path = pack/vendor/start/syntastic
 	url = git@github.com:vim-syntastic/syntastic.git
+[submodule "pack/vendor/start/rust.vim"]
+	path = pack/vendor/start/rust.vim
+	url = git@github.com:rust-lang/rust.vim.git
