@@ -13,6 +13,15 @@ EDITOR="vim"
 # set vi mode 
 ##set -o vi 
 
+### --- scoop related
+# update all
+scoopUp() {
+  cd $scoopCD
+  scoop update
+  scoop update *
+  cd -
+}
+
 ### --- workarounds
 
 # reduces issues related to Capslock being mapped to Ctrl
