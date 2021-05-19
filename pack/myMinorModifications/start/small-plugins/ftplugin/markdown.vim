@@ -1,6 +1,6 @@
 """ --- my markdown personalisation --- """
 "-- because I like verbose CLI tools
-""echo 'markdown filetype'
+echo 'markdown filetype'
 
 "-- compile
 " pdf
@@ -10,7 +10,7 @@ function! MarkdownPdfPreview()
   !start /tmp/vimMarkdownPreview.pdf
 endfunction
 
-command PDF call MarkdownPdfPreview()
+command-buffer PDF call MarkdownPdfPreview()
 
 " html
 function! MarkdownHtmlPreview()
@@ -19,18 +19,19 @@ function! MarkdownHtmlPreview()
   !start /tmp/vimMarkdownPreview.html
 endfunction
 
-command HTML call MarkdownHtmlPreview()
+command-buffer HTML call MarkdownHtmlPreview()
 
 "-- mappings
 " end of sentence
-inoremap .<Space><Space> .<C-G>u<Esc>gqqA  
-inoremap .<C-Q> .<Esc>gqq
-inoremap ?? ?<C-G>u<Esc>gqqA  
-inoremap ?<C-Q> ?<Esc>gqq
-inoremap ?<Space><Space> ?<Esc>gqq
-inoremap !! !<C-G>u<Esc>gqqA  
-inoremap !<C-Q> !<Esc>gqq
-inoremap !<Space><Space> !<Esc>gqq
+inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA  
+inoremap <buffer> .<C-Q> .<Esc>gqq
+imap <buffer> .<C-j> .<Esc>gqq<C-m>
+inoremap <buffer> ?? ?<C-G>u<Esc>gqqA  
+inoremap <buffer> ?<C-Q> ?<Esc>gqq
+inoremap <buffer> ?<Space><Space> ?<Esc>gqq
+inoremap <buffer> !! !<C-G>u<Esc>gqqA  
+inoremap <buffer> !<C-Q> !<Esc>gqq
+inoremap <buffer> !<Space><Space> !<Esc>gqq
 
 "-- things to execute
-set foldlevel=5
+setlocal foldlevel=5

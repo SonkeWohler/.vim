@@ -12,4 +12,4 @@ function! ViewPDFLatex()
   execute '!start ' . b:pdfFile
 endfunction
 
-command PDFL call ViewPDFLatex()
+command-buffer PDFL call ViewPDFLatex()
