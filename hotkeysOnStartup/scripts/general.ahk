@@ -1,5 +1,5 @@
  ;;; --- Hotkeys for various general use windows ----------------------------------------------------------------- ;;;
- ; Chrome_WidgetWin_1 is Google Chrome
+ ; Chrome_WidgetWin_1 seems to apply to most chromium based browsers
  ; Windows.UI.Core.CoreWindow applies to many "windows" that are part of the system, but important to me is:
  ;  * start menu
  ;  * search function inside menu
@@ -18,11 +18,11 @@
  ; NotifyIconOverflowWindow is the notification window inside the taskbar (bottom right usually)
  ; Qt5QWindowIcon refers to TexStudio
  ; Notepad++ is obvious
+ ; uplay_start is the startup window for uplay
  ;;; --- General Windows ---------------------------------------------------------------------------------------- ;;; 
 
 
-#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow") || WinActive("ahk_class Qt5QWindowIcon") || WinActive("ahk_class Notepad++")
-
+#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow") || WinActive("ahk_class Qt5QWindowIcon") || WinActive("ahk_class Notepad++") || WinActive("ahk_class uplay_start")
 
  ;;; --- Alt related
  ; German Letters
