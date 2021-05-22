@@ -9,6 +9,20 @@ set cpoptions=aABceFs
 " https://stevelosh.com/blog/2012/10/why-i-two-space/  under the 'Power' heading
 set cpoptions+=J
 
+"-- indents and lines
+" set tabwidth to 2
+set tabstop=2 shiftwidth=2 expandtab
+" smartindent is better than just autoindent
+set smartindent
+" auto-format options
+set formatoptions=croqlnj
+" softwrap lines
+set wrap linebreak nolist
+
+"-- folding
+set foldlevel=5
+
+
 " -- simple formatting function
 function FormatThisBuffer()
   mark q

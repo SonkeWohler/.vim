@@ -20,17 +20,6 @@ set statusline+=%=              " Rest: right align
 set statusline+=%l,%c%V         " Position in buffer: linenumber, column, virtual column
 set statusline+=\ %P            " Position in buffer: Percentage
 
-""" --- format related:
-
-" set tabwidth to 2
-set tabstop=2 shiftwidth=2 expandtab
-" smartindent is better than just autoindent
-set smartindent
-" auto-format options
-set formatoptions=croqlnj
-" softwrap lines
-set wrap linebreak nolist
-
 """ --- colorscheme
 
 " note: colorschemes are defined in submodules under 'pack/vendor/opt', which vim

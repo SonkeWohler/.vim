@@ -22,11 +22,15 @@ when I have to setup a new machine.
 * [Git Bash for Windows](https://git-scm.com/downloads)
   - I like to use the `gruvbox` theme in te settings because it works with my
   vim color scheme
-* [Vim](https://www.vim.org/download.php) 8.2
 * [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for
-  Linux yet, maybe in the future.
-* [pandoc](https://pandoc.org/)
-* [latex](https://www.latex-project.org/get/)
+  Linux yet, maybe in the future.  I have the feeling, though, that recreating
+  this on linux will be significantly easier than expected.
+* [Scoop](https://scoop.sh/), and from scoop install
+  - `neovim`
+  - `ack`
+  - `vim`
+  - `latex`
+  - `pandoc`
 * [sdkman](https://sdkman.io/)
   - note that installing this will add some lines to the `.bashrc` containing
     absolute paths. These lines should be moved to `~/.sdkman/sourceSDK`.

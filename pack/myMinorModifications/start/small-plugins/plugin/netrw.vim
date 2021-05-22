@@ -16,6 +16,8 @@ let g:netrw_altv = 1
 let g:netrw_banner = 0
 " browse from buffer file location, not project location
 let netrw_keepdir = 1
+" https://github.com/tpope/vim-vinegar/issues/13#issuecomment-489440040
+let netrw_fastbrowse = 0
 
 " -- opening related
 " to enable some autocmd when vim opens
@@ -41,8 +43,9 @@ endfunction
 " splitting vertically from current buffer
 :command LSV call Netrw_LSV()
 function! Netrw_LSV()
+  :vsplit
   :Ntree
-  :Vexplore
+  :Explore
 endfunction
 " for quick reference for beginners
 :command LSH vert help netrw-quickmaps

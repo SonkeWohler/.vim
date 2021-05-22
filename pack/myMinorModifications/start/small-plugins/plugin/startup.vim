@@ -1,6 +1,7 @@
 """ --- stuff to prompt the user at startup in certain conditions --- """
 
 """ --- recovering swap file
+"not currently working
 
 "-- should happen before normal recovery prompt
 augroup AutoRecoverSwapWithDiff

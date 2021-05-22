@@ -11,7 +11,8 @@ inoremap <C-l> <Del>
 nnoremap o ox<BS>
 nnoremap O Ox<BS>
 " I feel like inserting a single new line should be done in normal mode
-nnoremap <C-j> Ox<BS><Esc>0d$j
+nnoremap <C-j> Ox<BS><Esc>0"_d$j
+nnoremap <C-m> ox<BS><Esc>0"_d$
 " In insert new lines should be a separate atom
 ""inoremap <C-j> <C-G>u<Esc>a<CR>
 inoremap <C-j> <CR>x<BS><Esc>
@@ -19,7 +20,9 @@ inoremap <C-m> <CR>x<BS><C-G>u
 
 "-- bracketing
 " open {} block from insert
-inoremap \{ <C-G>u<Esc>A{<CR><CR>}<C-G>u<Esc>kA<C-t>
+inoremap \{ <C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA
+inoremap {<CR> <C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA
+inoremap {<C-j> <C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA
 
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>
