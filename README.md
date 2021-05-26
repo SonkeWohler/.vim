@@ -4,8 +4,8 @@ This is my command line configuration. Everything necessary to setup the
 command line tools and anything related the way I like it is either backed up
 or described here.
 
-No guarantee that this will work on linux. I usually use windows, but setup git
-to change linendings, so the files are compatible in principle.
+I started this on windows and only just started to setup Linux, so keep that in
+mind if anything doesn't seem right.
 
 ## Setup
 
@@ -22,15 +22,11 @@ when I have to setup a new machine.
 * [Git Bash for Windows](https://git-scm.com/downloads)
   - I like to use the `gruvbox` theme in te settings because it works with my
   vim color scheme
+* [Vim](https://www.vim.org/download.php) 8.2
 * [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for
-  Linux yet, maybe in the future.  I have the feeling, though, that recreating
-  this on linux will be significantly easier than expected.
-* [Scoop](https://scoop.sh/), and from scoop install
-  - `neovim`
-  - `ack`
-  - `vim`
-  - `latex`
-  - `pandoc`
+  Linux yet, maybe in the future.
+* [pandoc](https://pandoc.org/)
+* [latex](https://www.latex-project.org/get/)
 * [sdkman](https://sdkman.io/)
   - note that installing this will add some lines to the `.bashrc` containing
     absolute paths. These lines should be moved to `~/.sdkman/sourceSDK`.
@@ -40,7 +36,14 @@ when I have to setup a new machine.
 
 #### Linux
 
-Todo for the future.
+I just started using [Manjaro i3](https://manjaro.org/download/#Community) as
+my first proper Linux OS.  Sidenote: yes it is careless to jump straight into
+Arch, but I am eager I guess.
+
+Anything that works for me should work fine on most Arch based machines.  This
+should allow me to automate more of my setup in time, but first I have to
+figure out setting things up in the first place.  Until then things will be a
+bit messy here.
 
 ### Cloning
 
@@ -108,6 +111,10 @@ Link the bash initialisation script from within your `~/`:
 ln -sv .vim/bash/bashrc .bashrc
 ```
 
+Or:
+
+```
+mklink ".bashrc" ".vim/bash/bashrc"
 Or:
 
 ```
@@ -210,10 +217,6 @@ files on startup and then source `pack/*/start/**/ftplugin` accordingly.
 
 Any content here covered by another license due to being based on work of said
 license, such as anything covered by the [vim
-license](https://www.gnu.org/licenses/vim-license.txt), remains under such
-license and I will mark such content as clearly as possible. Any such content
-is and will be licensed in a spirit similar to the GNU free software
-phylosophy. Any other content is published here under the [GNU General Public
 License v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
 
 
