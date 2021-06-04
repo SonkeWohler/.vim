@@ -1,5 +1,10 @@
 ### --- anything java related --- ###
 
+### --- Maven
+
+alias maven='mvn'
+
+
 ### --- kotlin related
 
 #-- compile a `kotlin.kt` file to `kotlin.kt.jar`, because it is easier

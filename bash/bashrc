@@ -6,6 +6,13 @@ echo configuration loading: Soenke Default # sometimes used for debugging
 # currently in debugging mode, shouldn't be committed like that
 ##set -x 
 
+### --- looks
+# set PS1, copied from git bash for windows at
+# Program\ Files/Git/etc/bash.bashrc
+[[ $(declare -p PS1 2>/dev/null | cut -c 1-11) = 'declare -x ' ]] || \
+  export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\]\n'"${_ps1_symbol}"' '
+unset _ps1_symbol
+
 ### --- file location stuff
 # remember where the bash was started from
 bashStartCD="${PWD}"
@@ -24,20 +31,13 @@ else
   echo "couldn't source" $bashLocationsFile "see ~/.vim/README.md under '#### Bash'"
 fi
 
-# where the remaining setup files are
+### --- source more scripts organised in files
 cd $vimCD/bash 
-
-### --- source default bashrc files
 for file in rc/*; do
   source $file
 done
 
-### --- for sourcing optional content
-# sdkman https://sdkman.io/
-alias sdkSource='source ~/.sdkman/sourceSDK'
-
 ### --- final toughts
-
 # I usually like to start my bash in my vimfiles
 cdv 
 # but when I call bash explicitly in a particular location I like to stay there

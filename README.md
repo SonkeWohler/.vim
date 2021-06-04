@@ -26,16 +26,15 @@ when I have to setup a new machine.
   Linux yet, maybe in the future.  I have the feeling, though, that recreating
   this on linux will be significantly easier than expected.
 * [Scoop](https://scoop.sh/), and from scoop install
-  - `neovim`
-  - `ack`
-  - `vim`
-  - `latex`
-  - `pandoc`
-* [sdkman](https://sdkman.io/)
-  - note that installing this will add some lines to the `.bashrc` containing
-    absolute paths. These lines should be moved to `~/.sdkman/sourceSDK`.
-    Since sdkman is probably not in use that often, having to source it
-    manually first should be ok. See [the bashrc](bash/bashrc) for details
+  - `scoop install neovim`
+  - `scoop install ack`
+  - `scoop install vim`
+  - `scoop install latex`
+  - `scoop install pandoc`
+  - `scoop install tar`
+  - java, but it isn't in the default buckets:
+    - `scoop bucket add java`
+    - `scoop install openjdk`
 * *unfinished list...*
 
 #### Linux
@@ -136,7 +135,8 @@ the following "*bookmarks*":
 Then there is the same for vim. If you are using vim as an application on
 windows `.vimrc` is called `_vimrc`. If you prefer to use vim inside git bash
 it still uses `.vimrc`. Feel free to link them all together from within your
-`~/`
+`~/` in addition to linking `.vimrc` to the one here, but I usually don't
+bother.
 
 ```
 ln -sv .vim/vimrc .vimrc
@@ -151,6 +151,10 @@ mklink ".vimrc" ".vim/vimrc"
 Also, using vim as an application on windows uses `~/vimfiles` rather than
 `~/.vim`, so link those together as well.
 
+```
+mklink "vimfiles" ".vim"
+```
+
 #### Git
 
 Git uses `.gitconfig`, which [doesn't seem to follow
@@ -160,6 +164,11 @@ copy the file regularly with:
 ```
 cp -v .vim/.gitconfig /gitconfig
 ```
+
+Keep in mind that, on windows, git should automatically adjust the new-line
+characters, which by default is set on system level (`git config --system --get
+core.autocrlf` should return `true`).  That way the repo will work fine when
+cloned into a Linux environment without having to do anything.
 
 Now you should be done. Try it out. Use some aliases, open a plugin in vim, use
 some commands from my `.vimrc`, see if the *chrome* hotkeys from AutoHotkey
