@@ -1,6 +1,4 @@
 """ --- my markdown personalisation --- """
-"-- because I like verbose CLI tools
-echo 'markdown filetype'
 
 "-- compile
 " pdf
