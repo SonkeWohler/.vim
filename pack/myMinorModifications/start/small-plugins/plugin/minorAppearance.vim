@@ -20,13 +20,6 @@ set statusline+=%=              " Rest: right align
 set statusline+=%l,%c%V         " Position in buffer: linenumber, column, virtual column
 set statusline+=\ %P            " Position in buffer: Percentage
 
-""" --- colorscheme
-
-" note: colorschemes are defined in submodules under 'pack/vendor/opt', which vim
-" searches with the colorscheme command automatically
-
-set background=dark
-colorscheme solarized
 
 
 
