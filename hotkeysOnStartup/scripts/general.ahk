@@ -19,10 +19,11 @@
  ; Qt5QWindowIcon refers to TexStudio
  ; Notepad++ is obvious
  ; uplay_start is the startup window for uplay
+ ; WindowsForms10.Window.8.app.0.259f9d2_r6_ad1 is a remote desktop application
  ;;; --- General Windows ---------------------------------------------------------------------------------------- ;;; 
 
 
-#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow") || WinActive("ahk_class Qt5QWindowIcon") || WinActive("ahk_class Notepad++") || WinActive("ahk_class uplay_start")
+#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow") || WinActive("ahk_class Qt5QWindowIcon") || WinActive("ahk_class Notepad++") || WinActive("ahk_class uplay_start") || WinActive("ahk_class WindowsForms10.Window.8.app.0.259f9d2_r6_ad1")
 
  ;;; --- Alt related
  ; German Letters
@@ -39,21 +40,21 @@
  ;;; --- Capslock related
  ; single character operations
 Capslock & h::Backspace ; like in bash
-Capslock & j::Enter ; like in bash
-Capslock & m::Enter ; like in bash
+Capslock & j::+Enter ; like in bash, but dosn't confirm selection (use <C-m> for that)
+Capslock & m::Enter ; like in bash, but this one confirms selection (e.g. in chat applications)
 Capslock & d::Del ; like in bash
 Capslock & o::Right ; convenient to reach and not already used
 Capslock & i::Left ; convenient to reach and not already used
  ; whole word operations
-Capslock & f::^Right ; like in bash
-Capslock & b::^Left ; like in bash
-Capslock & w::^Backspace ; as in bash
+Capslock & f::^Right ; like in bash, one word forward.
+Capslock & b::^Left ; like in bash, one word back
+Capslock & w::^Backspace ; as in bash, delete word before cursor
 Capslock & `::^Del ; backtick : delete entire word after the curser
 Capslock & 1::^Del ; might be more comfy than above
  ; line operations
 Capslock & e::End ; like in bash
 Capslock & a::Home ; like in bash
-Capslock & u:: ; like in bash
+Capslock & u:: ; like in bash, kill line backwards
 Send +{Home}
 Send {Backspace}
 return
@@ -61,11 +62,11 @@ Capslock & p::Up ; like in bash
 Capslock & n::Down ; like in bash
  ; large text operations
 Capslock & g::^End ; kinda like G in vim and vimium, but specific to the text area
-Capslock & t::^Home ; couldn't use gg and Caps+g is much like Shift+g
+Capslock & t::^Home ; couldn't use gg
  ; other convenient operations
 Capslock & q::Esc ; like in my .vimrc
-Capslock & Enter::^Enter ; confirm the current input
-Capslock & k::LButton ; allows shifting focus to where the mouse is, if the cursor is placed conveniently
+Capslock & Enter::^Enter ; confirm the current input when simple Enter doesn't, like email
+Capslock & k::LButton ; allows shifting focus to where the mouse is, if the cursor is placed conveniently (can be nice on laptop to keep hands on home row)
  ; ignore anything else
 Capslock & r::
 Capslock & s::
