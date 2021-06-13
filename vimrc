@@ -39,6 +39,14 @@ if &diff
 endif
 set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
 
+""" --- colorscheme ---
+
+" note: colorschemes are defined in submodules under 'pack/vendor/opt', which vim
+" searches with the colorscheme command automatically
+
+set background=dark
+""colorscheme solarized
+
 """ --- remapping ---
 
 """ --- hotkeys ---

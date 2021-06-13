@@ -45,3 +45,6 @@ if [ $bashStartCD != "/" ]; then
   echo "not default location"
   cdx
 fi
+
+### --- added by rustup - source currently installed cargo
+. "$HOME/.cargo/env"
