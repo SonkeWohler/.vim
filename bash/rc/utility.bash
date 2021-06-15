@@ -29,3 +29,10 @@ scoopUp() {
 alias exx='sleep 0.25s ; exit' 
 # sometimes I like to do it this way
 alias :q='exx'
+
+### --- other
+
+#-- Latex
+# cleanup compilation files
+ alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log" | xargs rm -v'
+

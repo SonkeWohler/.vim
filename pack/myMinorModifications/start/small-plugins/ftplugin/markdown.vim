@@ -25,11 +25,11 @@ inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA
 inoremap <buffer> .<C-Q> .<Esc>gqq
 imap <buffer> .<C-j> .<Esc>gqq<C-m>
 inoremap <buffer> ?? ?<C-G>u<Esc>gqqA  
-inoremap <buffer> ?<C-Q> ?<Esc>gqq
-inoremap <buffer> ?<Space><Space> ?<Esc>gqq
+inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>gqq
+inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA  
 inoremap <buffer> !! !<C-G>u<Esc>gqqA  
-inoremap <buffer> !<C-Q> !<Esc>gqq
-inoremap <buffer> !<Space><Space> !<Esc>gqq
+inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
+inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA  
 
 "-- things to execute
 setlocal foldlevel=5
