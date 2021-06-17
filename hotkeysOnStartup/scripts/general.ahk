@@ -19,11 +19,12 @@
  ; Qt5QWindowIcon refers to TexStudio
  ; Notepad++ is obvious
  ; uplay_start is the startup window for uplay
- ; WindowsForms10.Window.8.app.0.259f9d2_r6_ad1 is a remote desktop application
+ ; WindowsForms10.Window.8.app.0.259f9d2_r6_ad1 is a remote desktop applicatioa
+ ; Mozilla refers mostly to Mozilla Firefox
  ;;; --- General Windows ---------------------------------------------------------------------------------------- ;;; 
 
 
-#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow") || WinActive("ahk_class Qt5QWindowIcon") || WinActive("ahk_class Notepad++") || WinActive("ahk_class uplay_start") || WinActive("ahk_class WindowsForms10.Window.8.app.0.259f9d2_r6_ad1")
+#If WinActive("ahk_class Chrome_WidgetWin_1") || WinActive("ahk_class Windows.UI.Core.CoreWindow") || WinActive("ahk_class TaskManagerWindow") || WinActive("ahk_class CabinetWClass") || WinActive("ahk_class Progman") || WinActive("ahk_class IEFrame") || WinActive("ahk_class HH") || WinActive("ahk_class vguiPopupWindow") || WinActive("ahk_class UnrealWindow") || WinActive("ahk_class ApplicationFrameWindow") || WinActive("ahk_class Shell_TrayWnd") || WinActive("ahk_class NotifyIconOverflowWindow") || WinActive("ahk_class Qt5QWindowIcon") || WinActive("ahk_class Notepad++") || WinActive("ahk_class uplay_start") || WinActive("ahk_class WindowsForms10.Window.8.app.0.259f9d2_r6_ad1") || WinActive("ahk_class MozillaWindowClass") || WinActive("ahk_class MozillaDialogClass")
 
  ;;; --- Alt related
  ; German Letters
