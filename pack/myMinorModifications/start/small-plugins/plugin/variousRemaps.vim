@@ -5,6 +5,10 @@
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
+" On my new keyboard \ is in a weird place and in combination with my keyboard
+" layout it is unaccessible
+inoremap zz \
+
 "-- new lines
 " keep indentation or whitespace from being deleted with <Esc>, <C-R> or the like
 " https://vim.fandom.com/wiki/Get_the_correct_indent_for_new_lines_despite_blank_lines

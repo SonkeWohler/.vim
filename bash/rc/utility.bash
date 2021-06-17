@@ -31,3 +31,10 @@ alias :q='exx'
 
 # xclip
 alias xclipp='xclip -selection clipboard'
+
+### --- other
+
+#-- Latex
+# cleanup compilation files
+ alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log" | xargs rm -v'
+
