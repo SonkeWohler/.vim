@@ -25,3 +25,6 @@
 [submodule "pack/vendor/start/rust.vim"]
 	path = pack/vendor/start/rust.vim
 	url = git@github.com:rust-lang/rust.vim.git
+[submodule "pack/vendor/start/xml.vim"]
+	path = pack/vendor/start/xml.vim
+	url = https://github.com/othree/xml.vim.git
