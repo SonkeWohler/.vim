@@ -31,7 +31,7 @@ vimt() {
   if [ $tempCD ] ; then
     cd $tempCD
   else
-    echo "$tempCD undefined, command failed"
+    echo "tempCD variable is undefined, command failed"
     return
   fi
   if test -f quickNotes.txt; then
@@ -83,7 +83,7 @@ vimNotes(){
   if [ $writingCD ]; then
     cd $writingCD
   else
-    echo "$writingCD undefined, command failed"
+    echo "writingCD variable is undefined, command failed"
     return
   fi
   # write note

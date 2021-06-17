@@ -28,3 +28,6 @@ scoopUp() {
 alias exx='sleep 0.25s ; exit' 
 # sometimes I like to do it this way
 alias :q='exx'
+
+# xclip
+alias xclipp='xclip -selection clipboard'
