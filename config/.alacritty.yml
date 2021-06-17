@@ -423,6 +423,8 @@
 #  program: /bin/bash
 #  args:
 #    - --login
+## program: "C:\Program Files\WindowsApps\CanonicalGroupLimited.UbuntuonWindows_2004.2021.222.0_x64__79rhkp1fndgsc\ubuntu.exe"
+## program ubuntu.exe
 
 # Startup directory
 #
