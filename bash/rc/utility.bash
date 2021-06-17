@@ -3,7 +3,8 @@
 ### --- bindings
 
 # i prefer to type `clear` out and now I found a use for \C-l
-bind '"\C-l":" | lessx"' 
+##bind '"\C-l":" | lessx"' 
+# turns out that most shells don't work like git bash for windows
 
 ### --- editor related
 
