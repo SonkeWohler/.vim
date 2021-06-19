@@ -31,3 +31,6 @@
 [submodule "pack/vendor/start/vim-maven-plugin"]
 	path = pack/vendor/start/vim-maven-plugin
 	url = https://github.com/mikelue/vim-maven-plugin.git
+[submodule "pack/vendor/start/vim-obsession"]
+	path = pack/vendor/start/vim-obsession
+	url = git@github.com:tpope/vim-obsession.git
