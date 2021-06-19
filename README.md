@@ -101,7 +101,21 @@ like `.bashrc --> .vim/bash/bashrc`.
 
 #### Bash
 
-Link the bash initialisation script from within your `~/`:
+To synch your `.bashrc` with my *dotfiles* the most sensible way is to keep a
+machine local `~/.bashrc` that loads the *dotfiles* by placing the following line
+at the end:
+
+```
+source ~/.vim/bash/bashrc
+```
+
+That way you can overwrite the *dotfiles* with machine local settings as needed
+by adding them in after this line, and you get to guarantee the location of the
+`.vim` folder.  You also get to keep machine local installation paths like for
+*rustup* etc.
+
+Alternatively, you can link the bash initialisation script from within your
+`~/`, if you prefer:
 
 ```
 ln -sv .vim/bash/bashrc .bashrc
@@ -132,11 +146,7 @@ the following "*bookmarks*":
 
 #### Vim
 
-Then there is the same for vim. If you are using vim as an application on
-windows `.vimrc` is called `_vimrc`. If you prefer to use vim inside git bash
-it still uses `.vimrc`. Feel free to link them all together from within your
-`~/` in addition to linking `.vimrc` to the one here, but I usually don't
-bother.
+Then there is the same for vim.
 
 ```
 ln -sv .vim/vimrc .vimrc
@@ -149,11 +159,21 @@ mklink ".vimrc" ".vim/vimrc"
 ```
 
 Also, using vim as an application on windows uses `~/vimfiles` rather than
-`~/.vim`, so link those together as well.
+`~/.vim` and `_vimrc` rather than `.vimrc`, so link those together as well.
 
 ```
 mklink "vimfiles" ".vim"
 ```
+
+and
+
+```
+mklink "_vimrc" ".vimrc"
+```
+
+Inside git bash for windows it still uses `.vimrc` as on linux, so if that
+and/or WSL are the only places you are planning to use vim you don't need to
+bother.
 
 #### Git
 

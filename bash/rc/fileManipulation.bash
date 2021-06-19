@@ -13,8 +13,8 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 
 # -- ls etc
 alias lessx='less -RF'
-alias lsa='ls -lAh'
-lsx() { lsa --color=always $@ | lessx ; }
+alias lsa='ls -lAh --color=always'
+lsx() { lsa $@ | lessx ; }
 
 # -- cd
 # back

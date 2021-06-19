@@ -121,7 +121,7 @@ vimdd() {
     title=$(date --date "$year-$month-$1" )
   # if $1 is not a date argument that is currently accepted
   else
-    title=$(date)
+    title="now"
   fi
   # format the date
   filename="simpleEntries/$(date --date "$title" +'%Y.%m.%d').md"
@@ -175,7 +175,7 @@ vimworknotes() {
     title=$(date --date "$year-$month-$1" )
   # if $1 is not a date argument that is currently accepted
   else
-    title=$(date)
+    title="now"
   fi
   # format the date
   filename="$(date --date "$title" +'%Y.%m.%d').md"

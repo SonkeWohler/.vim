@@ -11,6 +11,10 @@
 # for <C-x-e>
 EDITOR="vim"
 
+# vim with fzf
+alias vimf='vim -o `fzf`'
+alias vif='vimf'
+
 # set vi mode 
 ##set -o vi 
 
