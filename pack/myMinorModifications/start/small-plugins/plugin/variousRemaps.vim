@@ -5,9 +5,21 @@
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
-" On my new keyboard \ is in a weird place and in combination with my keyboard
-" layout it is unaccessible
+" On my new keyboard \ and | are in a weird place and in combination with my
+" keyboard layout it is unaccessible
+inoremap `` |
 inoremap zz \
+inoremap 2z \\
+inoremap 3z \\\
+inoremap 4z \\\\
+inoremap 5z \\\\\
+" the same in command mode
+cnoremap `` |
+cnoremap zz \
+cnoremap 2z \\
+cnoremap 3z \\\
+cnoremap 4z \\\\
+cnoremap 5z \\\\\
 
 "-- new lines
 " keep indentation or whitespace from being deleted with <Esc>, <C-R> or the like

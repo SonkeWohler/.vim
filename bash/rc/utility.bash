@@ -2,9 +2,13 @@
 
 ### --- bindings
 
+# my new keyboard doesn't have a | or \ key where I like it
+bind '"\e`":"|"'
+bind '"\ez":"\\"'
+
 # i prefer to type `clear` out and now I found a use for \C-l
+# edit: turns out that most shells don't work like git bash for windows
 ##bind '"\C-l":" | lessx"' 
-# turns out that most shells don't work like git bash for windows
 
 ### --- editor related
 
