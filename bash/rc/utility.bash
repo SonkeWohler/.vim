@@ -45,5 +45,5 @@ alias xclipp='xclip -selection clipboard'
 
 #-- Latex
 # cleanup compilation files
- alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log" | xargs rm -v'
+alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log|\.out" | xargs rm -v'
 
