@@ -21,5 +21,5 @@
   Send {Ctrl up}
   return
  ; on my new keyboard the | doesn't really exist, but I like it otherwise
-!z::Send {U+007C}
+!z::Send {U+005C}
 !`::Send {U+007C}
