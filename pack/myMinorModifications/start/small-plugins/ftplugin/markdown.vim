@@ -1,6 +1,24 @@
 """ --- my markdown personalisation --- """
-"-- because I like verbose CLI tools
-echo 'markdown filetype'
+
+""" --- text related
+" Some stuff that I load on any human language text files
+
+"-- spell check
+set spell
+
+"-- mappings
+" end of sentence
+inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA  
+inoremap <buffer> .<C-Q> .<Esc>gqq
+imap <buffer> .<C-j> .<Esc>gqq<C-m>
+inoremap <buffer> ?? ?<C-G>u<Esc>gqqA  
+inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>gqq
+inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA  
+inoremap <buffer> !! !<C-G>u<Esc>gqqA  
+inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
+inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA  
+
+""" --- end of text
 
 "-- compile
 " pdf
@@ -20,18 +38,6 @@ function! MarkdownHtmlPreview()
 endfunction
 
 command-buffer HTML call MarkdownHtmlPreview()
-
-"-- mappings
-" end of sentence
-inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA  
-inoremap <buffer> .<C-Q> .<Esc>gqq
-imap <buffer> .<C-j> .<Esc>gqq<C-m>
-inoremap <buffer> ?? ?<C-G>u<Esc>gqqA  
-inoremap <buffer> ?<C-Q> ?<Esc>gqq
-inoremap <buffer> ?<Space><Space> ?<Esc>gqq
-inoremap <buffer> !! !<C-G>u<Esc>gqqA  
-inoremap <buffer> !<C-Q> !<Esc>gqq
-inoremap <buffer> !<Space><Space> !<Esc>gqq
 
 "-- things to execute
 setlocal foldlevel=5

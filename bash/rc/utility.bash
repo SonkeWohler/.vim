@@ -2,13 +2,22 @@
 
 ### --- bindings
 
+# my new keyboard doesn't have a | or \ key where I like it
+bind '"\e`":"|"'
+bind '"\ez":"\\"'
+
 # i prefer to type `clear` out and now I found a use for \C-l
-bind '"\C-l":" | lessx"' 
+# edit: turns out that most shells don't work like git bash for windows
+##bind '"\C-l":" | lessx"' 
 
 ### --- editor related
 
 # for <C-x-e>
 EDITOR="vim"
+
+# vim with fzf
+alias vimf='vim -o `fzf`'
+alias vif='vimf'
 
 # set vi mode 
 ##set -o vi 
@@ -28,3 +37,13 @@ scoopUp() {
 alias exx='sleep 0.25s ; exit' 
 # sometimes I like to do it this way
 alias :q='exx'
+
+# xclip
+alias xclipp='xclip -selection clipboard'
+
+### --- other
+
+#-- Latex
+# cleanup compilation files
+ alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log" | xargs rm -v'
+

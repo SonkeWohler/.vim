@@ -13,8 +13,8 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 
 # -- ls etc
 alias lessx='less -RF'
-alias lsa='ls -lAh'
-lsx() { lsa --color=always $@ | lessx ; }
+alias lsa='ls -lAh --color=always'
+lsx() { lsa $@ | lessx ; }
 
 # -- cd
 # back
@@ -23,6 +23,22 @@ alias cd-='cd -'
 alias cd.='cd ..' 
 # lsa after cd
 cda() { cd $@ && lsa ; }
+
+# -- various
+# have to make this specific to windows when I get to it
+alias cpwd='echo $PWD | clip'
+
+# shasum
+shafile() {
+  sum=$(shasum -a $1 $2)
+  if [ "$sum" = "$3" ];then
+    # I think it is good to print the hash, so you can look at it and convince yourself, if you don't trust my programming
+    echo "$sum"
+  else
+    # the same is not necessary for nay
+    echo nay
+  fi
+}
 
 ### --- oversimplified bookmarks
 

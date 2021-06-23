@@ -1,7 +1,6 @@
 [core]
   symlinks = true
 	editor = vim
-	autocrlf = true
 [user]
 	name = SonkeWohler
 	email = sonke.a.wohler@gmail.com

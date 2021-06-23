@@ -33,11 +33,20 @@ set nohidden
 " -- spell
 " I keep hitting by mistake
 nnoremap \= z=
-set spell
-if &diff
-  set nospell
-endif
+" I don't need spell in most situations, especially code
+set nospell
 set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
+""if &diff
+""  set nospell
+""endif
+
+""" --- colorscheme ---
+
+" note: colorschemes are defined in submodules under 'pack/vendor/opt', which vim
+" searches with the colorscheme command automatically
+
+set background=dark
+""colorscheme solarized
 
 """ --- remapping ---
 

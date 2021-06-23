@@ -5,6 +5,30 @@
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
+"-- viewing
+" So I can more easily scroll though a file with hands off keyboard too
+nnoremap <Up> 5<c-y>
+nnoremap <Down> 5<c-e>
+nnoremap <Left> <c-u>
+nnoremap <Right> <c-d>
+
+"-- keyboard layout
+" On my new keyboard \ and | are in a weird place and in combination with my
+" keyboard layout it is unaccessible
+inoremap `` \|
+inoremap zz \
+inoremap 2z \\
+inoremap 3z \\\
+inoremap 4z \\\\
+inoremap 5z \\\\\
+" the same in command mode
+cnoremap `` \|
+cnoremap zz \
+cnoremap 2z \\
+cnoremap 3z \\\
+cnoremap 4z \\\\
+cnoremap 5z \\\\\
+
 "-- new lines
 " keep indentation or whitespace from being deleted with <Esc>, <C-R> or the like
 " https://vim.fandom.com/wiki/Get_the_correct_indent_for_new_lines_despite_blank_lines
