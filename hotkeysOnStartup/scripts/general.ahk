@@ -54,6 +54,7 @@ Capslock & i::Left ; convenient to reach and not already used
 Capslock & f::^Right ; like in bash, one word forward.
 Capslock & b::^Left ; like in bash, one word back
 Capslock & w::^Backspace ; as in bash, delete word before cursor
+Capslock & Backspace::^Backspace ; as if Caps was Control
 Capslock & `::^Del ; backtick : delete entire word after the curser
 Capslock & 1::^Del ; might be more comfy than above
  ; line operations
