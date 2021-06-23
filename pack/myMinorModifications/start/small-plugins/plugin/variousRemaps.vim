@@ -5,6 +5,14 @@
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
+"-- viewing
+" So I can more easily scroll though a file with hands off keyboard too
+nnoremap <Up> 5<c-y>
+nnoremap <Down> 5<c-e>
+nnoremap <Left> <c-u>
+nnoremap <Right> <c-d>
+
+"-- keyboard layout
 " On my new keyboard \ and | are in a weird place and in combination with my
 " keyboard layout it is unaccessible
 inoremap `` \|
