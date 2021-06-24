@@ -19,8 +19,11 @@ EDITOR="vim"
 alias vimf='vim -o `fzf`'
 alias vif='vimf'
 
-# set vi mode 
-##set -o vi 
+#-- search
+acks() {
+  ack --color "$1" | lessx
+}
+
 
 ### --- scoop related
 # update all
