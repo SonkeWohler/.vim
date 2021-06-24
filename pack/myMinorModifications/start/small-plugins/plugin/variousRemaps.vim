@@ -28,6 +28,13 @@ cnoremap 2z \\
 cnoremap 3z \\\
 cnoremap 4z \\\\
 cnoremap 5z \\\\\
+" resulting from this I need to make sure ``` works properly again
+inoremap ``` ```
+inoremap 3` ```
+nmap ``` i```<c-m>
+" don't forget command mode
+cnoremap ``` ```
+cnoremap 3` ```
 
 "-- new lines
 " keep indentation or whitespace from being deleted with <Esc>, <C-R> or the like
