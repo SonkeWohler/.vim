@@ -10,12 +10,15 @@ set spell
 " end of sentence
 inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA  
 inoremap <buffer> .<C-Q> .<Esc>gqq
+inoremap <buffer> .<Esc> .<Esc>gqq
 imap <buffer> .<C-j> .<Esc>gqq<C-m>
 inoremap <buffer> ?? ?<C-G>u<Esc>gqqA  
 inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>gqq
+inoremap <buffer> ?<Esc> ?<C-G>u<Esc>gqq
 inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA  
 inoremap <buffer> !! !<C-G>u<Esc>gqqA  
 inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
+inoremap <buffer> !<Esc> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA  
 
 """ --- end of text
