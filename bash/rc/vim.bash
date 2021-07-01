@@ -113,7 +113,7 @@ vimdd() {
   #-- get current date
   # if $1 is an offset in days i.e. "+4" or "-1"
   if echo $1 | grep -Eq "[+-][0-9]+" ; then
-    title=$(date --date +"$1 days")
+    title=$(date --date "$1 days" +'%Y/%m/%d')
   # if $1 is the day of the month i.e. "22" or "5"
   elif echo $1 | grep -Eq "[0-9]+" ; then
     year=$(date +"%Y")

@@ -26,11 +26,16 @@ inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA
 "-- compiling
 " Sometimes the vimtex compiler doesn't seem to work the way it is supposed to
 " but pdflatex sometimes comes to the rescue
-function! ViewPDFLatex()
+function! ViewPDFLatex(win)
   :w
   let b:pdfFile = expand('%:r') . ".pdf"
   !pdflatex %
-  execute '!start ' . b:pdfFile
+  if a:win == "win"
+    execute '!start ' . b:pdfFile
+  else
+    execute '!mupdf ' . b:pdfFile . ' &'
+  endif
 endfunction
 
-command-buffer PDFL call ViewPDFLatex()
+command-buffer PDFL call ViewPDFLatex("lin")
+command-buffer PDFW call ViewPDFLatex("win")
