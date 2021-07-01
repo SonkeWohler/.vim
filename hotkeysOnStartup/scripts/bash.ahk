@@ -20,6 +20,8 @@
   SetCapsLockState, Off
   Send {Ctrl up}
   return
+ ; since the physical control key is unused now, lets make it escape
+LCtrl::Esc
  ; on my new keyboard the | doesn't really exist, but I like it otherwise
 !z::Send {U+005C}
 !`::Send {U+007C}
