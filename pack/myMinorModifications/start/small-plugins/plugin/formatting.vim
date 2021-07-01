@@ -16,8 +16,8 @@ set tabstop=2 shiftwidth=2 expandtab
 set smartindent
 " auto-format options
 set formatoptions=croqlnj
-" softwrap lines
-set wrap linebreak nolist
+" for the most part i don't like softwraping lines
+set nowrap nolinebreak list
 
 "-- folding
 set foldlevel=5

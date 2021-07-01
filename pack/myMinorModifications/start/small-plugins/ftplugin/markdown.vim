@@ -3,6 +3,9 @@
 """ --- text related
 " Some stuff that I load on any human language text files
 
+"-- in markdown i find softwrap useful
+set wrap linebreak nolist
+
 "-- spell check
 set spell
 
@@ -20,6 +23,10 @@ inoremap <buffer> !! !<C-G>u<Esc>gqqA
 inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Esc> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA  
+
+" since ` had to be remapped, in markdown it is better like this:
+nnoremap ``` i```<cr>
+inoremap ``` <C-G>u<Esc>o```<cr><Esc>
 
 """ --- end of text
 
