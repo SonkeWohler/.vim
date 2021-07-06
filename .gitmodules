@@ -40,3 +40,6 @@
 [submodule "pack/vendor/start/fzf"]
 	path = pack/vendor/start/fzf
 	url = git@github.com:junegunn/fzf.git
+[submodule "pack/vendor/start/vim-tbone"]
+	path = pack/vendor/start/vim-tbone
+	url = git@github.com:tpope/vim-tbone.git

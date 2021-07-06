@@ -1,5 +1,10 @@
 ### --- general purpose --- ###
 
+### --- fzf
+
+source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/doc/fzf/examples/completion.bash
+
 ### --- bindings
 
 # my new keyboard doesn't have a | or \ key where I like it
