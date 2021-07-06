@@ -44,7 +44,7 @@ shafile() {
 
 alias cdd='cd $writingCD'
 alias cdwork='cd $workCD'
-alias cdihp='cd $workCD/iHP'
+alias cdihp='cd $workCD/IHP'
 alias cdt='cd $tempCD'
 alias cdv='cd $vimCD'
 alias cdl='cd $librariesCD'
