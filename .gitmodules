@@ -28,9 +28,6 @@
 [submodule "pack/vendor/start/xml.vim"]
 	path = pack/vendor/start/xml.vim
 	url = https://github.com/othree/xml.vim.git
-[submodule "pack/vendor/start/vim-maven-plugin"]
-	path = pack/vendor/start/vim-maven-plugin
-	url = https://github.com/mikelue/vim-maven-plugin.git
 [submodule "pack/vendor/start/vim-obsession"]
 	path = pack/vendor/start/vim-obsession
 	url = git@github.com:tpope/vim-obsession.git
@@ -43,3 +40,6 @@
 [submodule "pack/vendor/start/vim-tbone"]
 	path = pack/vendor/start/vim-tbone
 	url = git@github.com:tpope/vim-tbone.git
+[submodule "pack/vendor/start/vim-maven-ide"]
+	path = pack/vendor/start/vim-maven-ide
+	url = git@github.com:dareni/vim-maven-ide.git
