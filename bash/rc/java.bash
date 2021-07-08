@@ -1,9 +1,14 @@
 ### --- anything java related --- ###
 
-### --- Maven
+### --- Maven and compiling
 
 alias maven='mvn'
-
+alias mvnc='mvn compile -q'
+alias mvnp='mvn package -q'
+mvnCC() { 
+  if test -z "$1"; then echo "need a message for git commit" ; return; fi
+  mvn compile -q && mvn package -q && ctags -R && gitCC "$1" 
+}
 
 ### --- kotlin related
 

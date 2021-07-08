@@ -11,18 +11,18 @@ set spell
 
 "-- mappings
 " end of sentence
-inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA  
+inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA<C-G>u  
 inoremap <buffer> .<C-Q> .<Esc>gqq
 inoremap <buffer> .<Esc> .<Esc>gqq
 imap <buffer> .<C-j> .<Esc>gqq<C-m>
-inoremap <buffer> ?? ?<C-G>u<Esc>gqqA  
+inoremap <buffer> ?? ?<C-G>u<Esc>gqqA<C-G>u  
 inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>gqq
 inoremap <buffer> ?<Esc> ?<C-G>u<Esc>gqq
-inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA  
-inoremap <buffer> !! !<C-G>u<Esc>gqqA  
+inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA<C-G>u  
+inoremap <buffer> !! !<C-G>u<Esc>gqqA<C-G>u  
 inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Esc> !<C-G>u<Esc>gqq
-inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA  
+inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA<C-G>u  
 
 " since ` had to be remapped, in markdown it is better like this:
 nnoremap ``` i```<cr>

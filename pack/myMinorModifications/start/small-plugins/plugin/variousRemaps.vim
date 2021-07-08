@@ -14,16 +14,16 @@ nnoremap <Right> <c-d>
 
 "-- keyboard layout
 " On my new keyboard \ and | are in a weird place and in combination with my
-" keyboard layout it is unaccessible
+" keyboard layout they are unaccessible
 inoremap `` \|
-inoremap zz \
+inoremap qq \
 inoremap 2z \\
 inoremap 3z \\\
 inoremap 4z \\\\
 inoremap 5z \\\\\
 " the same in command mode
 cnoremap `` \|
-cnoremap zz \
+cnoremap qq \
 cnoremap 2z \\
 cnoremap 3z \\\
 cnoremap 4z \\\\
