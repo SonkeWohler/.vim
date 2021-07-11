@@ -40,6 +40,11 @@ shafile() {
   fi
 }
 
+# mupdf
+mpdf() {
+  mupdf "$1" &>> /tmp/mu.log &
+}
+
 ### --- oversimplified bookmarks
 
 alias cdd='cd $writingCD'

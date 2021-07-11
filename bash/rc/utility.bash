@@ -19,21 +19,38 @@ bind '"\ez":"\\"'
 
 # for <C-x-e>
 EDITOR="vim"
+SUDO_EDITOR="vim"
 
 # vim with fzf
 alias vimf='vim -o `fzf`'
 alias vif='vimf'
 
 #-- search
-acks() {
-  ack --color "$1" | lessx
+ax() {
+  ack --color -i "$1" | lessx
 }
 
+acks() {
+  if test -z "$1" | test -z "$2"; then
+    echo "requires non-zero search string and a replace string"
+    return 1
+  fi
+  ack --color "$1" | less -RF
+  echo "confirm replace [a]ll or [n]ot"
+  read -n 1 yesNo
+  if [ "$yesNo" = "n" ];then
+    echo "not replacing anything, the end"
+    return 0
+  fi
+  # TODO replace one by one
+  ack -l "$1" | xargs perl -pi -E "s/$1/$2/g"
+}
 
 ### --- scoop related
 # update all
 scoopUp() {
   cd $scoopCD
+
   scoop update
   scoop update *
   cd -
