@@ -1,10 +1,7 @@
 """ --- my markdown personalisation --- """
 
-""" --- text related
+""" --- for all text files (markdown, latex, etc) --- """
 " Some stuff that I load on any human language text files
-
-"-- in markdown i find softwrap useful
-set wrap linebreak nolist
 
 "-- spell check
 set spell
@@ -24,12 +21,20 @@ inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Esc> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA<C-G>u  
 
+""" --- text related but not for all text
+
 " since ` had to be remapped, in markdown it is better like this:
 nnoremap ``` i```<cr>
 inoremap ``` <C-G>u<Esc>o```<cr><Esc>
 
-""" --- end of text
+" normally ^W doesn't work on words with ' in them, like doesn't
+inoremap <C-W> <Esc>dBxa
 
+" in markdown i find softwrap useful
+set wrap linebreak nolist
+
+""" --- compiling
+"
 "-- compile
 " pdf
 function! MarkdownPdfPreview()
@@ -50,4 +55,5 @@ endfunction
 command-buffer HTML call MarkdownHtmlPreview()
 
 "-- things to execute
+
 setlocal foldlevel=5

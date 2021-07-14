@@ -13,9 +13,6 @@ nnoremap <Right> <c-d>
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
-" normally ^W doesn't work on words with ' in them, like doesn't
-inoremap <C-W> <Esc>dBxa
-
 " swap two chars, like xp but without effecting "_ and as one atom
 nnoremap sx "xx"xp
 
@@ -73,8 +70,8 @@ nnoremap <C-j> Ox<BS><Esc>0"_d$j
 nnoremap <C-m> ox<BS><Esc>0"_d$
 " In insert new lines should be a separate atom
 ""inoremap <C-j> <C-G>u<Esc>a<CR>
-inoremap <C-j> <CR>x<BS><Esc>
-inoremap <C-m> <CR>x<BS><C-G>u
+inoremap <C-j> <C-G>u<CR>x<BS><Esc>
+inoremap <C-m> <C-G>u<CR>x<BS><C-G>u
 
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>
