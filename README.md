@@ -39,7 +39,31 @@ when I have to setup a new machine.
 
 #### Linux
 
-Todo for the future.
+I am still distro hopping and selecting a desktop environment, so the
+instructions I will record here might not be up to date and are focused on what
+will definitely be consistent through any distro/repo/etc.
+
+Install these packages from the package manager:
+
+* `ack`
+* `fzf`
+* `vim`
+* `neovim`
+* `texlive-full`
+* `pandoc`
+* `mupdf`
+* `openjdk-16-jdk`
+* `maven`
+* `htop`
+* `ncdu`
+* `timeshift`
+* `tar`
+* `zip`
+* `unzip`
+
+Additionally, this software can't be installed via the package manager:
+
+* [Rust](https://www.rust-lang.org/tools/install)
 
 ### Cloning
 
@@ -98,6 +122,10 @@ symlinks](https://github.com/git-for-windows/git/wiki/Symbolic-Links), and
 other emulators may have a similar problem, you should check the created files
 are truly links with `ls -al [file]` when you're done. It should look something
 like `.bashrc --> .vim/bash/bashrc`.
+
+You may wish to source some of these from a machine local config file, as I
+would recommend for Bash (below).  Aside from bash and perhaps vim I don't
+believe it is necessary to do so for any other config files, though.
 
 #### Bash
 
@@ -189,6 +217,42 @@ Keep in mind that, on windows, git should automatically adjust the new-line
 characters, which by default is set on system level (`git config --system --get
 core.autocrlf` should return `true`).  That way the repo will work fine when
 cloned into a Linux environment without having to do anything.
+
+You can also keep machine local settings using `git config --global <settings>`, mostly you should setup:
+
+
+```
+TODO
+```
+
+#### Other
+
+The remainder of the config files I recommend you simply symlink, without worrying about anything else:
+
+```
+ln -sv ~/.vim/config/.tmux.config ./
+```
+
+```
+ln -sv ~/.vim/config/tridactylrc ./.tridactylrc
+```
+
+This one I like to source manually after startup or plugin in a new keyboard.
+Use `xmodmap ~/swap.xmodmap`.
+
+```
+ln -sv ~/.vim/config/swap.xmodmap ./
+```
+
+### Setup
+
+Some additional setup steps.
+
+Follow
+[this](https://askubuntu.com/questions/454649/how-can-i-change-the-default-editor-of-the-sudoedit-command-to-be-vim)
+stackoverflow to ensure that `sudoedit` uses vim.
+
+## Done
 
 Now you should be done. Try it out. Use some aliases, open a plugin in vim, use
 some commands from my `.vimrc`, see if the *chrome* hotkeys from AutoHotkey
