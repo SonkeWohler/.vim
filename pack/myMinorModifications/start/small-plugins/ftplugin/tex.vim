@@ -33,7 +33,9 @@ function! ViewPDFLatex(win)
   if a:win == "win"
     execute '!start ' . b:pdfFile
   else
-    execute '!mupdf ' . b:pdfFile . ' &'
+    " open in mupdf in background and redirect console output to tmp file so
+    " it doesn't bother me
+    execute '!mupdf ' . b:pdfFile . ' &>> /tmp/mupdf.log&'
   endif
 endfunction
 
