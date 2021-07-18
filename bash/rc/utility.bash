@@ -18,8 +18,8 @@ bind '"\ez":"\\"'
 ### --- editor related
 
 # for <C-x-e>
-EDITOR="vim"
-SUDO_EDITOR="vim"
+export EDITOR="vim"
+export SUDO_EDITOR="vim"
 
 # vim with fzf
 alias vimf='vim -o `fzf`'

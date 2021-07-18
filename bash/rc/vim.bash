@@ -4,17 +4,20 @@
 alias novim='vim -u NONE' 
 
 #-- find swp files and open them in vim
+# TODO handle more than just .swp
 vimswaps() { 
   echo "swap files:"
   find | grep .swp
   echo "   ---"
   # I am quite proud of this line, but it would break the terminal without '-o' 
   # https://superuser.com/a/1268932/1065274
+  # TODO if empty
   find | grep .swp | sed 's/\.swp//' | sed 's/\/\./\//' | xargs -o vim -p 
   echo "remove swap files?"
   echo "all (a), one by one (y), no (n)"
   read -n 1 yesNo
   echo ""
+  # TODO get list of swap files here to loop over or just display, based on user choice
   if [ $yesNo = "a" ]; then
     find | grep .swp | xargs rm -v
   elif [ $yesNo = "y" ]; then
