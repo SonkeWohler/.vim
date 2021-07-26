@@ -45,6 +45,11 @@ mpdf() {
   mupdf "$1" &>> /tmp/mu.log &
 }
 
+# like above but more general, experimental
+backs() {
+  $($1 "$2") &>> /tmp/backs.log &
+}
+
 ### --- oversimplified bookmarks
 
 alias cdd='cd $writingCD'

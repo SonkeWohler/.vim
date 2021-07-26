@@ -26,10 +26,15 @@ alias vimf='vim -o `fzf`'
 alias vif='vimf'
 
 #-- search
-ax() {
-  ack --color -i "$1" | lessx
+# simple ack with less
+axx() {
+  ack --color "$1" | less -RF
 }
-
+# usually I don't like case sensitivity
+ax() {
+  ack --color -i "$1" | less -RF
+}
+# search and replace using ack
 acks() {
   if test -z "$1" | test -z "$2"; then
     echo "requires non-zero search string and a replace string"
