@@ -13,7 +13,7 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 
 # -- ls etc
 alias lessx='less -RF'
-alias lsa='ls -lAh --color=always'
+alias lsa='ls -l --almost-all --classify --human-readable --color=always'
 lsx() { lsa $@ | lessx ; }
 
 # -- cd
@@ -49,6 +49,9 @@ mpdf() {
 backs() {
   $($1 "$2") &>> /tmp/backs.log &
 }
+
+# this might be a better solution for the most part, but less fllexible
+alias open='xdg-open'
 
 ### --- oversimplified bookmarks
 
