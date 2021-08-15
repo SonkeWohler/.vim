@@ -2,8 +2,21 @@
 
 ### --- fzf
 
-source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
+# load completions and other useful stuff
+# these files may be in slightly different locations on different machines
+fzfPath="/usr/share/doc/fzf/examples/key-bindings.bash"
+if ! test -f "$fzfPath"; then
+  fzfPath=$(echo "$fzfPath" | perl -pe "s/examples\///g")
+  if ! test -f "$fzfPath"; then
+    fzfPath=$(echo "$fzfPath" | perl -pe "s/doc\///g")
+    if ! test -f "$fzfPath"; then
+      echo "could not source fzf completion files.  Is it installed?"
+    fi
+  fi
+fi
+source "$fzfPath"
+fzfPath=$( echo "$fzfPath" | perl -pe "s/key-bindings\.bash/completion.bash/g")
+source "$fzfPath"
 
 ### --- bindings
 
@@ -63,7 +76,7 @@ scoopUp() {
 
 ### --- workarounds
 
-# reduces issues related to Capslock being mapped to Ctrl
+# reduces issues related to Capslock being mapped to Ctrl on windows
 alias exx='sleep 0.25s ; exit' 
 # sometimes I like to do it this way
 alias :q='exx'
