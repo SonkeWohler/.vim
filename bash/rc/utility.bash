@@ -21,7 +21,11 @@ source "$fzfPath"
 ### --- bindings
 
 # my new keyboard doesn't have a | or \ key where I like it
-bind '"\e`":"|"'
+# I know this should principally happen on a per machine basis (machine local
+# bashrc/inputrc) but I got so used to this that I like having it in all my
+# systems --- sue me
+##bind '"\e`":"|"'
+bind '"\eq":"|"'
 bind '"\ez":"\\"'
 
 # i prefer to type `clear` out and now I found a use for \C-l

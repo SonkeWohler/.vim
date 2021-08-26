@@ -4,7 +4,11 @@
 " I find it useful to simply use visual mode if I do want to cut something
 " rather than simply deleting it into nothing
 nnoremap d "_d
+nnoremap D "_D
 nnoremap c "_c
+nnoremap C "_C
+nnoremap s "_s
+nnoremap S "_S
 
 " 'x' and 'X' always mean forget about the deleted content even in visual mode
 nnoremap x "_x
