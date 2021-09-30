@@ -126,7 +126,7 @@ vimdd() {
   else
     title="now"
   fi
-  # format the date
+  #-- format the date
   filename="simpleEntries/$(date --date "$title" +'%Y.%m.%d').md"
   title="# $(date --date "$title" +'%d/%m/%Y')"
   #-- create file... or not?
@@ -137,14 +137,14 @@ vimdd() {
   fi
   vim $filename
   #-- update remote
+  git restore --staged :/
+  git add $filename
+  git commit -m "diary entry"
   echo "upload to github? (y/n)"
   read -n 1 yesNo
   echo ""
   # todo lower case yesNo
   if [ $yesNo = "y" ]; then
-    git restore --staged :/
-    git add $filename
-    git commit -m "diary entry"
     git pull
     git push
   else
