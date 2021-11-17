@@ -24,7 +24,7 @@ source "$fzfPath"
 # I know this should principally happen on a per machine basis (machine local
 # bashrc/inputrc) but I got so used to this that I like having it in all my
 # systems --- sue me
-##bind '"\e`":"|"'
+bind '"\e`":"|"'
 bind '"\eq":"|"'
 bind '"\ez":"\\"'
 
@@ -39,6 +39,8 @@ export EDITOR="vim"
 export SUDO_EDITOR="vim"
 
 # vim with fzf
+# this is only necessary on systems where fzf the vim plugin and fzf the bash
+# tool don't play nice
 alias vimf='vim -o `fzf`'
 alias vif='vimf'
 

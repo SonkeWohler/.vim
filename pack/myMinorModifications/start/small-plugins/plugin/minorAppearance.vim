@@ -7,7 +7,7 @@ set showmode
 set visualbell
 set showmatch
 set laststatus=2
-set clipboard=unnamed
+""set clipboard=unnamed
 set wildmode=list:longest,longest:full
 "-- statusline, right now just copied from git
 set statusline=%f               " filename relative to current $PWD

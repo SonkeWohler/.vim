@@ -4,7 +4,7 @@
 
 "-- cursor display
 set cursorline
-set cursorlineopt=number
+""set cursorlineopt=number
 "-- hybrid line numbers most of the time
 set number relativenumber
 "-- toggle to absolute line numbers in certain situations

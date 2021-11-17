@@ -11,12 +11,12 @@ set spell
 inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA<C-G>u  
 inoremap <buffer> .<C-Q> .<Esc>gqq
 inoremap <buffer> .<Esc> .<Esc>gqq
-imap <buffer> .<C-j> .<Esc>gqq<C-m>
-inoremap <buffer> ?? ?<C-G>u<Esc>gqqA<C-G>u  
+inoremap <buffer> .<C-j> .<Esc>gqqox<BS><Esc>
+""inoremap <buffer> ?? ?<C-G>u<Esc>gqqA<C-G>u  
 inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>gqq
 inoremap <buffer> ?<Esc> ?<C-G>u<Esc>gqq
 inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA<C-G>u  
-inoremap <buffer> !! !<C-G>u<Esc>gqqA<C-G>u  
+""inoremap <buffer> !! !<C-G>u<Esc>gqqA<C-G>u  
 inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Esc> !<C-G>u<Esc>gqq
 inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA<C-G>u  
@@ -29,6 +29,13 @@ inoremap ``` <C-G>u<Esc>o```<cr><Esc>
 
 " normally ^W doesn't work on words with ' in them, like doesn't
 inoremap <C-W> <Esc>dBxa
+" this creates some problems if there is text after the cursor, this helps
+nnoremap i i<Enter><Esc>kA
+nnoremap a a<Enter><Esc>kA
+" TODO with c and s, but need to apply the motion as well
+" to allow the original functionality if needed
+nnoremap qi i
+nnoremap qa a
 
 " in markdown i find softwrap useful
 set wrap linebreak nolist

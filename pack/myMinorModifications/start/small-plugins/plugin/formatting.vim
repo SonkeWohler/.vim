@@ -18,10 +18,10 @@ set smartindent
 set formatoptions=croqlnj
 " for the most part i don't like softwraping lines
 set nowrap nolinebreak list
+set listchars=tab:<->,eol:$
 
 "-- folding
 set foldlevel=5
-
 
 " -- simple formatting function
 function FormatThisBuffer()
