@@ -4,3 +4,7 @@
 " 
 set ignorecase
 set smartcase
+
+"-- navigate inside insert mode
+inoremap <C-e> <C-o><C-o>
+inoremap <C-y> <C-o><C-y>
