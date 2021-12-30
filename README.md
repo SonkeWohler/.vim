@@ -4,10 +4,45 @@ This is my command line configuration. Everything necessary to setup the
 command line tools and anything related the way I like it is either backed up
 or described here.
 
-No guarantee that this will work on linux. I usually use windows, but setup git
-to change linendings, so the files are compatible in principle.
+This won't quite work on Windows, though with WSL2 there should be quite a bit
+that can be done.
 
 ## Setup
+
+### Auto-setup [WIP]
+
+I have started a script that should take care of setting things up for me.
+Installing packages, setting up config files, all that shabang.  I am in the
+process of testing it and figuring out how reliable it is, but since this is
+just me here...
+
+I am planning to *support* (if you can call it that) Debian-based (Debian,
+Ubuntu, Kali, Mint), Alpine (not sure why, but android UserLAnd offers it, so
+why not) and, most importantly for me, Arch-based (Garuda for my main, Manjaro
+should work fine too, can't guarantee other distros though).
+
+Run this script from within your home directory (this is important).  It is
+best practice to download it and inspect it before executing it with `sudo`.
+
+```
+cd ~
+wget https://raw.githubusercontent.com/SonkeWohler/.vim/asus/setup/install.bash
+less install.bash
+
+```
+
+When you have convinced yourself that the file is not malicious execute it as
+root, still within your home directory.
+
+```
+chmod +x install.bash
+sudo $PWD/install.bash
+```
+
+This sets up the packages required and does all the work that requires root
+privileges.  It also links you to finish the rest of the setup.
+
+## Traditional Setup
 
 This should be cloned into your `~/.vim` folder and any instructions will
 assume that that is the location of this repo.
