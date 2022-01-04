@@ -18,14 +18,33 @@ alias gitCC='git add -A ; git commit -m'
 # easy commit everything
 alias gitC='git add -A ; git commit -v' 
 
+#-- multiple commits
+# squash commits on current branch similar to git squash
+gitSquash() {
+  if [[ $1 = "h" ]] || [[ $1 = "" ]]; then
+    echo ' "gitSquash x message"'
+    echo "  Squash the last x commits into one, prepending 'message' to the commit message"
+    return 0
+  fi
+  # https://stackoverflow.com/questions/806906/how-do-i-test-if-a-variable-is-a-number-in-bash
+  re='^[0-9]+$'
+  if ! [[ $1 =~ $re ]]; then
+    echo "gitSquash requires an integer as its first argument"
+    return 1
+  fi
+  # https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git
+  git reset --soft HEAD~"$1" &&
+  git commit --edit --message="$2" --message="squashing commits:" --message="$(git log --format="%cn (%ci) :: %s%nhash[ %H ]%n%b%n" --reverse HEAD..HEAD@{1})"
+}
+
 #-- clean
 # unstage a list of files
 alias gitq='git restore --staged' 
 # unstage all changes
 alias gitqa='git restore --staged :/' 
-# completely restore a file to <HEAD>
+# completely restore a file to 'HEAD'
 gitQ() { git restore --staged $1 ; git restore $1 ; } 
-# restore to <HEAD>
+# restore to 'HEAD'
 alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/' 
 
 #-- diff
