@@ -9,20 +9,17 @@ that can be done.
 
 ## Setup
 
-### Auto-setup [WIP]
-
 I have started a script that should take care of setting things up for me.
-Installing packages, setting up config files, all that shabang.  I am in the
-process of testing it and figuring out how reliable it is, but since this is
-just me here...
+Installing packages, setting up config files, all that shebang.
 
 I am planning to *support* (if you can call it that) Debian-based (Debian,
 Ubuntu, Kali, Mint), Alpine (not sure why, but android UserLAnd offers it, so
 why not) and, most importantly for me, Arch-based (Garuda for my main, Manjaro
-should work fine too, can't guarantee other distros though).
+should work fine too, Arch itself after the machine is set up also).
 
 Run this script from within your home directory (this is important).  It is
-best practice to download it and inspect it before executing it with `sudo`.
+best practice to download it and inspect it before executing, especially with
+`sudo`.
 
 ```
 cd ~
@@ -31,16 +28,88 @@ less install.bash
 
 ```
 
-When you have convinced yourself that the file is not malicious execute it as
-root, still within your home directory.
+When you have convinced yourself that the file is not malicious, the correct
+version and all that, execute it as root, still within your home directory.
 
 ```
 chmod +x install.bash
 sudo $PWD/install.bash
 ```
 
-This sets up the packages required and does all the work that requires root
-privileges.  It also links you to finish the rest of the setup.
+This only does the installation bit that requires root privileges and refers
+you to the next step.  Just follow the instructions, which eventually take you
+to [the non-root setup
+file](https://github.com/SonkeWohler/.vim/blob/master/setup/setup.bash) to
+finish things off, including setting up these dotfiles.
+
+After this you should be operational at least from a command line perspective.
+I will add further setups for password manager, browser (bookmarks) and Desktop
+Environment over time.
+
+Remember to checkout a new branch before committing to the dotfiles.  See
+[below](#branches-and-history) for details.
+
+## Git
+
+### Branches And History
+
+Since this is just me keeping track of this across multiple machines, branches
+are usually split accordingly.  Each machine gets its own branch and most
+commits are made straight to that branch.  Now and then I will merge those
+changes into master so I can pull them into the other machine's branches.
+
+Since most changes are small tweaks I usually don't keep the history very
+clean.  One exception was the auto setup recently, which I squashed after the
+fact rather than using a feature branch (this made testing a little more
+convenient at the time, and it was also my first `git push
+--force-with-lease`).
+
+The only rule is that I don't usually push to branches unless I am on that
+machine, and that I don't use the same branch across multiple machines in
+general.
+
+Virtual machines, containers etc. all count as a machine and need their own
+branch.  This allows me, for example, to keep windows specific things out of
+linux or wsl more easily until I refine the tweaks.
+
+### Git Submodules as vim Plugins
+
+Vim plugins are usually added as git submodules with `git submodules add
+<link-to-clone-repository>` inside the directory the module should be added to,
+for example [pack/vendor/start](pack/vendor/start). They are then listed in the
+[`.gitmodules`](.gitmodules) file. Read up on submodules
+[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+
+#### After installing a plugin
+
+If the plugin has helptags run `:helptags` from inside its directory location
+or `:helptags ALL` from anywhere, after installing it.
+
+#### My own minor plugins
+
+I also keep small modifications under
+[pack/myMinorModifications](pack/myMinorModifications/). These are
+single file modifications that are too small to justify their own repo, but
+that I don't want in my `.vimrc`.
+
+#### Plugin Manager
+
+As recommended by (some) guides introducing you to vim, I am not using a plugin
+manager yet. I try to follow
+[this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to
+organise plugins with this system.
+
+#### Filetype Plugins
+
+Filetype plugins, counterintuitively, are usually best placed inside `start`,
+usually `pack/vendor/start`, rather than `opt`.  **But only when the plugin is
+setup correctly**.  If the plugins contains a `plugin/` folder vim will load it
+on startup irrespective of the filetype.  A correctly setuo plugin will have
+its files instead in `ftplugin` instead, so look for that.
+
+You don't need to edit `.vim/ftplugin` or `.vim/ftdetect` if your filetype
+plugins are setup correctly because vim will source `pack/*/start/**/ftdetect`
+files on startup and then source `pack/*/start/**/ftplugin` accordingly.
 
 ## Traditional Setup
 
@@ -54,12 +123,15 @@ when I have to setup a new machine.
 
 #### Windows
 
+Remember that `~` is usually somewhere like `C:\Users\<username>`.
+
+The setup scripts won't work correctly on windows and may never, use WSL2
+instead.
+
 * [Git Bash for Windows](https://git-scm.com/downloads)
-  - I like to use the `gruvbox` theme in te settings because it works with my
+  - I like to use the `gruvbox` theme in the settings because it works with my
   vim color scheme
-* [AutoHotkey](https://www.autohotkey.com/). I don't have an equivalent for
-  Linux yet, maybe in the future.  I have the feeling, though, that recreating
-  this on linux will be significantly easier than expected.
+* [AutoHotkey](https://www.autohotkey.com/). 
 * [Scoop](https://scoop.sh/), and from scoop install
   - `scoop install neovim`
   - `scoop install ack`
@@ -74,31 +146,7 @@ when I have to setup a new machine.
 
 #### Linux
 
-I am still distro hopping and selecting a desktop environment, so the
-instructions I will record here might not be up to date and are focused on what
-will definitely be consistent through any distro/repo/etc.
-
-Install these packages from the package manager:
-
-* `ack`
-* `fzf`
-* `vim`
-* `neovim`
-* `texlive-full`
-* `pandoc`
-* `mupdf`
-* `openjdk-16-jdk`
-* `maven`
-* `htop`
-* `ncdu`
-* `timeshift`
-* `tar`
-* `zip`
-* `unzip`
-
-Additionally, this software can't be installed via the package manager:
-
-* [Rust](https://www.rust-lang.org/tools/install)
+Deprecated, use [auto setup](#setup) instead or read through what it does.
 
 ### Cloning
 
@@ -260,7 +308,7 @@ You can also keep machine local settings using `git config --global <settings>`,
 TODO
 ```
 
-#### Other
+#### Other Config Files
 
 The remainder of the config files I recommend you simply symlink, without worrying about anything else:
 
@@ -279,7 +327,7 @@ Use `xmodmap ~/swap.xmodmap`.
 ln -sv ~/.vim/config/swap.xmodmap ./
 ```
 
-### Setup
+### Other Stuff
 
 Some additional setup steps.
 
@@ -287,59 +335,12 @@ Follow
 [this](https://askubuntu.com/questions/454649/how-can-i-change-the-default-editor-of-the-sudoedit-command-to-be-vim)
 stackoverflow to ensure that `sudoedit` uses vim.
 
-## Done
+### Done
 
 Now you should be done. Try it out. Use some aliases, open a plugin in vim, use
 some commands from my `.vimrc`, see if the *chrome* hotkeys from AutoHotkey
 work.
 
-## Plugins and Submodules
-
-### Git Submodules
-
-Vim plugins are usually added as git submodules with `git submodules add
-<link-to-clone-repository>` inside the directory the module should be added to,
-for example [pack/vendor/start](pack/vendor/start). They are then listed in the
-[`.gitmodules`](.gitmodules) file. Read up on submodules
-[here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
-
-### After installing a plugin
-
-If the plugin has helptags run `:helptags` from inside its directory location
-or `:helptags ALL` from anywhere, after installing it.
-
-### My own munor plugins
-
-I also keep small modifications under
-[pack/myMinorModifications](pack/myMinorModifications/). These are
-single file modifications that are too small to justify their own repo, but
-that I don't want in my `.vimrc`.
-
-### Plugin Manager
-
-As recommended by (some) guides introducing you to vim, I am not using a plugin
-manager yet. I try to follow
-[this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to
-organise plugins with this system.
-
-### Filetype Plugins
-
-Filetype plugins, counterintuitively, are usually best placed inside `start`,
-usually `pack/vendor/start`, rather than `opt`.  **But only when the plugin is
-setup correctly**.  If the plugins contains a `plugin/` folder vim will load it
-on startup irrespective of the filetype.  A correctly setuo plugin will have
-its files instead in `ftplugin` instead, so look for that.
-
-You don't need to edit `.vim/ftplugin` or `.vim/ftdetect` if your filetype
-plugins are setup correctly because vim will source `pack/*/start/**/ftdetect`
-files on startup and then source `pack/*/start/**/ftplugin` accordingly.
-
 ## License
 
-Any content here covered by another license due to being based on work of said
-license, such as anything covered by the [vim
-license](https://www.gnu.org/licenses/vim-license.txt), remains under such
-license and I will mark such content as clearly as possible. Any such content
-is and will be licensed in a spirit similar to the GNU free software
-phylosophy. Any other content is published here under the [GNU General Public
-License v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
+[General Public License v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
