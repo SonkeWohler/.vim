@@ -186,23 +186,31 @@ sleep 2
 
 #-- checking installations
 
-fzf_paths="/usr/share/doc/fzf/examples/ /usr/doc/fzf/examples/ /usr/share/fzf/examples/ /usr/share/doc/fzf/ /usr/doc/fzf/ /usr/share/fzf"
+print "checking fzf installation"
+
+fzf_paths="/usr/share/doc/fzf/examples/ /usr/doc/fzf/examples/ /usr/share/fzf/examples/ /usr/share/doc/fzf/ /usr/doc/fzf/ /usr/share/fzf/"
 fzf_files="key-bindings.bash completion.bash"
 
-# remember, 0 is true, all else is false
+# remember, in bash 0 is true, all else is false
 fzf_installed=1
 for path in fzf_paths
 do
   for file in fzf_files
   do
     location=$path$file
+    # I assume that, if I only find one of the two files there is some reason for it
+    # only if neither are found is fzf not installed
     if [ -f $location ]; then
+      print "found file $location"
+      print "fzf seems to be installed correctly"
       fzf_installed=0
     fi
   done
 done
 
-if [[ fzf_installed ]]; then
+if ! [[ fzf_installed -eq 0 ]]; then
+  print "fzf key-bindings and completion files are missing"
+  print "placing them now"
   mkdir --parents --verbose /usr/share/fzf
   cd /usr/share/fzf
   wget https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash
@@ -211,6 +219,7 @@ fi
 
 #-- refer to non-root setup files
 
+cd $userHome
 print "the sudo setup script is done"
 print "you should continue setting up github and config files using the setup.bash file"
 print "downloading file now from https://raw.githubusercontent.com/SonkeWohler/.vim/asus/setup/setup.bash"
