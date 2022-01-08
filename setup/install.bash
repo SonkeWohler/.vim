@@ -222,7 +222,7 @@ fi
 cd $userHome
 print "the sudo setup script is done"
 print "you should continue setting up github and config files using the setup.bash file"
-print "downloading file now from https://raw.githubusercontent.com/SonkeWohler/.vim/asus/setup/setup.bash"
-wget https://raw.githubusercontent.com/SonkeWohler/.vim/asus/setup/setup.bash
+print "downloading file now from https://raw.githubusercontent.com/SonkeWohler/.vim/master/setup/setup.bash"
+wget https://raw.githubusercontent.com/SonkeWohler/.vim/master/setup/setup.bash
 chmod +x setup.bash
 print "run it using:   source setup.bash"

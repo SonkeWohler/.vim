@@ -26,7 +26,7 @@ best practice to download it and inspect it before executing it with `sudo`.
 
 ```
 cd ~
-wget https://raw.githubusercontent.com/SonkeWohler/.vim/asus/setup/install.bash
+wget https://raw.githubusercontent.com/SonkeWohler/.vim/master/setup/install.bash
 less install.bash
 
 ```
@@ -343,7 +343,3 @@ license and I will mark such content as clearly as possible. Any such content
 is and will be licensed in a spirit similar to the GNU free software
 phylosophy. Any other content is published here under the [GNU General Public
 License v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
-
-
-
-
