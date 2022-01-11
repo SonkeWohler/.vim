@@ -35,34 +35,35 @@ echo "### --- source my version controlled bashrc" >> ~/.bashrc
 echo "" >> ~/.bashrc
 echo "source $vimCD/bash/bashrc" >> ~/.bashrc
 
-ln -sv $vimCD/bash/inputrc ~/.inputrc
+ln --symbolic --verbose $vimCD/bash/inputrc ~/.inputrc
 
 #-- vim
 
 print "setting up vim"
 
-ln -sv $vimCD/vimrc ~/.vimrc
-ln -sv $vimCD ~/.vim
+ln --symbolic --verbose $vimCD/vimrc ~/.vimrc
+mkdir --parents --verbose ~/.vim/
+ln --symbolic --verbose $vimCD/pack ~/.vim/pack
 
 #-- neovim
 
 print "setting up neovim init.vim"
 
 mkdir --parents --verbose ~/.config/nvim
-ln -sv $vimCD/config/init.vim ~/.config/nvim/init.vim
+ln --symbolic --verbose $vimCD/config/init.vim ~/.config/nvim/init.vim
 
 #-- tmux
 
 print "setting up tmux"
 
-ln -sv $vimCD/config/.tmux.conf ~/.tmux.conf
+ln --symbolic --verbose $vimCD/config/.tmux.conf ~/.tmux.conf
 
 #-- other misc
 
 print "miscellaneous configs"
 
 # this is a WIP for adjusting my keyboard layout
-ln -sv $vimCD/config/swap.xmodmap ~/.config/swap.xmodmap
+ln --symbolic --verbose $vimCD/config/swap.xmodmap ~/.config/swap.xmodmap
 echo "#!/usr/bin/bash" >> /usr/bin/xswap
 echo "# activating my xmodmap modifications" >> /usr/bin/xswap
 echo "xmodmap ~/.config/swap.xmodmap" >> /usr/bin/xswap

@@ -74,12 +74,12 @@ print ""
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 print "now you need to add this ssh key to your GitHub"
-print "please go to https://github.com/settings/keys and add the ssh key"
-print "further instructions here:"
-print "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
 xclip ~/.ssh/id_ed25519.pub -select clipboard
 print "the ssh key should be in your clipboard now, but will be printed below again:"
 cat ~/.ssh/id_ed25519.pub
+print "please go to https://github.com/settings/keys and add the ssh key"
+print "further instructions here:"
+print "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
 print ""
 print "press any key to continue..."
 read -n 1 yesNo
@@ -114,7 +114,10 @@ print "cloning journal and related writing stuff (private)"
 git clone git@github.com:SonkeWohler/writingLibrary.git
 
 ### --- handing over to dotfiles scripts
+
 cd $vimCD/setup
+print "git related setup is done, moving on to config files"
+print ""
 source config.bash
 
 ### --- finishing things up
