@@ -15,7 +15,7 @@ set tabstop=2 shiftwidth=2 expandtab
 " smartindent is better than just autoindent
 set smartindent
 " auto-format options
-set formatoptions=croqlnj
+set formatoptions=croqlnjp
 " for the most part i don't like softwraping lines
 set nowrap nolinebreak list
 set listchars=tab:<->,eol:$
