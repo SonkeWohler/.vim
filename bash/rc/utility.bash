@@ -69,6 +69,23 @@ acks() {
   # TODO replace one by one
   ack -l "$1" | xargs perl -pi -E "s/$1/$2/g"
 }
+# limit the depth for searching files
+filegrep() {
+  arg1=$1
+  shift
+  find -maxdepth $arg1 | grep $@
+}
+alias fgrep='filegrep'
+faxx() {
+  arg1=$1
+  shift
+  find -maxdepth $arg1 | ack --color --files-from=- $@
+}
+fax() {
+  arg1=$1
+  shift
+  faxx $arg1 -i $@
+}
 
 ### --- scoop related
 # update all

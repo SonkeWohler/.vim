@@ -24,10 +24,6 @@ alias cd.='cd ..'
 # lsa after cd
 cda() { cd $@ && lsa ; }
 
-# -- various
-# have to make this specific to windows when I get to it
-alias cpwd='echo $PWD | clip'
-
 # shasum
 shafile() {
   sum=$(shasum -a $1 $2)

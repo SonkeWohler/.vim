@@ -92,11 +92,13 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 
 #-- git log my way ; to make it easy to change my preferred format 
 # default
-alias gitlogm='git log --pretty=format:"%an, %ar :: %s"' 
+alias gitlogm='git log --pretty=format:"%cn, %cr :: %s"' 
 # hash
-alias gitlogmh='git log --pretty=format:"%h, ad :: %s"'
+alias gitlogmh='git log --pretty=format:"%h, %cd :: %s"'
 # graph
-alias gitlogmg='git log --pretty=format:"%ar :: %s"'
+alias gitlogmg='git log --pretty=format:"%cr :: %s"'
+# whole message (%B)
+alias gitlogmb='git log --pretty=format:"%Cblue%cn, %cr %Cred(%cd)%Creset :: %H%n%Cgreen%s %n%n%b"'
 #-- list commits
 # history
 gitlog() { gitlogm --color=always $@ | lessx ; } 
@@ -106,6 +108,8 @@ gitlogh() { gitlogmh --color=always $@ | lessx ; }
 gitlogp() { gitlogm -p --color=always $@ | lessx ; }
 # graph
 gitgraph() { gitlogmg --graph --color=always $@ | lessx ; } 
+# whole message
+gitlogb() { gitlogmb --color=always $@ | lessx ; }
 
 
 
