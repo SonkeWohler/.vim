@@ -13,7 +13,7 @@ nnoremap <Right> <c-d>
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
-" swap two chars, like xp but without effecting "_ and as one atom
+" swap two chars, like xp but without affecting "_ and as one atom
 nnoremap sx "xx"xp
 
 "-- bracketing
@@ -50,15 +50,19 @@ nnoremap "- o"--<cr><Esc>
 
 "-- navigation
 
-cnoremap <c-a> <c-b>
-cnoremap <c-i> <Left>
-cnoremap <c-o> <Right>
-cnoremap <c-b> <S-Left>
-cnoremap <c-f> <S-Right>
+cnoremap <c-b> <Left>
+cnoremap <c-f> <Right>
+cnoremap <m-b> <S-Left>
+cnoremap <m-f> <S-Right>
+cnoremap <c-a> <Home>
+cnoremap <c-e> <End>
+cnoremap <c-d> <Del>
+cnoremap <c-p> <Up>
+cnoremap <c-n> <Down>
 
 """ --- normal mode
 
-"-- new lines
+"-- new lines, line splits, fuses and deletes
 
 " keep indentation or whitespace from being deleted with <Esc>, <C-R> or the like
 " https://vim.fandom.com/wiki/Get_the_correct_indent_for_new_lines_despite_blank_lines
@@ -71,6 +75,10 @@ nnoremap <C-m> ox<BS><Esc>0"_d$
 ""inoremap <C-j> <C-G>u<Esc>a<CR>
 inoremap <C-j> <C-G>u<CR>x<BS><Esc>
 inoremap <C-m> <C-G>u<CR>x<BS><C-G>u
+" splitting a line
+nnoremap <M-j> F<Space>i<Enter><Esc>k$
+" fusing lines
+nnoremap J mJJ`J
 
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>

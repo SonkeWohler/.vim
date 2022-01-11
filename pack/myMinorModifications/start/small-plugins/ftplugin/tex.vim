@@ -8,18 +8,18 @@ set spell
 
 "-- mappings
 " end of sentence
-inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA  
-inoremap <buffer> .<C-Q> .<Esc>gqq
-inoremap <buffer> .<Esc> .<Esc>gqq
-imap <buffer> .<C-j> .<Esc>gqq<C-m>
-inoremap <buffer> ?? ?<C-G>u<Esc>gqqA  
-inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>gqq
-inoremap <buffer> ?<Esc> ?<C-G>u<Esc>gqq
-inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA  
-inoremap <buffer> !! !<C-G>u<Esc>gqqA  
-inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
-inoremap <buffer> !<Esc> !<C-G>u<Esc>gqq
-inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA  
+inoremap <buffer> .<Space><Space> .<C-G>u<Esc>mQgqip`Qa<C-G>u  
+inoremap <buffer> .<C-Q> .<Esc>mQgqip`Q
+inoremap <buffer> .<Esc> .<Esc>mQgqip`Q
+imap <buffer> .<C-j> .<Esc>mQgqip`Q<C-m>
+""inoremap <buffer> ?? ?<C-G>u<Esc>mQgqip`Qa<C-G>u  
+inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> ?<Esc> ?<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>mQgqip`Qa<C-G>u  
+""inoremap <buffer> !! !<C-G>u<Esc>mQgqip`Qa<C-G>u  
+inoremap <buffer> !<C-Q> !<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> !<Esc> !<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> !<Space><Space> !<C-G>u<Esc>mQgqip`Qa<C-G>u  
 
 """ --- end of text
 

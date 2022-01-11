@@ -49,10 +49,7 @@ ln -sv $vimCD ~/.vim
 print "setting up neovim init.vim"
 
 mkdir --parents --verbose ~/.config/nvim
-touch ~/.config/nvim/init.vim
-echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" >> ~/.config/nvim/init.vim
-echo "let &packpath = &runtimepath" >> ~/.config/nvim/init.vim
-echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
+ln -sv $vimCD/config/init.vim ~/.config/nvim/init.vim
 
 #-- tmux
 

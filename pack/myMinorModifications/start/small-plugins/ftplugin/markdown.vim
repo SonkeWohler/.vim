@@ -3,23 +3,28 @@
 """ --- for all text files (markdown, latex, etc) --- """
 " Some stuff that I load on any human language text files
 
-"-- spell check
+"-- settings
+
+" obviously
 set spell
+" in markdown i find softwrap useful
+set wrap linebreak nolist
 
 "-- mappings
+
 " end of sentence
-inoremap <buffer> .<Space><Space> .<C-G>u<Esc>gqqA<C-G>u  
-inoremap <buffer> .<C-Q> .<Esc>gqq
-inoremap <buffer> .<Esc> .<Esc>gqq
-inoremap <buffer> .<C-j> .<Esc>gqqox<BS><Esc>
-""inoremap <buffer> ?? ?<C-G>u<Esc>gqqA<C-G>u  
-inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>gqq
-inoremap <buffer> ?<Esc> ?<C-G>u<Esc>gqq
-inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>gqqA<C-G>u  
-""inoremap <buffer> !! !<C-G>u<Esc>gqqA<C-G>u  
-inoremap <buffer> !<C-Q> !<C-G>u<Esc>gqq
-inoremap <buffer> !<Esc> !<C-G>u<Esc>gqq
-inoremap <buffer> !<Space><Space> !<C-G>u<Esc>gqqA<C-G>u  
+inoremap <buffer> .<Space><Space> .<C-G>u<Esc>mQgqip`Qa<C-G>u  
+inoremap <buffer> .<C-Q> .<Esc>mQgqip`Q
+inoremap <buffer> .<Esc> .<Esc>mQgqip`Q
+inoremap <buffer> .<C-j> .<Esc>mQgqip`Qox<BS><Esc>
+""inoremap <buffer> ?? ?<C-G>u<Esc>mQgqip`Qa<C-G>u  
+inoremap <buffer> ?<C-Q> ?<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> ?<Esc> ?<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> ?<Space><Space> ?<C-G>u<Esc>mQgqip`Qa<C-G>u  
+""inoremap <buffer> !! !<C-G>u<Esc>mQgqip`Qa<C-G>u  
+inoremap <buffer> !<C-Q> !<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> !<Esc> !<C-G>u<Esc>mQgqip`Q
+inoremap <buffer> !<Space><Space> !<C-G>u<Esc>mQgqip`Qa<C-G>u  
 
 """ --- text related but not for all text
 
@@ -36,9 +41,6 @@ nnoremap a a<Enter><Esc>kA
 " to allow the original functionality if needed
 nnoremap qi i
 nnoremap qa a
-
-" in markdown i find softwrap useful
-set wrap linebreak nolist
 
 """ --- compiling
 "

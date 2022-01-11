@@ -10,5 +10,5 @@ let g:syntastic_always_populate_loc_list = 1
 
 "-- jumping errors
 " next and previous error, because I don't quite like unimpaired mappings
-nnoremap nm :lnext<CR>
-nnoremap mn :lprevious<CR>
+nnoremap mn :lnext<CR>
+nnoremap mm :lprevious<CR>
