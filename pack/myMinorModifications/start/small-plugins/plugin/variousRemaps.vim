@@ -27,22 +27,22 @@ inoremap {<C-j> <C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA
 " On my new keyboard \ and | are in a weird place and in combination with my
 " keyboard layout they are unaccessible
 inoremap `` \|
-inoremap 2` \|\|
+inoremap 1` `
+inoremap 2` ``
+inoremap 3` ```
 inoremap qq \
-inoremap 22q qq
-inoremap 2q \\
-inoremap 3q \\\
-inoremap 4q \\\\
-inoremap 5q \\\\\
+inoremap 1q q
+inoremap 2q qq
+inoremap 3q qqq
 " the same in command mode
-cnoremap `` \|
-cnoremap 2` \|\|
-cnoremap qq \
-cnoremap 22q qq
-cnoremap 2q \\
-cnoremap 3q \\\
-cnoremap 4q \\\\
-cnoremap 5q \\\\\
+inoremap `` \|
+inoremap 1` `
+inoremap 2` ``
+inoremap 3` ```
+inoremap qq \
+inoremap 1q q
+inoremap 2q qq
+inoremap 3q qqq
 " which gives me an idea about comments
 nnoremap q- o\\-<cr><Esc>
 nnoremap #- o#--<cr><Esc>
