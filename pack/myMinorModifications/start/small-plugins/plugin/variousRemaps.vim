@@ -35,14 +35,14 @@ inoremap 1q q
 inoremap 2q qq
 inoremap 3q qqq
 " the same in command mode
-inoremap `` \|
-inoremap 1` `
-inoremap 2` ``
-inoremap 3` ```
-inoremap qq \
-inoremap 1q q
-inoremap 2q qq
-inoremap 3q qqq
+cnoremap `` \|
+cnoremap 1` `
+cnoremap 2` ``
+cnoremap 3` ```
+cnoremap qq \
+cnoremap 1q q
+cnoremap 2q qq
+cnoremap 3q qqq
 " which gives me an idea about comments
 nnoremap q- o\\-<cr><Esc>
 nnoremap #- o#--<cr><Esc>
