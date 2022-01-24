@@ -68,3 +68,15 @@ echo "#!/usr/bin/bash" >> /usr/bin/xswap
 echo "# activating my xmodmap modifications" >> /usr/bin/xswap
 echo "xmodmap ~/.config/swap.xmodmap" >> /usr/bin/xswap
 chmod +x /usr/bin/xswap
+
+### --- vim related submodules/packs
+
+#-- helptags
+cd ~
+vim -u NONE -c 'helptags ALL|q'
+nvim -u NONE -c 'helptags ALL|q'
+
+#-- language client
+# this requires running a script before use
+cd $vimCD/pack/vendor/start/LanguageClient-neovim
+source install.sh
