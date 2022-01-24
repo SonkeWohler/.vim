@@ -58,9 +58,23 @@ alias gitdiff='git diff --staged'
 
 ### --- status
 
+#-- viewing status
 alias gits='git status'
 alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
+
+#-- updating/pulling
+alias gitp='git pull --all --tags'
+# WIP haven't fully tested it yet
+gitUp() {
+  git restore --staged :/
+  git stash
+  git pull --all --tags --no-commit
+  git submodule update --init --revursive --remote
+  git add -A
+  git commit -m "update submodules and pull remote"
+  git stash apply
+}
 
 ### --- branches
 
