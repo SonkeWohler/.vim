@@ -85,19 +85,40 @@ for example [pack/vendor/start](pack/vendor/start). They are then listed in the
 If the plugin has helptags run `:helptags` from inside its directory location
 or `:helptags ALL` from anywhere, after installing it.
 
-#### My own minor plugins
-
-I also keep small modifications under
-[pack/myMinorModifications](pack/myMinorModifications/). These are
-single file modifications that are too small to justify their own repo, but
-that I don't want in my `.vimrc`.
-
 #### Plugin Manager
 
 As recommended by (some) guides introducing you to vim, I am not using a plugin
 manager yet. I try to follow
 [this](https://vimways.org/2018/from-vimrc-to-vim/) pretty good guide on how to
 organise plugins with this system.
+
+I keep such plugins organised in three categories under `pack/`.
+
+#### Vendor
+
+These are plugins from other people that I add as dependencies.  I won't be
+editing these, they are simply added with `git submodule add <link>` and
+updated every time I run `git submodule update   git submodule update --init
+--revursive --remote`.  Beyond this nothing should be happening with them
+unless it is required by that specific plugin.
+
+#### Native
+
+This is where I keep most of what people normally keep in their vimrc.  I find
+it easier to work with them when they are organized in multiple files.  These
+are version controlled in the default and not part of any submodules.
+
+#### Mine
+
+These are plugins that I write myself.  There aren't many right now, may never
+be, but they have to be treated differently.  To edit them I go into the
+submodule and check checkout out the branches I work on, I test them around
+etc.  When these changes go back to the master branch I can go back to master
+and copy them in using by updating all submodules as above.
+
+This is the real reason why I chose to use git submodules instead of a plugin
+manager as I thought I might make more use of this.  Plus the fact that I
+refused to use a plugin manager outright as mentioned above.
 
 #### Filetype Plugins
 
@@ -112,6 +133,11 @@ plugins are setup correctly because vim will source `pack/*/start/**/ftdetect`
 files on startup and then source `pack/*/start/**/ftplugin` accordingly.
 
 ## Traditional Setup
+
+This is the outdated setup that is deprecated at this point.  Soon I can remove
+this part entirely.
+
+---
 
 This should be cloned into your `~/.vim` folder and any instructions will
 assume that that is the location of this repo.
