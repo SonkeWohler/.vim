@@ -49,9 +49,9 @@ alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
 #-- diff
 # list unstaged changes
-gitd() { git diff --color=always $@ | lessx ; }
+gitd() { git diff --color=always --submodule $@ | lessx ; }
 # staged changes only
-gitdif() { git diff --staged --color=always $@ | lessx ; }
+gitdif() { git diff --staged --color=always --submodule $@ | lessx ; }
 
 # staged changes only
 alias gitdiff='git diff --staged' 
