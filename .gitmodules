@@ -46,3 +46,9 @@
 [submodule "pack/vendor/start/vim-easymotion"]
 	path = pack/vendor/start/vim-easymotion
 	url = git@github.com:easymotion/vim-easymotion.git
+[submodule "pack/vendor/start/LanguageClient-neovim"]
+	path = pack/vendor/start/LanguageClient-neovim
+	url = git@github.com:autozimu/LanguageClient-neovim.git
+[submodule "pack/vendor/start/deoplete.nvim"]
+	path = pack/vendor/start/deoplete.nvim
+	url = git@github.com:Shougo/deoplete.nvim.git

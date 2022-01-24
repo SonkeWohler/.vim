@@ -13,6 +13,13 @@ echo 'default configuration loading'
 " note: I usually have Ctrl mapped to Capslock in my system, at least for
 " terminals and vim, which makes some things easier
 
+""" -- experimental options
+" these should probably be moved to pack/myMinorModifications some time soon,
+" if I keep them
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
 """ --- plugin related stuff ---
 
 " enable matchit that ships with vim
