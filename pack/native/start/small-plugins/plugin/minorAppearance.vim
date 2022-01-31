@@ -19,8 +19,3 @@ set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  
 set statusline+=%=              " Rest: right align
 set statusline+=%l,%c%V         " Position in buffer: linenumber, column, virtual column
 set statusline+=\ %P            " Position in buffer: Percentage
-
-
-
-
-

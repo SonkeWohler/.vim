@@ -5,9 +5,12 @@
   ""\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
 let g:LanguageClient_serverCommands = {
   \ 'rust': ['rust-analyzer'],
-  \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-  \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-  \ 'python': ['/usr/local/bin/pyls'],
+  \ 'javascript': ['typescript-language-server', '--stdio'],
+  \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
+  \ 'typescript': ['typescript-language-server', '--stdio'],
+  \ 'typescript.jsx': ['typescript-language-server', '--stdio'],
+  \ 'python': ['pylsp'],
+  \ 'sh': ['bash-language-server', 'start'],
   \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
 \ }
 
@@ -24,6 +27,10 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> L :call LanguageClient#textDocument_codeAction()<CR>
 " did i do this one right?
 nnoremap <silent> <C-P> :call LanguageClient#textDocument_completion()<CR>
+
+"-- formatting
+
+set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 """ --- augroups
 
