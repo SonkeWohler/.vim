@@ -47,11 +47,15 @@ alias vif='vimf'
 #-- search
 # simple ack with less
 axx() {
-  ack --color "$1" | less -RF
+  pattern="$1"
+  shift
+  ack --color "$pattern" $@ | less -RF
 }
 # usually I don't like case sensitivity
 ax() {
-  ack --color -i "$1" | less -RF
+  pattern="$1"
+  shift
+  ack --color -i "$pattern" $@ | less -RF
 }
 # search and replace using ack
 acks() {
@@ -75,7 +79,7 @@ filegrep() {
   shift
   find -maxdepth $arg1 | grep $@
 }
-alias fgrep='filegrep'
+alias fgrep='filegrep 1'
 faxx() {
   arg1=$1
   shift
