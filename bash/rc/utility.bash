@@ -1,5 +1,11 @@
 ### --- general purpose --- ###
 
+### --- sudo
+
+#-- aliases
+# https://wiki.archlinux.org/title/Sudo#Passing_aliases
+alias sudo='sudo '
+
 ### --- fzf
 
 # load completions and other useful stuff

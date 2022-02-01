@@ -1,5 +1,18 @@
 ### --- anything java related --- ###
 
+### --- archlinux java and the like
+
+alias aj='archlinux-java'
+alias ajl='archlinux-java status'
+alias ajls='archlinux-java status'
+alias ajj='archlinux-java status'
+
+alias aj17='archlinux-java set java-17-openjdk'
+alias aj11='archlinux-java set java-11-openjdk'
+alias aj12='archlinux-java set java-12-openjdk'
+alias aj16='archlinux-java set java-16-openjdk'
+alias aj8='archlinux-java set java-8-openjdk/jre'
+
 ### --- Maven and compiling
 
 alias maven='mvn'
