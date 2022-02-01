@@ -11,7 +11,6 @@ let g:LanguageClient_serverCommands = {
   \ 'typescript.jsx': ['typescript-language-server', '--stdio'],
   \ 'python': ['pylsp'],
   \ 'sh': ['bash-language-server', 'start'],
-  \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
 \ }
 
 
@@ -25,12 +24,37 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> L :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <silent> gn :call LanguageClient#diagnosticsNext()<CR>
+nnoremap <silent> gN :call LanguageClient#diagnosticsPrevious()<CR>
 " did i do this one right?
 nnoremap <silent> <C-P> :call LanguageClient#textDocument_completion()<CR>
 
 "-- formatting
+" the language client can be used to format very nicely
+" however, if there is no server setup it gets vim stuck
 
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+" because the filetype is not really accessible inside setup scripts the best
+" thing I can really do is set it on BufEnter, even if that means it is
+" redundantly setting the option.  As long as I don't have too many languages
+" installed that should do.
+
+function! LanguageClient_Formatting_Expression()
+  for lang in keys(g:LanguageClient_serverCommands)
+    if lang ==? &filetype
+      set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+      echom "LSP formatting is on"
+      break
+    endif
+  endfor
+  if $formatexpr ==? ""
+    echom "LSP formatting is OFF"
+  endif
+endfunction
+
+augroup LanguageClinet_Formatting
+  autocmd!
+  autocmd BufEnter * call LanguageClient_Formatting_Expression()
+augroup END
 
 """ --- augroups
 
