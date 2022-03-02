@@ -42,12 +42,10 @@ function! LanguageClient_Formatting_Expression()
   for lang in keys(g:LanguageClient_serverCommands)
     if lang ==? &filetype
       set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-      echom "LSP formatting is on"
       break
     endif
   endfor
   if $formatexpr ==? ""
-    echom "LSP formatting is OFF"
   endif
 endfunction
 
