@@ -86,3 +86,17 @@ nvim -u NONE -c 'helptags ALL|q'
 # this requires running a script before use
 cd $vimCD/pack/vendor/start/LanguageClient-neovim
 source install.sh
+
+### --- finishing up
+
+print ""
+print ""
+print ""
+print "I haven't integrated kde config files yet,"
+print "but if you are ok messing with it feel free to copy them from $vimCD/config/kde"
+print ""
+print "there are a few things related to the language client and the like I still have to setup"
+print ""
+print ""
+print ""
+print "but for the most part this should be it"

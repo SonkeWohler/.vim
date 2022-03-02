@@ -1,0 +1,26 @@
+[General]
+AutoExpandFolders=true
+ShowToolTips=true
+ShowZoomSlider=false
+Version=201
+ViewPropsTimestamp=2021,8,15,14,44,22.503
+
+[KPropertiesDialog]
+eDP-1 Height 1920x1080=656
+eDP-1 Width 1920x1080=546
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+eDP-1 Height 1920x1080=1010
+eDP-1 Width 1920x1080=952
+eDP-1 XPosition 1920x1080=4
+eDP-1 YPosition 1920x1080=66
+
+[Open-with settings]
+CompletionMode=1
+History=
+
+[ViewPropertiesDialog]
+eDP-1 Height 1920x1080=577
+eDP-1 Width 1920x1080=400

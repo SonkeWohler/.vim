@@ -1,0 +1,97 @@
+[General]
+deviceModel=HP ENVY 4500 series [61441F] (USB)
+deviceName=airscan:e0:HP ENVY 4500 series [61441F] (USB)
+deviceVendor=eSCL
+
+[Image Saving]
+NumberStartsFrom=1
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/Documents/Scans/noemi_dec2021/Noemi_Pension_05.png,file:$HOME/Downloads/contract/registration.png,file:$HOME/Downloads/contract/contract_3.png,file:$HOME/Downloads/contract/contract_2.png,file:$HOME/Downloads/contract/contract_1.png,file:$HOME/Downloads/contract/pasaport.png,file:$HOME/Downloads/contract/reges_2.png,file:$HOME/Downloads/contract/reges_1.png,file:$HOME/Downloads/contract/raport_salariat.png,file:$HOME/Downloads/sonke_wohler_declaratie_in_spatiu.png,file:$HOME/sonke_wohler_declaratie_de_luare_in_spatiu.png,file:$HOME/Downloads/sonke_wohler_diploma_3.png,file:$HOME/Downloads/sonke_wohler_diploma_2.png,file:$HOME/Downloads/sonke_wohler_diploma_1.png,file:$HOME/Downloads/sonke_wohler_diploma_0.png,file:$HOME/Downloads/sonke_wohler_carimed.png
+Recent URLs[$e]=file:$HOME/tmp/,file:$HOME/,file:$HOME/Documents/Scans/,file:$HOME/Documents/Scans/noemi_dec2021/,file:$HOME/Downloads/,file:$HOME/Documents/,file:$HOME/Downloads/contract/
+detailViewIconSize=16
+
+[Options For HP:ENVY 4500 series \x5b61441F\x5d]
+KSane::InvertColors=false
+KSane::PageSize=Custom
+br-x=215.899994
+br-y=297.010666
+brightness=1000
+contrast=1000
+mode=Colour
+preview=false
+preview-in-gray=false
+resolution=200
+source=Flatbed
+tl-x=0.000000
+tl-y=0.000000
+
+[Options For airscan:e0:HP ENVY 4500 series \x5b61441F\x5d (USB)]
+KSane::BatchMode=false
+KSane::BatchTimeDelay=10
+KSane::InvertColors=false
+KSane::PageSize=Custom
+analog-gamma=1.000000
+br-x=215.899994
+br-y=297.010666
+brightness=0.000000
+contrast=0.000000
+highlight=100.000000
+mode=Colour
+negative=false
+resolution=200
+shadow=0.000000
+source=Flatbed
+tl-x=0.000000
+tl-y=0.000000
+
+[Options For airscan:e1:HP ENVY 4500 series \x5b61441F\x5d (USB)]
+KSane::BatchMode=false
+KSane::BatchTimeDelay=10
+KSane::InvertColors=false
+KSane::PageSize=Custom
+analog-gamma=1.000000
+br-x=215.899994
+br-y=297.010666
+brightness=0.000000
+contrast=0.000000
+highlight=100.000000
+mode=Colour
+negative=false
+resolution=300
+shadow=0.000000
+source=Flatbed
+tl-x=0.000000
+tl-y=0.000000
+
+[Options For eSCL:HP ENVY 4500 series \x5b61441F\x5d (USB)]
+KSane::InvertColors=false
+KSane::PageSize=Custom
+analog-gamma=1.000000
+br-x=215.899994
+br-y=297.010666
+brightness=0.000000
+contrast=0.000000
+highlight=100.000000
+mode=Colour
+negative=false
+resolution=300
+shadow=0.000000
+source=Flatbed
+tl-x=0.000000
+tl-y=0.000000
+
+[Options For v4l:/dev/video0]
+KSane::BatchMode=false
+KSane::BatchTimeDelay=10
+KSane::InvertColors=false
+KSane::PageSize=Custom
+brightness=128
+color=81
+contrast=81
+hue=128
+mode=Colour
+white-level=119
+
+[Window]
+Geometry=811,400

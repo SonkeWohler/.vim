@@ -1,0 +1,34 @@
+[Desktop Entry]
+DefaultProfile=softer Garuda.profile
+
+[KonsoleWindow]
+FocusFollowsMouse=true
+ShowMenuBarByDefault=false
+ShowWindowTitleOnTitleBar=true
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAfsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAAMMA////AAAHgAAABBYAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAADAAAAAgAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAAAAAAD/////AAAAAAAAAAAAAAAcAHMAZQBzAHMAaQBvAG4AVABvAG8AbABiAGEAcgAAAAAAAAAB+wAAAAAAAAAA
+StatusBar=Disabled
+ToolBarsMovable=Disabled
+eDP-1 Height 1920x1080=661
+eDP-1 Width 1920x1080=1272
+eDP-1 Window-Maximized 1920x1080=true
+eDP-1 Window-Maximized 640x480=true
+eDP-1 XPosition 1920x1080=961
+eDP-1 YPosition 1920x1080=68
+
+[MainWindow][Toolbar mainToolBar]
+ToolButtonStyle=TextOnly
+
+[MainWindow][Toolbar sessionToolbar]
+IconSize=16
+
+[Toolbar mainToolBar]
+ToolButtonStyle=TextOnly
+
+[Toolbar sessionToolbar]
+IconSize=16
+
+[UiSettings]
+ColorScheme=Default
