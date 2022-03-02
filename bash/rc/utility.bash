@@ -123,3 +123,14 @@ alias xclipp='xclip -selection clipboard'
 # cleanup compilation files
 alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log|\.out" | xargs rm -v'
 
+
+### --- docker
+# WIP #
+# all this is experimental
+# WIP #
+
+dattach() {
+  docker exec -i -t $1 /bin/bash
+}
+
+alias dockerQa='docker system prune -a'

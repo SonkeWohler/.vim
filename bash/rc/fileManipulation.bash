@@ -52,10 +52,10 @@ alias open='xdg-open'
 ### --- oversimplified bookmarks
 
 alias cdd='cd $writingCD'
-alias cdwork='cd $workCD'
+alias cdw='cd $workCD'
 alias cdihp='cd $workCD/IHP'
 alias cdt='cd $tempCD'
 alias cdv='cd $vimCD'
 alias cdl='cd $librariesCD'
-alias cdw='cd $wikiCD'
+alias cdwiki='cd $wikiCD'
 alias cdlatex='cd $librariesCD/latex/'
