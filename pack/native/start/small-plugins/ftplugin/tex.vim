@@ -21,6 +21,13 @@ inoremap <buffer> !<C-Q> !<C-G>u<Esc>mQgqip`Q
 inoremap <buffer> !<Esc> !<C-G>u<Esc>mQgqip`Q
 inoremap <buffer> !<Space><Space> !<C-G>u<Esc>mQgqip`Qa<C-G>u  
 
+" turn a ',' into a '.' or ensure there are two spaces after '.'
+nnoremap ,. s. <Esc>2lvU
+" ',' into '-' with correct spacing
+nnoremap ,- s -<Esc>
+" reverse of previous
+nnoremap -, h2s,<esc>
+
 """ --- end of text
 
 "-- compiling

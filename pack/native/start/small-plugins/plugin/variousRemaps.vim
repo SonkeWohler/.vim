@@ -1,6 +1,6 @@
 """ --- remappings for general purpose operations --- """
 
-""" --- viewing
+""" --- scrolling
 
 " So I can more easily scroll though a file with hands off keyboard too
 nnoremap <Up> 5<c-y>
@@ -13,7 +13,7 @@ nnoremap <Right> <c-d>
 " I am missing a <Del> key, but <C-d> (used in bash) is already taken
 inoremap <C-l> <Del>
 
-" swap two chars, like xp but without affecting "_ and as one atom
+" swap two chars, like xp but without affecting "_ mappings and as one atom
 nnoremap sx "xx"xp
 
 "-- bracketing
@@ -80,6 +80,19 @@ nnoremap <M-j> F<Space>i<Enter><Esc>k$
 " fusing lines
 nnoremap J mJJ`J
 
+"-- spelling
+
+" when I believe the first suggestion will be the correct one
+nnoremap zz z=1<CR><CR>
+" do the above on the last bad word
+nnoremap zs ms[sz=1<CR><CR>`s
+
+""" --- visual mode
+
+"-- {} blocks
+" select the block including its defition (e.g. for () {...)
+nnoremap va{ va{V
+
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>
 inoremap <c-q> <Esc>
@@ -90,4 +103,3 @@ snoremap <c-q> <Esc>
 onoremap <c-q> <Esc>
 " See Issue #5 https://github.com/SonkeWohler/.vim/issues/5
 cnoremap <c-q> <C-e><c-u><c-h>
-

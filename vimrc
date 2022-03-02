@@ -42,7 +42,7 @@ set nohidden
 nnoremap \= z=
 " I don't need spell in most situations, especially code
 set nospell
-set spellfile=~/.vim/pack/myMinorModifications/config/en.utf-8.add
+set spellfile=~/.vim/pack/native/config/en.utf-8.add
 ""if &diff
 ""  set nospell
 ""endif

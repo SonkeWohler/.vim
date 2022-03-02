@@ -26,6 +26,13 @@ inoremap <buffer> !<C-Q> !<C-G>u<Esc>mQgqip`Q
 inoremap <buffer> !<Esc> !<C-G>u<Esc>mQgqip`Q
 inoremap <buffer> !<Space><Space> !<C-G>u<Esc>mQgqip`Qa<C-G>u  
 
+" turn a ',' into a '.' or ensure there are two spaces after '.'
+nnoremap ,. s. <Esc>2lvU
+" ',' into '-' with correct spacing
+nnoremap ,- s -<Esc>
+" reverse of previous
+nnoremap -, h2s,<esc>
+
 """ --- text related but not for all text
 
 " normally ^W doesn't work on words with ' in them, like doesn't
