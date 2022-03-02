@@ -58,6 +58,12 @@ print "setting up tmux"
 
 ln --symbolic --verbose $vimCD/config/.tmux.conf ~/.tmux.conf
 
+#-- easyeffects
+
+print "easyeffects ... you may need to import them from the gui"
+
+ln --symbolic --verbose $vimCD/config/my_easyeffects.json ~/.config/easyeffects/output/my_easyeffects.json
+
 #-- other misc
 
 print "miscellaneous configs"
