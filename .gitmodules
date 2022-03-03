@@ -52,3 +52,9 @@
 [submodule "pack/vendor/start/deoplete.nvim"]
 	path = pack/vendor/start/deoplete.nvim
 	url = git@github.com:Shougo/deoplete.nvim.git
+[submodule "pack/vendor/start/vim-javascript"]
+	path = pack/vendor/start/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "pack/vendor/start/typescript-vim"]
+	path = pack/vendor/start/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
