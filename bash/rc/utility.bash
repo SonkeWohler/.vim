@@ -89,7 +89,7 @@ alias fgrep='filegrep 1'
 faxx() {
   arg1=$1
   shift
-  find -maxdepth $arg1 | ack --color --files-from=- $@
+  find -maxdepth $arg1 -type f | ack --color --files-from=- $@
 }
 fax() {
   arg1=$1

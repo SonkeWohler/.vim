@@ -4,6 +4,7 @@ wheel:Vertical;NoModifier=org.kde.switchdesktop
 
 [Containments][1]
 ItemGeometries-1920x1080=
+ItemGeometries-1920x1200=
 ItemGeometries-640x480=
 ItemGeometriesHorizontal=
 activityId=82e6b9f1-e288-4964-ab64-fc7bb2ac4b2d
@@ -19,13 +20,12 @@ DialogHeight=1032
 DialogWidth=1920
 
 [Containments][1][Configuration]
-PreloadWeight=0
+PreloadWeight=42
 
 [Containments][1][General]
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=720
 ToolBoxButtonY=24
-positions=3,16,desktop:/BashNotesForProfessionals.pdf,0,1,desktop:/cli_coreutils.epub,0,0,desktop:/warnings,2,5
 sortMode=-1
 
 [Containments][1][Wallpaper][com.github.zren.inactiveblur][General]
@@ -51,7 +51,7 @@ DialogHeight=600
 DialogWidth=800
 
 [Containments][2][Configuration]
-PreloadWeight=18
+PreloadWeight=42
 
 [Containments][2][General]
 positions=8,16,desktop:/BashNotesForProfessionals.pdf,7,15,desktop:/cli_coreutils.epub,5,15
@@ -61,6 +61,15 @@ sortMode=-1
 Image=file:///usr/share/wallpapers/garuda-wallpapers/Metall SGS.png
 SlidePaths=/usr/share/wallpapers
 
+[Containments][3]
+activityId=82e6b9f1-e288-4964-ab64-fc7bb2ac4b2d
+formfactor=0
+immutability=1
+lastScreen=1
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/cli_coreutils.epub,0,desktop:/warnings,0,desktop:/BashNotesForProfessionals.pdf,0
+screenMapping=desktop:/warnings,0,desktop:/cli_coreutils.epub,0,desktop:/BashNotesForProfessionals.pdf,0

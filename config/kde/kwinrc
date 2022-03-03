@@ -113,7 +113,7 @@ LayoutName=coverswitch
 
 [Windows]
 BorderSnapZone=25
-BorderlessMaximizedWindows=true
+BorderlessMaximizedWindows=false
 ElectricBorderCooldown=650
 ElectricBorderCornerRatio=0.17
 ElectricBorderDelay=400

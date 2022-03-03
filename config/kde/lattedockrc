@@ -28,8 +28,13 @@ windowSize=980,630
 [PlasmaThemeExtended]
 outlineWidth=1
 
+[PlasmaTransientsConfig]
+PreloadWeight=42
+
 [ScreenConnectors]
 10=eDP-1:::0,0 1920x1080
+11=eDP1:::0,1390 1920x1080
+12=HDMI1:::28,0 1920x1200
 
 [UniversalSettings]
 badges3DStyle=false
@@ -47,5 +52,5 @@ parabolicSpread=3
 parabolicThicknessMarginInfluence=1
 screenTrackerInterval=2500
 showInfoWindow=true
-singleModeLayoutName=Garuda
+singleModeLayoutName=Default
 version=2
