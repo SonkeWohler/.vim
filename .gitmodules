@@ -49,9 +49,6 @@
 [submodule "pack/vendor/start/LanguageClient-neovim"]
 	path = pack/vendor/start/LanguageClient-neovim
 	url = git@github.com:autozimu/LanguageClient-neovim.git
-[submodule "pack/vendor/start/deoplete.nvim"]
-	path = pack/vendor/start/deoplete.nvim
-	url = git@github.com:Shougo/deoplete.nvim.git
 [submodule "pack/vendor/start/vim-javascript"]
 	path = pack/vendor/start/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
