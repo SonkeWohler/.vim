@@ -82,6 +82,10 @@ nvim -u NONE -c 'helptags ALL|q'
 cd $vimCD/pack/vendor/start/LanguageClient-neovim
 source install.sh
 
+#-- rustup
+
+rustup toolchain install stable
+
 ### --- finishing up
 
 print ""

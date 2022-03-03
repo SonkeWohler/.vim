@@ -10,7 +10,7 @@
 # While this would be cleaner in multiple files, due to the intended
 # usage it is one unreasonably large file
 
-# While you can probably curl this script you should always wget it
+# While you can probably curl this script you should always curl it
 # and inspect it before executing it, especially since it needs root
 # priviliges.  At least that is the best practice security wise
 
@@ -60,7 +60,7 @@ manager[/etc/gentoo-release]=emerge
 # anything like rust that can't be done by the package manager in the
 # end
 declare -A packageInstallCLI;
-packageInstallCLI[pacman]="pacman -S git xclip tmux ack fzf vim neovim texlive-humanities texlive-bibtexextra texlive-fontsextra texlive-formatsextra texlive-latexextra texlive-pictures texlive-science pandoc jdk-openjdk jdk8-openjdk maven htop ncdu timeshift tar zip unzip rustup"
+packageInstallCLI[pacman]="pacman -S git xclip tmux ack fzf vim neovim texlive-humanities texlive-bibtexextra texlive-fontsextra texlive-formatsextra texlive-latexextra texlive-pictures texlive-science pandoc jdk-openjdk jdk8-openjdk maven htop ncdu timeshift tar zip unzip rustup rust-analyzer mypy python-lsp-server npm docker docker-compose"
 packageInstallCLI[apt]="apt install git xclip tmux ack fzf vim neovim texlive-full pandoc openjdk-16-jdk maven htop ncdu timeshift tar zip unzip && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 # TODO packages for alpine
 packageInstallCLI[apk]='print "this is currently unsuported (TODO), the script is failing now" && exit 1'
@@ -213,8 +213,8 @@ if ! [[ fzf_installed -eq 0 ]]; then
   print "placing them now"
   mkdir --parents --verbose /usr/share/fzf
   cd /usr/share/fzf
-  wget https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash
-  wget https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash
+  curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash >> completion.bash
+  curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash >> key-bindings.bash
 fi
 
 #-- refer to non-root setup files
@@ -223,6 +223,6 @@ cd $userHome
 print "the sudo setup script is done"
 print "you should continue setting up github and config files using the setup.bash file"
 print "downloading file now from https://raw.githubusercontent.com/SonkeWohler/.vim/master/setup/setup.bash"
-wget https://raw.githubusercontent.com/SonkeWohler/.vim/master/setup/setup.bash
+curl https://raw.githubusercontent.com/SonkeWohler/.vim/master/setup/setup.bash >> setup.bash
 chmod +x setup.bash
 print "run it using:   source setup.bash"
