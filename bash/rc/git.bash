@@ -86,6 +86,11 @@ gitbranch() {
   git branch $1 && git checkout $1 && git push --set-upstream origin $1
 }
 
+### --- remotes
+
+#-- force with lease
+alias pleasegit='git push --force-with-lease'
+
 ### --- cleaning
 
 # remove dead branches 
@@ -125,5 +130,14 @@ gitgraph() { gitlogmg --graph --color=always $@ | lessx ; }
 # whole message
 gitlogb() { gitlogmb --color=always $@ | lessx ; }
 
+### --- submodules
 
+giteach() {
+  git submodule foreach "$1"
+}
 
+gitsub() {
+  cd $1 || return 1
+  eval $2
+  cd ..
+}
