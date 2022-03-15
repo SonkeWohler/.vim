@@ -9,6 +9,10 @@ set cpoptions=aABceFs
 " https://stevelosh.com/blog/2012/10/why-i-two-space/  under the 'Power' heading
 set cpoptions+=J
 
+"-- textwidth
+set textwidth=80
+""set colorcolumn=+1
+
 "-- indents and lines
 " set tabwidth to 2
 set tabstop=2 shiftwidth=2 expandtab
