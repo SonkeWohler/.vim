@@ -87,12 +87,6 @@ nnoremap zz z=1<CR><CR>
 " do the above on the last bad word
 nnoremap zs ms[sz=1<CR><CR>`s
 
-""" --- visual mode
-
-"-- {} blocks
-" select the block including its defition (e.g. for () {...)
-nnoremap va{ va{V
-
 """ --- Esc key
 "-- I don't enjoy <C-[> with my little finger, so I use <C-Q>
 inoremap <c-q> <Esc>

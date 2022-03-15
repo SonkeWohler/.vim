@@ -11,7 +11,10 @@ nnoremap s "_s
 nnoremap S "_S
 
 " 'x' and 'X' always mean forget about the deleted content even in visual mode
+" so do `c` and `C`
 nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
+vnoremap c "_c
+vnoremap C "_C
