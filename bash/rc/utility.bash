@@ -34,10 +34,6 @@ bind '"\e`":"|"'
 bind '"\eq":"|"'
 bind '"\ez":"\\"'
 
-# i prefer to type `clear` out and now I found a use for \C-l
-# edit: turns out that most shells don't work like git bash for windows
-##bind '"\C-l":" | lessx"' 
-
 ### --- editor related
 
 # for <C-x-e>
@@ -50,97 +46,12 @@ export SUDO_EDITOR="vim"
 alias vimf='vim -o `fzf`'
 alias vif='vimf'
 
-#-- search
-# simple ack with less
-axx() {
-  pattern="$1"
-  shift
-  ack --color "$pattern" $@ | less -RF
-}
-# usually I don't like case sensitivity
-ax() {
-  pattern="$1"
-  shift
-  ack --color -i "$pattern" $@ | less -RF
-}
-# search and replace using ack
-acks() {
-  if test -z "$1" | test -z "$2"; then
-    echo "requires non-zero search string and a replace string"
-    return 1
-  fi
-  ack --color "$1" | less -RF
-  echo "confirm replace [a]ll or [n]ot"
-  read -n 1 yesNo
-  if [ "$yesNo" = "n" ];then
-    echo "not replacing anything, the end"
-    return 0
-  fi
-  # TODO replace one by one
-  ack -l "$1" | xargs perl -pi -E "s/$1/$2/g"
-}
-# limit the depth for searching files
-filegrep() {
-  arg1=$1
-  shift
-  find -maxdepth $arg1 | grep $@
-}
-alias fgrep='filegrep 1'
-faxx() {
-  arg1=$1
-  shift
-  find -maxdepth $arg1 -type f | ack --color --files-from=- $@
-}
-fax() {
-  arg1=$1
-  shift
-  faxx $arg1 -i $@
-}
-
-### --- scoop related
-# update all
-scoopUp() {
-  cd $scoopCD
-
-  scoop update
-  scoop update *
-  cd -
-}
-
-### --- workarounds
-
-# reduces issues related to Capslock being mapped to Ctrl on windows
-alias exx='sleep 0.25s ; exit' 
-# sometimes I like to do it this way
-alias :q='exx'
-
-# xclip
-alias xclipp='xclip -selection clipboard'
-
 ### --- other
 
 #-- Latex
 # cleanup compilation files
 alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log|\.out" | xargs rm -v'
 
+# xclip
+alias xclipp='xclip -selection clipboard'
 
-### --- docker
-# WIP #
-# all this is experimental
-# WIP #
-
-dattach() {
-  docker exec -i -t $1 /bin/bash
-}
-
-alias dcom='docker-compose'
-
-alias dockerQa='docker system prune -a'
-
-### --- package manager
-# I should (eventually) adapt this to work on any package manager and use some way to detect the correct one.  Not now though.
-
-#-- pacman
-
-# install but update before you do
-alias install='sudo pacman -Syu && sudo pacman -S '
