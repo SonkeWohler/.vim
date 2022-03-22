@@ -58,3 +58,6 @@
 [submodule "pack/vendor/start/vim-pythonsense"]
 	path = pack/vendor/start/vim-pythonsense
 	url = git@github.com:jeetsukumaran/vim-pythonsense.git
+[submodule "pack/vendor/start/vim-commentary"]
+	path = pack/vendor/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
