@@ -55,3 +55,6 @@
 [submodule "pack/vendor/start/typescript-vim"]
 	path = pack/vendor/start/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "pack/vendor/start/vim-pythonsense"]
+	path = pack/vendor/start/vim-pythonsense
+	url = git@github.com:jeetsukumaran/vim-pythonsense.git
