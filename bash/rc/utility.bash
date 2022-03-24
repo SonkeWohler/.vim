@@ -46,7 +46,7 @@ export SUDO_EDITOR="vim"
 alias vimf='vim -o `fzf`'
 alias vif='vimf'
 
-### --- other
+### --- code cleanup
 
 #-- Latex
 # cleanup compilation files
@@ -55,3 +55,9 @@ alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log|\.out" | 
 # xclip
 alias xclipp='xclip -selection clipboard'
 
+#-- python
+# clean and check and all that
+# can be run on directories
+clean_py() { black --line-length 79 $@ && echo 'running pylint >> pylint.log' ... && pylint $@ --output=pylint.log && cat pylint.log && echo "running mypy >> mypy.log ..." && mypy $@ && echo "pylint output has been saved to ./pylint.log" ; }
+alias cleanpy='clean_py'
+alias cleanPy='clean_py'
