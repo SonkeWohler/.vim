@@ -46,9 +46,6 @@
 [submodule "pack/vendor/start/vim-easymotion"]
 	path = pack/vendor/start/vim-easymotion
 	url = git@github.com:easymotion/vim-easymotion.git
-[submodule "pack/vendor/start/LanguageClient-neovim"]
-	path = pack/vendor/start/LanguageClient-neovim
-	url = git@github.com:autozimu/LanguageClient-neovim.git
 [submodule "pack/vendor/start/vim-javascript"]
 	path = pack/vendor/start/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
@@ -61,3 +58,6 @@
 [submodule "pack/vendor/start/vim-commentary"]
 	path = pack/vendor/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary.git
+[submodule "pack/vendor/start/ale"]
+	path = pack/vendor/start/ale
+	url = git@github.com:dense-analysis/ale.git
