@@ -69,4 +69,13 @@ set background=dark
 :command QA qa!
 :command Qa qa!
 
+" from https://github.com/dense-analysis/ale#installation
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
+
 """ --- temporary stuff

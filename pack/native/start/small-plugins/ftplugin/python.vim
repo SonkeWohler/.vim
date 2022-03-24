@@ -2,6 +2,8 @@
 
 """--- simple stuff
 
+set textwidth=79
+
 "--
 command-buffer Run !python3 %
 command-buffer RUN !python3 %
