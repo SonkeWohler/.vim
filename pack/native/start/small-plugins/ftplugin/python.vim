@@ -1,8 +1,10 @@
 """ --- python stuff --- """
 
-"""--- simple stuff
+"""--- format stuff
 
 set textwidth=79
+" https://stackoverflow.com/questions/15285032/autopep8-with-vim
+""setlocal formatprg=autopep8\ -
 
 "--
 command-buffer Run !python3 %

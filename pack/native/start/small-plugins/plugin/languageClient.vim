@@ -3,6 +3,7 @@
 """ --- options
 
 let g:is_pythonsense_alternate_motion_keymaps = 1
+let g:ale_completion_enabled = 1
 
 """ --- language servers
 
@@ -10,17 +11,24 @@ let g:ale_linters = {
       \ 'python': ['mypy', 'autoimport', 'pylsp']
       \}
 let g:ale_fixers = {
-      \ 'python': ['autoimport', 'black', 'remove_trailing_lines', 'trim_whitespace']
+      \ 'python': [
+      \   'autoimport',
+      \   'remove_trailing_lines',
+      \    'trim_whitespace'
+      \ ],
+      \ 'vim': ['vint', 'remove_trailing_lines', 'trim_whitespace'],
+      \ '*': ['remove_trailing_lines', 'trim_whitespace']
       \}
+""'!black --skip-string-normalization --line-length 79 %',
 
 """ --- mappings
 
-nnoremap <silent> gr :ALEFindReferences<CR>
+nnoremap <silent> gr mgmG:ALEFindReferences<CR>
 nnoremap <silent> L :ALECodeAction<CR>
 nnoremap <silent> <F2> :ALERename<CR>
-nnoremap <silent> gd :ALEGoToDefinition<CR>
-nnoremap <silent> gn :ALENextWrap<CR>
-nnoremap <silent> gN :ALEPreviousWrap<CR>
+nnoremap <silent> gd mgmG:ALEGoToDefinition<CR>
+nnoremap <silent> gn :ALENext<CR>
+nnoremap <silent> gN :ALEPrevious<CR>
 
 inoremap <silent> <C-Space> <C-\><C-O>:ALEComplete<CR>
 
