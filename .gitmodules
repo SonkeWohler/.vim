@@ -40,9 +40,6 @@
 [submodule "pack/vendor/start/vim-tbone"]
 	path = pack/vendor/start/vim-tbone
 	url = git@github.com:tpope/vim-tbone.git
-[submodule "pack/vendor/start/vim-maven-ide"]
-	path = pack/vendor/start/vim-maven-ide
-	url = git@github.com:dareni/vim-maven-ide.git
 [submodule "pack/vendor/start/vim-easymotion"]
 	path = pack/vendor/start/vim-easymotion
 	url = git@github.com:easymotion/vim-easymotion.git
