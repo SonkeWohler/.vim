@@ -3,7 +3,7 @@
 ### --- file manipulation, I like everything verbal
 
 alias mkd='mkdir -vp'
-alias rmv='rm -rv'
+alias rmv='rm -rvi'
 alias rmd='rm -dv'
 alias mvv='mv -v'
 alias cpv='cp -rv'

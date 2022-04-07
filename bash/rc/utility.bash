@@ -58,6 +58,49 @@ alias xclipp='xclip -selection clipboard'
 #-- python
 # clean and check and all that
 # can be run on directories
-clean_py() { black --line-length 79 $@ && echo 'running pylint >> pylint.log' ... && pylint $@ --output=pylint.log && cat pylint.log && echo "running mypy >> mypy.log ..." && mypy $@ && echo "pylint output has been saved to ./pylint.log" ; }
+clean_py() {
+  if [[ $1 = "-l" ]] || [[ $1 = "l" ]] || [[ $1 = "local" ]] || [[ $1 = "--local" ]]; then
+    logfilename="./"
+    shift
+  else
+    logfilename="/tmp/$(date --date now +'%Y.%m.%d-%H.%M.%S')"
+  fi
+  if test -z "$1"; then
+    echo "requires non-zero filepath"
+    return 1
+  fi
+  echo 'running isort ... '
+  isort $@
+  echo 'running black ... '
+  black --skip-string-normalization --line-length 79 $@
+  echo 'running pylint >> /tmp/<date>.pylint.log ...'
+  pylint $@ --output="$logfilename.pylint.log"
+  cat "$logfilename.pylint.log"
+  echo 'running mypy >> /tmp/<date>.mypy.log ...'
+  mypy $@ > "$logfilename.mypy.log"
+  cat "$logfilename.mypy.log"
+  echo "pylint output has been saved to $logfilename.pylint.log" 
+  echo "mypy output has been saved to $logfilename.mypy.log"
+}
+
 alias cleanpy='clean_py'
 alias cleanPy='clean_py'
+alias clp='clean_py'
+
+alias pp='poetry'
+
+#-- npm and node
+
+# https://wiki.archlinux.org/title/Node.js#Node_Packaged_Modules
+source /usr/share/nvm/init-nvm.sh
+
+# running cypress
+alias npc='npx cypress open'
+##alias cywms='cd $workCD/ui && npc && cd -'
+cywms() {
+  cd $workCD/ui || return 1
+  logfilename="/tmp/$(date --date now +'%Y.%m.%d-%H.%M.%S').cypress.log"
+  npx cypress open &>> $logfilename &
+  echo "cypress logfile at $logfilename"
+  cd -
+}
