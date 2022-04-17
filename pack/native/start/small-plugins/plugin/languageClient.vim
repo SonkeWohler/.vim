@@ -8,7 +8,9 @@ let g:ale_completion_enabled = 1
 """ --- language servers
 
 let g:ale_linters = {
-      \ 'python': ['mypy', 'autoimport', 'pylsp']
+      \ 'python': ['mypy', 'autoimport', 'pylsp'],
+      \ 'javascript': ['eslint'],
+      \ 'typescript': ['eslint'],
       \}
 let g:ale_fixers = {
       \ 'python': [
@@ -17,7 +19,9 @@ let g:ale_fixers = {
       \    'trim_whitespace'
       \ ],
       \ 'vim': ['vint', 'remove_trailing_lines', 'trim_whitespace'],
-      \ '*': ['remove_trailing_lines', 'trim_whitespace']
+      \ 'javascript': ['eslint', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'typescript': ['eslint', 'remove_trailing_lines', 'trim_whitespace'],
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \}
 ""'!black --skip-string-normalization --line-length 79 %',
 

@@ -38,12 +38,10 @@ nnoremap -, h2s,<esc>
 " normally ^W doesn't work on words with ' in them, like doesn't
 inoremap <C-W> <Esc>dBxa
 " this creates some problems if there is text after the cursor, this helps
-nnoremap i i<Enter><Esc>kA
-nnoremap a a<Enter><Esc>kA
+nnoremap qi i<Enter><Esc>kA
+nnoremap qa a<Enter><Esc>kA
 " TODO with c and s, but need to apply the motion as well
 " to allow the original functionality if needed
-nnoremap qi i
-nnoremap qa a
 
 """ --- compiling
 "
