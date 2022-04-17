@@ -95,12 +95,12 @@ alias pp='poetry'
 source /usr/share/nvm/init-nvm.sh
 
 # running cypress
-alias npc='npx cypress open'
+alias npc='npx cypress open --config watchForFileChanges=false'
 ##alias cywms='cd $workCD/ui && npc && cd -'
 cywms() {
   cd $workCD/ui || return 1
   logfilename="/tmp/$(date --date now +'%Y.%m.%d-%H.%M.%S').cypress.log"
-  npx cypress open &>> $logfilename &
+  npx cypress open --config watchForFileChanges=false &>> $logfilename &
   echo "cypress logfile at $logfilename"
   cd -
 }
