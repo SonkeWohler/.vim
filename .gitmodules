@@ -64,3 +64,6 @@
 [submodule "pack/vendor/start/vim-speeddating"]
 	path = pack/vendor/start/vim-speeddating
 	url = git@github.com:tpope/vim-speeddating.git
+[submodule "pack/vendor/start/vim-characterize"]
+	path = pack/vendor/start/vim-characterize
+	url = git@github.com:tpope/vim-characterize.git
