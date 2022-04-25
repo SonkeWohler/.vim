@@ -16,6 +16,10 @@ kktach() {
   kattach $(ktl get pod -l app=$1 -o jsonpath="{.items[0].metadata.name}")
 }
 
+
+### --- kubernetes
+
+alias kk='k9s'
 alias ktl='kubectl'
 
 alias dcom='docker-compose'

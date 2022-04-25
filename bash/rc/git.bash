@@ -133,7 +133,13 @@ gitlogb() { gitlogmb --color=always $@ | lessx ; }
 ### --- submodules
 
 giteach() {
-  git submodule foreach "$1"
+  git submodule foreach "$@ && echo '' || echo '+++ command failed +++' && echo ''"
+}
+giteachall() {
+  giteach --recursive $@
+}
+giteachone() {
+  giteach $1
 }
 
 gitsub() {
@@ -141,3 +147,5 @@ gitsub() {
   eval $2
   cd ..
 }
+
+alias gitsubdate='git submodule update --recursive --remote'
