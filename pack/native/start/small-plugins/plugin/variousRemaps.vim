@@ -71,6 +71,7 @@ nnoremap O Ox<BS>
 " I feel like inserting a single new line should be done in normal mode
 nnoremap <C-j> Ox<BS><Esc>0"_d$j
 nnoremap <C-m> ox<BS><Esc>0"_d$
+nnoremap <Enter> ox<BS><Esc>0"_d$
 " In insert new lines should be a separate atom
 ""inoremap <C-j> <C-G>u<Esc>a<CR>
 inoremap <C-j> <C-G>u<CR>x<BS><Esc>
