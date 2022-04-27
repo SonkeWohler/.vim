@@ -114,6 +114,8 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 alias gitlogm='git log --pretty=format:"%cn, %cr :: %s"' 
 # hash
 alias gitlogmh='git log --pretty=format:"%h, %cd :: %s"'
+# diffs
+alias gitlogmp='git log --pretty=format:"%n%h, %cd :: %s%n=============================================%n"'
 # graph
 alias gitlogmg='git log --pretty=format:"%cr :: %s"'
 # whole message (%B)
@@ -124,7 +126,7 @@ gitlog() { gitlogm --color=always $@ | lessx ; }
 # hashes
 gitlogh() { gitlogmh --color=always $@ | lessx ; }
 # diffs
-gitlogp() { gitlogm -p --color=always $@ | lessx ; }
+gitlogp() { gitlogmp -p --color=always $@ | lessx ; }
 # graph
 gitgraph() { gitlogmg --graph --color=always $@ | lessx ; } 
 # whole message
