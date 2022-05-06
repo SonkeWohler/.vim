@@ -10,6 +10,12 @@ alias root='cd $(git rev-parse --show-toplevel)'
 # return from git submodule to root of superproject
 alias git.='root ; cd .. ; root'
 
+# git switch and switch back
+alias gitsw='git switch'
+# alias git-='git switch -'
+# alias gi-='git switch -'
+alias gi--='git switch -'
+
 ### --- diffs related
 
 #-- commits

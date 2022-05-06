@@ -8,6 +8,7 @@ set cpoptions=aABceFs
 " and 'J' added
 " https://stevelosh.com/blog/2012/10/why-i-two-space/  under the 'Power' heading
 set cpoptions+=J
+set joinspaces
 
 "-- textwidth
 set textwidth=80
@@ -19,7 +20,7 @@ set tabstop=2 shiftwidth=2 expandtab
 " smartindent is better than just autoindent
 set smartindent
 " auto-format options
-set formatoptions=croqlnjp
+set formatoptions=roqlnjp
 " for the most part i don't like softwraping lines
 set nowrap nolinebreak list
 set listchars=tab:<->,eol:$
