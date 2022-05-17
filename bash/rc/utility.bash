@@ -34,6 +34,12 @@ bind '"\e`":"|"'
 bind '"\eq":"|"'
 bind '"\ez":"\\"'
 
+### --- office
+
+scimage() {
+  scanimage --format=png -d 'airscan:e0:HP ENVY 4500 series [61441F] (USB)' >> "$1"
+}
+
 ### --- editor related
 
 # for <C-x-e>

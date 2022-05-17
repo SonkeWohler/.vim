@@ -46,8 +46,10 @@ backs() {
   $($1 "$2") &>> /tmp/backs.log &
 }
 
-# this might be a better solution for the most part, but less fllexible
-alias open='xdg-open'
+##alias open='xdg-open'
+open() {
+  xdg-open $1 &>> /tmp/xdg-open.log
+}
 
 ### --- oversimplified bookmarks
 
