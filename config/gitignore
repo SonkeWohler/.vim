@@ -1,0 +1,9 @@
+### --- personalized global gitignore --- ###
+
+# swap files and other temps
+*.sw[a-z]
+*~
+
+# anything else that should be ignored
+
+*.local.*
