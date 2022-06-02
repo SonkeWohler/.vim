@@ -26,7 +26,7 @@ set nowrap nolinebreak list
 set listchars=tab:<->,eol:$
 
 "-- folding
-set foldlevel=5
+set foldlevel=8
 
 " -- simple formatting function
 function FormatThisBuffer()

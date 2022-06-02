@@ -67,3 +67,6 @@
 [submodule "pack/vendor/start/vim-characterize"]
 	path = pack/vendor/start/vim-characterize
 	url = git@github.com:tpope/vim-characterize.git
+[submodule "pack/vendor/start/nvim-treesitter"]
+	path = pack/vendor/start/nvim-treesitter
+	url = git@github.com:nvim-treesitter/nvim-treesitter.git
