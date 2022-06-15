@@ -39,3 +39,7 @@ LSP installations.
 ```
 ln -s <.vim_root_git>/neovim/* ~/.config/nvim/
 ```
+
+It is important that we don't just link `nvim` with `neovim`, becuase `nvim`
+will have plugin files from packer in it.  These will be replacing the git
+submodule files, while packer code in lua is replacing our gitmodule.
