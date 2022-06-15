@@ -7,8 +7,9 @@ let g:ale_completion_enabled = 1
 
 """ --- language servers
 
+      ""\ 'python': ['mypy', 'autoimport', 'pylint', 'pylsp'],
 let g:ale_linters = {
-      \ 'python': ['mypy', 'autoimport', 'pylsp'],
+      \ 'python': ['mypy', 'autoimport', 'pylint'],
       \ 'javascript': ['eslint'],
       \ 'typescript': ['eslint'],
       \}
