@@ -14,3 +14,10 @@ end
 function imap(trigger, target)
   keymap('c', trigger, target, keyopt)
 end
+
+require('packer').startup(function()
+	use 'wbthomason/packer.nvim'
+	use 'tomasr/molokai'
+end)
+
+vim.g.colors_name = 'molokai'

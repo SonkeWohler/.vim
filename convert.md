@@ -25,3 +25,17 @@ Those that don't go away are:
 * repeat
 * surround
 * a bunch of tpope's stuff
+
+## Setup
+
+I have been putting off updating this one for a while.  It would be nice to try
+out the thing with files to keep packages more clean.  But barring that I am
+saving myself the main thing I have been letting slide recently: language server
+and linter stuff for vim.
+
+For the neovim config files I just put this command, followed by PackerSync and
+LSP installations.
+
+```
+ln -s <.vim_root_git>/neovim/* ~/.config/nvim/
+```

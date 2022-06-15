@@ -60,7 +60,7 @@ manager[/etc/gentoo-release]=emerge
 # anything like rust that can't be done by the package manager in the
 # end
 declare -A packageInstallCLI;
-packageInstallCLI[pacman]="pacman -S git xclip tmux ack fzf vim neovim texlive-humanities texlive-bibtexextra texlive-fontsextra texlive-formatsextra texlive-latexextra texlive-pictures texlive-science pandoc jdk-openjdk jdk8-openjdk maven htop ncdu timeshift tar zip unzip rustup rust-analyzer mypy python-lsp-server npm docker docker-compose"
+packageInstallCLI[pacman]="pacman -S git xclip tmux ack fzf vim neovim texlive-humanities texlive-bibtexextra texlive-fontsextra texlive-formatsextra texlive-latexextra texlive-pictures texlive-science pandoc jdk-openjdk jdk8-openjdk maven htop ncdu timeshift tar zip unzip rustup rust-analyzer mypy python-lsp-server npm docker docker-compose yay"
 packageInstallCLI[apt]="apt install git xclip tmux ack fzf vim neovim texlive-full pandoc openjdk-16-jdk maven htop ncdu timeshift tar zip unzip && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 # TODO packages for alpine
 packageInstallCLI[apk]='print "this is currently unsuported (TODO), the script is failing now" && exit 1'
