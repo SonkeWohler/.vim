@@ -45,7 +45,7 @@ vmap('<C-T>', ':Tyank<CR>')
 local configs = require'nvim-treesitter.configs'
 configs.setup {
   highlight = {
-    enable = true, 
+    enable = true,
   },
   indent = {
     enable = true,
@@ -136,6 +136,8 @@ lspconfig.yamlls.setup {
   capabilities = capabilities
 }
 -- mappings, since they are specific to the plugin
+nmap('cn', ':lua vim.diagnostic.goto_next()<cr>')
+nmap('cN', ':lua vim.diagnostic.goto_prev()<cr>')
 nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
 nmap('gD', ':lua vim.lsp.buf.type_definition()<cr>')
 nmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
