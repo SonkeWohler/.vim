@@ -12,11 +12,11 @@ require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use {
+  --[[ use {
     {
       "williamboman/nvim-lsp-installer",
       config = function ()
-        require("nvim-lsp-installer").setup {}
+        require("nvim-lsp-installer").setup{}
       end
     },
     {
@@ -24,10 +24,25 @@ require('packer').startup(function()
       after = "nvim-lsp-installer",
       config = function()
         local lspconfig = require("lspconfig")
-        lspconfig.sumneko_lua.setup {}
-        lspconfig.pylsp.setup {}
+        lspconfig.sumneko_lua.setup{}
+        lspconfig.pylsp.setup{}
       end
     }
+  } ]]
+  use {
+    "williamboman/nvim-lsp-installer",
+  }
+  use {
+    "neovim/nvim-lspconfig",
+    after = "nvim-lsp-installer",
+    setup = function()
+      require("nvim-lsp-installer").setup {}
+    end,
+    config = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.sumneko_lua.setup {}
+      lspconfig.pylsp.setup {}
+    end
   }
 end)
 
@@ -56,9 +71,15 @@ configs.setup {
 }
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- LSP
---local lsp_installer = require("nvim-lsp-installer")
---lsp_installer.on_server_ready(function(server)
---  local opts = {}
---  server:setup(opts)
---end)
+nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
+nmap('gD', ':lua vim.lsp.buf.type_definition()<cr>')
+nmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
+--nmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
+nmap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
+nmap('gr', ':lua vim.lsp.buf.references()<cr>')
+nmap('K', ':lua vim.lsp.buf.hover()<cr>')
+nmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
+nmap('L', ':lua vim.lsp.buf.code_action()<cr>')
+nmap('R', ':lua vim.lsp.buf.rename()<cr>')
