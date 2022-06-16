@@ -1,7 +1,7 @@
 -- ### this will be used throughout the config
 -- mapping keys
-local keymap = vim.api.nvim_set_keymap
-local keyopt = { noremap = true }
+keymap = vim.api.nvim_set_keymap
+keyopt = { noremap = true }
 -- basically nnoremap
 function nmap(trigger, target)
   keymap('n', trigger, target, keyopt)
@@ -24,9 +24,6 @@ require('packer').startup(function()
 end)
 
 vim.g.colors_name = 'molokai'
-
-imap('<C-j>', '<C-G>u<CR>x<BS><Esc>')
-imap('<C-m>', '<C-G>u<CR>x<BS><C-G>u')
 
 imap('<C-l>', '<Del>')
 
@@ -116,54 +113,72 @@ imap('<C-m>', '<C-G>u<CR>x<BS><C-G>u')
 nmap('<M-j>', 'F<Space>i<Enter><Esc>k$')
 nmap('J', 'mJJ`J')
 
+imap('<C-j>', '<C-G>u<CR>x<BS><Esc>')
+imap('<C-m>', '<C-G>u<CR>x<BS><C-G>u')
+
 nmap('zz', 'z=1<CR><CR>')
 nmap('zs', 'ms[sz=1<CR><CR>`s')
+
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+-- these cpoptions are largely default, I just keep things consistent
+-- a: 
+-- A:
+-- c: search
+-- e: execute straight away with @q
+-- f: set buffer filename on read
+-- F: set buffer filename on write
+-- s: buffer options on enter
+-- J: sentences end with double spaces, not single spaces
+-- _: cw is more like ciw.  use caw to get the default cw
+vim.opt.cpoptions = 'aABcefFsJ_'
+vim.opt.joinspaces = true
+vim.opt.textwidth = 80
+-- vim.opt.colorcolumn = '+1'
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.formatoptions = 'roqlnjp'
+vim.opt.formatoptions = 'jcroql'
+-- j: handle spaces when using n_J
+-- c: autwrap comments
+-- r: insert comment leader in newline
+-- o: insert comment leader with n_o
+-- q: gq for comments
+-- l: don't break in insert mode
+-- n: recognize lists when formatting
+-- p: don't break at single spaces '. ', since I use cpoptions 'J' this makes sense
+vim.opt.formatoptions = 'jcroqlnp'
+-- this is the default 
+--vim.opt.formatlistpat = '^\s*\d\+[\]:.)}\t ]\s*'
+vim.opt.wrap = false
+vim.opt.linebreak = false
+vim.opt.list = true
+--set listchars=tab:<->,eol:$
+vim.opt.listchars = { eol = '$', tab = '> ' }
+vim.opt.foldlevel = 10
+vim.opt.cursorline = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.laststatus = 2
+vim.opt.showmode = true
+vim.opt.wildmode = 'longest:full,full'
+vim.opt.wildmenu = true
+vim.opt.wildignorecase = true
+--vim.opt.completefunc = ''
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.diffopt = vim.opt.diffopt + 'vertical'
 
 --vmap('yt', ':Tyank<CR>')
 --vmap('yy', 'y')
 
---""" --- anything that sends you around the buffer, search, tags, marks --- """
-
---"-- search patterns
---" 
---set ignorecase
---set smartcase
-
---" -- cpoptions
---" this is copied from the default
---set cpoptions=aABceFs
---" and 'J' added
---" https://stevelosh.com/blog/2012/10/why-i-two-space/  under the 'Power' heading
---set cpoptions+=J
---set joinspaces
-
---"-- textwidth
---set textwidth=80
---""set colorcolumn=+1
-
---"-- indents and lines
---" set tabwidth to 2
---set tabstop=2 shiftwidth=2 expandtab
---" smartindent is better than just autoindent
---set smartindent
---" auto-format options
---set formatoptions=roqlnjp
---" for the most part i don't like softwraping lines
---set nowrap nolinebreak list
---set listchars=tab:<->,eol:$
-
---"-- folding
---set foldlevel=8
-
---" -- simple formatting function
---function FormatThisBuffer()
---  mark q
---  norm gggqG
---  norm `q
---endfunction
-
 --" so far the only command I reall use
 --:command! FF Files
+
 --""" --- https://github.com/autozimu/LanguageClient-neovim/blob/next/INSTALL.md
 
 --""" --- options
@@ -209,42 +224,6 @@ nmap('zs', 'ms[sz=1<CR><CR>`s')
 --" \ }
 
 
---"-- formatting
---" the language client can be used to format very nicely
---" however, if there is no server setup it gets vim stuck
-
---" because the filetype is not really accessible inside setup scripts the best
---" thing I can really do is set it on BufEnter, even if that means it is
---" redundantly setting the option.  As long as I don't have too many languages
---" installed that should do.
-
---" function! LanguageClient_Formatting_Expression()
---"   for lang in keys(g:LanguageClient_serverCommands)
---"     if lang ==? &filetype
---"       set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
---"       break
---"     endif
---"   endfor
---"   if $formatexpr ==? ""
---"   endif
---" endfunction
-
---" augroup LanguageClinet_Formatting
---"   autocmd!
---"   autocmd BufEnter * call LanguageClient_Formatting_Expression()
---" augroup END
-
---""" --- augroups
-
---"-- [WIP] on save :w
---""augroup LanguageClient_saveAction
---""  autocmd!
---""  :call LanguageClient#textDocument_formatting()<CR>
---""augroup END
---""" --- the way line numbers and the cursorline are displayed
---" source and inspiration https://jeffkreeftmeijer.com/vim-number/
---" and their plugin https://github.com/jeffkreeftmeijer/vim-numbertoggle
-
 --"-- cursor display
 --set cursorline
 --""set cursorlineopt=number
@@ -256,56 +235,6 @@ nmap('zs', 'ms[sz=1<CR><CR>`s')
 --:  autocmd BufWinEnter,WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
 --:  autocmd BufWinLeave,WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
 --:augroup END
---""" --- setting marks at convenient times --- """
---" It often annoys me when an operation moves the cursor and I have to navigate
---" back. This should help
-
---""" --- copied from git bash's vimrc (git/etc/vimrc)
---set mouse=
-
---set showmode
---set visualbell
---set showmatch
---set laststatus=2
---""set clipboard=unnamed
---set wildmode=list:longest,longest:full
---"-- statusline, right now just copied from git
---set statusline=%f               " filename relative to current $PWD
---set statusline+=%h              " help file flag
---set statusline+=%m              " modified flag
---set statusline+=%r              " readonly flag
---set statusline+=\ [%{&ff}]      " Fileformat [unix]/[dos] etc...
---set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  " last modified timestamp
---set statusline+=%=              " Rest: right align
---set statusline+=%l,%c%V         " Position in buffer: linenumber, column, virtual column
---set statusline+=\ %P            " Position in buffer: Percentage
---""" --- use the black hole register more often
-
---" -- display option
---" size of the netr buffer
---""let g:netrw_winsize = 15
---" how files are listed, 3 = tree view
---let g:netrw_liststyle = 3
---" what <CR> does to a file, 0 = open inside netr buffer
---let g:netrw_browse_split = 0
---" vertical split buffers to the right instead of the left
---let g:netrw_altv = 1
---" turn off banner
---let g:netrw_banner = 0
---" browse from buffer file location, not project location
---let netrw_keepdir = 1
---" https://github.com/tpope/vim-vinegar/issues/13#issuecomment-489440040
---let netrw_fastbrowse = 0
-
---" -- opening related
---" to enable some autocmd when vim opens
---autocmd StdinReadPre * let s:std_in=1
---" open current dir in netr when starting vim without specifying a file
---autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | Explore | endif
---" open nert when starting in a directory rather than a file
---autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | Explore | endif
---" open netr on :tabnew, seems to break something right now
---""autocmd BufWinEnter * silent Explore
 
 --" always split buffers vertically
 --" copied originally from: https://www.reddit.com/r/vim/comments/2irn8j/vertical_split_by_default/
@@ -326,4 +255,3 @@ nmap('zs', 'ms[sz=1<CR><CR>`s')
 --else
 --  cabbrev hsplit hor split
 --endif
---""" --- stuff to prompt the user at startup in certain conditions --- """
