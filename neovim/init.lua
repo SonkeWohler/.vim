@@ -1,26 +1,4 @@
 -- ### this will be used throughout the config
-
--- ## packer
--- trying something with sandwich
---vim.g.sandwich_no_default_key_mappings = 1
---vim.g.textobj_sandwich_no_default_key_mappings = 1
-
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use 'tomasr/molokai'
-  use 'machakann/vim-sandwich'
-  use 'junegunn/fzf.vim'
-end)
-
-vim.cmd [[
-  runtime macros/sandwich/keymap/surround.vim
-]]
-vim.cmd [[
-  colorscheme molokai
-]]
-
--- ## mappings
--- mapping keys
 keymap = vim.api.nvim_set_keymap
 keyopt = { noremap = true }
 -- basically nnoremap
@@ -38,6 +16,33 @@ end
 function vmap(trigger, target)
   keymap('v', trigger, target, keyopt)
 end
+
+-- ## packer
+-- trying something with sandwich
+--vim.g.sandwich_no_default_key_mappings = 1
+--vim.g.textobj_sandwich_no_default_key_mappings = 1
+
+require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
+  use 'tomasr/molokai'
+  use 'machakann/vim-sandwich'
+  use 'junegunn/fzf.vim'
+  use 'altercation/vim-colors-solarized'
+  use 'b3nj5m1n/kommentary'
+  use 'johmsalas/text-case.nvim'
+  use 'tpope/vim-tbone'
+end)
+
+vim.cmd [[
+  runtime macros/sandwich/keymap/surround.vim
+]]
+vim.cmd [[
+  colorscheme molokai
+]]
+vmap('<C-T>', ':Tyank<CR>')
+
+-- ## mappings
+-- mapping keys
 
 vim.api.nvim_del_keymap('i', '<C-W>')
 vim.api.nvim_del_keymap('i', '<C-U>')
