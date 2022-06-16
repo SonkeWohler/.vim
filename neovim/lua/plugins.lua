@@ -68,9 +68,28 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- LSP
+-- setup doesn't seem to work for me as part of packer, so it is here
 local lspconfig = require("lspconfig")
 lspconfig.sumneko_lua.setup {}
 lspconfig.bashls.setup {}
+lspconfig.angularls.setup {}
+lspconfig.bashls.setup {}
+lspconfig.cmake.setup {}
+lspconfig.dockerls.setup {}
+lspconfig.gopls.setup {}
+lspconfig.html.setup {}
+lspconfig.jdtls.setup {}
+lspconfig.jsonls.setup {}
+lspconfig.lemminx.setup {}
+lspconfig.pylsp.setup {}
+lspconfig.marksman.setup {}
+lspconfig.rust_analyzer.setup {}
+lspconfig.sqlls.setup {}
+lspconfig.sumneko_lua.setup {}
+lspconfig.texlab.setup {}
+lspconfig.tsserver.setup {}
+lspconfig.yamlls.setup {}
+-- mappings, since they are specific to the plugin
 nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
 nmap('gD', ':lua vim.lsp.buf.type_definition()<cr>')
 nmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
