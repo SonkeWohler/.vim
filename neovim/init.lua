@@ -1,10 +1,23 @@
 -- ### this will be used throughout the config
 
 -- ## packer
+-- trying something with sandwich
+--vim.g.sandwich_no_default_key_mappings = 1
+--vim.g.textobj_sandwich_no_default_key_mappings = 1
+
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tomasr/molokai'
+  use 'machakann/vim-sandwich'
+  use 'junegunn/fzf.vim'
 end)
+
+vim.cmd [[
+  runtime macros/sandwich/keymap/surround.vim
+]]
+vim.cmd [[
+  colorscheme molokai
+]]
 
 -- ## mappings
 -- mapping keys
@@ -43,7 +56,6 @@ imap('3q', 'qqq')
 imap('<C-e>', '<C-o><C-e>')
 imap('<C-y>', '<C-o><C-y>')
 
-imap('{', '<C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA')
 imap('{<CR>', '<C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA')
 imap('{<C-j>', '<C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA')
 
@@ -181,9 +193,13 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.diffopt = vim.opt.diffopt + 'vertical'
 
-vim.g.colors_name = 'molokai'
-
 -- ## commands
+
+local cmd = vim.api.nvim_create_user_command
+cmd('PP', 'PackerSync', {desc = 'run PackerSync'})
+cmd('FF', 'Files', {desc = 'run fzf :Files'})
+cmd('LL', 'BLines', {desc = 'run fzf :BLines'})
+cmd('LB', 'Lines', {desc = 'run fzf :Lines'})
 
 -- ## autocommands
 
