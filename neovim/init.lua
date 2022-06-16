@@ -1,4 +1,12 @@
 -- ### this will be used throughout the config
+
+-- ## packer
+require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
+  use 'tomasr/molokai'
+end)
+
+-- ## mappings
 -- mapping keys
 keymap = vim.api.nvim_set_keymap
 keyopt = { noremap = true }
@@ -18,13 +26,9 @@ function vmap(trigger, target)
   keymap('v', trigger, target, keyopt)
 end
 
--- ## packer
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use 'tomasr/molokai'
-end)
+vim.api.nvim_del_keymap('i', '<C-W>')
+vim.api.nvim_del_keymap('i', '<C-U>')
 
--- ## mappings
 imap('<C-l>', '<Del>')
 
 imap('``', '|')
