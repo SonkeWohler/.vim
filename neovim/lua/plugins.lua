@@ -31,16 +31,13 @@ require('packer').startup(function()
   } ]]
   use {
     "williamboman/nvim-lsp-installer",
+    config = function ()
+      require("nvim-lsp-installer").setup{}
+    end,
     "neovim/nvim-lspconfig",
-    after = "nvim-lsp-installer",
     setup = function()
       require("nvim-lsp-installer").setup {}
     end,
-    config = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.sumneko_lua.setup {}
-      lspconfig.pylsp.setup {}
-    end
   }
 end)
 
@@ -71,6 +68,9 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- LSP
+local lspconfig = require("lspconfig")
+lspconfig.sumneko_lua.setup {}
+lspconfig.bashls.setup {}
 nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
 nmap('gD', ':lua vim.lsp.buf.type_definition()<cr>')
 nmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
@@ -81,3 +81,4 @@ nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 nmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('L', ':lua vim.lsp.buf.code_action()<cr>')
 nmap('R', ':lua vim.lsp.buf.rename()<cr>')
+
