@@ -18,13 +18,13 @@ function vmap(trigger, target)
   keymap('v', trigger, target, keyopt)
 end
 
+-- ## packer
 require('packer').startup(function()
-	use 'wbthomason/packer.nvim'
-	use 'tomasr/molokai'
+  use 'wbthomason/packer.nvim'
+  use 'tomasr/molokai'
 end)
 
-vim.g.colors_name = 'molokai'
-
+-- ## mappings
 imap('<C-l>', '<Del>')
 
 imap('``', '|')
@@ -63,6 +63,8 @@ cmap('<c-p>', '<Up>')
 cmap('<c-n>', '<Down>')
 
 cmap('<c-q>', '<C-e><c-u><c-h>')
+
+cmap(':hh', 'vert help ')
 
 nmap('va{', 'va{V')
 
@@ -120,6 +122,8 @@ nmap('zz', 'z=1<CR><CR>')
 nmap('zs', 'ms[sz=1<CR><CR>`s')
 
 
+-- ## settings
+
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- these cpoptions are largely default, I just keep things consistent
@@ -173,9 +177,43 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.diffopt = vim.opt.diffopt + 'vertical'
 
---vmap('yt', ':Tyank<CR>')
---vmap('yy', 'y')
+vim.g.colors_name = 'molokai'
 
+-- ## commands
+
+-- ## autocommands
+
+local augroup_line_number_toggle = vim.api.nvim_create_augroup('line_number_toggle', {clear = true})
+
+vim.api.nvim_create_autocmd({
+    'BufWinEnter',
+    'WinEnter',
+    'BufEnter',
+    'FocusGained',
+    'InsertLeave'
+  }, {
+  group = augroup_line_number_toggle,
+  desc = 'relative number on',
+  callback = function()
+    vim.opt.relativenumber = true
+  end
+})
+
+vim.api.nvim_create_autocmd({
+    'BufWinLeave',
+    'WinLeave',
+    'BufLeave',
+    'FocusLost',
+    'InsertEnter'
+  }, {
+  group = augroup_line_number_toggle,
+  desc = 'relative number off',
+  callback = function()
+    vim.opt.relativenumber = false
+  end
+})
+
+-- unmap i_<C-W> i_<C-U>
 --" so far the only command I reall use
 --:command! FF Files
 
@@ -222,36 +260,3 @@ vim.opt.diffopt = vim.opt.diffopt + 'vertical'
 --"   \ 'python': ['pylsp'],
 --"   \ 'sh': ['bash-language-server', 'start'],
 --" \ }
-
-
---"-- cursor display
---set cursorline
---""set cursorlineopt=number
---"-- hybrid line numbers most of the time
---set number relativenumber
---"-- toggle to absolute line numbers in certain situations
---:augroup linenumbertoggle
---:  autocmd!
---:  autocmd BufWinEnter,WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
---:  autocmd BufWinLeave,WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
---:augroup END
-
---" always split buffers vertically
---" copied originally from: https://www.reddit.com/r/vim/comments/2irn8j/vertical_split_by_default/
---" also includes any other split related settings
---set splitright
---set splitbelow
---set diffopt+=vertical
---silent! set splitvertical
---if v:errmsg != ''
---  ""cabbrev split vert split
---  ""cabbrev e vsplit
---  ""cabbrev ee e
---  cabbrev vsplit vert split
---  cabbrev hsplit split
---  cabbrev help vert help
---  noremap <C-w>] :vert botright wincmd ]<CR>
---  noremap <C-w><C-]> :vert botright wincmd ]<CR>
---else
---  cabbrev hsplit hor split
---endif
