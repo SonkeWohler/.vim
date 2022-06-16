@@ -65,3 +65,34 @@ submodule files, while packer code in lua is replacing our gitmodule.
 
 I will have to remember to add setups for 'TSInstall all' and whatever LSP
 requires.
+
+### LSP
+
+Ioi this was a rollercoaster so far.  None of the guides worked out of the box
+but I managed to make it work with a mix between a bunch.
+
+#### for setup
+
+I will need to install all the language servers in order for them to be
+accessible.  I am not sure if I then also need to run `:LspInstall` for each of
+them, but I would presume I do.  And my plugin.lua doesn't seem to fail if the
+server is not installed, so that is good.
+
+#### to remember
+
+It was interesting, when I copied the setup from the readme it kept throwing
+errors and was't able to install or even uninstall anything.  However, those
+servers that were setup correctly before the error would work fine.
+
+What seemed to work in the end was the following.  I would combine the two
+plugins in one `use` statement in the corret order (installer first).  Then I
+would add a config between the installer and lspconfig (not sure if it would
+also work after them, I'll just keep it here).
+
+Now just this would at least clear the warnings and allow me to run
+`:LspInstall`.  But none of the servers would start unless they were setup.  The
+things is that setting them up inside the packer function would break everything
+and lead to all those errors.  So I simply don't.  I run
+`lspconfig.<pluginname>.setup {}` at the bottom.
+
+And this took me several hours to fix up.
