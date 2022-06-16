@@ -13,11 +13,18 @@ require('packer').startup(function()
     run = ':TSUpdate'
   }
   use {
-    "williamboman/nvim-lsp-installer",
+    'williamboman/nvim-lsp-installer',
     config = function ()
       require("nvim-lsp-installer").setup{}
     end,
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
+  }
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/nvim-cmp',
   }
 end)
 
@@ -47,28 +54,87 @@ configs.setup {
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+-- Completion
+local cmp = require('cmp')
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-N>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+  }, {
+      { name = 'buffer' },
+    }),
+})
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- LSP
 -- setup doesn't seem to work for me as part of packer, so it is here
+-- capabilities are from the completion plugin above, normally people just leave
+-- these empy
 local lspconfig = require("lspconfig")
-lspconfig.sumneko_lua.setup {}
-lspconfig.bashls.setup {}
-lspconfig.angularls.setup {}
-lspconfig.bashls.setup {}
-lspconfig.cmake.setup {}
-lspconfig.dockerls.setup {}
-lspconfig.gopls.setup {}
-lspconfig.html.setup {}
-lspconfig.jdtls.setup {}
-lspconfig.jsonls.setup {}
-lspconfig.lemminx.setup {}
-lspconfig.pylsp.setup {}
-lspconfig.marksman.setup {}
-lspconfig.rust_analyzer.setup {}
-lspconfig.sqlls.setup {}
-lspconfig.sumneko_lua.setup {}
-lspconfig.texlab.setup {}
-lspconfig.tsserver.setup {}
-lspconfig.yamlls.setup {}
+lspconfig.sumneko_lua.setup {
+  capabilities = capabilities
+}
+lspconfig.bashls.setup {
+  capabilities = capabilities
+}
+lspconfig.angularls.setup {
+  capabilities = capabilities
+}
+lspconfig.bashls.setup {
+  capabilities = capabilities
+}
+lspconfig.cmake.setup {
+  capabilities = capabilities
+}
+lspconfig.dockerls.setup {
+  capabilities = capabilities
+}
+lspconfig.gopls.setup {
+  capabilities = capabilities
+}
+lspconfig.html.setup {
+  capabilities = capabilities
+}
+lspconfig.jdtls.setup {
+  capabilities = capabilities
+}
+lspconfig.jsonls.setup {
+  capabilities = capabilities
+}
+lspconfig.lemminx.setup {
+  capabilities = capabilities
+}
+lspconfig.pylsp.setup {
+  capabilities = capabilities
+}
+lspconfig.marksman.setup {
+  capabilities = capabilities
+}
+lspconfig.rust_analyzer.setup {
+  capabilities = capabilities
+}
+lspconfig.sqlls.setup {
+  capabilities = capabilities
+}
+lspconfig.sumneko_lua.setup {
+  capabilities = capabilities
+}
+lspconfig.texlab.setup {
+  capabilities = capabilities
+}
+lspconfig.tsserver.setup {
+  capabilities = capabilities
+}
+lspconfig.yamlls.setup {
+  capabilities = capabilities
+}
 -- mappings, since they are specific to the plugin
 nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
 nmap('gD', ':lua vim.lsp.buf.type_definition()<cr>')

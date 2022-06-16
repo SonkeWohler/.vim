@@ -1,7 +1,7 @@
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- these cpoptions are largely default, I just keep things consistent
--- a: 
+-- a:
 -- A:
 -- c: search
 -- e: execute straight away with @q
@@ -29,12 +29,11 @@ vim.opt.formatoptions = 'jcroql'
 -- n: recognize lists when formatting
 -- p: don't break at single spaces '. ', since I use cpoptions 'J' this makes sense
 vim.opt.formatoptions = 'jcroqlnp'
--- this is the default 
+-- this is the default
 --vim.opt.formatlistpat = '^\s*\d\+[\]:.)}\t ]\s*'
 vim.opt.wrap = false
 vim.opt.linebreak = false
 vim.opt.list = true
---set listchars=tab:<->,eol:$
 vim.opt.listchars = { eol = '$', tab = '> ' }
 vim.opt.foldlevel = 10
 vim.opt.cursorline = true
@@ -46,6 +45,7 @@ vim.opt.wildmode = 'longest:full,full'
 vim.opt.wildmenu = true
 vim.opt.wildignorecase = true
 --vim.opt.completefunc = ''
+vim.opt.completeopt = { 'menu', 'preview', 'noselect' }
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
