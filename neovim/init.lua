@@ -1,6 +1,11 @@
--- ### this will be used throughout the config
+
+-- ### these are used throughout my config, so no local on these
+
+-- mapping
 keymap = vim.api.nvim_set_keymap
 keyopt = { noremap = true }
+-- commands
+cmd = vim.api.nvim_create_user_command
 -- basically nnoremap
 function nmap(trigger, target)
   keymap('n', trigger, target, keyopt)
@@ -16,17 +21,28 @@ end
 function vmap(trigger, target)
   keymap('v', trigger, target, keyopt)
 end
-cmd = vim.api.nvim_create_user_command
 
--- ## packer
--- trying something with sandwich
---vim.g.sandwich_no_default_key_mappings = 1
---vim.g.textobj_sandwich_no_default_key_mappings = 1
+-- ### other lua files
 
+-- Packer
 require('plugins')
 require('mappings')
 require('commands')
 require('settings')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- ############################################ --
 -- ### everything below is copied from my  ###
