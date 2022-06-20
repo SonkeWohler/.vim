@@ -96,3 +96,11 @@ and lead to all those errors.  So I simply don't.  I run
 `lspconfig.<pluginname>.setup {}` at the bottom.
 
 And this took me several hours to fix up.
+
+Also, and this didn't take me that long to figure out, but nice to know, people
+have talked about how to disable the `undefined global vim` and `undefined
+global use` inside your vim configuration.  But you know what, sumneko lua is
+better than that.  You can use a code action `Mark vim as defined global` on one
+of the warnings and it creates a `.luarc.json` inside your directory.  It is
+much simpler than fiddling with your lua files and having the `lsp-config` and
+the `lsp-installer` interfere.
