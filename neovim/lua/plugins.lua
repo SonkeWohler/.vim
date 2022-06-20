@@ -38,6 +38,14 @@ require('packer').startup(function()
     'hrsh7th/cmp-path',
     'hrsh7th/nvim-cmp',
   }
+  use {
+    'jeetsukumaran/vim-pythonsense',
+    setup = function()
+      vim.cmd[[
+        let g:is_pythonsense_alternate_motion_keymaps = 1
+      ]]
+    end
+  }
 end)
 
 -- sandwich with surround mappings, thanks
