@@ -1,4 +1,3 @@
-
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tomasr/molokai'
@@ -8,18 +7,31 @@ require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'johmsalas/text-case.nvim'
   use 'tpope/vim-tbone'
-  use {
+  use {  -- Treesitter
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = function()
+      local configs = require'nvim-treesitter.configs'
+      configs.setup {
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+        }
+      }
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    end
   }
-  use {
+  use {  -- lsp, also see below
     'williamboman/nvim-lsp-installer',
     config = function ()
       require("nvim-lsp-installer").setup{}
     end,
     'neovim/nvim-lspconfig',
   }
-  use {
+  use {  -- Completion, also see below
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-buffer',
@@ -42,17 +54,6 @@ vmap('<C-T>', ':Tyank<CR>')
 -- ### IDE stuff
 -- thanks to https://codevion.github.io/#!vim/treelsp.md
 -- treesitter
-local configs = require'nvim-treesitter.configs'
-configs.setup {
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  }
-}
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Completion
 local cmp = require('cmp')
@@ -60,7 +61,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-N>'] = cmp.mapping.complete(),
+    ['<C-<Space>>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
@@ -70,7 +71,6 @@ cmp.setup({
       { name = 'buffer' },
     }),
 })
-
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- LSP

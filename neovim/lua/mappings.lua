@@ -48,8 +48,12 @@ nmap('va{', 'va{V')
 
 nmap('?', 'mh?')
 nmap('/', 'mh/')
+nmap(':', 'mg:')
+nmap('==', 'mh=ip=if`h')
 nmap('<<', 'mh<<`hhh')
 nmap('>>', 'mh>>`hll')
+nmap('gqq', 'mhgqq=ip`h')
+nmap('gqip', 'mhgqip=ip`h')
 
 nmap('sx', '"xx"xp')
 
