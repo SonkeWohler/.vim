@@ -5,10 +5,10 @@ vim.api.nvim_del_keymap('i', '<C-U>')
 -- delete key in insert mode
 imap('<C-l>', '<Del>')
 -- automatically create {} block with indentation
-imap('{<CR>', '<C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>k')
-imap('{<C-m>', '<C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>k')
+imap('{<C-j>', '{<CR>}<Esc>Ox<BS><Esc>')
 -- automatically create {} block with indentation and keep typing
-imap('{<C-j>', '<C-G>u<Esc>A{<CR>x<BS><CR>}<C-G>u<Esc>kA')
+-- this works with <c-m> because that is internally equivalent to <CR>
+imap('{<CR>', '{<CR>}<Esc>O<C-g>u')
 
 ---- keyboard layout fixes ----
 -- use double ` for | in insert mode
