@@ -26,9 +26,6 @@ require('packer').startup(function()
   }
   use {  -- lsp, also see below
     'williamboman/nvim-lsp-installer',
-    config = function ()
-      require("nvim-lsp-installer").setup{}
-    end,
     'neovim/nvim-lspconfig',
   }
   use {  -- Completion, also see below
@@ -85,6 +82,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 -- setup doesn't seem to work for me as part of packer, so it is here
 -- capabilities are from the completion plugin above, normally people just leave
 -- these empy
+require("nvim-lsp-installer").setup {}
 local lspconfig = require("lspconfig")
 lspconfig.sumneko_lua.setup {
   capabilities = capabilities
