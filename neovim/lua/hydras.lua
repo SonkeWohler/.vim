@@ -48,3 +48,31 @@ nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 nmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('L', ':lua vim.lsp.buf.code_action()<cr>')
 nmap('R', ':lua vim.lsp.buf.rename()<cr>')
+
+----- Windows -----
+Hydra({
+  name = 'hydra-<C-W>',
+  mode = 'n',
+  body = '<c-w>',
+  config = {
+    foreign_keys = 'warn',
+    invoke_on_body = true,
+  },
+  heads = {
+    {'h', '<c-W>h', { desc = 'left buffer' }},
+    {'l', '<c-W>l', { desc = 'right buffer' }},
+    {'k', '<c-W>k', { desc = 'up buffer' }},
+    {'j', '<c-W>j', { desc = 'down buffer' }},
+    {'v', ':vsplit<CR>', { desc = 'vertical split' }},
+    {'s', ':split<CR>', { desc = 'horizontal buffer' }},
+    {'q', ':q<CR>', { desc = 'close buffer' }},
+    {'t', ':tab split<CR>', { desc = 'buffer to new tab (split)' }},
+    {'T', ':tabs<CR>', { exit = true, desc = 'select from list of tabs' }},
+    {'n', ':tabnext<CR>', { desc = 'next tab' }},
+    {'N', ':tabprevious<CR>', { desc = 'previous tab' }},
+    {'x', ':tabclose<CR>', { desc = 'close tab nicely' }},
+    {'X', ':tabclose!<CR>', { desc = 'force close tab' }},
+    {'<esc>', nil, { exit = true, desc = 'quit hydra' }},
+    -- TODO resize
+  }
+})
