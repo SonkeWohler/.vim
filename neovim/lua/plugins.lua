@@ -7,6 +7,9 @@ require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'johmsalas/text-case.nvim'
   use 'tpope/vim-tbone'
+  use { 'anuvyklack/hydra.nvim',
+    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+  }
   use {  -- Treesitter
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -40,7 +43,7 @@ require('packer').startup(function()
     setup = function()
       vim.cmd[[
         let g:is_pythonsense_alternate_motion_keymaps = 1
-      ]]
+        ]]
     end
   }
 end)
@@ -141,17 +144,3 @@ lspconfig.tsserver.setup {
 lspconfig.yamlls.setup {
   capabilities = capabilities
 }
--- mappings, since they are specific to the plugin
-nmap('cn', ':lua vim.diagnostic.goto_next()<cr>')
-nmap('cN', ':lua vim.diagnostic.goto_prev()<cr>')
-nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
-nmap('gD', ':lua vim.lsp.buf.type_definition()<cr>')
-nmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
---nmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
-nmap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
-nmap('gr', ':lua vim.lsp.buf.references()<cr>')
-nmap('K', ':lua vim.lsp.buf.hover()<cr>')
-nmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
-nmap('L', ':lua vim.lsp.buf.code_action()<cr>')
-nmap('R', ':lua vim.lsp.buf.rename()<cr>')
-

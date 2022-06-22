@@ -29,6 +29,7 @@ require('plugins')
 require('mappings')
 require('commands')
 require('settings')
+require('hydras')
 
 
 
