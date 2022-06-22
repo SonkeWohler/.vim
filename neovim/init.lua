@@ -31,30 +31,3 @@ require('commands')
 require('settings')
 require('hydras')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- ############################################ --
--- ### everything below is copied from my  ###
--- ### old vimscript setup and stays here  ###
--- ### so I will remember to convert it to ###
--- ###                  lua                ###
--- ############################################ --
-
-----nnoremap <silent> gn :ALENext<CR>
-----nnoremap <silent> gN :ALEPrevious<CR>
-----
-----inoremap <silent> <C-Space> <C-\><C-O>:ALEComplete<CR>
-----
-----command FIX ALEFix
