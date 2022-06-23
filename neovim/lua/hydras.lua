@@ -6,7 +6,7 @@ Hydra({
   mode = 'n',
   body = 'c',
   config = {
-    --foreign-keys = nil,
+    foreign_keys = nil,
     invoke_on_body = true,
   },
   heads = {
@@ -30,11 +30,17 @@ Hydra({
     }},
     {'r', ':lua vim.lsp.buf.rename()<cr>', { exit = true, desc = 'rename under the cursor' }},
     --nmap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
-    {'w', ':lua vim.lsp.buf.workspace_symbol()<cr>', { desc = '' }},
+    --{'w', ':lua vim.lsp.buf.workspace_symbol()<cr>', { desc = '' }},
     {'<c-e>', '<c-e>'},
     {'<c-y>', '<c-y>'},
     {'<Esc>', nil, { exit = true, desc = 'quit' }},
     {'q', nil, { exit = true, desc = 'quit' }},
+    {'i', '"_ci', { exit = true }},
+    {'t', '"_ct', { exit = true }},
+    {'a', '"_ca', { exit = true }},
+    {'f', '"_cf', { exit = true }},
+    {'c', '"_cc', { exit = true }},
+    {'w', '"_cw', { exit = true }},
   },
 })
 -- mappings to complement the hydra
@@ -59,8 +65,8 @@ Hydra({
     invoke_on_body = true,
   },
   heads = {
-    {'h', '<c-W>h', { desc = 'left buffer' }},
-    {'l', '<c-W>l', { desc = 'right buffer' }},
+    {'h', '<c-W>h', { exit = true, desc = 'left buffer' }},
+    {'l', '<c-W>l', { exit = true, desc = 'right buffer' }},
     {'k', '<c-W>k', { desc = 'up buffer' }},
     {'j', '<c-W>j', { desc = 'down buffer' }},
     {'v', ':vsplit<CR>', { desc = 'vertical split' }},
@@ -72,7 +78,21 @@ Hydra({
     {'N', ':tabprevious<CR>', { desc = 'previous tab' }},
     {'x', ':tabclose<CR>', { desc = 'close tab nicely' }},
     {'X', ':tabclose!<CR>', { desc = 'force close tab' }},
+    {'w', ':w<CR>', { desc = 'save buffer' }},
+    {'e', ':e<CR>', { desc = 'reload buffer' }},
+    {'H', '<c-W>H', { desc = 'move buffer to the left' }},
+    {'J', '<c-W>J', { desc = 'move buffer to the bottom' }},
+    {'K', '<c-W>K', { desc = 'move buffer to the top' }},
+    {'L', '<c-W>L', { desc = 'move buffer to the right' }},
+    {'<', '<c-W><', { desc = 'shrink buffer horizontally' }},
+    {'>', '<c-W>>', { desc = 'enlarge buffer horizontally' }},
+    {'-', '<c-W>-', { desc = 'shrink buffer vertically' }},
+    {'+', '<c-W>+', { desc = 'enlarge buffer vertically' }},
+    {'=', '<c-W>=', { desc = 'equalize buffer sizes' }},
+    {'<c-e>', '<c-e>'},
+    {'<c-y>', '<c-y>'},
     {'<esc>', nil, { exit = true, desc = 'quit hydra' }},
+    {':', ':', { exit = true, desc = 'quit hydra' }},
     -- TODO resize
   }
 })

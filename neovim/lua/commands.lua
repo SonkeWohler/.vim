@@ -5,6 +5,7 @@ cmd('FF', 'Files', {desc = 'run fzf :Files'})
 cmd('LL', 'BLines', {desc = 'run fzf :BLines, the default is inside the current buffer'})
 cmd('LB', 'Lines', {desc = 'run fzf :Lines, not in Buffer'})
 cmd('Q', 'q!', {desc = 'force quit'})
+cmd('Qa', 'qa!', {desc = 'force quit all buffers'})
 
 -- ## autocommands
 
