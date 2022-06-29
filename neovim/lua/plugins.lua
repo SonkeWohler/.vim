@@ -65,9 +65,14 @@ vim.cmd [[
 -- tmux yanking
 vmap('<C-T>', ':Tyank<CR>')
 
--- ### Fonts
+-- ### Looks
+-- Fonts
 require('nvim-web-devicons').setup{
   default = true;
+}
+require('bufferline').setup{
+  tabpages = true,
+  icons = 'both'
 }
 
 -- Completion
