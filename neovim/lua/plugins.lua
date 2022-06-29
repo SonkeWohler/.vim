@@ -46,8 +46,14 @@ require('packer').startup(function()
         ]]
     end
   }
+	use 'kyazdani42/nvim-web-devicons'
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
 end)
 
+-- ### small plugin setups that aren't in the plugin itself
 -- sandwich with surround mappings, thanks
 vim.cmd [[
   runtime macros/sandwich/keymap/surround.vim
@@ -59,9 +65,10 @@ vim.cmd [[
 -- tmux yanking
 vmap('<C-T>', ':Tyank<CR>')
 
--- ### IDE stuff
--- thanks to https://codevion.github.io/#!vim/treelsp.md
--- treesitter
+-- ### Fonts
+require('nvim-web-devicons').setup{
+  default = true;
+}
 
 -- Completion
 local cmp = require('cmp')
