@@ -93,7 +93,10 @@ nmap('sx', '"xx"xp')
 -- help in vertical split
 cmap(':hh', 'vert help ')
 
----- black hole register ----
+---- registers ----
+-- yank into system register
+nmap('""', '"+y')
+vmap('""', '"+y')
 --by default use black hole register rather than unnamed
 nmap('d', '"_d')
 nmap('D', '"_D')
