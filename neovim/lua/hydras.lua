@@ -65,8 +65,8 @@ Hydra({
     invoke_on_body = true,
   },
   heads = {
-    {'h', '<c-W>h', { exit = true, desc = 'left buffer' }},
-    {'l', '<c-W>l', { exit = true, desc = 'right buffer' }},
+    {'h', '<c-W>h', { desc = 'left buffer' }},
+    {'l', '<c-W>l', { desc = 'right buffer' }},
     {'k', '<c-W>k', { desc = 'up buffer' }},
     {'j', '<c-W>j', { desc = 'down buffer' }},
     {'v', ':vsplit<CR>', { desc = 'vertical split' }},
@@ -96,3 +96,5 @@ Hydra({
     -- TODO resize
   }
 })
+nmap('<c-h>', '<c-w>h')
+nmap('<c-l>', '<c-w>l')
