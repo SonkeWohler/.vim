@@ -24,10 +24,10 @@ end
 
 -- ### other lua files
 
--- Packer
 require('plugins')
 require('mappings')
 require('commands')
 require('settings')
 require('hydras')
+require('statusline')
 
