@@ -1,16 +1,47 @@
 require('packer').startup(function()
+  -- packer itself
   use 'wbthomason/packer.nvim'
+  -- color schemes
   use 'tomasr/molokai'
-  use 'machakann/vim-sandwich'
-  use 'junegunn/fzf.vim'
   use 'altercation/vim-colors-solarized'
-  use 'b3nj5m1n/kommentary'
+  -- tabline that isn't just about tabs
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+  -- better string conversions I still have to get used to
   use 'johmsalas/text-case.nvim'
+  -- like tpope's surround but more maintained
+  use {
+    'machakann/vim-sandwich',
+    -- I am still used to the tpope/surround keys
+    config = vim.cmd [[
+      runtime macros/sandwich/keymap/surround.vim
+    ]]
+  }
+  -- comments as actions
+  use 'b3nj5m1n/kommentary'
+  -- tmux integration for registers
   use 'tpope/vim-tbone'
+  -- hydra's are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
-  use {  -- Treesitter
+  -- fuzzy finding with fzf
+  use 'junegunn/fzf.vim'
+  -- better python word objects like functions
+  -- maybe some for other languages would be nice
+  use {
+    'jeetsukumaran/vim-pythonsense',
+    setup = function()
+      vim.cmd[[
+        let g:is_pythonsense_alternate_motion_keymaps = 1
+        ]]
+    end
+  }
+  -- Treesitter
+  -- better syntax highlighting
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
@@ -27,43 +58,34 @@ require('packer').startup(function()
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end
   }
-  use {  -- lsp, also see below
+  -- Language Client
+  use {  -- more setup at the bottom
     'williamboman/nvim-lsp-installer',
     'neovim/nvim-lspconfig',
   }
-  use {  -- Completion, also see below
+  -- Completions of various kinds
+  use {  -- more setup at the bottom
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/nvim-cmp',
   }
-  use {
-    'jeetsukumaran/vim-pythonsense',
-    setup = function()
-      vim.cmd[[
-        let g:is_pythonsense_alternate_motion_keymaps = 1
-        ]]
-    end
-  }
-	use 'kyazdani42/nvim-web-devicons'
-  use {
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
+  -- nerd fonds
+  use 'kyazdani42/nvim-web-devicons'
 end)
 
 -- ### small plugin setups that aren't in the plugin itself
--- sandwich with surround mappings, thanks
-vim.cmd [[
-  runtime macros/sandwich/keymap/surround.vim
-]]
 -- can't seem to make colorschema work with vim.g.colors_name
 vim.cmd [[
   colorscheme molokai
 ]]
 -- tmux yanking
 vmap('<C-T>', ':Tyank<CR>')
+
+----------------------------------------------
+-----       setting up the plugins      ------
+----------------------------------------------
 
 -- ### Looks
 -- Fonts
@@ -94,7 +116,6 @@ cmp.setup({
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- LSP
--- setup doesn't seem to work for me as part of packer, so it is here
 -- capabilities are from the completion plugin above, normally people just leave
 -- these empy
 require("nvim-lsp-installer").setup {}
