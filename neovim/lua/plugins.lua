@@ -1,3 +1,15 @@
+-------------------------------------------------------------------
+--------------       import and manage plugins       --------------
+-------------------------------------------------------------------
+--------------  this includes settings and mappings  --------------
+--------------   for specific plugins, except hydra  --------------
+-------------------------------------------------------------------
+
+
+----------------------------------------------
+------        importing plugins         ------
+----------------------------------------------
+
 require('packer').startup(function()
   -- packer itself
   use 'wbthomason/packer.nvim'
@@ -19,10 +31,21 @@ require('packer').startup(function()
       runtime macros/sandwich/keymap/surround.vim
     ]]
   }
+  -- file view as tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = cmd('TT', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' })
+  }
   -- comments as actions
   use 'b3nj5m1n/kommentary'
   -- tmux integration for registers
-  use 'tpope/vim-tbone'
+  use {
+    'tpope/vim-tbone',
+    setup = vmap('<C-T>', ':Tyank<CR>')
+  }
   -- hydra's are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
@@ -80,14 +103,14 @@ end)
 vim.cmd [[
   colorscheme molokai
 ]]
--- tmux yanking
-vmap('<C-T>', ':Tyank<CR>')
 
 ----------------------------------------------
 -----       setting up the plugins      ------
 ----------------------------------------------
 
--- ### Looks
+-- file viewer
+require("nvim-tree").setup {}
+
 -- Fonts
 require('nvim-web-devicons').setup{
   default = true;
