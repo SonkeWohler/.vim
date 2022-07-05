@@ -37,7 +37,10 @@ require('packer').startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    config = cmd('TT', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' })
+    config = {
+      cmd('TT', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' }),
+      cmd('LSA', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' })
+    }
   }
   -- comments as actions
   use 'b3nj5m1n/kommentary'
