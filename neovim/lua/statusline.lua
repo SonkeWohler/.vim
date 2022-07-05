@@ -35,25 +35,6 @@ end
 -- TODO
 -- mode colours
 
---- get filepath and format to display text
-local function filepath()
-  local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
-  if fpath == "" or fpath == "." then
-      return " "
-  end
-
-  return string.format(" %%<%s/", fpath)
-end
-
---- get filename and format to display text
-local function filename()
-  local fname = vim.fn.expand "%:t"
-  if fname == "" then
-      return ""
-  end
-  return fname .. " "
-end
-
 --- get LSP info and format to display text
 local function lsp()
   local count = {}
@@ -113,8 +94,7 @@ Statusline.active = function()
   return table.concat {
     "%#Statusline#",
     mode(),
-    filepath(),
-    filename(),
+    "%f",
     lsp(),
     "%=%#StatusLineExtra#",
     filetype(),
@@ -127,12 +107,12 @@ function Statusline.inactive()
   return table.concat {
     "%#Statusline#",
     "%#Normal# ",
-    filepath(),
-    filename(),
-    lsp(),
+    "%f",
+    -- lsp(),
     "%=",
     "%#Statusline#",
-    filetype(),
+    "%y",
+    -- filetype(),
     lineinfo(),
   }
 end
@@ -143,8 +123,7 @@ function Statusline.nolsp()
     "%#Statusline#",
     mode(),
     "%#Normal# ",
-    filepath(),
-    filename(),
+    "%f",
     "%#Normal#",
     "%=%#StatusLineExtra#",
     filetype(),
