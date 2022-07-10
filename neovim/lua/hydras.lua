@@ -46,6 +46,15 @@ Hydra({
     {'W', '"_cW', { exit = true }},
     {'e', '"_ce', { exit = true }},
     {'E', '"_cE', { exit = true }},
+    {'1', '"_c1', { exit = true }},
+    {'2', '"_c2', { exit = true }},
+    {'3', '"_c3', { exit = true }},
+    {'4', '"_c4', { exit = true }},
+    {'5', '"_c5', { exit = true }},
+    {'6', '"_c6', { exit = true }},
+    {'7', '"_c7', { exit = true }},
+    {'8', '"_c8', { exit = true }},
+    {'9', '"_c9', { exit = true }},
   },
 })
 -- mappings to complement the hydra
