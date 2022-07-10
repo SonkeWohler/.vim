@@ -29,6 +29,7 @@ require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  use('mrjones2014/smart-splits.nvim')
   -- better string conversions I still have to get used to
   use 'johmsalas/text-case.nvim'
   -- like tpope's surround but more maintained
@@ -132,8 +133,10 @@ require("nvim-tree").setup {}
 require('nvim-web-devicons').setup{
   default = true;
 }
+-- tab and statusline
 require('tabline').setup{}
 require('lualine').setup{}
+require('smart-splits').setup{}
 
 -- Completion
 local cmp = require('cmp')
