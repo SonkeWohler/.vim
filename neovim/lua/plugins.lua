@@ -16,10 +16,16 @@ require('packer').startup(function()
   -- color schemes
   use 'tomasr/molokai'
   use 'altercation/vim-colors-solarized'
-  -- tabline that isn't just about tabs
+  -- tab ans status lines
   use {
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
+    'kdheepak/tabline.nvim',
+    requires = {
+      { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true}
+    },
+  }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   -- better string conversions I still have to get used to
   use 'johmsalas/text-case.nvim'
@@ -29,7 +35,7 @@ require('packer').startup(function()
     -- I am still used to the tpope/surround keys
     config = vim.cmd [[
       runtime macros/sandwich/keymap/surround.vim
-    ]]
+      ]]
   }
   -- file view as tree
   use {
@@ -121,10 +127,8 @@ require("nvim-tree").setup {}
 require('nvim-web-devicons').setup{
   default = true;
 }
-require('bufferline').setup{
-  tabpages = true,
-  icons = 'both'
-}
+require('tabline').setup{}
+require('lualine').setup{}
 
 -- Completion
 local cmp = require('cmp')

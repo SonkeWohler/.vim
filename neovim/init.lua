@@ -29,5 +29,4 @@ require('mappings')
 require('commands')
 require('settings')
 require('hydras')
-require('statusline')
 
