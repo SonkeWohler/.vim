@@ -47,7 +47,6 @@ require('packer').startup(function()
       'kyazdani42/nvim-web-devicons',
     },
     config = {
-      cmd('TT', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' }),
       cmd('LSA', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' })
     }
   }
@@ -100,6 +99,10 @@ require('packer').startup(function()
   use {  -- more setup at the bottom
     'williamboman/nvim-lsp-installer',
     'neovim/nvim-lspconfig',
+  }
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
   }
   -- Completions of various kinds
   use {  -- more setup at the bottom
@@ -157,6 +160,12 @@ cmp.setup({
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- LSP
+require('trouble').setup{
+  action_keys = {
+    jump_close = {'o', '<c-j>', 'enter'}
+  }
+}
+cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin'} )
 -- capabilities are from the completion plugin above, normally people just leave
 -- these empy
 require("nvim-lsp-installer").setup {}
