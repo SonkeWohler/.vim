@@ -15,7 +15,9 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   -- color schemes
   use 'tomasr/molokai'
+  use 'Shatur/neovim-ayu'
   use 'altercation/vim-colors-solarized'
+  use 'xXTgamerXx/everforest-neovim'
   -- tab ans status lines
   use {
     'kdheepak/tabline.nvim',
@@ -110,15 +112,18 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
 end)
 
--- ### small plugin setups that aren't in the plugin itself
--- can't seem to make colorschema work with vim.g.colors_name
-vim.cmd [[
-  colorscheme molokai
-]]
-
 ----------------------------------------------
 -----       setting up the plugins      ------
 ----------------------------------------------
+
+-- colors
+require('ayu').setup({
+    mirage = false,
+    overrides = {},
+})
+vim.cmd [[
+  colorscheme ayu
+]]
 
 -- file viewer
 require("nvim-tree").setup {}
