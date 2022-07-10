@@ -95,9 +95,10 @@ cmap(':hh', 'vert help ')
 
 ---- registers ----
 -- yank into system register
-nmap('""', '"+y')
+-- keymap('n', '""', '"+y', { noremap = false })
 vmap('""', '"+y')
---by default use black hole register rather than unnamed
+nmap('""', '"+y')
+-- by default use black hole register rather than unnamed
 nmap('d', '"_d')
 nmap('D', '"_D')
 nmap('c', '"_c')
@@ -106,8 +107,13 @@ nmap('s', '"_s')
 nmap('S', '"_S')
 nmap('x', '"_x')
 nmap('X', '"_X')
-nmap('x', '"_x')
-nmap('X', '"_X')
+-- for visual mode as well, except 'd'
+vmap('x', '"_x')
+vmap('X', '"_X')
+vmap('c', '"_c')
+vmap('C', '"_C')
+vmap('s', '"_s')
+vmap('S', '"_S')
 
 ---- tabs ----
 -- new tab with current buffer
