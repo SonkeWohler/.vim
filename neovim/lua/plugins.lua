@@ -47,7 +47,10 @@ require('packer').startup(function()
   -- tmux integration for registers
   use {
     'tpope/vim-tbone',
-    setup = vmap('<C-T>', ':Tyank<CR>')
+    setup = {
+      vmap('<C-T>', ':Tyank<CR>'),
+      nmap('<C-T>', 'Vh:Tyank<CR>')
+    }
   }
   -- hydra's are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
