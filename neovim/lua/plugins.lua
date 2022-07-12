@@ -71,6 +71,10 @@ require('packer').startup(function()
       nmap('gm', '<Plug>(git-messenger)')
     }
   }
+  -- cheatsheet, except for hydras
+  use {
+    'liuchengxu/vim-which-key',
+  }
   -- hydras are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
