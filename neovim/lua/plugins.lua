@@ -31,6 +31,7 @@ require('packer').startup(function()
   }
   use('mrjones2014/smart-splits.nvim')
   -- better string conversions I still have to get used to
+  -- a bit like tpope's vim-abolish
   use 'johmsalas/text-case.nvim'
   -- like tpope's surround but more maintained
   use {
@@ -60,7 +61,17 @@ require('packer').startup(function()
       nmap('<C-T>', 'Vh:Tyank<CR>')
     }
   }
-  -- hydra's are awesome, they have their own lua file in my setup
+  -- view git messages
+  use {
+    'rhysd/git-messenger.vim',
+    setup = function()
+      vim.g.git_messenger_no_default_mappings = false
+    end,
+    config = {
+      nmap('gm', '<Plug>(git-messenger)')
+    }
+  }
+  -- hydras are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
