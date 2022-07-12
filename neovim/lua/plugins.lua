@@ -32,7 +32,12 @@ require('packer').startup(function()
   use('mrjones2014/smart-splits.nvim')
   -- better string conversions I still have to get used to
   -- a bit like tpope's vim-abolish
-  use 'johmsalas/text-case.nvim'
+  use{
+    'johmsalas/text-case.nvim',
+    config = function()
+      require('textcase').setup{}
+    end
+  }
   -- like tpope's surround but more maintained
   use {
     'machakann/vim-sandwich',
