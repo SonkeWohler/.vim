@@ -115,6 +115,21 @@ require('packer').startup(function()
       }
       vim.opt.foldmethod = "expr"
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    end,
+  }
+  -- better folds using treesitter
+  use {
+    'kevinhwang91/nvim-ufo',
+    requires = {
+      'kevinhwang91/promise-async',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('ufo').setup({
+        provider_selector = function()
+          return {'treesitter', 'indent'}
+        end
+      })
     end
   }
   -- Language Client
