@@ -125,3 +125,24 @@ Hydra({
 })
 nmap('<c-h>', '<c-w>h')
 nmap('<c-l>', '<c-w>l')
+
+----- GitSigns ------
+Hydra({
+  name = 'hydra-git',
+  mode = 'n',
+  body = ';;',
+  config = {
+    foreign_keys = 'warn',
+    invoke_on_body = true,
+  },
+  heads = {
+    {'n', ':lua require("gitsigns").next_hunk()<CR>', { desc = 'next hunk' } },
+    {'N', ':lua require("gitsigns").prev_hunk()<CR>', { desc = 'previous hunk' } },
+    {'s', ':lua require("gitsigns").stage_hunk()<CR>', { desc = 'stage hunk' } },
+    {'u', ':lua require("gitsigns").undo_stage_hunk()<CR>', { desc = 'unstage hunk' } },
+    {'<c-e>', '<c-e>'},
+    {'<c-y>', '<c-y>'},
+    {'<Esc>', nil, { exit = true, desc = 'quit' }},
+    {'q', nil, { exit = true, desc = 'quit' }},
+  }
+})
