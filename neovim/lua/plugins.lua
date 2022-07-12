@@ -71,6 +71,13 @@ require('packer').startup(function()
       nmap('gm', '<Plug>(git-messenger)')
     }
   }
+  -- more git stuff
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
   -- cheatsheet, except for hydras
   use {
     'liuchengxu/vim-which-key',
