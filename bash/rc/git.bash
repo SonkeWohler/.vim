@@ -66,6 +66,7 @@ alias gitdiff='git diff --staged'
 
 #-- viewing status
 alias gits='git status'
+alias gitsx='git -c color.status=always status | less -RF --use-color'
 alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
 
