@@ -15,9 +15,11 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   -- color schemes
   use 'tomasr/molokai'
+  use 'tanvirtin/monokai.nvim'
   use 'Shatur/neovim-ayu'
   use 'altercation/vim-colors-solarized'
   use 'xXTgamerXx/everforest-neovim'
+  use 'shaunsingh/nord.nvim'
   -- tab ans status lines
   use {
     'kdheepak/tabline.nvim',
@@ -167,9 +169,12 @@ require('ayu').setup({
     mirage = false,
     overrides = {},
 })
-vim.cmd [[
-  colorscheme ayu
-]]
+require('monokai').setup{ palette = require('monokai').soda }
+-- require('molokai').setup{}
+vim.g.nord_disable_background = true
+-- vim.cmd [[ colorscheme monokai_soda ]]
+-- vim.cmd [[ colorscheme ayu ]]
+vim.cmd [[ colorscheme nord ]]
 
 -- file viewer
 require("nvim-tree").setup {}
