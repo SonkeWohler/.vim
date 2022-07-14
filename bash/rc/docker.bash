@@ -23,6 +23,7 @@ alias kk='k9s'
 alias ktl='kubectl'
 alias mkl='minikube kubectl'
 alias mk='minikube'
+alias ktlc='kubectl config set-context'
 
 alias dcom='docker-compose'
 alias dcomup='docker-compose up -d --remove-orphans'
