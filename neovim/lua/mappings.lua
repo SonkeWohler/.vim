@@ -66,6 +66,7 @@ nmap('<Right>', '<c-d>')
 
 -- https://vim.fandom.com/wiki/Search_for_visually_selected_text
 --vmap('//', '"vy/\V<C-R>=escape(@v,'/\')<CR><CR>')
+vmap('//', '"vy/<C-R>v<CR>')
 
 ---- remember cursor position ----
 -- when searching
