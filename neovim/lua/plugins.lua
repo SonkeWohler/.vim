@@ -65,7 +65,7 @@ require('packer').startup(function()
     'tpope/vim-tbone',
     setup = {
       vmap('<C-T>', ':Tyank<CR>'),
-      nmap('<C-T>', 'Vh:Tyank<CR>')
+      nmap('<C-T>', 'V:Tyank<CR>')
     }
   }
   -- view git messages
@@ -171,7 +171,9 @@ require('ayu').setup({
 })
 require('monokai').setup{ palette = require('monokai').soda }
 -- require('molokai').setup{}
-vim.g.nord_disable_background = true
+vim.g.nord_borders = true
+vim.g.nord_contrast = true
+-- vim.g.nord_disable_background = true
 -- vim.cmd [[ colorscheme monokai_soda ]]
 -- vim.cmd [[ colorscheme ayu ]]
 vim.cmd [[ colorscheme nord ]]
