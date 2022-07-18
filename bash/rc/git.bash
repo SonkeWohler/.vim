@@ -14,7 +14,7 @@ alias git.='root ; cd .. ; root'
 alias gitsw='git switch'
 # alias git-='git switch -'
 # alias gi-='git switch -'
-alias gi--='git switch -'
+alias git-='git switch -'
 
 ### --- diffs related
 
