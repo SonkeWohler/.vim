@@ -69,7 +69,6 @@ nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
 nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
 nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
 
-
 -- https://vim.fandom.com/wiki/Search_for_visually_selected_text
 --vmap('//', '"vy/\V<C-R>=escape(@v,'/\')<CR><CR>')
 vmap('//', '"vy/<C-R>v<CR>')
@@ -105,9 +104,9 @@ cmap(':hh', 'vert help ')
 -- keymap('n', '""', '"+y', { noremap = false })
 vmap('""', '"+y')
 nmap('""', '"+y')
-nmap('++', '"+p')
-vmap('++', 'c<C-R>"+<ESC>')
-imap('"++', '<C-R>"+')
+nmap('++', 'o<C-R>+<ESC>')
+vmap('++', 'c<C-R>+<ESC>')
+imap('"++', '<C-R>+')
 -- by default use black hole register rather than unnamed
 nmap('d', '"_d')
 nmap('D', '"_D')
