@@ -44,9 +44,7 @@ require('packer').startup(function()
   use {
     'machakann/vim-sandwich',
     -- I am still used to the tpope/surround keys
-    config = vim.cmd [[
-      runtime macros/sandwich/keymap/surround.vim
-      ]]
+    config = vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
   }
   -- file view as tree
   use {
@@ -87,7 +85,10 @@ require('packer').startup(function()
   }
   -- cheatsheet, except for hydras
   use {
-    'liuchengxu/vim-which-key',
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup { }
+    end
   }
   -- hydras are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
