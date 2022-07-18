@@ -4,7 +4,7 @@ local Hydra = require('hydra')
 Hydra({
   name = 'hydra-lsp',
   mode = 'n',
-  body = 'L',
+  body = ';;',
   config = {
     foreign_keys = nil,
     invoke_on_body = true,
@@ -57,7 +57,7 @@ Hydra({
     {'9', '"_c9', { exit = true }},
   },
 })
--- mappings to complement the hydra
+--[[ -- mappings to complement the hydra
 nmap('gd', ':lua vim.lsp.buf.definition()<cr>')
 nmap('gD', ':lua vim.lsp.buf.type_definition()<cr>')
 nmap('gi', ':lua vim.lsp.buf.implementation()<cr>')
@@ -67,7 +67,7 @@ nmap('gr', ':lua vim.lsp.buf.references()<cr>')
 nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 nmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('L', ':lua vim.lsp.buf.code_action()<cr>')
-nmap('R', ':lua vim.lsp.buf.rename()<cr>')
+nmap('R', ':lua vim.lsp.buf.rename()<cr>') ]]
 
 ----- Windows -----
 Hydra({

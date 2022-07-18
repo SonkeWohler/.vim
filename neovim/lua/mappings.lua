@@ -63,6 +63,24 @@ nmap('<Down>', '5<c-e>')
 nmap('<Left>', '<c-u>')
 nmap('<Right>', '<c-d>')
 
+----- LSP -----
+-- next/prev error
+nmap('Ln', ':lua vim.diagnostic.goto_next()<cr>')
+nmap('LN', ':lua vim.diagnostic.goto_prev()<cr>')
+-- go to definition, references or implementations
+nmap('Ld', ':lua vim.lsp.buf.definition()<cr>')
+nmap('LD', ':lua vim.lsp.buf.references()<cr>')
+nmap('LI', ':lua vim.lsp.buf.implementation()<cr>')
+-- show docs and signature
+nmap('Lk', ':lua vim.lsp.buf.hover()<cr>')
+nmap('LK', ':lua vim.lsp.buf.signature_help()<cr>')
+-- code action
+nmap('Ll', ':lua vim.lsp.buf.code_action()<cr>')
+-- rename
+nmap('Lr', ':lua vim.lsp.buf.rename()<cr>')
+-- since I don't use build-in L or H, I'd like to see hints instead
+nmap('L', ':WhichKey L<CR>')
+
 ----- GitSigns -----
 -- next/prev hunk
 nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
