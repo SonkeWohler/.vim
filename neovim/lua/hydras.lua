@@ -4,7 +4,7 @@ local Hydra = require('hydra')
 Hydra({
   name = 'hydra-lsp',
   mode = 'n',
-  body = 'c',
+  body = 'L',
   config = {
     foreign_keys = nil,
     invoke_on_body = true,
@@ -126,7 +126,7 @@ Hydra({
 nmap('<c-h>', '<c-w>h')
 nmap('<c-l>', '<c-w>l')
 
------ GitSigns ------
+--[[ ----- GitSigns ------
 Hydra({
   name = 'hydra-git',
   mode = 'n',
@@ -145,4 +145,4 @@ Hydra({
     {'<Esc>', nil, { exit = true, desc = 'quit' }},
     {'q', nil, { exit = true, desc = 'quit' }},
   }
-})
+}) ]]
