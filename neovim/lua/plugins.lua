@@ -44,7 +44,9 @@ require('packer').startup(function()
   use {
     'machakann/vim-sandwich',
     -- I am still used to the tpope/surround keys
-    config = vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
+    config = function()
+      vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
+    end
   }
   -- file view as tree
   use {
