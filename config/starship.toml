@@ -27,9 +27,10 @@ disabled = false
 
 # Before all the version info (python, nodejs, php, etc.)
 [git_status]
-ahead = "⇡${count}"
-behind = "⇣${count}"
-deleted = "x"
+ahead = "⇡${count}(yellow bold)"
+behind = "⇣${count}(yellow bold)"
+deleted = "[x](red bold)"
+up_to_date = "[✓](green bold)"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 style = "white"
 
@@ -94,6 +95,10 @@ map_symbol = true
 pipestatus = true
 symbol = "🔴"
 
+[golang]
+symbol = " "
+
+
 [aws]
 symbol = " "
 
@@ -115,20 +120,11 @@ symbol = " "
 [git_branch]
 symbol = " "
 
-[golang]
-symbol = " "
+[git_commit]
+tag_symbol = "🔖 "
 
 [hg_branch]
 symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[lua]
-symbol = "🌙 "
 
 [nim]
 symbol = " "
@@ -136,27 +132,13 @@ symbol = " "
 [nix_shell]
 symbol = " "
 
-[nodejs]
-symbol = " "
-
 [package]
 symbol = " "
-
-[perl]
-symbol = "🐪 "
 
 [php]
 symbol = " "
 
-[python]
-symbol = "🐍 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = "🦀 "
-
 [swift]
 symbol = "ﯣ "
 
+# Other
