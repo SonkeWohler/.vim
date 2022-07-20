@@ -127,6 +127,9 @@ symbol = " "
 [julia]
 symbol = " "
 
+[lua]
+symbol = "🌙 "
+
 [nim]
 symbol = " "
 
@@ -140,19 +143,19 @@ symbol = " "
 symbol = " "
 
 [perl]
-symbol = " "
+symbol = "🐪 "
 
 [php]
 symbol = " "
 
 [python]
-symbol = " "
+symbol = "🐍 "
 
 [ruby]
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = "🦀 "
 
 [swift]
 symbol = "ﯣ "
