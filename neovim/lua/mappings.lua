@@ -74,6 +74,7 @@ nmap('LI', ':lua vim.lsp.buf.implementation()<cr>')
 -- show docs and signature
 nmap('Lk', ':lua vim.lsp.buf.hover()<cr>')
 nmap('LK', ':lua vim.lsp.buf.signature_help()<cr>')
+nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 -- code action
 nmap('Ll', ':lua vim.lsp.buf.code_action()<cr>')
 -- rename
