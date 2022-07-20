@@ -1,0 +1,22 @@
+# limit saved articles
+max-items 10
+# open in default application
+browser "vivaldi-stable %u"
+# browser "open %u"
+# browser "firefox --new-tab %u"
+
+# -- keys
+
+# up and down
+bind-key j next
+bind-key k prev
+# oepn with enter
+bind-key ^J open
+bind-key ^M open
+# like in k9s
+bind-key ESC quit
+
+# -- formatting
+
+datetime-format "%L : %H:%M"
+articlelist-format "%4i %22D  %n       %t %>"
