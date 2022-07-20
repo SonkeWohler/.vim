@@ -27,12 +27,17 @@ disabled = false
 
 # Before all the version info (python, nodejs, php, etc.)
 [git_status]
-ahead = "⇡${count}(yellow bold)"
-behind = "⇣${count}(yellow bold)"
+format = "[<$modified$staged$deleted$renamed$untracked$stashed$ahead_behind>](green) "
+modified = "📝"
+stashed = "[💾](white)"
+staged = '[+\($count\)](green)'
+ahead = "[⇡${count}](yellow)"
+behind = "[⇣${count}](yellow)"
 deleted = "[x](red bold)"
 up_to_date = "[✓](green bold)"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-style = "white"
+untracked = "[?](red bold)"
+diverged = "[⇕⇡${ahead_count}⇣${behind_count}](orange bold)"
+ignore_submodules = true
 
 [kubernetes]
 format = '[☸ $context \($namespace\)](dimmed green) '
@@ -122,6 +127,7 @@ symbol = " "
 
 [git_commit]
 tag_symbol = "🔖 "
+tag_disabled = false
 
 [hg_branch]
 symbol = " "
