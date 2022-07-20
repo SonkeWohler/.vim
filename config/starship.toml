@@ -33,7 +33,7 @@ staged = '[+\($count\)](green)'
 deleted = "[x](red bold)"
 ahead = "[⇡$count](yellow)"
 behind = "[⇣$count](yellow)"
-up_to_date = "[♥️](green bold)"
+up_to_date = "[✓](green bold)"
 untracked = "[?](red bold)"
 stashed = "[💾](white)"
 diverged = "[⇕⇡${ahead_count}⇣${behind_count}](orange bold)"
@@ -54,7 +54,7 @@ disabled = false
 # Last param in the first line/row
 [cmd_duration]
 disabled = false
-format = "♥️ [$duration]($style)"
+format = "[♥️ $duration]($style)"
 min_time = 1
 
 
