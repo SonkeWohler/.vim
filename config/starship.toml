@@ -25,23 +25,29 @@ truncation_symbol = "repo: "
 [sudo]
 disabled = false
 
+[git_branch]
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+symbol = " "
+style = "dimmed green"
+
 # Before all the version info (python, nodejs, php, etc.)
 [git_status]
 format = "[<$modified$staged$deleted$renamed$untracked$stashed$ahead_behind$conflicted>](green) "
 modified = "📝"
 staged = '[+\($count\)](green)'
-deleted = "[x](red bold)"
+deleted = "[x$count](red bold)"
 ahead = "[⇡$count](yellow)"
 behind = "[⇣$count](yellow)"
 up_to_date = "[✓](green bold)"
-untracked = "[?](red bold)"
-stashed = "[💾](white)"
-diverged = "[⇕⇡${ahead_count}⇣${behind_count}](orange bold)"
-conflicted = "🎏"
+untracked = "[?$count](red bold)"
+stashed = "[💾$count](white)"
+diverged = "[⇕⇡$ahead_count⇣$behind_count](orange bold)"
+conflicted = "[🎏$count](orange)"
 ignore_submodules = true
 
 [kubernetes]
-format = '[☸ $context \($namespace\)](dimmed green) '
+format = '☸ [$context \($namespace\)]($style) '
+style = "dimmed purple"
 disabled = false
 [kubernetes.context_aliases]
 "dev.local.cluster.k8s" = "dev"
@@ -122,9 +128,6 @@ symbol = " "
 
 [elm]
 symbol = " "
-
-[git_branch]
-symbol = " "
 
 [git_commit]
 tag_symbol = "🔖 "
