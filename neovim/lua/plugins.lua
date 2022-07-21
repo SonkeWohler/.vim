@@ -20,6 +20,18 @@ require('packer').startup(function()
   use 'altercation/vim-colors-solarized'
   use 'xXTgamerXx/everforest-neovim'
   use 'shaunsingh/nord.nvim'
+  -- better . use
+  use 'tpope/vim-repeat'
+  -- more <C-A>
+  use 'tpope/vim-speeddating'
+  use 'zef/vim-cycle'
+  --[[ use {
+    'monaqa/dial.nvim',
+    tag = 'v0.3.0',
+    config = function()
+      require('dial.map').setup{}
+    end
+  } ]]
   -- tab ans status lines
   use {
     'kdheepak/tabline.nvim',
