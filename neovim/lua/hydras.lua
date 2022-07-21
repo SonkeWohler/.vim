@@ -73,29 +73,30 @@ nmap('R', ':lua vim.lsp.buf.rename()<cr>') ]]
 Hydra({
   name = 'hydra-<C-W>',
   mode = 'n',
-  body = '<c-w>',
+  body = '<c-w><c-w>',
   config = {
     foreign_keys = 'warn',
     invoke_on_body = true,
   },
   heads = {
+    -- move across buffers
     {'h', '<c-W>h', { desc = 'left buffer' }},
     {'l', '<c-W>l', { desc = 'right buffer' }},
     {'k', '<c-W>k', { desc = 'up buffer' }},
     {'j', '<c-W>j', { desc = 'down buffer' }},
-    {'v', ':vsplit<CR>', { desc = 'vertical split' }},
-    {'s', ':split<CR>', { desc = 'horizontal buffer' }},
+    -- commandds quit, save and load
     {'q', ':q<CR>', { desc = 'close buffer' }},
     {'w', ':w<CR>', { desc = 'save buffer' }},
     {'e', ':e<CR>', { desc = 'reload buffer' }},
+    -- simple spllit buffer
+    {'v', ':vsplit<CR>', { desc = 'vertical split' }},
+    {'s', ':split<CR>', { desc = 'horizontal buffer' }},
+    -- splilt current buffer into new tab, effectively similar to tmux zoom
+    {'t', '<Cmd>tab split<CR>', { desc = 'buffer to new tab (split)' }},
+    -- next/prev tab
     {'n', '<Cmd>tabnext<CR>', { desc = 'next tab' }},
     {'N', '<Cmd>tabprevious<CR>', { desc = 'previous tab' }},
-    {'>', '<Cmd>BufferMoveNext<CR>', { desc = 're-order forward' }},
-    {'<', '<Cmd>BufferMovePrevious<CR>', { desc = 're-order backward' }},
-    {'p', '<Cmd>BufferPin<CR>', { desc = 'pin this buffer' }},
-    {'x', '<Cmd>BufferClose<CR>', { desc = 'close this tab' }},
-    {'X', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', { desc = 'close all but this or pinned' }},
-    {'t', '<Cmd>tab split<CR>', { desc = 'buffer to new tab (split)' }},
+    -- specific buffer
     {'T', '<Cmd>BufferPick<CR>', { desc = 'pick buffer letter based' }},
     {'1', '<Cmd>BufferGoto 1<CR>', { desc = 'go to buffer 1' }},
     {'2', '<Cmd>BufferGoto 2<CR>', { desc = 'go to buffer 2' }},
@@ -107,24 +108,33 @@ Hydra({
     {'8', '<Cmd>BufferGoto 8<CR>', { desc = 'go to buffer 8' }},
     {'9', '<Cmd>BufferGoto 9<CR>', { desc = 'go to buffer 9' }},
     {'0', '<Cmd>BufferGoto 10<CR>', { desc = 'go to buffer 10' }},
-    {'+', '<c-W>=', { desc = 'equalize buffer sizes' }},
+    -- move/pin buffer on tabline
+    {'.', '<Cmd>BufferMoveNext<CR>', { desc = 're-order forward' }},
+    {',', '<Cmd>BufferMovePrevious<CR>', { desc = 're-order backward' }},
+    {'p', '<Cmd>BufferPin<CR>', { desc = 'pin this buffer' }},
+    -- close buffer(s) and remove from tablilne
+    {'x', '<Cmd>BufferClose<CR>', { desc = 'close this tab' }},
+    {'X', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', { desc = 'close all but this or pinned' }},
+  -- resize this buffer
     {'<', ':lua require("smart-splits").resize_left(3)<CR>', { desc = 'move vertical split left' }},
     {'>', ':lua require("smart-splits").resize_right(3)<CR>', { desc = 'move vertical split right' }},
     {'=', ':lua require("smart-splits").resize_up(3)<CR>', { desc = 'move horizontal split up' }},
     {'-', ':lua require("smart-splits").resize_down(3)<CR>', { desc = 'move horizontal split down' }},
+    {'+', '<c-W>=', { desc = 'equalize buffer sizes' }},
+    -- move buffer
     {'H', '<c-W>H', { desc = 'move buffer to the left' }},
     {'J', '<c-W>J', { desc = 'move buffer to the bottom' }},
     {'K', '<c-W>K', { desc = 'move buffer to the top' }},
     {'L', '<c-W>L', { desc = 'move buffer to the right' }},
+    -- allow basic intra-buffer navigation while in hydra
     {'<c-e>', '<c-e>'},
     {'<c-y>', '<c-y>'},
+    -- exit the hydra
     {'<esc>', nil, { exit = true, desc = 'quit hydra' }},
     {':', ':', { exit = true, desc = 'quit hydra' }},
     -- TODO resize
   }
 })
-nmap('<c-h>', '<c-w>h')
-nmap('<c-l>', '<c-w>l')
 
 --[[ ----- GitSigns ------
 Hydra({

@@ -32,7 +32,47 @@ cmap('1q', 'q')
 cmap('2q', 'qq')
 cmap('3q', 'qqq')
 
----- navigation ----
+----- inter-buffer navigation -----
+-- similar window controls are defined in the hydra-<C-W>
+-- faster left and right, since that is the most common for me
+nmap('<c-h>', '<c-w>h')
+nmap('<c-l>', '<c-w>l')
+-- commandds save and load
+nmap('<c-w>w', ':w<CR>')
+nmap('<c-w>e', ':e<CR>')
+-- splilt current buffer into new tab, effectively similar to tmux zoom
+nmap('<c-w>t', '<Cmd>tab split<CR>')
+-- next/prev tab
+nmap('<c-w>n', '<Cmd>tabnext<CR>')
+nmap('<c-w>N', '<Cmd>tabprevious<CR>')
+-- specific buffer
+nmap('<c-w>T', '<Cmd>BufferPick<CR>')
+nmap('<c-w>1', '<Cmd>BufferGoto 1<CR>')
+nmap('<c-w>2', '<Cmd>BufferGoto 2<CR>')
+nmap('<c-w>3', '<Cmd>BufferGoto 3<CR>')
+nmap('<c-w>4', '<Cmd>BufferGoto 4<CR>')
+nmap('<c-w>5', '<Cmd>BufferGoto 5<CR>')
+nmap('<c-w>6', '<Cmd>BufferGoto 6<CR>')
+nmap('<c-w>7', '<Cmd>BufferGoto 7<CR>')
+nmap('<c-w>8', '<Cmd>BufferGoto 8<CR>')
+nmap('<c-w>9', '<Cmd>BufferGoto 9<CR>')
+nmap('<c-w>0', '<Cmd>BufferGoto 10<CR>')
+-- move/pin buffer on tabline
+nmap('<c-w>.', '<Cmd>BufferMoveNext<CR>')
+nmap('<c-w>,', '<Cmd>BufferMovePrevious<CR>')
+nmap('<c-w>p', '<Cmd>BufferPin<CR>')
+-- close buffer(s) and remove from tablilne
+nmap('<c-w>x', '<Cmd>BufferClose<CR>')
+nmap('<c-w>X', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>')
+-- resize this buffer
+nmap('<c-w><', ':lua require("smart-splits").resize_left(3)<CR>')
+nmap('<c-w>>', ':lua require("smart-splits").resize_right(3)<CR>')
+nmap('<c-w>=', ':lua require("smart-splits").resize_up(3)<CR>')
+nmap('<c-w>-', ':lua require("smart-splits").resize_down(3)<CR>')
+nmap('<c-w>+', '<c-W>=')
+-- more window controls are defined in the hydra-<C-W>
+
+---- intra-buffer navigation ----
 -- methods are sort of functions
 nmap(']f', ']m')
 nmap(']F', ']M')
