@@ -33,7 +33,7 @@ style = "dimmed green"
 # Before all the version info (python, nodejs, php, etc.)
 [git_status]
 format = "[<$modified$staged$deleted$renamed$untracked$stashed$ahead_behind$conflicted>](green) "
-modified = "📝"
+modified = "[📝$count](red)"
 staged = '[+\($count\)](green)'
 deleted = "[x$count](red bold)"
 ahead = "[⇡$count](yellow)"
@@ -44,9 +44,10 @@ stashed = "[💾$count](white)"
 diverged = "[⇕⇡$ahead_count⇣$behind_count](orange bold)"
 conflicted = "[🎏$count](orange)"
 ignore_submodules = true
+disabled = false
 
 [kubernetes]
-format = '☸ [$context \($namespace\)]($style) '
+format = '☸ [$context\($namespace\)]($style) '
 style = "dimmed purple"
 disabled = false
 [kubernetes.context_aliases]
@@ -60,7 +61,7 @@ disabled = false
 # Last param in the first line/row
 [cmd_duration]
 disabled = false
-format = "[♥️ $duration]($style)"
+format = "♥️ [$duration]($style)"
 min_time = 1
 
 
@@ -147,5 +148,9 @@ symbol = " "
 
 [swift]
 symbol = "ﯣ "
+
+[python]
+symbol = "[](yellow) "
+style = "blue"
 
 # Other
