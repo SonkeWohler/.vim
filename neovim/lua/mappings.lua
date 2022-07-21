@@ -122,7 +122,7 @@ cmap(':hh', 'vert help ')
 -- yank into system register
 -- keymap('n', '""', '"+y', { noremap = false })
 vmap('""', '"+y')
-nmap('""', '"+y')
+nmap('""', '"+yy')
 nmap('++', 'o<C-R>+<ESC>')
 vmap('++', 'c<C-R>+<ESC>')
 imap('"++', '<C-R>+')
