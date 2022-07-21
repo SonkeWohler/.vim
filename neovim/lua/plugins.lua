@@ -36,14 +36,26 @@ require('packer').startup(function()
   use {
     'kdheepak/tabline.nvim',
     requires = {
-      { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true}
+      { 'hoob3rt/lualine.nvim', opt=true },
+      {'kyazdani42/nvim-web-devicons', opt = true}
     },
+    config = function()
+      require('tabline').setup{ }
+    end
   }
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
+      require('lualine').setup{}
+    end
   }
-  use('mrjones2014/smart-splits.nvim')
+  use {
+    'mrjones2014/smart-splits.nvim',
+    config = function()
+      require('smart-splits').setup{}
+    end
+  }
   -- better string conversions I still have to get used to
   -- a bit like tpope's vim-abolish
   use{
@@ -200,10 +212,6 @@ require("nvim-tree").setup {}
 require('nvim-web-devicons').setup{
   default = true;
 }
--- tab and statusline
-require('tabline').setup{}
-require('lualine').setup{}
-require('smart-splits').setup{}
 
 -- Completion
 local cmp = require('cmp')
