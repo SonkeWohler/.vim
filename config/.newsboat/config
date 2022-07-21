@@ -19,4 +19,4 @@ bind-key ESC quit
 # -- formatting
 
 datetime-format "%L : %H:%M"
-articlelist-format "%4i %22D  %n       %t %>"
+articlelist-format "%4i %n %22D       %t %>"
