@@ -16,7 +16,14 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   ------ looks ------
   -- nerd fonds, should be part of requirements above already
-  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('nvim-web-devicons').setup{
+        default = true;
+      }
+    end
+  }
   -- color schemes
   use 'tomasr/molokai'
   use 'tanvirtin/monokai.nvim'
@@ -69,9 +76,10 @@ require('packer').startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    config = {
+    config = function()
+      require("nvim-tree").setup {}
       cmd('LSA', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' })
-    }
+    end
   }
   ------ search ------
   -- better string conversions I still have to get used to
@@ -189,6 +197,14 @@ require('packer').startup(function()
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require('trouble').setup{
+        action_keys = {
+          jump_close = {'o', '<c-j>', 'enter'}
+        }
+      }
+      cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin'} )
+    end
   }
   -- pretty in line visalisation of diagnostics
   --[[ use({
@@ -210,6 +226,9 @@ end)
 ----------------------------------------------
 -----       setting up the plugins      ------
 ----------------------------------------------
+-- anything that can't go into the plugin definition (config) goes here.
+-- a lot of these I am not sure why they don't work under config above,
+-- but well...
 
 -- colors
 require('ayu').setup({
@@ -224,14 +243,6 @@ vim.g.nord_contrast = true
 -- vim.cmd [[ colorscheme monokai_soda ]]
 -- vim.cmd [[ colorscheme ayu ]]
 vim.cmd [[ colorscheme nord ]]
-
--- file viewer
-require("nvim-tree").setup {}
-
--- Fonts
-require('nvim-web-devicons').setup{
-  default = true;
-}
 
 -- Completion
 local cmp = require('cmp')
@@ -252,15 +263,10 @@ cmp.setup({
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- LSP
-require('trouble').setup{
-  action_keys = {
-    jump_close = {'o', '<c-j>', 'enter'}
-  }
-}
-cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin'} )
+-- this doesn't seem to work right if setup in config above
+require("nvim-lsp-installer").setup {}
 -- capabilities are from the completion plugin above, normally people just leave
 -- these empy
-require("nvim-lsp-installer").setup {}
 local lspconfig = require("lspconfig")
 lspconfig.sumneko_lua.setup {
   capabilities = capabilities
