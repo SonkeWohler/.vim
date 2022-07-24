@@ -180,14 +180,23 @@ require('packer').startup(function()
     end
   }
   -- Language Client
+  -- lsp and installer for lsp
   use {  -- more setup at the bottom
     'williamboman/nvim-lsp-installer',
     'neovim/nvim-lspconfig',
   }
+  -- pretty list of diagnostics
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
   }
+  -- pretty in line visalisation of diagnostics
+  --[[ use({
+  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  config = function()
+    require("lsp_lines").setup()
+  end,
+}) ]]
   -- Completions of various kinds
   use {  -- more setup at the bottom
     'hrsh7th/cmp-nvim-lsp',
