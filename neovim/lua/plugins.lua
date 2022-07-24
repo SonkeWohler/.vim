@@ -11,8 +11,12 @@
 ----------------------------------------------
 
 require('packer').startup(function()
+  ------ meta ------
   -- packer itself
   use 'wbthomason/packer.nvim'
+  ------ looks ------
+  -- nerd fonds, should be part of requirements above already
+  use 'kyazdani42/nvim-web-devicons'
   -- color schemes
   use 'tomasr/molokai'
   use 'tanvirtin/monokai.nvim'
@@ -20,6 +24,7 @@ require('packer').startup(function()
   use 'altercation/vim-colors-solarized'
   use 'xXTgamerXx/everforest-neovim'
   use 'shaunsingh/nord.nvim'
+  ------ commands ------
   -- better . use
   use 'tpope/vim-repeat'
   -- more <C-A>
@@ -32,7 +37,8 @@ require('packer').startup(function()
       require('dial.map').setup{}
     end
   } ]]
-  -- tab ans status lines
+  ------ buffers ------
+  -- tab and status lines
   use {
     'kdheepak/tabline.nvim',
     requires = {
@@ -50,29 +56,14 @@ require('packer').startup(function()
       require('lualine').setup{}
     end
   }
+  -- better resizing
   use {
     'mrjones2014/smart-splits.nvim',
     config = function()
       require('smart-splits').setup{}
     end
   }
-  -- better string conversions I still have to get used to
-  -- a bit like tpope's vim-abolish
-  use{
-    'johmsalas/text-case.nvim',
-    config = function()
-      require('textcase').setup{}
-    end
-  }
-  -- like tpope's surround but more maintained
-  use {
-    'machakann/vim-sandwich',
-    -- I am still used to the tpope/surround keys
-    config = function()
-      vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
-    end
-  }
-  -- file view as tree
+  -- file view as tree, like nerdtree
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -81,6 +72,26 @@ require('packer').startup(function()
     config = {
       cmd('LSA', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' })
     }
+  }
+  ------ search ------
+  -- better string conversions I still have to get used to
+  -- a bit like tpope's vim-abolish
+  use{
+    'johmsalas/text-case.nvim',
+    config = function()
+      require('textcase').setup{}
+    end
+  }
+  -- fuzzy finding with fzf
+  use 'junegunn/fzf.vim'
+  ------ motions ------
+  -- like tpope's surround but more maintained
+  use {
+    'machakann/vim-sandwich',
+    -- I am still used to the tpope/surround keys
+    config = function()
+      vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
+    end
   }
   -- comments as actions
   use 'b3nj5m1n/kommentary'
@@ -92,6 +103,7 @@ require('packer').startup(function()
       nmap('<C-T>', 'V:Tyank<CR>')
     }
   }
+  ------ git ------
   -- view git messages
   use {
     'rhysd/git-messenger.vim',
@@ -109,6 +121,7 @@ require('packer').startup(function()
       require('gitsigns').setup()
     end
   }
+  ------ hints ------
   -- cheatsheet, except for hydras
   use {
     "folke/which-key.nvim",
@@ -116,13 +129,13 @@ require('packer').startup(function()
       require("which-key").setup { }
     end
   }
+  ------ awesome ------
   -- hydras are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
-  -- fuzzy finding with fzf
-  use 'junegunn/fzf.vim'
-  -- better python word objects like functions
+  ------ language support ------
+  -- better python word objects/motions like functions
   -- maybe some for other languages would be nice
   use {
     'jeetsukumaran/vim-pythonsense',
@@ -183,8 +196,6 @@ require('packer').startup(function()
     'hrsh7th/cmp-path',
     'hrsh7th/nvim-cmp',
   }
-  -- nerd fonds
-  use 'kyazdani42/nvim-web-devicons'
 end)
 
 ----------------------------------------------
