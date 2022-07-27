@@ -122,11 +122,19 @@ require('packer').startup(function()
       nmap('gm', '<Plug>(git-messenger)')
     }
   }
-  -- more git stuff
+  -- in line git display
   use {
     'lewis6991/gitsigns.nvim',
+    requires = 'nvim-lua/plenary.nvim',
     config = function()
       require('gitsigns').setup()
+    end
+  }
+  -- like fugitive in lua
+  use {
+    'TimUntersberger/neogit',
+    config = function()
+      require('neogit').setup{}
     end
   }
   ------ hints ------
