@@ -20,3 +20,12 @@ bind-key ESC quit
 
 datetime-format "%L : %H:%M"
 articlelist-format "%4i %n %22D       %t %>"
+
+# -- confirmations
+
+confirm-mark-feed-read no
+
+# -- reload and notify
+
+auto-reload yes
+reload-time 10
