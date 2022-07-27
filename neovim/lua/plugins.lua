@@ -145,10 +145,13 @@ require('packer').startup(function()
       require("which-key").setup { }
     end
   }
-  ------ awesome ------
+  ------ various/awesome ------
   -- hydras are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+  }
+  use {
+    'tpope/vim-obsession',
   }
   ------ language support ------
   -- better python word objects/motions like functions
