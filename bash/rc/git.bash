@@ -120,7 +120,7 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 # default
 alias gitlogm='git log --pretty=format:"%cn, %cr :: %s"' 
 # hash
-alias gitlogmh='git log --pretty=format:"%h, %cd :: %s"'
+alias gitlogmh='git log --pretty=format:"%h, %cd  -- %cn  :: %s"'
 # diffs
 alias gitlogmp='git log --pretty=format:"%n%h, %cd :: %s%n=============================================%n"'
 # graph
