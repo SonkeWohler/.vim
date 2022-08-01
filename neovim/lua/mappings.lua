@@ -1,3 +1,6 @@
+----- cleanup -----
+-- unlike in vim, neovim by default splits undos in insert mode when using these
+-- I use these a lot and prefer a single insert mode to be atomic
 vim.api.nvim_del_keymap('i', '<C-W>')
 vim.api.nvim_del_keymap('i', '<C-U>')
 
