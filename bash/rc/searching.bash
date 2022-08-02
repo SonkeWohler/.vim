@@ -68,3 +68,19 @@ ffgrep() {
 # exrtra simple for just the current directory
 alias fgrep='ffgrep 1'
 alias flist='listfiles 1'
+
+but() {
+    if test -z "$1"; then
+        echo 'list all files but the specified pattern'
+        echo 'usage:'
+        echo 'but $1 $2'
+        echo '$1 is a grep/perl pattern to filter out of the file list'
+        echo '$2 is optional and defines the maxdepth for find'
+        return
+    fi
+    maxdepth=1
+    if test -n "$2"; then
+        maxdepth=$2
+    fi
+    find . -maxdepth "$maxdepth" | grep -v '^\.$' | grep -vP $1
+}
