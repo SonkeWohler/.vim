@@ -24,6 +24,8 @@ bind-key G end
 # sort, because g, G are taken
 bind-key s sort
 bind-key S rev-sort
+# mark as read as key instead of chord
+bind-key a mark-feed-read
 
 # -- formatting
 
