@@ -112,7 +112,12 @@ require('packer').startup(function()
     end
   }
   -- comments as actions
-  use 'b3nj5m1n/kommentary'
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
   -- tmux integration for registers
   use {
     'tpope/vim-tbone',
