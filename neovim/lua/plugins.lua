@@ -15,12 +15,21 @@ require('packer').startup(function()
   -- packer itself
   use 'wbthomason/packer.nvim'
   ------ looks ------
-  -- nerd fonds, should be part of requirements above already
+  -- nerd fonds, should be part of requirements in other plugins as well anyway
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
       require('nvim-web-devicons').setup{
         default = true;
+      }
+    end
+  }
+  -- smooth scrolling, not sure yet
+  use {
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('neoscroll').setup(){
+        easing_function = 'circular'
       }
     end
   }
@@ -91,6 +100,7 @@ require('packer').startup(function()
     end
   }
   -- fuzzy finding with fzf
+  -- NOTE: requires fzf and ripgrep installed on the system.
   use 'junegunn/fzf.vim'
   ------ motions ------
   -- like tpope's surround but more maintained
