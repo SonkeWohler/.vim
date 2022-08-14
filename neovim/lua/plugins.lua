@@ -165,8 +165,17 @@ use {
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
+  -- better sessions, also useful (apparently) for tmux sessions
   use {
     'tpope/vim-obsession',
+  }
+  -- so far the best autopair I've tried.  I used to have reservations
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {
+      }
+    end
   }
   ------ language support ------
   -- better python word objects/motions like functions
@@ -271,7 +280,13 @@ vim.g.nord_contrast = true
 vim.cmd [[ colorscheme nord ]]
 
 -- Completion
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -337,9 +352,6 @@ lspconfig.rust_analyzer.setup {
   capabilities = capabilities
 }
 lspconfig.sqlls.setup {
-  capabilities = capabilities
-}
-lspconfig.sumneko_lua.setup {
   capabilities = capabilities
 }
 lspconfig.texlab.setup {
