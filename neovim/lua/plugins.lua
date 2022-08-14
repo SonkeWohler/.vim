@@ -256,6 +256,14 @@ use {
     'hrsh7th/cmp-path',
     'hrsh7th/nvim-cmp',
   }
+  -- I don't use snippets (yet), but cmp requires it
+  use {
+  'dcampos/cmp-snippy',
+  'dcampos/nvim-snippy',
+   config = function()
+     require('snippy').setup{}
+   end
+  }
 end)
 
 ----------------------------------------------
@@ -288,6 +296,11 @@ cmp.event:on(
   cmp_autopairs.on_confirm_done()
 )
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('snippy').expand_snippet(args.body)
+    end
+  },
   mapping = cmp.mapping.preset.insert({
     -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
