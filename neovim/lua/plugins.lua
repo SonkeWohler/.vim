@@ -25,14 +25,14 @@ require('packer').startup(function()
     end
   }
   -- smooth scrolling, not sure yet
-  use {
+  --[[ use {
     'karb94/neoscroll.nvim',
     config = function()
       require('neoscroll').setup(){
         easing_function = 'circular'
       }
     end
-  }
+  } ]]
   -- color schemes
   use 'tomasr/molokai'
   use 'tanvirtin/monokai.nvim'
