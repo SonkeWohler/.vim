@@ -224,9 +224,10 @@ use {
   }
   -- Language Client
   -- lsp and installer for lsp
-  use {  -- more setup at the bottom
-    'williamboman/nvim-lsp-installer',
-    'neovim/nvim-lspconfig',
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
   }
   -- pretty list of diagnostics
   use {
@@ -318,7 +319,30 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 -- LSP
 -- this doesn't seem to work right if setup in config above
-require("nvim-lsp-installer").setup {}
+--require("nvim-lsp-installer").setup {}
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "sumneko_lua",
+    "bashls",
+    "angularls",
+    "bashls",
+    "cmake",
+    "dockerls",
+    "gopls",
+    "html",
+    "jdtls",
+    "jsonls",
+    "lemminx",
+    "jedi_language_server",
+    "marksman",
+    "rust_analyzer",
+    "sqlls",
+    "texlab",
+    "tsserver",
+    "yamlls",
+  }
+})
 -- capabilities are from the completion plugin above, normally people just leave
 -- these empy
 local lspconfig = require("lspconfig")
@@ -355,9 +379,12 @@ lspconfig.jsonls.setup {
 lspconfig.lemminx.setup {
   capabilities = capabilities
 }
-lspconfig.pylsp.setup {
+lspconfig.jedi_language_server.setup {
   capabilities = capabilities
 }
+-- lspconfig.pylsp.setup {
+--   capabilities = capabilities
+-- }
 lspconfig.marksman.setup {
   capabilities = capabilities
 }
