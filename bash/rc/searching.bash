@@ -51,6 +51,9 @@ fax() {
 # this is mostly a chain of functions building on each other
 # but this way I can also make use of any one of them individually
 
+# I now started using fd
+alias ff='fd --hidden --type f'
+
 # prettify output of find
 listfiles() {
   find -maxdepth $@ | sed 's/^\.\///g' | grep -v "^\.$"

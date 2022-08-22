@@ -34,6 +34,7 @@ Hydra({
     {'<c-e>', '<c-e>'},
     {'<c-y>', '<c-y>'},
     {'<Esc>', nil, { exit = true, desc = 'quit' }},
+    {';', nil, { exit = true, desc = 'quit' }},
     {'q', nil, { exit = true, desc = 'quit' }},
     {'i', '"_ci', { exit = true }},
     {'t', '"_ct', { exit = true }},

@@ -152,9 +152,10 @@ giteachone() {
 }
 
 gitsub() {
+  currentpath=$PWD
   cd $1 || return 1
   eval $2
-  cd ..
+  cd $currentpath
 }
 
 alias gitsubdate='git submodule update --recursive --remote'
