@@ -35,8 +35,9 @@ cmap('3q', 'qqq')
 -- faster left and right, since that is the most common for me
 nmap('<c-h>', '<c-w>h')
 nmap('<c-l>', '<c-w>l')
--- commandds save and load
+-- commands save and load
 nmap('<c-w>w', ':w<CR>')
+nmap('<c-s>', ':w<CR>')
 nmap('<c-w>e', ':e<CR>')
 -- splilt current buffer into new tab, effectively similar to tmux zoom
 nmap('<c-w>t', '<Cmd>tab split<CR>')
