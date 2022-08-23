@@ -68,7 +68,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.3
+  opacity: 0.6
 
   # Startup Mode (changes require restart)
   #
@@ -191,11 +191,12 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
     
-# Colors (Ayu Mirage)
+# Colors (based on Ayu Mirage)
 colors:
   # Default colors
   primary:
-    background: '#202734'
+    background: '#2E3440' # from nord
+    # background: '#202734' # original ayu
     foreground: '#CBCCC6'
 
   # Normal colors
