@@ -98,7 +98,8 @@ alias pp='poetry'
 #-- npm and node
 
 # https://wiki.archlinux.org/title/Node.js#Node_Packaged_Modules
-source /usr/share/nvm/init-nvm.sh
+##source /usr/share/nvm/init-nvm.sh
+alias nvm='n'
 
 # running cypress
 alias npc='npx cypress open --config watchForFileChanges=false'

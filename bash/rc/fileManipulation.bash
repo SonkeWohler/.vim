@@ -55,7 +55,6 @@ open() {
 
 alias cdd='cd $writingCD'
 alias cdw='cd $workCD'
-alias cdihp='cd $workCD/IHP'
 alias cdt='cd $tempCD'
 alias cdv='cd $vimCD'
 alias cdl='cd $librariesCD'
