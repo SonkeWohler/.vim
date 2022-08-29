@@ -86,8 +86,19 @@ require('packer').startup(function()
       'kyazdani42/nvim-web-devicons',
     },
     config = function()
-      require("nvim-tree").setup {}
-      cmd('LSA', 'NvimTreeToggle', { desc = 'open or close NvimTree: NvimTreeToggle' })
+      require("nvim-tree").setup {
+        view = {
+          adaptive_size = true,
+          mappings = {
+            list = {
+              { key = "v", action = "vsplit" }, -- I would like to automatically close this, but not sure how
+            },
+          },
+        },
+      }
+      cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
+      cmd('LSC', 'NvimTreeClose', {desc = 'close NvimTree'})
+      cmd('LSX', 'NvimTreeClose', {desc = 'close NvimTree'})
     end
   }
   ------ search ------
