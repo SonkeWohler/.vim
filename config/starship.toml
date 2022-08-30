@@ -1,12 +1,13 @@
-## FIRST LINE/ROW: Info & Status
-# First param ─┌
+# --- FIRST LINE: A BUNCH OF INFO
+
+# First param: whoami
 [username]
-format = " [$user]($style)♥️"
+format = " [$user]($style)♥️ "
 show_always = true
 style_root = "bold red"
 style_user = "bold red"
 
-# Second param
+# Second param: shortened host (compuer) name
 [hostname]
 disabled = false
 format = "[$hostname]($style) "
@@ -14,38 +15,7 @@ ssh_only = false
 style = "bold dimmed red"
 trim_at = "-"
 
-# Third param
-[directory]
-style = "purple"
-truncate_to_repo = true
-truncation_length = 0
-truncation_symbol = "repo: "
-
-# Fourth param
-[sudo]
-disabled = false
-
-[git_branch]
-format = "on [$symbol$branch(:$remote_branch)]($style) "
-symbol = " "
-style = "dimmed green"
-
-# Before all the version info (python, nodejs, php, etc.)
-[git_status]
-format = "[<$modified$staged$deleted$renamed$untracked$stashed$ahead_behind$conflicted>](green) "
-modified = "[📝$count](red)"
-staged = '[+\($count\)](green)'
-deleted = "[x$count](red bold)"
-ahead = "[⇡$count](yellow)"
-behind = "[⇣$count](yellow)"
-up_to_date = "[✓](green bold)"
-untracked = "[?$count](red bold)"
-stashed = "[💾$count](white)"
-diverged = "[⇕⇡$ahead_count⇣$behind_count](orange bold)"
-conflicted = "[🎏$count](orange)"
-ignore_submodules = true
-disabled = false
-
+# Third: kubernetes
 [kubernetes]
 format = '☸ [$context\($namespace\)]($style) '
 style = "dimmed purple"
@@ -58,59 +28,100 @@ disabled = false
 "dev.local.cluster.k8s" = "dev"
 "root/.*" = "root"
 
-# Last param in the first line/row
+# Fourth: pwd, shortened to git repo
+[directory]
+style = "purple"
+truncate_to_repo = true
+truncation_length = 0
+truncation_symbol = "repo: "
+
+# Fifth: current git branch
+[git_branch]
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+symbol = " "
+style = "dimmed green"
+
+# Sixth: git status
+[git_status]
+format = "[<$modified$staged$deleted$renamed$untracked$stashed$ahead_behind$conflicted>](green) "
+modified = "[ $count](red)"
+staged = '[+\($count\)](green)'
+deleted = "[x$count](red bold)"
+ahead = "[⇡$count](yellow)"
+behind = "[⇣$count](yellow)"
+up_to_date = "[✓](green bold)"
+untracked = "[?$count](red bold)"
+stashed = "[ $count](white)"
+# diverged = "[⇕$ahead_count⇣$behind_count](orange bold)"
+diverged = "[ﬔ $ahead_count⇣$behind_count](orange bold)"
+conflicted = "[ $count](orange)"
+ignore_submodules = true
+disabled = false
+
+# Seventh: project build information
+# e.g. 'via <python-symbol> <version>'
+# except for the symbols (defined below) I use the default here
+
+# Eigth: am I cached as sudo?
+[sudo]
+disabled = false
+style = "bold blue"
+symbol = "  "
+
+# Last: how long the last command took to run
 [cmd_duration]
 disabled = false
 format = "♥️ [$duration]($style)"
 min_time = 1
 
+# --- SECOND LINE: Intermediate
 
-## SECOND LINE/ROW: Prompt
-# Somethere at the beginning
-[battery]
-charging_symbol = ""
-disabled = true
-discharging_symbol = ""
-full_symbol = ""
+# First: suspended processes from this prompt
+# ???
 
-[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
-disabled = false
-style = "bold red"
-threshold = 15
+# Also: Battery
+# I don't use this, but it would be here somewhere
 
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-disabled = true
-style = "bold yellow"
-threshold = 50
-
-[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-disabled = true
-style = "bold green"
-threshold = 80
-
-# Prompt: optional param 1
+# Second: time this prompt was printed (right after the last command completed)
 [time]
-disabled = true
+disabled = false
 format = " 🕙 $time($style)\n"
 style = "bright-white"
 time_format = "%T"
 
-# Prompt: param 2
-[character]
-error_symbol = " [×](bold red)"
-success_symbol = " [λ](bold red)"
+# --- THIRD LINE: LAST COMMAND STATUS
 
-# SYMBOLS
+# success state of the last command
 [status]
 disabled = false
-format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+# format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+format = '[ $not_found_symbol$not_executable_symbol$success_symbol$symbol$signal_number]($style)'
 map_symbol = true
 pipestatus = true
-symbol = "🔴"
+style = "bold red"
+
+# --- SYMBOLS
+
+success_symbol = "λ"
+symbol = "x"
+not_executable_symbol = " "
+# not_found_symbol = " "
+not_found_symbol = "🔍 "
+# not_executable_symbol = " "
+sigint_symbol = "⚡"
+signal_symbol = "⚡"
+
+# the prompt that is usually '$'
+# is replaced by status from above
+[character]
+error_symbol = ""
+success_symbol = ""
 
 [golang]
 symbol = " "
 
+[lua]
+symbol = " "
 
 [aws]
 symbol = " "
@@ -121,7 +132,9 @@ symbol = " "
 [dart]
 symbol = " "
 
+# this is not much use for me
 [docker_context]
+disabled = true
 symbol = " "
 
 [elixir]
@@ -131,7 +144,8 @@ symbol = " "
 symbol = " "
 
 [git_commit]
-tag_symbol = "🔖 "
+# tag_symbol = " "
+tag_symbol = "識 "
 tag_disabled = false
 
 [hg_branch]
