@@ -9,17 +9,26 @@ style_user = "bold red"
 
 # Second param: shortened host (compuer) name
 [hostname]
-disabled = false
+disabled = true
 format = "[$hostname]($style) "
 ssh_only = false
 style = "bold dimmed red"
 trim_at = "-"
 
-# Third: kubernetes
+# Third: number of nested shells
+[shlvl]
+disabled = false
+format = " [$symbol]($style) "
+repeat = true
+symbol = " "
+# symbol = "↕️"
+# symbol = "גּ "
+
+# Fourth: kubernetes
 [kubernetes]
+disabled = false
 format = '☸ [$context\($namespace\)]($style) '
 style = "dimmed purple"
-disabled = false
 [kubernetes.context_aliases]
 "dev.local.cluster.k8s" = "dev"
 ".*/openshift-cluster/.*" = "openshift"
@@ -28,20 +37,20 @@ disabled = false
 "dev.local.cluster.k8s" = "dev"
 "root/.*" = "root"
 
-# Fourth: pwd, shortened to git repo
+# Fifth: pwd, shortened to git repo
 [directory]
 style = "purple"
 truncate_to_repo = true
 truncation_length = 0
 truncation_symbol = "repo: "
 
-# Fifth: current git branch
+# Sixth: current git branch
 [git_branch]
 format = "on [$symbol$branch(:$remote_branch)]($style) "
 symbol = " "
 style = "dimmed green"
 
-# Sixth: git status
+# Seventh: git status
 [git_status]
 format = "[<$modified$staged$deleted$renamed$untracked$stashed$ahead_behind$conflicted>](green) "
 modified = "[ $count](red)"
@@ -58,11 +67,11 @@ conflicted = "[ $count](orange)"
 ignore_submodules = true
 disabled = false
 
-# Seventh: project build information
+# Eigth: project build information
 # e.g. 'via <python-symbol> <version>'
 # except for the symbols (defined below) I use the default here
 
-# Eigth: am I cached as sudo?
+# Penultimate: am I cached as sudo?
 [sudo]
 disabled = false
 style = "bold blue"
@@ -77,7 +86,8 @@ min_time = 1
 # --- SECOND LINE: Intermediate
 
 # First: suspended processes from this prompt
-# ???
+[jobs]
+disabled = false
 
 # Also: Battery
 # I don't use this, but it would be here somewhere
