@@ -63,6 +63,7 @@ require('packer').startup(function()
     },
     config = function()
       require('tabline').setup{ }
+      cmd('TN', 'TablineTabRename <q-args>', { nargs=1, desc = 'name this tab' })
     end
   }
   use {
@@ -91,8 +92,18 @@ require('packer').startup(function()
           adaptive_size = true,
           mappings = {
             list = {
-              { key = "v", action = "vsplit" }, -- I would like to automatically close this, but not sure how
+              { key = "o", action = "edit_no_picker" },
+              { key = "O", action = "edit" },
+              { key = "v", action = "vsplit" },
+              { key = "s", action = "split" },
+              { key = "t", action = "tabnew" },
+              { key = "i", action = "toggle_file_info" },
             },
+          },
+        },
+        actions = {
+          open_file = {
+            quit_on_open = true,
           },
         },
       }
