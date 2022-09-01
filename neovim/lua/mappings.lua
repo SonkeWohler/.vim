@@ -35,8 +35,8 @@ cmap('3q', 'qqq')
 -- faster left and right, since that is the most common for me
 nmap('<c-h>', '<c-w>h')
 nmap('<c-l>', '<c-w>l')
+nmap('<c-k>', '<c-w>w')
 -- commands save and load
-nmap('<c-w>w', ':w<CR>')
 nmap('<c-s>', ':w<CR>')
 nmap('<c-w>e', ':e<CR>')
 -- splilt current buffer into new tab, effectively similar to tmux zoom
@@ -44,6 +44,17 @@ nmap('<c-w>t', '<Cmd>tab split<CR>')
 -- next/prev tab
 nmap('<c-w>n', '<Cmd>tabnext<CR>')
 nmap('<c-w>N', '<Cmd>tabprevious<CR>')
+-- go to tab number, this doesn't yet work ??? wtf ???
+-- nmap('<c-1>', ':tabn 1<CR>')
+-- nmap('<c-2>', ':tabn 2<CR>')
+-- nmap('<c-3>', ':tabn 3<CR>')
+-- nmap('<c-4>', ':tabn 4<CR>')
+-- nmap('<c-5>', ':tabn 5<CR>')
+-- nmap('<c-6>', ':tabn 6<CR>')
+-- nmap('<c-7>', ':tabn 7<CR>')
+-- nmap('<c-8>', ':tabn 8<CR>')
+-- nmap('<c-9>', ':tabn 9<CR>')
+-- nmap('<c-0>', ':tabn 10<CR>')
 -- specific buffer
 nmap('<c-w>T', '<Cmd>BufferPick<CR>')
 nmap('<c-w>1', '<Cmd>BufferGoto 1<CR>')
