@@ -37,7 +37,7 @@ nmap('<c-h>', '<c-w>h')
 nmap('<c-l>', '<c-w>l')
 nmap('<c-k>', '<c-w>w')
 -- commands save and load
-nmap('<c-s>', ':w<CR>')
+nmap('<c-s>', ':wa<CR>')
 nmap('<c-w>e', ':e<CR>')
 -- splilt current buffer into new tab, effectively similar to tmux zoom
 nmap('<c-w>t', '<Cmd>tab split<CR>')
