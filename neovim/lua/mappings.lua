@@ -170,9 +170,9 @@ cmap(':hh', 'vert help ')
 
 ---- registers ----
 -- yank into system register
--- keymap('n', '""', '"+y', { noremap = false })
-vmap('""', '"+y')
-nmap('""', '"+yy')
+-- keep in mind "+ and "* are different system registers
+vmap('""', '"+ygv"*y')
+nmap('""', '"+yygv"*y')
 nmap('++', '"+p')
 vmap('++', 'x"+P')
 imap('"++', '<C-R>+')
