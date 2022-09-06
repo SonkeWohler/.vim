@@ -45,6 +45,7 @@ nmap('<c-w>t', '<Cmd>tab split<CR>')
 nmap('<c-w>n', '<Cmd>tabnext<CR>')
 nmap('<c-w>N', '<Cmd>tabprevious<CR>')
 -- go to tab number, this doesn't yet work ??? wtf ???
+nmap('`gt', '1gt')
 nmap('<c-w>1', '1gt')
 nmap('<c-w>2', '2gt')
 nmap('<c-w>3', '3gt')
