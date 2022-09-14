@@ -6,7 +6,7 @@ vim.api.nvim_del_keymap('i', '<C-U>')
 
 ---- insert mode ----
 -- delete key in insert mode
-imap('<C-l>', '<Del>')
+imap('<C-l>', '<Right>')
 
 ---- keyboard layout fixes ----
 -- use double ` for | in insert mode
@@ -124,7 +124,7 @@ nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
 --vmap('//', '"vy/\V<C-R>=escape(@v,'/\')<CR><CR>')
 vmap('//', '"vy/<C-R>v<CR>')
 
----- remember cursor position ----
+---- remember cursor position fixes ----
 -- when searching
 nmap('?', 'mh?')
 nmap('/', 'mh/')
@@ -213,3 +213,8 @@ nmap('zz', 'z=1<CR><CR>')
 -- choose the first suggestion for the last misspelled word (before the cursor)
 nmap('zs', 'ms[sz=1<CR><CR>`s')
 
+
+---- folds ----
+-- fold less => zl, ass opposed to fold more => zm
+-- this shouldn't have an uppercase version because zL is already in use
+nmap('zl', 'zr')
