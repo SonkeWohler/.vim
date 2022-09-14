@@ -159,3 +159,8 @@ gitsub() {
 }
 
 alias gitsubdate='git submodule update --recursive --remote'
+
+# alias gitpullsubs='git pull && echo && git submodule foreach "git checkout development && git pull ; echo "'
+alias gitpullsubs='git pull && git submodule foreach "git checkout development && git pull"'
+alias gitsubpull='gitpullsubs'
+alias gitsubbranches='git submodule foreach "git branch --show-current"'
