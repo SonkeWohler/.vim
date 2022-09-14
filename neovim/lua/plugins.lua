@@ -229,6 +229,16 @@ use {
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end,
   }
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require('treesitter-context').setup{
+        separator = ' ',
+        -- mode = 'topline',
+        -- max_lines = 7,
+      }
+    end,
+  }
   -- better folds using treesitter
   use {
     'kevinhwang91/nvim-ufo',
