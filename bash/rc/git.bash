@@ -55,7 +55,7 @@ alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
 #-- diff
 # list unstaged changes
-gitd() { git diff --color=always --submodule $@ | lessx ; }
+gitd() { git diff --color=always --submodule -M -C -B $@ | lessx ; }
 # staged changes only
 gitdif() { git diff --staged --color=always --submodule $@ | lessx ; }
 
@@ -158,9 +158,13 @@ gitsub() {
   cd $currentpath
 }
 
-alias gitsubdate='git submodule update --recursive --remote'
+alias gitsubupdate='git submodule update --recursive --remote'
 
 # alias gitpullsubs='git pull && echo && git submodule foreach "git checkout development && git pull ; echo "'
 alias gitpullsubs='git pull && git submodule foreach "git checkout development && git pull"'
 alias gitsubpull='gitpullsubs'
 alias gitsubbranches='git submodule foreach "git branch --show-current"'
+
+gitsubd() {
+    git diff --color=always -M -B -C $@ && git submodule foreach "git diff --color=always -M -B -C $@" | lessx
+}
