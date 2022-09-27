@@ -124,7 +124,7 @@ nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
 --vmap('//', '"vy/\V<C-R>=escape(@v,'/\')<CR><CR>')
 vmap('//', '"vy/<C-R>v<CR>')
 
----- remember cursor position fixes ----
+---- fixes to remember the cursor position ----
 -- when searching
 nmap('?', 'mh?')
 nmap('/', 'mh/')
@@ -149,6 +149,11 @@ nmap('va{', 'va{V')
 nmap('sx', '"xx"xp')
 -- help in vertical split
 cmap(':hh', 'vert help ')
+-- insert only a space
+nmap('<space>', 'i<space><esc>')
+-- fold less => zl, asopposed to fold more => zm
+-- this shouldn't have an uppercase version because zL is already in use
+nmap('zl', 'zr')
 
 ---- registers ----
 -- yank into system register
@@ -204,17 +209,12 @@ imap('<C-m>', '<C-G>u<CR>x<BS><C-G>u')
 -- defaults to cursor if there is no space before the cursor on this line
 nmap('<M-j>', 'F<Space>i<Enter><Esc>k$')
 -- join this line with the next while maintaining cursor position
--- breaks use of [count]J
+-- breaks use of [count]J, but I don't usually use that anyway
 nmap('J', 'mJJ`J')
 
 ---- spelling ----
 -- choose the first suggestion for the word under the cursor
 nmap('zz', 'z=1<CR><CR>')
 -- choose the first suggestion for the last misspelled word (before the cursor)
+-- also returns the cursor to its original position
 nmap('zs', 'ms[sz=1<CR><CR>`s')
-
-
----- folds ----
--- fold less => zl, ass opposed to fold more => zm
--- this shouldn't have an uppercase version because zL is already in use
-nmap('zl', 'zr')
