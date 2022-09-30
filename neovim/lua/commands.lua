@@ -14,11 +14,11 @@ cmd('Qa', 'qa!', {desc = 'force quit all buffers'})
 local augroup_line_number_toggle = vim.api.nvim_create_augroup('line_number_toggle', {clear = true})
 
 vim.api.nvim_create_autocmd({
-    'BufWinEnter',
+    -- 'BufWinEnter',
     'WinEnter',
     'BufEnter',
     'FocusGained',
-    'InsertLeave'
+    'InsertLeave',
   }, {
   group = augroup_line_number_toggle,
   desc = 'relative number on',
@@ -28,11 +28,11 @@ vim.api.nvim_create_autocmd({
 })
 
 vim.api.nvim_create_autocmd({
-    'BufWinLeave',
+    -- 'BufWinLeave',
     'WinLeave',
     'BufLeave',
     'FocusLost',
-    'InsertEnter'
+    'InsertEnter',
   }, {
   group = augroup_line_number_toggle,
   desc = 'relative number off',
