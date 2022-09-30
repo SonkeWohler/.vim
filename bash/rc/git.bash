@@ -43,6 +43,12 @@ gitSquash() {
   git commit --edit --message="$2" --message="squashing commits:" --message="$(git log --format="%cn (%ci) :: %s%nhash[ %H ]%n%b%n" --reverse HEAD..HEAD@{1})"
 }
 
+#-- reseting, since I keep forgetting
+# soft reset, but don't need it staged
+alias  gitr='git reset --soft HEAD~ && git restore --staged :/'
+# hard reset
+alias gitR='git reset --hard HEAD~'
+
 #-- clean
 # unstage a list of files
 alias gitq='git restore --staged' 
