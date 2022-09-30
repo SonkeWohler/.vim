@@ -233,6 +233,7 @@ use {
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
       require('treesitter-context').setup{
+        line_numbers = true,
         separator = ' ',
         -- mode = 'topline',
         -- max_lines = 7,
@@ -296,6 +297,24 @@ use {
    config = function()
      require('snippy').setup{}
    end
+  }
+  -- terminal.  Not that I use it often, but as nvim becomes more like an IDE in
+  -- it can be useful sometimes.
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = '2.3.*',
+    config = function()
+      require("toggleterm").setup{
+        size = 100,
+        direction = 'vertical',
+      }
+      cmd('TGL', 'ToggleTerm size=100 direction=vertical', { desc = 'ToggleTerm vertical' })
+      function _G.set_terminal_keymaps()
+        local opts = {buffer = 0}
+        vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+        vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>q]], opts)
+      end
+    end
   }
 end)
 
