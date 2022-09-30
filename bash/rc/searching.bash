@@ -56,11 +56,34 @@ alias ff='fd --hidden --type f'
 
 # prettify output of find
 listfiles() {
+  if test -z "$1" ; then
+      arg1='-h'
+  else
+      arg1=$1
+  fi
+  if [ $arg1 = "-h" ]; then
+      echo 'listfiles <depth>'
+      echo ''
+      echo 'list all files in and below this directory and clean the output up a little'
+      echo 'listing goes <depth> levels deep (1 is just here)'
+      return
+  fi
   find -maxdepth $@ | sed 's/^\.\///g' | grep -v "^\.$"
 }
 # grep for a search term
 filegrep() {
-  arg1=$1
+  if test -z "$1" ; then
+      arg1='-h'
+  else
+      arg1=$1
+  fi
+  if [ $arg1 = "-h" ]; then
+      echo 'filegrep <depth> <grep-term>'
+      echo ''
+      echo 'search for <grep-term> in the filenames in and below this directory'
+      echo 'search goes <depth> levels deep (1 is just here, 0 is nothing)'
+      return
+  fi
   shift
   listfiles $arg1 | grep $@ --color=always
 }
