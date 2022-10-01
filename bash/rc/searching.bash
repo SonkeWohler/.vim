@@ -7,6 +7,9 @@ alias gv='grep -v'
 
 ### --- inside files
 
+# configure ripgrep
+export RIPGREP_CONFIG_PATH="$vimCD/config/ripgreprc"
+
 # simple ack with less
 axx() {
   pattern="$1"

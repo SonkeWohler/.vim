@@ -1,0 +1,6 @@
+# smart case as default
+--smart-case
+
+# I am not sure about this, since there doesn't seem to be an invert of this
+# it's easy to pass '-.', but also inconvenient to have to.
+# --hidden
