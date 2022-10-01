@@ -63,7 +63,7 @@ require('packer').startup(function()
     },
     config = function()
       require('tabline').setup{ }
-      cmd('TN', 'TablineTabRename <q-args>', { nargs=1, desc = 'name this tab' })
+      cmd('TR', 'TablineTabRename <q-args>', { nargs=1, desc = 'name this tab' })
     end
   }
   use {
