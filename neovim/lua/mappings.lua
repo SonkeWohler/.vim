@@ -120,6 +120,8 @@ nmap('L', ':WhichKey L<CR>')
 nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
 nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
 nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
+nmap('gr', ':lua require("gitsigns").reset_hunk()<CR>')
+nmap('gl', ':Gitsigns<CR>')
 
 -- https://vim.fandom.com/wiki/Search_for_visually_selected_text
 --vmap('//', '"vy/\V<C-R>=escape(@v,'/\')<CR><CR>')
