@@ -22,40 +22,7 @@ dotfilesURL="git@github.com:SonkeWohler/.vim.git"
 # settings are better set now.  What is set here will be limited to those
 # settings unlikely to ever change.
 
-print ""
-print "setting up gitcofig"
-print ""
-
 cd ~
-
-if [ -f ~/.gitconfig ]; then
-  print "gitconfig seems to exist already"
-  print "you can leave the existing file untouched (n), add to it (a) or replace it (r)"
-  print "if you choose to replace a backup of the original will be located at ~/.gitconfig.old"
-  read -n 1 yesNo
-else
-  yesNo='a'
-  touch .gitconfig
-fi
-
-yesNo="${YesNo,,}"
-if [ $yesNo = "r" ]; then
-  mv -v .gitconfig .gitconfig.old
-  touch .gitconfig
-  yesNo=a
-fi
-
-if [ $yesNo = "a" ]; then
-  echo "[core]" >> .gitconfig
-  echo "  editor = vim" >> .gitconfig
-  echo "[user]" >> .gitconfig
-  echo "  name = new Sonki Linux" >> .gitconfig
-  echo "  email = sonke.a.wohler@gmail.com" >> .gitconfig
-  echo "[diff]" >> .gitconfig
-  echo "  tool = vimdiff" >> .gitconfig
-  echo "[color]" >> .gitconfig
-  echo "  ui = true" >> .gitconfig
-fi
 
 # ssh keys, taking notes from GitHub
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh
@@ -101,25 +68,12 @@ librariesCD="~/libraries"
 vimCD="$librariesCD/.vim"
 
 #-- dotfiles and other basic repos
-
+ 
 cd ~
 print "setting up repos"
 mkdir libraries --parents --verbose
 cd libraries
 print "cloning dotfiles into ~/libraries"
 git clone --recursive $dotfilesURL
-print "cloning small projects library"
-git clone git@github.com:SonkeWohler/smallProjectsLibrary.git
 print "cloning journal and related writing stuff (private)"
 git clone git@github.com:SonkeWohler/writingLibrary.git
-
-### --- handing over to dotfiles scripts
-
-cd $vimCD/setup
-print "git related setup is done, moving on to config files"
-print ""
-source config.bash
-
-### --- finishing things up
-
-cd ~

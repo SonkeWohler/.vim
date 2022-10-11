@@ -50,19 +50,22 @@ ln --symbolic --verbose $vimCD/pack ~/.vim/pack
 print "setting up neovim init.vim"
 
 mkdir --parents --verbose ~/.config/nvim
-ln --symbolic --verbose $vimCD/config/init.vim ~/.config/nvim/init.vim
+ln --symbolic --verbose $vimCD/neovim/* ~/.config/nvim
 
 #-- tmux
 
 print "setting up tmux"
-
 ln --symbolic --verbose $vimCD/config/.tmux.conf ~/.tmux.conf
 
-#-- easyeffects
+#-- alacritty
 
-print "easyeffects ... you may need to import them from the gui"
+print "setting up alacritty"
+ln --symbolic --verbose $vimCD/config/alacritty.yml
 
-ln --symbolic --verbose $vimCD/config/my_easyeffects.json ~/.config/easyeffects/output/my_easyeffects.json
+#-- starship
+
+print "setting up starship"
+ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
 
 #-- other misc
 
@@ -72,30 +75,9 @@ ln --symbolic --verbose $vimCD/config/swap.xmodmap ~/.config/swap.xmodmap
 
 ### --- vim related submodules/packs
 
-#-- helptags
-cd ~
-vim -u NONE -c 'helptags ALL|q'
-nvim -u NONE -c 'helptags ALL|q'
-
-#-- language client
-# this requires running a script before use
-cd $vimCD/pack/vendor/start/LanguageClient-neovim
-source install.sh
+print "setting up newsboat config"
+ln --symbolic --verbose $vimCD/config/.newsboat/config ~/.newsboat/
 
 #-- rustup
 
 rustup toolchain install stable
-
-### --- finishing up
-
-print ""
-print ""
-print ""
-print "I haven't integrated kde config files yet,"
-print "but if you are ok messing with it feel free to copy them from $vimCD/config/kde"
-print ""
-print "there are a few things related to the language client and the like I still have to setup"
-print ""
-print ""
-print ""
-print "but for the most part this should be it"
