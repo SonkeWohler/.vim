@@ -2,10 +2,12 @@
 ---      Some of these options are default but I choose     ---
 ---            to explicitly specify them anyway            ---
 ---------------------------------------------------------------
--- case
+-- spell, since treesitter now sorts out comments vs code
+vim.opt.spell = true
+-- case-sensitivity when searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
--- <-> and indent
+-- tabs and indent
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
