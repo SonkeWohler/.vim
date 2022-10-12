@@ -14,8 +14,8 @@ sudo pacman -S vim --noconfirm
 sudo pacman -S neovim --noconfirm
 sudo pacman -S helix --noconfirm
 # other cli
-sudo pacman -S git --noconfirm
 sudo pacman -S newsboat --noconfirm
+sudo pacman -S xclip --noconfirm
 sudo pacman -S zip --noconfirm
 sudo pacman -S unzip --noconfirm
 # tui related stuff
@@ -28,7 +28,7 @@ sudo pacman -S python --noconfirm
 sudo pacman -S rustup --noconfirm
 sudo pacman -S rust-analyzer --noconfirm
 # package managers
-sudo pacman -S python-pip --noconfirm  # will install python as well --noconfirm
+sudo pacman -S python-pip --noconfirm
 sudo pacman -S yay --noconfirm
 sudo pacman -S npm --noconfirm
 sudo pacman -S flatpak --noconfirm
