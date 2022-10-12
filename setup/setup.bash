@@ -33,7 +33,7 @@ else
   print "generating new ssh key to authenticate this machine..."
   mkdir --parents --verbose ~/.ssh
   sleep 1
-  ssh-keygen -t ed25519 -C "sonke.a.wohler@gmail.com" -f "~/.ssh/id_ed25519"
+  ssh-keygen -t ed25519 -C "sonke.a.wohler@gmail.com"
 fi
 print ""
 print "adding ssh key to the ssh-agent"
@@ -74,6 +74,6 @@ print "setting up repos"
 mkdir libraries --parents --verbose
 cd libraries
 print "cloning dotfiles into ~/libraries"
-git clone --recursive $dotfilesURL
+git clone $dotfilesURL
 print "cloning journal and related writing stuff (private)"
 git clone git@github.com:SonkeWohler/writingLibrary.git
