@@ -1,9 +1,10 @@
 #!/bin/bash
 copyFile() {
     if test -f "$HOME/.config/$1"; then
-        cp -v "$HOME/.config/$1" "$HOME/.config/$1.old"
+        mv -v "$HOME/.config/$1" "$HOME/.config/$1.old"
     fi
-    cp -v "./kde/$1"  "$HOME/.config/$1"
+    filepath=$(realpath "./kde/$1")
+    ln --symbolic --verbose "$filepath"  "$HOME/.config/$1"
 }
 
 for file in kde/*; do
