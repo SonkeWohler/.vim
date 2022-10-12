@@ -77,3 +77,5 @@ print "cloning dotfiles into ~/libraries"
 git clone $dotfilesURL
 print "cloning journal and related writing stuff (private)"
 git clone git@github.com:SonkeWohler/writingLibrary.git
+
+cd $vimCD/setup

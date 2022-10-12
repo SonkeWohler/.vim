@@ -4,50 +4,73 @@ This is my command line configuration. Everything necessary to setup the
 command line tools and anything related the way I like it is either backed up
 or described here.
 
-This won't quite work on Windows, though with WSL2 there should be quite a bit
-that can be done.
+This is tailored to an Arch-based install (EndeavourOS, currently), so will need
+some tweaks for any other distro.
 
 ## Setup
 
-I have started a script that should take care of setting things up for me.
-Installing packages, setting up config files, all that shebang.
-
-I am planning to *support* (if you can call it that) Debian-based (Debian,
-Ubuntu, Kali, Mint), Alpine (not sure why, but android UserLAnd offers it, so
-why not) and, most importantly for me, Arch-based (Garuda for my main, Manjaro
-should work fine too, Arch itself after the machine is set up also).
-
-Run this script from within your home directory (this is important).  It is
-best practice to download it and inspect it before executing, especially with
-`sudo`.
+The first thing to do is to setup git.  It should be installed by default, then
+register your git name you want to use for this computer and your email.
 
 ```
-cd ~
-wget https://raw.githubusercontent.com/SonkeWohler/.vim/master/setup/install.bash
-less install.bash
-
+git config --global user.name sonke
+git config --global user.email sonke.does.git@somewhere.com
 ```
 
-When you have convinced yourself that the file is not malicious, the correct
-version and all that, execute it as root, still within your home directory.
+The remaining git setup and cloning of the dotfiles can be done with a script.
+Follow the instructions in the script below.  It will clone them to the default
+location.
 
 ```
-chmod +x install.bash
-sudo $PWD/install.bash
+cd /tmp
+wget https://raw.githubusercontent.com/SonkeWohler/.vim/master/git-setup.bash
+chmod +x git-setup.bash
+./git-setup.bash
 ```
 
-This only does the installation bit that requires root privileges and refers
-you to the next step.  Just follow the instructions, which eventually take you
-to [the non-root setup
-file](https://github.com/SonkeWohler/.vim/blob/master/setup/setup.bash) to
-finish things off, including setting up these dotfiles.
+This should drop you inside the `setup/` folder containing the remaining
+scripts.  Since they each mess with some system related things you may wish to
+run them manually, check everything is ok (which not too rarely requires a
+restart) and then come back to run the next one.
 
-After this you should be operational at least from a command line perspective.
-I will add further setups for password manager, browser (bookmarks) and Desktop
-Environment over time.
+However, if you are sure you want to run them all just paste this into your
+terminal and hit enter:
 
-Remember to checkout a new branch before committing to the dotfiles.  See
-[below](#branches-and-history) for details.
+```
+./pacman.bash
+./config.bash
+./script.bash
+./kde.bash
+```
+
+They should just run without further intervention.
+
+You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`.
+'TSUpdate' should be run in the config files automatically at every startup, but
+doesn't hurt to do as well.
+
+```
+nvim -c 'PackerSync' && nvim -c 'TSUpdate' && nvim -c 'Mason'
+```
+
+There are some things that you still have to setup manually:
+* KDE theme, as this has to be downloaded first.  I use Desert-Global
+* Start and setup Vivaldi
+  - this is kind of annoying.  After logging into my account and decrypting the
+    passwords many things are setup.  And several aren't.
+  - keyboard shortcuts are the most annoying.  They need to be set up manually
+    until I figure out where the damn file is to copy.
+  - theming and other appearance settings also don't seem to sync all the time.
+    These, at least, might be exportable, so I'll look into the files I need to
+    push around for that (if it doesn't require me to republish other people's
+    theme that is, you know licenses and all)
+
+Now it is time for work setups, like [docker
+desktop](https://docs.docker.com/desktop/install/archlinux/) and cloning work
+repos.  For Docker desktop remember to setup the system resources and Kubernetes
+in the settings.
+
+# Notes and explanations
 
 ## Git
 
