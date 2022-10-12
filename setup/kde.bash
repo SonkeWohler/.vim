@@ -7,14 +7,11 @@ echo "you should restart your xsession after this to see whether everything work
 echo "any files that are replaced are copied to $file.old, so you should be able to restore things from a terminal session relatively easily"
 echo "------------------"
 
-setupCD=$(pwd)
+cd ../config
+sudo mkdir /usr/share/backgrounds
+sudo chmod -R +r /usr/share/backgrounds
+cp -v ./backgrounds/ddforest.jpeg /usr/share/backgrounds/
 
-cd /usr/share
-sudo mkdir backgrounds
-sudo chmod -R +r backgrounds
-cp -v $setupCD/../config/ddforest.jpeg /usr/share/backgrounds/
-
-cd $setupCD/../config
 ./copykde.sh
-cd $setupCD
+cd -
 
