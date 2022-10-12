@@ -62,12 +62,6 @@ ln --symbolic --verbose $vimCD/config/alacritty.yml ~/.config/
 print "setting up starship"
 ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
 
-#-- xmodmap
-
-print "miscellaneous configs"
-
-ln --symbolic --verbose $vimCD/config/swap.xmodmap ~/.config/swap.xmodmap
-
 #-- rustup
 
 rustup toolchain install stable
