@@ -182,6 +182,9 @@ vmap('c', '"_c')
 vmap('C', '"_C')
 vmap('s', '"_s')
 vmap('S', '"_S')
+-- also, don't need C, D, Y in visual, and S seems to be the same as cc
+nmap('S', '"_ddP')
+vmap('C', '"_xP')
 
 ---- tabs ----
 -- new tab with current buffer
