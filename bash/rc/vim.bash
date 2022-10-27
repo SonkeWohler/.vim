@@ -107,11 +107,19 @@ vimNotes(){
 alias nvimd='nvimdd'
 nvimdd() {
   #-- does library exist on this machine?
-  if [ $writingCD ] ; then
-    cd $writingCD/diary
-  else
-    echo "$writingCD undefined, command failed"
+  if not test $writingCD  ; then
+    echo '$writingCD undefined, command failed'
     return
+  fi
+  if test -z $writingCD ; then
+      echo '$writingCD improperly defined, command failed'
+      return
+  fi
+  if test -d $writingCD ; then
+      cd $writingCD
+  else
+      echo "$writingCD is not a directory, command failed"
+      return
   fi
   #-- get current date
   # if $1 is an offset in days i.e. "+4" or "-1"
@@ -161,11 +169,19 @@ nvimdd() {
 alias vimd='vimdd'
 vimdd() {
   #-- does library exist on this machine?
-  if [ $writingCD ] ; then
-    cd $writingCD/diary
-  else
-    echo "$writingCD undefined, command failed"
+  if not test $writingCD  ; then
+    echo '$writingCD undefined, command failed'
     return
+  fi
+  if test -z $writingCD ; then
+      echo '$writingCD improperly defined, command failed'
+      return
+  fi
+  if test -d $writingCD ; then
+      cd $writingCD
+  else
+      echo "$writingCD is not a directory, command failed"
+      return
   fi
   #-- get current date
   # if $1 is an offset in days i.e. "+4" or "-1"
