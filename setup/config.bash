@@ -31,23 +31,18 @@ fi
 print "setting up bash"
 
 echo "" >> ~/.bashrc
+echo "### --- starship" >> ~/.bashrc
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+echo "" >> ~/.bashrc
 echo "### --- source my version controlled bashrc" >> ~/.bashrc
 echo "" >> ~/.bashrc
 echo "source $vimCD/bash/bashrc" >> ~/.bashrc
 
 ln --symbolic --verbose $vimCD/bash/inputrc ~/.inputrc
 
-#-- vim
-
-print "setting up vim"
-
-ln --symbolic --verbose $vimCD/vimrc ~/.vimrc
-mkdir --parents --verbose ~/.vim/
-ln --symbolic --verbose $vimCD/pack ~/.vim/pack
-
 #-- neovim
 
-print "setting up neovim init.vim"
+print "setting up neovim"
 
 mkdir --parents --verbose ~/.config/nvim
 ln --symbolic --verbose $vimCD/neovim/* ~/.config/nvim
@@ -60,23 +55,12 @@ ln --symbolic --verbose $vimCD/config/.tmux.conf ~/.tmux.conf
 #-- alacritty
 
 print "setting up alacritty"
-ln --symbolic --verbose $vimCD/config/alacritty.yml
+ln --symbolic --verbose $vimCD/config/alacritty.yml ~/.config/
 
 #-- starship
 
 print "setting up starship"
 ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
-
-#-- other misc
-
-print "miscellaneous configs"
-
-ln --symbolic --verbose $vimCD/config/swap.xmodmap ~/.config/swap.xmodmap
-
-### --- vim related submodules/packs
-
-print "setting up newsboat config"
-ln --symbolic --verbose $vimCD/config/.newsboat/config ~/.newsboat/
 
 #-- rustup
 
