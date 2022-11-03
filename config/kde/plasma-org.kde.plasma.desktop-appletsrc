@@ -48,7 +48,7 @@ labelWidth=2
 
 [Containments][1][Wallpaper][org.kde.image][General]
 FillMode=0
-Image=file:///usr/share/backgrounds/ddforest.jpeg
+Image=/usr/share/backgrounds/ddforest.jpeg
 SlidePaths=/usr/share/wallpapers
 
 [Containments][2]
