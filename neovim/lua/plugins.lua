@@ -214,7 +214,7 @@ use {
   -- better syntax highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    -- run = ':TSUpdate',
     config = function()
       local configs = require'nvim-treesitter.configs'
       configs.setup {
