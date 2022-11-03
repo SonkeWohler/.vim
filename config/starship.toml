@@ -105,21 +105,21 @@ time_format = "%T"
 [status]
 disabled = false
 # format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
-format = '[ $not_found_symbol$not_executable_symbol$success_symbol$symbol$signal_number]($style)'
+format = ' $not_found_symbol$not_executable_symbol$success_symbol$symbol$signal_number'
 map_symbol = true
 pipestatus = true
 style = "bold red"
 
 # --- SYMBOLS
 
-success_symbol = "λ"
-symbol = "x"
-not_executable_symbol = " "
-# not_found_symbol = " "
-not_found_symbol = "🔍 "
-# not_executable_symbol = " "
-sigint_symbol = "⚡"
-signal_symbol = "⚡"
+success_symbol = "[λ](red)"
+symbol = "[x](bold green)[X](bold #734bab)[X](bold blue)[X](bold yellow)[x](bold green)"
+not_executable_symbol = "[ ](bold #734bab)"
+# not_found_symbol = "[ ](bold red)"
+not_found_symbol = "[🔍 ](bold #734bab)"
+# not_executable_symbol = "[ ](bold red)"
+sigint_symbol = "[⚡](bold #734bab)"
+signal_symbol = "[⚡](bold #734bab)"
 
 # the prompt that is usually '$'
 # is replaced by status from above
