@@ -48,7 +48,7 @@ labelWidth=2
 
 [Containments][1][Wallpaper][org.kde.image][General]
 FillMode=0
-Image=/usr/share/backgrounds/ddforest.jpeg
+Image=file:///usr/share/backgrounds/ddforest.jpeg
 SlidePaths=/usr/share/wallpapers
 
 [Containments][2]
@@ -66,6 +66,8 @@ plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
 PreloadWeight=100
+popupHeight=950
+popupWidth=1710
 
 [Containments][2][Applets][17][Configuration][Appearance]
 enabledCalendarPlugins=/usr/lib/qt/plugins/plasmacalendarplugins/holidaysevents.so
@@ -96,14 +98,16 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][2][Applets][24][Configuration]
-PreloadWeight=95
+PreloadWeight=100
+popupHeight=912
+popupWidth=684
 
 [Containments][2][Applets][25]
 immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][25][Configuration]
-PreloadWeight=85
+PreloadWeight=90
 
 [Containments][2][Applets][25][Configuration][Appearance]
 chartFace=org.kde.ksysguard.barchart
@@ -156,7 +160,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][27][Configuration]
-PreloadWeight=65
+PreloadWeight=70
 
 [Containments][2][Applets][27][Configuration][Appearance]
 chartFace=org.kde.ksysguard.linechart
@@ -183,6 +187,8 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][2][Applets][3][Configuration]
 PreloadWeight=100
+popupHeight=810
+popupWidth=1080
 
 [Containments][2][Applets][3][Configuration][ConfigDialog]
 DialogHeight=810
@@ -229,7 +235,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][33][Configuration]
-PreloadWeight=95
+PreloadWeight=100
 
 [Containments][2][Applets][33][Configuration][Appearance]
 chartFace=org.kde.ksysguard.linechart
@@ -328,6 +334,8 @@ immutability=1
 lastScreen=0
 location=3
 plugin=org.kde.plasma.private.systemtray
+popupHeight=912
+popupWidth=912
 wallpaperplugin=org.kde.image
 
 [Containments][8][Applets][10]
@@ -379,7 +387,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][8][Applets][20][Configuration]
-PreloadWeight=75
+PreloadWeight=90
 
 [Containments][8][Applets][21]
 immutability=1

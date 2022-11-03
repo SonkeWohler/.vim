@@ -210,7 +210,7 @@ clientmachine=localhost
 desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
 maximizevert=true
 maximizevertrule=3
-position=2440,0
+position=2109,90
 positionrule=3
 title=29,1 GiB Removable Media — Dolphin
 types=1
@@ -227,7 +227,7 @@ maximizevert=true
 maximizevertrule=3
 position=0,0
 positionrule=3
-wmclass=Docker Desktop
+wmclass=docker desktop
 wmclassmatch=1
 
 [General]
