@@ -43,7 +43,24 @@ terminal and hit enter:
 ./kde.bash
 ```
 
-They should just run without further intervention.
+They should just run without further intervention.  They take care of, in the
+above order:
+
+* software, like nvim, kubernetes etc.
+  - note: Docker Desktop might not work quite right, see below.
+  - this doesn't just cover pacman, but also yay, pip and npm, but it is
+    Arch-specific
+* dotfiles like ~/.bashrc
+* useful scripts for keyboard remaps and alacritty
+* kde files
+  - this is still somewhat experimental, so a few things don't work quite the
+    way you might expect.  Stuff like the search preferences in Dolfin, which
+    change somewhat regularly.
+  - the most important ones here are:
+    - keyboard shortcuts
+    - plasma widgets
+  - sidenote: I don't think autostart is covered here yet.  Not sure what file
+    to look at for that.
 
 You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`.
 'TSUpdate' should be run in the config files automatically at every startup, but
@@ -64,6 +81,7 @@ There are some things that you still have to setup manually:
     These, at least, might be exportable, so I'll look into the files I need to
     push around for that (if it doesn't require me to republish other people's
     theme that is, you know licenses and all)
+* Autostart i.e. anything I want to start automatically at system start.
 
 Now it is time for work setups, like [docker
 desktop](https://docs.docker.com/desktop/install/archlinux/) and cloning work
