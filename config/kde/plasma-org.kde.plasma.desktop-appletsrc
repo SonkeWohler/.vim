@@ -92,6 +92,8 @@ plugin=org.kde.plasma.clipboard
 
 [Containments][2][Applets][22][Configuration]
 PreloadWeight=100
+popupHeight=912
+popupWidth=912
 
 [Containments][2][Applets][24]
 immutability=1
