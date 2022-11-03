@@ -27,6 +27,7 @@ sudo pacman -S code --noconfirm
 sudo pacman -S python --noconfirm
 sudo pacman -S rustup --noconfirm
 sudo pacman -S rust-analyzer --noconfirm
+sudo pacman -S go --noconfirm
 # package managers
 sudo pacman -S python-pip --noconfirm
 sudo pacman -S yay --noconfirm
