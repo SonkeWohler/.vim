@@ -40,13 +40,16 @@ nmap('<c-k>', '<c-w>w')
 nmap('<c-s>', ':wa<CR>')
 imap('<c-s>', '<esc>:wa<CR>')
 nmap('<c-w>e', ':e<CR>')
--- splilt current buffer into new tab, effectively similar to tmux zoom
+-- splilt current buffer into new tab, I use it similar to tmux zoom
 nmap('<c-w>t', '<Cmd>tab split<CR>')
+-- more like tmux new "tab"
+nmap('<c-w>c', '<Cmd>tab split<CR>')
 -- next/prev tab
 nmap('<c-w>n', '<Cmd>tabnext<CR>')
 nmap('<c-w>N', '<Cmd>tabprevious<CR>')
--- go to tab number, this doesn't yet work ??? wtf ???
-nmap('`gt', '1gt')
+-- go to tab number
+-- this doesn't yet work with just <C-1>, hence <c-w>1 instead
+-- ??? wtf ???
 nmap('<c-w>1', '1gt')
 nmap('<c-w>2', '2gt')
 nmap('<c-w>3', '3gt')
@@ -57,6 +60,8 @@ nmap('<c-w>7', '7gt')
 nmap('<c-w>8', '8gt')
 nmap('<c-w>9', '9gt')
 nmap('<c-w>0', '10gt')
+-- I keep hitting ` instead of 1
+nmap('`gt', '1gt')
 -- resize this buffer
 nmap('<c-w><', ':lua require("smart-splits").resize_left(3)<CR>')
 nmap('<c-w>>', ':lua require("smart-splits").resize_right(3)<CR>')
