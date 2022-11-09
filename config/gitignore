@@ -4,6 +4,9 @@
 *.sw[a-z]
 *~
 
+# vim session files
+Session.vim
+
 # anything else that should be ignored
 
 *.local.*

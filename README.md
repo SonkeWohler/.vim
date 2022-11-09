@@ -9,17 +9,15 @@ some tweaks for any other distro.
 
 ## Setup
 
-The first thing to do is to setup git.  It should be installed by default, then
-register your git name you want to use for this computer and your email.
+The majority of my setup is automated.  There are some manual things noted at
+the end of this section, and you may wish to do the kde setup first, before
+copying in the kde files (before sourcing the `setup/kde.bash` script).  It
+should be fine if you don't.
 
-```
-git config --global user.name sonke
-git config --global user.email sonke.does.git@somewhere.com
-```
-
-The remaining git setup and cloning of the dotfiles can be done with a script.
-Follow the instructions in the script below.  It will clone them to the default
-location.
+The first thing to do is to setup git.  This and the cloning of the dotfiles can
+be done with a script.  Run the commands below and that script will take you
+through the steps of registering this machine with GitHub and will take care of
+everything else.
 
 ```
 cd /tmp
@@ -32,6 +30,8 @@ This should drop you inside the `setup/` folder containing the remaining
 scripts.  Since they each mess with some system related things you may wish to
 run them manually, check everything is ok (which not too rarely requires a
 restart) and then come back to run the next one.
+
+You will need to authenticate as sudo as you run them.
 
 However, if you are sure you want to run them all just paste this into your
 terminal and hit enter:
@@ -62,13 +62,14 @@ above order:
   - sidenote: I don't think autostart is covered here yet.  Not sure what file
     to look at for that.
 
-You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`.
-'TSUpdate' should be run in the config files automatically at every startup, but
-doesn't hurt to do as well.
+You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`,
+reload again and run `:TSUpdate.
 
 ```
 nvim -c 'PackerSync' && nvim -c 'TSUpdate' && nvim -c 'Mason'
 ```
+
+### The tedious bit
 
 There are some things that you still have to setup manually:
 * KDE theme, as this has to be downloaded first.  I use Desert-Global

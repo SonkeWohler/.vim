@@ -11,16 +11,10 @@ print "this setup configures git, its ssh connection to github and downloads my 
 print "Sonke (sonki) Wohler --- https://github.com/SonkeWohler/.vim"
 print "=============="
 
-### --- setting up dotfiles
+### --- setting ssh for GitHub
 
 cd ~
 dotfilesURL="git@github.com:SonkeWohler/.vim.git"
-
-#-- git config
-# while copying the .gitconfig file is better for most settings, since I am
-# about to use git to clone my dotfiles which contain these config files some
-# settings are better set now.  What is set here will be limited to those
-# settings unlikely to ever change.
 
 cd ~
 
@@ -75,7 +69,25 @@ mkdir libraries --parents --verbose
 cd libraries
 print "cloning dotfiles into ~/libraries"
 git clone $dotfilesURL
+git config --global core.excludesFile "$vimCD/config/gitignore"
 print "cloning journal and related writing stuff (private)"
 git clone git@github.com:SonkeWohler/writingLibrary.git
 
+#-- final default git config
+echo 'would you like to use the default git config?'
+echo 'this sets the default git user.name and user.email'
+read -n 1 yesNo
+if [ $yesNo = "y" ]; then
+    git config --global user.name sonke
+    git config --global user.email sonke.a.wohler@gmail.com
+else
+    echo 'you should setup your git user.name and user.email'
+    echo 'this is an example command:'
+    echo 'git config --global user.name sonke'
+    echo 'git config --global user.email sonke.does.git@somewhere.com'
+fi
+
 cd $vimCD/setup
+echo '--------------------------'
+echo '--- git setup is done! ---'
+echo '--------------------------'
