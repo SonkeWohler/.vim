@@ -4,7 +4,7 @@ local Hydra = require('hydra')
 Hydra({
   name = 'hydra-lsp',
   mode = 'n',
-  body = ';;',
+  body = ',,',
   config = {
     foreign_keys = nil,
     invoke_on_body = true,
