@@ -86,7 +86,6 @@ clientmachine=localhost
 desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
 desktopsrule=3
 maximizehoriz=true
-maximizevert=true
 maximizevertrule=3
 position=1920,90
 positionrule=3
