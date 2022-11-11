@@ -43,9 +43,9 @@ sudo pacman -S mupdf --noconfirm
 # from AUR
 # yay -S nerd-fonts-complete --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 # package managers
-sudo yay -S nvim-packer-git --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
+yay -S nvim-packer-git --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 # misc
-sudo yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
+yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 
 # from node
 sudo npm install -g n
@@ -60,7 +60,7 @@ sudo npm install -g ts-node
 sudo pacman -S docker --noconfirm
 sudo pacman -S gnome-terminal --noconfirm
 sudo pacman -S qemu-full --noconfirm
-sudo yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
+yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 echo "$(whoami):165536:65536: | sudo tee /etc/subuid
 echo "$(whoami):165536:65536: | sudo tee /etc/subgid
 cd /tmp
