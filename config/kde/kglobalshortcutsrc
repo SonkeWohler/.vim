@@ -12,10 +12,6 @@ _launch=Meta+A,none,Alacritty
 Switch to Next Keyboard Layout=none,none,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
-[alacrity_start.sh.desktop]
-_k_friendly_name=alacrity_start.sh
-_launch=Meta+Z,none,alacrity_start.sh
-
 [firefox.desktop]
 _k_friendly_name=Firefox
 _launch=Meta+F,none,Firefox
@@ -293,6 +289,10 @@ toggle do not disturb=none,,Toggle do not disturb
 [signal-desktop.desktop]
 _k_friendly_name=Signal
 _launch=Meta+S,none,Signal
+
+[start_alacritty.bash.desktop]
+_k_friendly_name=start_alacritty.bash
+_launch=Meta+Z,none,start_alacritty.bash
 
 [systemsettings.desktop]
 _k_friendly_name=System Settings
