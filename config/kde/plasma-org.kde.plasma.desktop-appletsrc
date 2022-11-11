@@ -24,33 +24,6 @@ remove=true
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
-[Containments][1]
-ItemGeometries-3840x2160=
-ItemGeometriesHorizontal=
-activityId=dbb1f344-75ad-4004-bcbc-fdc1e5b44a2f
-formfactor=0
-immutability=1
-lastScreen=0
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
-
-[Containments][1][ConfigDialog]
-DialogHeight=810
-DialogWidth=1351
-
-[Containments][1][General]
-ToolBoxButtonState=topcenter
-ToolBoxButtonX=1193
-ToolBoxButtonY=90
-iconSize=4
-labelWidth=2
-
-[Containments][1][Wallpaper][org.kde.image][General]
-FillMode=0
-Image=/usr/share/backgrounds/ddforest.jpeg
-SlidePaths=/usr/share/wallpapers
-
 [Containments][2]
 activityId=
 formfactor=2
@@ -189,8 +162,8 @@ plugin=org.kde.plasma.kickoff
 
 [Containments][2][Applets][3][Configuration]
 PreloadWeight=100
-popupHeight=810
-popupWidth=1080
+popupHeight=802
+popupWidth=1090
 
 [Containments][2][Applets][3][Configuration][ConfigDialog]
 DialogHeight=810
@@ -323,11 +296,27 @@ PreloadWeight=100
 SystrayContainmentId=8
 
 [Containments][2][ConfigDialog]
-DialogHeight=129
+DialogHeight=131
 DialogWidth=3840
 
 [Containments][2][General]
 AppletOrder=3;5;29;33;27;36;25;26;32;30;4;6;7;22;21;24;17
+
+[Containments][38]
+ItemGeometries-3840x2160=
+ItemGeometriesHorizontal=
+activityId=ab57fee5-0a0c-4481-bf67-ad09b3722524
+formfactor=0
+immutability=1
+lastScreen=0
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][38][General]
+ToolBoxButtonState=topcenter
+ToolBoxButtonX=975
+ToolBoxButtonY=80
 
 [Containments][8]
 activityId=
