@@ -313,10 +313,18 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][38][ConfigDialog]
+DialogHeight=1110
+DialogWidth=1480
+
 [Containments][38][General]
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=975
 ToolBoxButtonY=80
+
+[Containments][38][Wallpaper][org.kde.image][General]
+Image=/usr/share/backgrounds/ddforest.jpeg
+SlidePaths=/home/sonke/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [Containments][8]
 activityId=

@@ -10,7 +10,7 @@ echo "------------------"
 cd ../config
 sudo mkdir /usr/share/backgrounds
 sudo chmod -R +r /usr/share/backgrounds
-cp -v ./backgrounds/ddforest.jpeg /usr/share/backgrounds/
+sudo cp -v ./backgrounds/ddforest.jpeg /usr/share/backgrounds/
 
 ./copykde.sh
 cd -
