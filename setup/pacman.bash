@@ -63,8 +63,11 @@ sudo pacman -S qemu-full --noconfirm
 sudo yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 echo "$(whoami):165536:65536: | sudo tee /etc/subuid
 echo "$(whoami):165536:65536: | sudo tee /etc/subgid
-wget --output-document='~/Downloads/docker-desktop.pkg.tar.zst' --tries=3 --output-file='/tmp/wget-docker-log' https://desktop.docker.com/linux/main/amd64/docker-desktop-4.12.0-x86_64.pkg.tar.zst?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64
-sudo pacman -U ~/Downloads/docker-desktop.pkg.tar.zst --noconfirm
+cd /tmp
+wget https://desktop.docker.com/linux/main/amd64/docker-desktop-4.14.0-x86_64.pkg.tar.zst?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64
+mv docker-desktop-4.14.0-x86_64.pkg.tar.zst?utm_source=docker docker-desktop.pkg.tar.zst
+echo '8bcf97f361f02e9a7ba3fb2bab4b0905d51d75f7b2ef918c31d946a2a1ab201d docker-desktop.pkg.tar.zst' >> docker-sum
+sha256sum -c docker-sum && sudo pacman -U docker-desktop.pkg.tar.zst --noconfirm || echo 'docker desktop was not installed correctly'
 # kubernetes
 sudo pacman -S k9s --noconfirm
 sudo pacman -S kubectl --noconfirm
