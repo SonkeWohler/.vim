@@ -83,6 +83,8 @@ There are some things that you still have to setup manually:
     push around for that (if it doesn't require me to republish other people's
     theme that is, you know licenses and all)
 * Autostart i.e. anything I want to start automatically at system start.
+* connect Signal Desktop with your phone (starts on desktop 6)
+* connect Whats-Desk with your phone (starts on desktop 6)
 
 Now it is time for work setups, like [docker
 desktop](https://docs.docker.com/desktop/install/archlinux/) and cloning work
