@@ -204,7 +204,7 @@ systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 global=Alt+F1
 
 [Containments][2][Applets][3][Shortcuts]
-global=Alt+Space
+global=Meta+Space
 
 [Containments][2][Applets][30]
 immutability=1

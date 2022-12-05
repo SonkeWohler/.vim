@@ -36,6 +36,9 @@ TextPosition=1
 [Effect-windowview]
 BorderActivateAll=9
 
+[ModifierOnlyShortcuts]
+Meta=
+
 [NightColor]
 Active=true
 LatitudeAuto=46.184
