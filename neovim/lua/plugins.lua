@@ -70,7 +70,39 @@ require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      require('lualine').setup{}
+      require('lualine').setup{
+        options = {
+          theme = 'auto',
+        },
+        sections = {
+          lualine_a = {'mode'},
+          lualine_b = {'diff', 'diagnostics'},
+          lualine_c = {
+            {
+            'filename',
+            file_status = true,
+            path = 1,
+            }
+          },
+          lualine_x = {'encoding', 'fileformat', 'filetype'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'}
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {
+            {
+            'filename',
+            file_status = true,
+            path = 1,
+            }
+          },
+          lualine_x = {'encoding', 'fileformat', 'filetype'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'}
+        },
+      }
     end
   }
   -- better resizing
@@ -134,12 +166,12 @@ require('packer').startup(function()
     end
   }
   -- comments as actions
-use {
+  use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
-}
+  }
   -- tmux integration for registers
   use {
     'tpope/vim-tbone',
@@ -292,11 +324,11 @@ use {
   }
   -- I don't use snippets (yet), but cmp requires it
   use {
-  'dcampos/cmp-snippy',
-  'dcampos/nvim-snippy',
-   config = function()
-     require('snippy').setup{}
-   end
+    'dcampos/cmp-snippy',
+    'dcampos/nvim-snippy',
+    config = function()
+      require('snippy').setup{}
+    end
   }
   -- terminal.  Not that I use it often, but as nvim becomes more like an IDE in
   -- it can be useful sometimes.
