@@ -71,6 +71,14 @@ nmap('<c-w>+', '<c-W>=')
 -- more window controls are defined in the hydra-<C-W>
 
 ---- intra-buffer navigation ----
+-- I prefer the cursor at the end of a paste, usually
+nmap('p', 'gp')
+nmap('P', 'gP')
+nmap('gp', 'p')
+nmap('gP', 'P')
+-- easier to reach
+nmap(',<', '\'[')
+nmap(',>', '\']')
 -- methods are sort of functions
 -- usually there is no point in separating them
 nmap(']f', ']m')
