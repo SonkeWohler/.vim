@@ -62,7 +62,13 @@ require('packer').startup(function()
       {'kyazdani42/nvim-web-devicons', opt = true}
     },
     config = function()
-      require('tabline').setup{ }
+      require('tabline').setup{
+        options = {
+          show_filename_only = false,
+          show_tabs_always = true,
+          show_tabs_only = false,
+        },
+      }
       cmd('TR', 'TablineTabRename <q-args>', { nargs=1, desc = 'name this tab' })
     end
   }

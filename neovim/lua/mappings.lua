@@ -72,6 +72,7 @@ nmap('<c-w>+', '<c-W>=')
 
 ---- intra-buffer navigation ----
 -- methods are sort of functions
+-- usually there is no point in separating them
 nmap(']f', ']m')
 nmap(']F', ']M')
 nmap('[f', '[m')
@@ -86,14 +87,26 @@ cmap('<c-e>', '<End>')
 cmap('<c-d>', '<Del>')
 cmap('<c-p>', '<Up>')
 cmap('<c-n>', '<Down>')
--- easy quit in certain settings when <Esc> wasn't working right
+-- and insert mode
+imap('<c-b>', '<Left>')
+imap('<c-f>', '<Right>')
+imap('<m-b>', '<S-Left>')
+imap('<m-f>', '<S-Right>')
+imap('<c-a>', '<Home>')
+imap('<c-e>', '<End>')
+imap('<c-d>', '<Del>')
+imap('<c-p>', '<Up>')
+imap('<c-n>', '<Down>')
+-- easy quit in certain settings
+-- legacy from when <Esc> wasn't working right
+-- now I have it remapped to where people usually have Ctrl
 cmap('<c-q>', '<C-e><c-u><c-h>')
 -- scroll screen up/down in insert mode
 imap('<C-e>', '<C-o><C-e>')
 imap('<C-y>', '<C-o><C-y>')
----- arrow keys
----- I only use these when my hands aren't properly on the keyboard, so it can
----- be quite comfortable to keep just one hand near the arrow keys sometimes
+-- arrow keys
+-- I only use these when my hands aren't properly on the keyboard, so it can
+-- be quite comfortable to keep just one hand near the arrow keys sometimes
 -- faster but gentle scrolling
 nmap('<Up>', '5<c-y>')
 nmap('<Down>', '5<c-e>')
