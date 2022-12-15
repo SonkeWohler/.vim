@@ -1,5 +1,6 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
+switch-to-activity-ab57fee5-0a0c-4481-bf67-ad09b3722524=none,none,Switch to activity "Default"
 switch-to-activity-dbb1f344-75ad-4004-bcbc-fdc1e5b44a2f=none,none,Switch to activity "Default"
 
 [Alacritty.desktop]
@@ -209,11 +210,11 @@ view_zoom_out=Meta+-,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
-mediavolumedown=none,,Media volume down
-mediavolumeup=none,,Media volume up
+mediavolumedown=none,none,Media volume down
+mediavolumeup=none,none,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
 pausemedia=Media Pause,Media Pause,Pause media playback
-playmedia=none,,Play media playback
+playmedia=none,none,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
@@ -270,7 +271,7 @@ activate task manager entry 6=none,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=none,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=none,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=none,Meta+9,Activate Task Manager Entry 9
-activate widget 3=Meta+Space,none,Activate Application Launcher Widget
+activate widget 3=Alt+Space,none,Activate Application Launcher Widget
 clear-history=none,,Clear Clipboard History
 clipboard_action=none,Meta+Ctrl+X,Automatic Action Popup Menu
 cycle-panels=none,Meta+Alt+P,Move keyboard focus between panels
@@ -292,6 +293,10 @@ toggle do not disturb=none,,Toggle do not disturb
 [signal-desktop.desktop]
 _k_friendly_name=Signal
 _launch=Meta+S,none,Signal
+
+[start_alacritty.bash-2.desktop]
+_k_friendly_name=start_alacritty.bash
+_launch=none,none,start_alacritty.bash
 
 [systemsettings.desktop]
 _k_friendly_name=System Settings
