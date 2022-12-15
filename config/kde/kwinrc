@@ -38,8 +38,8 @@ BorderActivateAll=9
 
 [NightColor]
 Active=true
-LatitudeAuto=47.6583
-LongitudeAuto=23.5665
+LatitudeAuto=47.0479
+LongitudeAuto=21.9189
 
 [Plugins]
 kwin4_effect_fadedesktopEnabled=true
