@@ -164,10 +164,9 @@ nmap('==', 'mh=ip=if`h')
 -- when indenting or unindenting a line
 nmap('<<', 'mh<<`hhh')
 nmap('>>', 'mh>>`hll')
--- when formatting a line
-nmap('gqq', 'mhgqq=ip`h')
--- when formatting a paragraph
--- also indent that paragraph
+-- when formatting a line, also indent it, and remember the cursor position
+nmap('gqq', 'mhgqq==`h')
+-- when formatting a paragraph and remember the cursor position
 nmap('gqip', 'mhgqip=ip`h')
 
 ---- various ----
