@@ -26,12 +26,12 @@ require('packer').startup(function()
   }
   -- smooth scrolling, not sure yet
   --[[ use {
-    'karb94/neoscroll.nvim',
-    config = function()
-      require('neoscroll').setup(){
-        easing_function = 'circular'
-      }
-    end
+  'karb94/neoscroll.nvim',
+  config = function()
+  require('neoscroll').setup(){
+  easing_function = 'circular'
+  }
+  end
   } ]]
   -- color schemes
   use 'tomasr/molokai'
@@ -47,11 +47,11 @@ require('packer').startup(function()
   use 'tpope/vim-speeddating'
   use 'zef/vim-cycle'
   --[[ use {
-    'monaqa/dial.nvim',
-    tag = 'v0.3.0',
-    config = function()
-      require('dial.map').setup{}
-    end
+  'monaqa/dial.nvim',
+  tag = 'v0.3.0',
+  config = function()
+  require('dial.map').setup{}
+  end
   } ]]
   ------ buffers ------
   -- tab and status lines
@@ -85,9 +85,9 @@ require('packer').startup(function()
           lualine_b = {'diff', 'diagnostics'},
           lualine_c = {
             {
-            'filename',
-            file_status = true,
-            path = 1,
+              'filename',
+              file_status = true,
+              path = 1,
             }
           },
           lualine_x = {'encoding', 'fileformat', 'filetype'},
@@ -99,9 +99,9 @@ require('packer').startup(function()
           lualine_b = {},
           lualine_c = {
             {
-            'filename',
-            file_status = true,
-            path = 1,
+              'filename',
+              file_status = true,
+              path = 1,
             }
           },
           lualine_x = {'encoding', 'fileformat', 'filetype'},
@@ -223,110 +223,123 @@ require('packer').startup(function()
   ------ various/awesome ------
   -- hydras are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
-    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
-  }
-  -- better sessions, also useful (apparently) for tmux sessions
-  use {
-    'tpope/vim-obsession',
-  }
-  -- so far the best autopair I've tried.  I used to have reservations
-  use {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup {
-      }
-    end
-  }
-  ------ language support ------
-  -- better python word objects/motions like functions
-  -- maybe some for other languages would be nice
-  use {
-    'jeetsukumaran/vim-pythonsense',
-    setup = function()
-      vim.cmd[[
-        let g:is_pythonsense_alternate_motion_keymaps = 1
-        ]]
-    end
-  }
-  -- Treesitter
-  -- better syntax highlighting
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    -- run = ':TSUpdate',
-    config = function()
-      local configs = require'nvim-treesitter.configs'
-      configs.setup {
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = true,
-        }
-      }
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    end,
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter-context',
-    config = function()
-      require('treesitter-context').setup{
-        line_numbers = true,
-        separator = ' ',
-        -- mode = 'topline',
-        -- max_lines = 7,
-      }
-    end,
-  }
-  -- better folds using treesitter
-  use {
-    'kevinhwang91/nvim-ufo',
-    requires = {
-      'kevinhwang91/promise-async',
-      'nvim-treesitter/nvim-treesitter',
-    },
-    config = function()
-      require('ufo').setup({
-        provider_selector = function()
-          return {'treesitter', 'indent'}
-        end
-      })
-    end
-  }
-  -- Language Client
-  -- lsp and installer for lsp
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-  }
-  -- pretty list of diagnostics
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require('trouble').setup{
-        action_keys = {
-          jump_close = {'o', '<c-j>', 'enter'}
-        }
-      }
-      cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin'} )
-    end
-  }
-  -- pretty in line visalisation of diagnostics
-  --[[ use({
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+}
+-- better sessions, also useful (apparently) for tmux sessions
+use {
+  'tpope/vim-obsession',
+}
+-- so far the best autopair I've tried.  I used to have reservations
+use {
+  "windwp/nvim-autopairs",
   config = function()
-    require("lsp_lines").setup()
+    require("nvim-autopairs").setup {
+    }
+  end
+}
+------ language support ------
+-- better python word objects/motions like functions
+-- maybe some for other languages would be nice
+use {
+  'jeetsukumaran/vim-pythonsense',
+  setup = function()
+    vim.cmd[[
+    let g:is_pythonsense_alternate_motion_keymaps = 1
+    ]]
+  end
+}
+-- Treesitter
+-- better syntax highlighting
+use {
+  'nvim-treesitter/nvim-treesitter',
+  -- run = ':TSUpdate',
+  config = function()
+    local configs = require'nvim-treesitter.configs'
+    configs.setup {
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      }
+    }
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
   end,
+}
+-- more textobjects
+use {
+  'nvim-treesitter/nvim-treesitter-textobjects',
+  after = 'nvim-treesitter',
+}
+-- show current function, class, etc if its definition is not currently visible
+use {
+  'nvim-treesitter/nvim-treesitter-context',
+  config = function()
+    require('treesitter-context').setup{
+      line_numbers = true,
+      separator = ' ',
+      -- mode = 'topline',
+      -- max_lines = 7,
+    }
+  end,
+  after = 'nvim-treesitter',
+}
+-- better folds using treesitter
+use {
+  'kevinhwang91/nvim-ufo',
+  requires = {
+    'kevinhwang91/promise-async',
+    'nvim-treesitter/nvim-treesitter',
+  },
+  config = function()
+    require('ufo').setup({
+      provider_selector = function()
+        return {'treesitter', 'indent'}
+      end
+    })
+  end
+}
+-- Language Client
+-- lsp and installer for lsp
+use {
+  -- servers for all manner of things
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  -- required for lsp stuff
+  "neovim/nvim-lspconfig",
+  -- better ui for status updates
+  "j-hui/fidget.nvim",
+  -- configure lua lsp for neovim stuff
+  'folke/neodev.nvim',
+}
+-- pretty list of diagnostics
+use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require('trouble').setup{
+      action_keys = {
+        jump_close = {'o', '<c-j>', 'enter'}
+      }
+    }
+    cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin'} )
+  end
+}
+-- pretty in line visalisation of diagnostics
+--[[ use({
+"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+config = function()
+require("lsp_lines").setup()
+end,
 }) ]]
-  -- Completions of various kinds
-  use {  -- more setup at the bottom
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/nvim-cmp',
+-- Completions of various kinds
+use {  -- more setup at the bottom
+'hrsh7th/cmp-nvim-lsp',
+'hrsh7th/cmp-cmdline',
+'hrsh7th/cmp-buffer',
+'hrsh7th/cmp-path',
+'hrsh7th/nvim-cmp',
   }
   -- I don't use snippets (yet), but cmp requires it
   use {
