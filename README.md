@@ -63,10 +63,10 @@ above order:
     to look at for that.
 
 You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`,
-reload again and run `:TSUpdate.
+reload again and run `:TSInstall all`.
 
 ```
-nvim -c 'PackerSync' && nvim -c 'TSUpdate' && nvim -c 'Mason'
+nvim -c 'PackerSync' && nvim -c 'TSInstall all' && nvim -c 'Mason'
 ```
 
 ### The tedious bit
