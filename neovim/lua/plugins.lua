@@ -171,6 +171,17 @@ require('packer').startup(function()
       vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
     end
   }
+
+  -- print as action
+  use {
+    'rareitems/printer.nvim',
+    config = function()
+      require('printer').setup({
+        keymap = "gp" -- Plugin doesn't have any keymaps by default
+      })
+    end
+  }
+
   -- comments as actions
   use {
     'numToStr/Comment.nvim',
@@ -178,6 +189,7 @@ require('packer').startup(function()
       require('Comment').setup()
     end
   }
+
   -- tmux integration for registers
   use {
     'tpope/vim-tbone',
@@ -186,6 +198,7 @@ require('packer').startup(function()
       nmap('<C-T>', 'V:Tyank<CR>')
     }
   }
+
   ------ git ------
   -- view git messages
   use {
