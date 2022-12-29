@@ -8,28 +8,6 @@ vim.api.nvim_del_keymap('i', '<C-U>')
 -- delete key in insert mode
 imap('<C-l>', '<Right>')
 
----- keyboard layout fixes ----
--- use double ` for | in insert mode
-imap('``', '|')
-imap('1`', '`')
-imap('2`', '``')
-imap('3`', '```')
--- use double q for \ in insert mode
-imap('qq', '\\')
-imap('1q', 'q')
-imap('2q', 'qq')
-imap('3q', 'qqq')
--- use double ` for | in command mode
-cmap('``', '|')
-cmap('1`', '`')
-cmap('2`', '``')
-cmap('3`', '```')
--- use double q for \ in command mode
-cmap('qq', '\\')
-cmap('1q', 'q')
-cmap('2q', 'qq')
-cmap('3q', 'qqq')
-
 ----- inter-buffer navigation -----
 -- similar window controls are defined in the hydra-<C-W>
 -- faster left and right, since that is the most common for me
