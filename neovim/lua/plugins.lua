@@ -237,17 +237,7 @@ require('packer').startup(function()
       }
     end
   }
-  ------ language support ------
-  -- better python word objects/motions like functions
-  -- maybe some for other languages would be nice
-  use {
-    'jeetsukumaran/vim-pythonsense',
-    setup = function()
-      vim.cmd [[
-    let g:is_pythonsense_alternate_motion_keymaps = 1
-    ]]
-    end
-  }
+
   -- Treesitter
   -- better syntax highlighting
   use {
