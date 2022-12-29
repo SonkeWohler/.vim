@@ -306,6 +306,8 @@ require('packer').startup(function()
       })
     end
   }
+  -- indentation guides
+  -- use 'lukas-reineke/indent-blankline.nvim'
   -- Language Client
   -- lsp and installer for lsp
   use {
