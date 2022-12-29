@@ -62,6 +62,10 @@ ln --symbolic --verbose $vimCD/config/alacritty.yml ~/.config/
 print "setting up starship"
 ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
 
+print "setting up glow"
+mkdir ~/.config/glow
+ln --symbolic --verbose $vimCD/config/glow.yml ~/.config/glow/glow.yml
+
 #-- rustup
 
 rustup toolchain install stable
