@@ -172,6 +172,10 @@ require('packer').startup(function()
     end
   }
 
+  -- readline commands everywhere
+  -- this is sort of the basic emacs shortcuts
+  use 'linty-org/readline.nvim'
+
   -- print as action
   use {
     'rareitems/printer.nvim',
