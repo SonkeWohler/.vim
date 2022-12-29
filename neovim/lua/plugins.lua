@@ -272,6 +272,12 @@ require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   }
+  use {
+    "chrisgrieser/nvim-various-textobjs",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
+    end,
+  }
   -- show current function, class, etc if its definition is not currently visible
   use {
     'nvim-treesitter/nvim-treesitter-context',
