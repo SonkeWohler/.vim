@@ -479,10 +479,13 @@ lspconfig.jsonls.setup {
 lspconfig.lemminx.setup {
   capabilities = capabilities
 }
-lspconfig.jedi_language_server.setup {
+-- lspconfig.jedi_language_server.setup {
+--   capabilities = capabilities
+-- }
+lspconfig.pylsp.setup {
   capabilities = capabilities
 }
--- lspconfig.pylsp.setup {
+-- lspconfig.pyright.setup {
 --   capabilities = capabilities
 -- }
 lspconfig.marksman.setup {
