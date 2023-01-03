@@ -194,6 +194,7 @@ require('packer').startup(function()
     end
   }
 
+  -- color picker and stuff
   use {
     'uga-rosa/ccc.nvim',
     config = function()
