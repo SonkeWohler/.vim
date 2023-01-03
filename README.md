@@ -63,10 +63,14 @@ above order:
     to look at for that.
 
 You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`,
-reload again and run `:TSInstall all`.
+run `:TSInstall all` and finally setup the [pylsp
+extensions](https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/server_configurations/pylsp/README.md).
+Note that I seem to be having a problem with flake8, so I am skipping that for
+now.  It seems to work without that.
 
 ```
-nvim -c 'PackerSync' && nvim -c 'TSInstall all' && nvim -c 'Mason'
+nvim -c 'PackerSync' && nvim -c 'TSInstall all' && nvim -c 'Mason' && nvim -c
+'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope'
 ```
 
 ### The tedious bit
