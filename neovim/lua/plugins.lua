@@ -19,19 +19,19 @@ require('packer').startup(function()
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
-      require('nvim-web-devicons').setup{
+      require('nvim-web-devicons').setup {
         default = true;
       }
     end
   }
   -- smooth scrolling, not sure yet
   --[[ use {
-    'karb94/neoscroll.nvim',
-    config = function()
-      require('neoscroll').setup(){
-        easing_function = 'circular'
-      }
-    end
+  'karb94/neoscroll.nvim',
+  config = function()
+  require('neoscroll').setup(){
+  easing_function = 'circular'
+  }
+  end
   } ]]
   -- color schemes
   use 'tomasr/molokai'
@@ -47,66 +47,66 @@ require('packer').startup(function()
   use 'tpope/vim-speeddating'
   use 'zef/vim-cycle'
   --[[ use {
-    'monaqa/dial.nvim',
-    tag = 'v0.3.0',
-    config = function()
-      require('dial.map').setup{}
-    end
+  'monaqa/dial.nvim',
+  tag = 'v0.3.0',
+  config = function()
+  require('dial.map').setup{}
+  end
   } ]]
   ------ buffers ------
   -- tab and status lines
   use {
     'kdheepak/tabline.nvim',
     requires = {
-      { 'hoob3rt/lualine.nvim', opt=true },
-      {'kyazdani42/nvim-web-devicons', opt = true}
+      { 'hoob3rt/lualine.nvim', opt = true },
+      { 'kyazdani42/nvim-web-devicons', opt = true }
     },
     config = function()
-      require('tabline').setup{
+      require('tabline').setup {
         options = {
           show_filename_only = false,
           show_tabs_always = true,
           show_tabs_only = false,
         },
       }
-      cmd('TR', 'TablineTabRename <q-args>', { nargs=1, desc = 'name this tab' })
+      cmd('TR', 'TablineTabRename <q-args>', { nargs = 1, desc = 'name this tab' })
     end
   }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      require('lualine').setup{
+      require('lualine').setup {
         options = {
           theme = 'auto',
         },
         sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'diff', 'diagnostics'},
+          lualine_a = { 'mode' },
+          lualine_b = { 'diff', 'diagnostics' },
           lualine_c = {
             {
-            'filename',
-            file_status = true,
-            path = 1,
+              'filename',
+              file_status = true,
+              path = 1,
             }
           },
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'}
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
         inactive_sections = {
           lualine_a = {},
           lualine_b = {},
           lualine_c = {
             {
-            'filename',
-            file_status = true,
-            path = 1,
+              'filename',
+              file_status = true,
+              path = 1,
             }
           },
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'}
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
       }
     end
@@ -115,7 +115,7 @@ require('packer').startup(function()
   use {
     'mrjones2014/smart-splits.nvim',
     config = function()
-      require('smart-splits').setup{}
+      require('smart-splits').setup {}
     end
   }
   -- file view as tree, like nerdtree
@@ -146,22 +146,44 @@ require('packer').startup(function()
         },
       }
       cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
-      cmd('LSC', 'NvimTreeClose', {desc = 'close NvimTree'})
-      cmd('LSX', 'NvimTreeClose', {desc = 'close NvimTree'})
+      cmd('LSC', 'NvimTreeClose', { desc = 'close NvimTree' })
+      cmd('LSX', 'NvimTreeClose', { desc = 'close NvimTree' })
     end
   }
   ------ search ------
   -- better string conversions I still have to get used to
   -- a bit like tpope's vim-abolish
-  use{
+  use {
     'johmsalas/text-case.nvim',
     config = function()
-      require('textcase').setup{}
+      require('textcase').setup {}
     end
   }
   -- fuzzy finding with fzf
   -- NOTE: requires fzf and ripgrep installed on the system.
   use 'junegunn/fzf.vim'
+  -- telescope and related
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} },
+    after = 'telescope-fzf-native.nvim',
+    config = function()
+      require('telescope').setup {
+        extensions = {
+          fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+          }
+        }
+      }
+      require('telescope').load_extension('fzf')
+    end
+  }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
   ------ motions ------
   -- like tpope's surround but more maintained
   use {
@@ -171,6 +193,32 @@ require('packer').startup(function()
       vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
     end
   }
+
+  use {
+    'uga-rosa/ccc.nvim',
+    config = function()
+      require("ccc").setup{
+        highlighter = {
+          auto_enable = true
+        }
+      }
+    end
+  }
+
+  -- readline commands everywhere
+  -- this is sort of the basic emacs shortcuts
+  use 'linty-org/readline.nvim'
+
+  -- print as action
+  use {
+    'rareitems/printer.nvim',
+    config = function()
+      require('printer').setup({
+        keymap = "gp" -- Plugin doesn't have any keymaps by default
+      })
+    end
+  }
+
   -- comments as actions
   use {
     'numToStr/Comment.nvim',
@@ -178,6 +226,7 @@ require('packer').startup(function()
       require('Comment').setup()
     end
   }
+
   -- tmux integration for registers
   use {
     'tpope/vim-tbone',
@@ -186,6 +235,7 @@ require('packer').startup(function()
       nmap('<C-T>', 'V:Tyank<CR>')
     }
   }
+
   ------ git ------
   -- view git messages
   use {
@@ -209,7 +259,7 @@ require('packer').startup(function()
   use {
     'TimUntersberger/neogit',
     config = function()
-      require('neogit').setup{}
+      require('neogit').setup {}
     end
   }
   ------ hints ------
@@ -217,7 +267,7 @@ require('packer').startup(function()
   use {
     "folke/which-key.nvim",
     config = function()
-      require("which-key").setup { }
+      require("which-key").setup {}
     end
   }
   ------ various/awesome ------
@@ -237,24 +287,14 @@ require('packer').startup(function()
       }
     end
   }
-  ------ language support ------
-  -- better python word objects/motions like functions
-  -- maybe some for other languages would be nice
-  use {
-    'jeetsukumaran/vim-pythonsense',
-    setup = function()
-      vim.cmd[[
-        let g:is_pythonsense_alternate_motion_keymaps = 1
-        ]]
-    end
-  }
+
   -- Treesitter
   -- better syntax highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
     -- run = ':TSUpdate',
     config = function()
-      local configs = require'nvim-treesitter.configs'
+      local configs = require 'nvim-treesitter.configs'
       configs.setup {
         highlight = {
           enable = true,
@@ -267,16 +307,29 @@ require('packer').startup(function()
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end,
   }
+  -- more textobjects
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
+  use {
+    "chrisgrieser/nvim-various-textobjs",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
+    end,
+  }
+  -- show current function, class, etc if its definition is not currently visible
   use {
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
-      require('treesitter-context').setup{
+      require('treesitter-context').setup {
         line_numbers = true,
         separator = ' ',
         -- mode = 'topline',
         -- max_lines = 7,
       }
     end,
+    after = 'nvim-treesitter',
   }
   -- better folds using treesitter
   use {
@@ -288,40 +341,48 @@ require('packer').startup(function()
     config = function()
       require('ufo').setup({
         provider_selector = function()
-          return {'treesitter', 'indent'}
+          return { 'treesitter', 'indent' }
         end
       })
     end
   }
+  -- indentation guides
+  -- use 'lukas-reineke/indent-blankline.nvim'
   -- Language Client
   -- lsp and installer for lsp
   use {
+    -- servers for all manner of things
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    -- required for lsp stuff
     "neovim/nvim-lspconfig",
+    -- better ui for status updates
+    "j-hui/fidget.nvim",
+    -- configure lua lsp for neovim stuff
+    'folke/neodev.nvim',
   }
   -- pretty list of diagnostics
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require('trouble').setup{
+      require('trouble').setup {
         action_keys = {
-          jump_close = {'o', '<c-j>', 'enter'}
+          jump_close = { 'o', '<c-j>', 'enter' }
         }
       }
-      cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin'} )
+      cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin' })
     end
   }
   -- pretty in line visalisation of diagnostics
   --[[ use({
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  config = function()
-    require("lsp_lines").setup()
-  end,
+"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+config = function()
+require("lsp_lines").setup()
+end,
 }) ]]
   -- Completions of various kinds
-  use {  -- more setup at the bottom
+  use { -- more setup at the bottom
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-buffer',
@@ -333,7 +394,7 @@ require('packer').startup(function()
     'dcampos/cmp-snippy',
     'dcampos/nvim-snippy',
     config = function()
-      require('snippy').setup{}
+      require('snippy').setup {}
     end
   }
   -- terminal.  Not that I use it often, but as nvim becomes more like an IDE in
@@ -342,13 +403,13 @@ require('packer').startup(function()
     "akinsho/toggleterm.nvim",
     tag = '2.3.*',
     config = function()
-      require("toggleterm").setup{
+      require("toggleterm").setup {
         size = 100,
         direction = 'vertical',
       }
       cmd('TGL', 'ToggleTerm size=100 direction=vertical', { desc = 'ToggleTerm vertical' })
       function _G.set_terminal_keymaps()
-        local opts = {buffer = 0}
+        local opts = { buffer = 0 }
         vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
         vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>q]], opts)
       end
@@ -468,10 +529,13 @@ lspconfig.jsonls.setup {
 lspconfig.lemminx.setup {
   capabilities = capabilities
 }
-lspconfig.jedi_language_server.setup {
+-- lspconfig.jedi_language_server.setup {
+--   capabilities = capabilities
+-- }
+lspconfig.pylsp.setup {
   capabilities = capabilities
 }
--- lspconfig.pylsp.setup {
+-- lspconfig.pyright.setup {
 --   capabilities = capabilities
 -- }
 lspconfig.marksman.setup {

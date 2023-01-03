@@ -8,28 +8,6 @@ vim.api.nvim_del_keymap('i', '<C-U>')
 -- delete key in insert mode
 imap('<C-l>', '<Right>')
 
----- keyboard layout fixes ----
--- use double ` for | in insert mode
-imap('``', '|')
-imap('1`', '`')
-imap('2`', '``')
-imap('3`', '```')
--- use double q for \ in insert mode
-imap('qq', '\\')
-imap('1q', 'q')
-imap('2q', 'qq')
-imap('3q', 'qqq')
--- use double ` for | in command mode
-cmap('``', '|')
-cmap('1`', '`')
-cmap('2`', '``')
-cmap('3`', '```')
--- use double q for \ in command mode
-cmap('qq', '\\')
-cmap('1q', 'q')
-cmap('2q', 'qq')
-cmap('3q', 'qqq')
-
 ----- inter-buffer navigation -----
 -- similar window controls are defined in the hydra-<C-W>
 -- faster left and right, since that is the most common for me
@@ -86,29 +64,16 @@ nmap(']F', ']M')
 nmap('[f', '[m')
 nmap('[F', '[M')
 -- emacs navigation in command mode
-cmap('<c-b>', '<Left>')
-cmap('<c-f>', '<Right>')
-cmap('<m-b>', '<S-Left>')
-cmap('<m-f>', '<S-Right>')
-cmap('<c-a>', '<Home>')
-cmap('<c-e>', '<End>')
-cmap('<c-d>', '<Del>')
-cmap('<c-p>', '<Up>')
-cmap('<c-n>', '<Down>')
--- and insert mode
-imap('<c-b>', '<Left>')
-imap('<c-f>', '<Right>')
-imap('<m-b>', '<S-Left>')
-imap('<m-f>', '<S-Right>')
-imap('<c-a>', '<Home>')
-imap('<c-e>', '<End>')
-imap('<c-d>', '<Del>')
-imap('<c-p>', '<Up>')
-imap('<c-n>', '<Down>')
--- easy quit in certain settings
--- legacy from when <Esc> wasn't working right
--- now I have it remapped to where people usually have Ctrl
-cmap('<c-q>', '<C-e><c-u><c-h>')
+local readline = require 'readline'
+vim.keymap.set('!', '<M-f>', readline.forward_word)
+vim.keymap.set('!', '<M-b>', readline.backward_word)
+vim.keymap.set('!', '<C-a>', readline.beginning_of_line)
+vim.keymap.set('!', '<C-e>', readline.end_of_line)
+vim.keymap.set('!', '<M-d>', readline.kill_word)
+vim.keymap.set('!', '<C-w>', readline.backward_kill_word)
+vim.keymap.set('!', '<M-BS>', readline.unix_word_rubout)
+vim.keymap.set('!', '<C-k>', readline.kill_line)
+vim.keymap.set('!', '<C-u>', readline.backward_kill_line)
 -- scroll screen up/down in insert mode
 imap('<C-e>', '<C-o><C-e>')
 imap('<C-y>', '<C-o><C-y>')
@@ -164,10 +129,9 @@ nmap('==', 'mh=ip=if`h')
 -- when indenting or unindenting a line
 nmap('<<', 'mh<<`hhh')
 nmap('>>', 'mh>>`hll')
--- when formatting a line
-nmap('gqq', 'mhgqq=ip`h')
--- when formatting a paragraph
--- also indent that paragraph
+-- when formatting a line, also indent it, and remember the cursor position
+nmap('gqq', 'mhgqq==`h')
+-- when formatting a paragraph and remember the cursor position
 nmap('gqip', 'mhgqip=ip`h')
 
 ---- various ----

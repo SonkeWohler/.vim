@@ -1,6 +1,8 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
 switch-to-activity-cfb83869-1c76-493d-9c24-d10a158fa3ce=none,none,Switch to activity "Default"
+switch-to-activity-06726f19-1820-42c2-b631-0ba193cea3d9=none,none,Switch to activity "Default"
+switch-to-activity-ab57fee5-0a0c-4481-bf67-ad09b3722524=none,none,Switch to activity "Default"
 switch-to-activity-dbb1f344-75ad-4004-bcbc-fdc1e5b44a2f=none,none,Switch to activity "Default"
 
 [Alacritty.desktop]
@@ -9,12 +11,13 @@ _k_friendly_name=Alacritty
 _launch=Meta+A,none,Alacritty
 
 [KDE Keyboard Layout Switcher]
+Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch to Next Keyboard Layout=none,none,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
-[alacrity_start.sh.desktop]
-_k_friendly_name=alacrity_start.sh
-_launch=none,none,alacrity_start.sh
+[start_alacritty.bash.desktop]
+_k_friendly_name=start_alacritty.bash
+_launch=Meta+Z,none,start_alacritty.bash
 
 [firefox.desktop]
 _k_friendly_name=Firefox
@@ -293,10 +296,6 @@ toggle do not disturb=none,,Toggle do not disturb
 [signal-desktop.desktop]
 _k_friendly_name=Signal
 _launch=Meta+S,none,Signal
-
-[start_alacritty.bash.desktop]
-_k_friendly_name=start_alacritty.bash
-_launch=Meta+Z,none,start_alacritty.bash
 
 [systemsettings.desktop]
 _k_friendly_name=System Settings
