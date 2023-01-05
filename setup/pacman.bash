@@ -23,6 +23,8 @@ sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-nerd-fonts-symbols-2048-em --noconfirm
 # other editors
 sudo pacman -S code --noconfirm
+# other cli stuff
+sudo pacman -S wget --noconfirm
 # languages
 sudo pacman -S python --noconfirm
 sudo pacman -S rustup --noconfirm
@@ -52,20 +54,3 @@ sudo npm install -g n
 sudo npm install -g @angular/cli
 sudo npm install -g typescript
 sudo npm install -g ts-node
-
-
-# --- docker desktop and kubernetes setup
-
-# docker, or for docker-desktop
-sudo pacman -S docker --noconfirm
-sudo pacman -S gnome-terminal --noconfirm
-sudo pacman -S qemu-full --noconfirm
-sudo yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
-echo "$(whoami):165536:65536: | sudo tee /etc/subuid
-echo "$(whoami):165536:65536: | sudo tee /etc/subgid
-wget --output-document='~/Downloads/docker-desktop.pkg.tar.zst' --tries=3 --output-file='/tmp/wget-docker-log' https://desktop.docker.com/linux/main/amd64/docker-desktop-4.12.0-x86_64.pkg.tar.zst?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64
-sudo pacman -U ~/Downloads/docker-desktop.pkg.tar.zst --noconfirm
-# kubernetes
-sudo pacman -S k9s --noconfirm
-sudo pacman -S kubectl --noconfirm
-sudo pacman -S kubectx --noconfirm
