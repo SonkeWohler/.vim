@@ -411,4 +411,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=
+screenMapping=desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
