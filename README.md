@@ -41,6 +41,7 @@ terminal and hit enter:
 ./config.bash
 ./script.bash
 ./kde.bash
+./docker.bash
 ```
 
 They should just run without further intervention.  They take care of, in the
@@ -61,6 +62,15 @@ above order:
     - plasma widgets
   - sidenote: I don't think autostart is covered here yet.  Not sure what file
     to look at for that.
+* setting up docker-desktop to run
+  - I still need to test this, but I think it should now run fine after restart.
+  - You may want to check the version number, as the download link contains the
+    version number.
+  - After restart you can test with `docker info`.  Consult [the arch
+    wiki](https://wiki.archlinux.org/title/Docker) on common problems like:
+    - Bios not allowing hardware virtualisation
+    - rootless docker working correctly
+    - is `docker.socket` running (`systemctl status docker.socket`)
 
 You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`,
 run `:TSInstall all` and finally setup the [pylsp
@@ -83,15 +93,23 @@ There are some things that you still have to setup manually:
   - keyboard shortcuts are the most annoying.  They need to be set up manually
     until I figure out where the damn file is to copy.
   - theming and other appearance settings also don't seem to sync all the time.
-    These, at least, might be exportable, so I'll look into the files I need to
-    push around for that (if it doesn't require me to republish other people's
-    theme that is, you know licenses and all)
 * Autostart i.e. anything I want to start automatically at system start.
+* Docker Desktop settings.  You have to wait for it to start up and then restart
+  after you adjust the settings:
+  - Enable the Kubernetes extension
+  - give it as much swap as you want, I usually have plenty
+  - CPU and RAM below 4 sometimes causes problems, but you can experiment with
+    that
+* KDE has a tendency to make changes to the version controlled files after
+  restarts, not just the first time you set this up.  Often they are not really
+  functionally different, so you can often just commit those changes.
+* Some of the time you may wish to setup conflicting KDE settings on different
+  computers, while still sharing the remaining configuration.  This is currently
+  annoying, you can play with `~/.gitignore` and that's the end of my ideas so
+  far.  I will work on this, at some point.
 
-Now it is time for work setups, like [docker
-desktop](https://docs.docker.com/desktop/install/archlinux/) and cloning work
-repos.  For Docker desktop remember to setup the system resources and Kubernetes
-in the settings.
+Now it is time for work setups, and cloning work repos.  For Docker desktop
+remember to setup the system resources and Kubernetes in the settings.
 
 # Notes and explanations
 
