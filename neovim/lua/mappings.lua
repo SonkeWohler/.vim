@@ -88,23 +88,37 @@ nmap('<Left>', '<c-u>')
 nmap('<Right>', '<c-d>')
 
 ----- LSP -----
--- next/prev error
+-- I am not 100% sure whether I prefer g or l as the leader here
+-- g for 'go to', but l for 'lsp'...
+-- either way these mappings are experimental and I have to figure out which I
+-- prefer
+-- next/prev/list error
 nmap('Ln', ':lua vim.diagnostic.goto_next()<cr>')
 nmap('LN', ':lua vim.diagnostic.goto_prev()<cr>')
+nmap('LT', '<cmd>Telescope diagnostics<CR>')
+nmap('gT', '<cmd>Telescope diagnostics<CR>') -- trouble
 -- go to definition, references or implementations
-nmap('Ld', ':lua vim.lsp.buf.definition()<cr>')
-nmap('LD', ':lua vim.lsp.buf.references()<cr>')
-nmap('LI', ':lua vim.lsp.buf.implementation()<cr>')
--- show docs and signature
-nmap('Lk', ':lua vim.lsp.buf.hover()<cr>')
-nmap('LK', ':lua vim.lsp.buf.signature_help()<cr>')
+nmap('Ld', '<cmd>Telescope lsp_definitions<CR>')
+nmap('gd', '<cmd>Telescope lsp_definitions<CR>')
+nmap('LD', '<cmd>Telescope lsp_references<CR>') -- opposite of definition
+nmap('gD', '<cmd>Telescope lsp_references<CR>')
+nmap('Li', '<cmd>Telescope lsp_implementations<CR>')
+nmap('gi', '<cmd>Telescope lsp_implementations<CR>')
+nmap('Lt', '<cmd>Telescope lsp_type_definitions<CR>')
+nmap('gt', '<cmd>Telescope lsp_type_definitions<CR>')
+-- show docs and signatures
+nmap('Lk', ':lua vim.lsp.buf.hover()<cr>') -- not sure why I picked k, but that is what I use
+nmap('gk', ':lua vim.lsp.buf.hover()<cr>')
+nmap('LK', ':lua vim.lsp.buf.signature_help()<cr>') -- similar(-ish) to hover
+nmap('gK', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 -- code action
-nmap('Ll', ':lua vim.lsp.buf.code_action()<cr>')
+nmap('Ll', '<cmd>Telescope lsp_code_actions<CR>') -- not sure why I picked L, maybe lsp-action?
+nmap('gl', '<cmd>Telescope lsp_code_actions<CR>')
+nmap('LL', '<cmd>Telescope lsp_code_actions<CR>')
 -- rename
 nmap('Lr', ':lua vim.lsp.buf.rename()<cr>')
--- since I don't use build-in L or H, I'd like to see hints instead
-nmap('L', ':WhichKey L<CR>')
+nmap('R', ':lua vim.lsp.buf.rename()<cr>')
 
 ----- GitSigns -----
 -- next/prev hunk
@@ -117,6 +131,10 @@ nmap('gl', ':Gitsigns<CR>')
 -- https://vim.fandom.com/wiki/Search_for_visually_selected_text
 --vmap('//', '"vy/\V<C-R>=escape(@v,'/\')<CR><CR>')
 vmap('//', '"vy/<C-R>v<CR>')
+
+----- searching -----
+-- fuzzy find in current buffer
+nmap('//', ':FH<cr>')
 
 ---- fixes to remember the cursor position ----
 -- when searching

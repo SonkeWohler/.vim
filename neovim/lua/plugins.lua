@@ -169,6 +169,19 @@ require('packer').startup(function()
     after = 'telescope-fzf-native.nvim',
     config = function()
       require('telescope').setup {
+        defaults = {
+          mappings = {
+            -- insert mode
+            i = {
+              -- mappings go here
+              -- I'll play with this soon
+              -- I need the readline to work here
+              -- * <c-e>
+              -- * <c-u>
+              -- * possibly more
+            }
+          }
+        },
         extensions = {
           fzf = {
             fuzzy = true, -- false will only do exact matching
@@ -389,7 +402,6 @@ require('packer').startup(function()
           jump_close = { 'o', '<c-j>', 'enter' }
         }
       }
-      cmd('TT', 'TroubleToggle', { desc = 'toggle Trouble plugin' })
     end
   }
   -- pretty in line visalisation of diagnostics
