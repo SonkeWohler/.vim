@@ -369,6 +369,16 @@ require('packer').startup(function()
     -- configure lua lsp for neovim stuff
     'folke/neodev.nvim',
   }
+
+  -- non-lsp lsps, like linters etc
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("null-ls").setup()
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+  })
+
   -- pretty list of diagnostics
   use {
     "folke/trouble.nvim",
