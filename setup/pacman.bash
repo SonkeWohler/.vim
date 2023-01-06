@@ -5,6 +5,8 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S alacritty --noconfirm
 sudo pacman -S tmux --noconfirm
 # cli search
+sudo pacman -S rg --noconfirm
+sudo pacman -S fd --noconfirm
 sudo pacman -S fzf --noconfirm
 sudo pacman -S ack --noconfirm
 sudo pacman -S ripgrep --noconfirm
@@ -25,6 +27,7 @@ sudo pacman -S ttf-nerd-fonts-symbols-2048-em --noconfirm
 sudo pacman -S code --noconfirm
 # other cli stuff
 sudo pacman -S wget --noconfirm
+sudo pacman -S glow --noconfirm
 # languages
 sudo pacman -S python --noconfirm
 sudo pacman -S rustup --noconfirm
@@ -39,6 +42,7 @@ sudo pacman -S flatpak --noconfirm
 sudo pacman -S vivaldi --noconfirm
 sudo pacman -S signal-desktop --noconfirm
 sudo pacman -S mupdf --noconfirm
+sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
 # gaming, uncomment for any system I want that on
 # sudo pacman -S steam --noconfirm
 
