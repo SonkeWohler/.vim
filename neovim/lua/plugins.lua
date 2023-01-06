@@ -263,6 +263,7 @@ require('packer').startup(function()
       require('neogit').setup {}
     end
   }
+
   ------ hints ------
   -- cheatsheet, except for hydras
   use {
@@ -271,6 +272,7 @@ require('packer').startup(function()
       require("which-key").setup {}
     end
   }
+
   ------ various/awesome ------
   -- hydras are awesome, they have their own lua file in my setup
   use { 'anuvyklack/hydra.nvim',
@@ -288,6 +290,7 @@ require('packer').startup(function()
       }
     end
   }
+  use {"ellisonleao/glow.nvim"}
 
   -- Treesitter
   -- better syntax highlighting
@@ -308,6 +311,7 @@ require('packer').startup(function()
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end,
   }
+
   -- more textobjects
   use {
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -319,6 +323,7 @@ require('packer').startup(function()
       require("various-textobjs").setup({ useDefaultKeymaps = true })
     end,
   }
+
   -- show current function, class, etc if its definition is not currently visible
   use {
     'nvim-treesitter/nvim-treesitter-context',
@@ -332,6 +337,7 @@ require('packer').startup(function()
     end,
     after = 'nvim-treesitter',
   }
+
   -- better folds using treesitter
   use {
     'kevinhwang91/nvim-ufo',
@@ -349,6 +355,7 @@ require('packer').startup(function()
   }
   -- indentation guides
   -- use 'lukas-reineke/indent-blankline.nvim'
+
   -- Language Client
   -- lsp and installer for lsp
   use {
