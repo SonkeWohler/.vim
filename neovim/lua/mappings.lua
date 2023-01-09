@@ -105,7 +105,7 @@ nmap('gD', '<cmd>Telescope lsp_references<CR>')
 nmap('Li', '<cmd>Telescope lsp_implementations<CR>')
 nmap('gi', '<cmd>Telescope lsp_implementations<CR>')
 nmap('Lt', '<cmd>Telescope lsp_type_definitions<CR>')
-nmap('gt', '<cmd>Telescope lsp_type_definitions<CR>')
+-- nmap('gt', '<cmd>Telescope lsp_type_definitions<CR>')  -- already taken by tab navigation
 -- show docs and signatures
 nmap('Lk', ':lua vim.lsp.buf.hover()<cr>') -- not sure why I picked k, but that is what I use
 nmap('gk', ':lua vim.lsp.buf.hover()<cr>')
@@ -125,7 +125,7 @@ nmap('R', ':lua vim.lsp.buf.rename()<cr>')
 nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
 nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
 nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
-nmap('gr', ':lua require("gitsigns").reset_hunk()<CR>')
+-- nmap('gr', ':lua require("gitsigns").reset_hunk()<CR>') -- taken by rename tab
 nmap('gl', ':Gitsigns<CR>')
 
 -- https://vim.fandom.com/wiki/Search_for_visually_selected_text
@@ -204,6 +204,9 @@ nmap('gh', ':tabprevious<CR>')
 -- nicely/force close tab
 nmap('gx', ':tabclose<CR>')
 nmap('gX', ':tabclose!<CR>')
+-- rename current tab
+-- waits for argument in command mode
+nmap('gr', ':TablineTabRename ')
 
 ---- line ----
 -- start insert mode with a new line above or below while maintaining indent
