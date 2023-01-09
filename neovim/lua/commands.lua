@@ -1,8 +1,14 @@
 -- ## commands
 
 ----- Other -----
-cmd('Q', 'q!', {desc = 'force quit'})
-cmd('Qa', 'qa!', {desc = 'force quit all buffers'})
+cmd('Q', 'q!', { desc = 'force quit' })
+cmd('Qa', 'qa!', { desc = 'force quit all buffers' })
+cmd('TERM', 'ToggleTerm size=100 direction=vertical', { desc = 'ToggleTerm vertical' })
+
+----- Filetree -----
+cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
+cmd('LSC', 'NvimTreeClose', { desc = 'close NvimTree' })
+cmd('LSX', 'NvimTreeClose', { desc = 'close NvimTree' })
 
 ----- Common Editing
 cmd('Trim', '%s/\\v\\s+$//eg', {desc = 'trim whitespace'})

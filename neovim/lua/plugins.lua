@@ -69,7 +69,6 @@ require('packer').startup(function()
           show_tabs_only = false,
         },
       }
-      cmd('TR', 'TablineTabRename <q-args>', { nargs = 1, desc = 'name this tab' })
     end
   }
   use {
@@ -145,9 +144,6 @@ require('packer').startup(function()
           },
         },
       }
-      cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
-      cmd('LSC', 'NvimTreeClose', { desc = 'close NvimTree' })
-      cmd('LSX', 'NvimTreeClose', { desc = 'close NvimTree' })
     end
   }
   ------ search ------
@@ -437,7 +433,6 @@ end,
         size = 100,
         direction = 'vertical',
       }
-      cmd('TGL', 'ToggleTerm size=100 direction=vertical', { desc = 'ToggleTerm vertical' })
       function _G.set_terminal_keymaps()
         local opts = { buffer = 0 }
         vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
