@@ -385,7 +385,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][8][Applets][20][Configuration]
-PreloadWeight=90
+PreloadWeight=100
 
 [Containments][8][Applets][21]
 immutability=1
@@ -415,4 +415,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
