@@ -24,6 +24,8 @@ cmd('PP', 'PackerSync', {desc = 'run PackerSync'} )
 cmd('FF', 'lua require("telescope.builtin").find_files()<cr>', { desc = 'find file' })
 -- grep
 cmd('RG', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
+cmd('FS', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
+cmd('FG', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
 cmd('FT', 'lua require("telescope.builtin").grep_string()<cr>', { desc = 'find this word - grep string under the cursor' })
 cmd('FH', 'lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>', { desc = 'find here - grep current buffer only' })
 -- jump marks
