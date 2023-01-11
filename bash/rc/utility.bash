@@ -1,5 +1,9 @@
 ### --- general purpose --- ###
 
+### --- updates
+alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
+alias updateAll='yay && sudo npm --global update && flatpak update && updatePip'
+
 ### --- sudo
 
 #-- aliases
