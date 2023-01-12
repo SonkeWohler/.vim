@@ -303,12 +303,17 @@ require('packer').startup(function()
 
   -- Treesitter
   -- better syntax highlighting
+  -- note that this is setup (config = function()) under textobjects
   use {
     'nvim-treesitter/nvim-treesitter',
     -- run = ':TSUpdate',
+  }
+  -- more textobjects
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
     config = function()
-      local configs = require 'nvim-treesitter.configs'
-      configs.setup {
+      require 'nvim-treesitter.configs'.setup {
         highlight = {
           enable = true,
         },
@@ -324,15 +329,42 @@ require('packer').startup(function()
             scope_incremental = '{{',
             scope_decremental = '}}',
           }
-        }
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ae"] = "@parameter.outer",
+              ["ie"] = "@parameter.inner",
+            },
+          },
+          move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+              ["]f"] = "@function.outer",
+              ["]]"] = "@parameter.inner",
+            },
+            goto_next_end = {
+              ["]F"] = "@function.outer",
+              ["]["] = "@parameter.inner",
+            },
+            goto_previous_start = {
+              ["[f"] = "@function.outer",
+              ["[["] = "@parameter.inner",
+            },
+            goto_previous_end = {
+              ["[F"] = "@function.outer",
+              ["[]"] = "@parameter.inner",
+            },
+
+          },
+        },
       }
     end,
-  }
-
-  -- more textobjects
-  use {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
   }
   use {
     "chrisgrieser/nvim-various-textobjs",
