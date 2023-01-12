@@ -21,6 +21,8 @@ vim.opt.listchars = { eol = '$', tab = '> ' }
 vim.opt.joinspaces = true
 vim.opt.textwidth = 80
 vim.opt.foldlevel = 10
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- status displays
 vim.opt.cursorline = true
 vim.opt.number = true
