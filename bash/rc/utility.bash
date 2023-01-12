@@ -1,8 +1,50 @@
 ### --- general purpose --- ###
 
 ### --- updates
+# pip is a little hands on
 alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
-alias updateAll='yay && sudo npm --global update && flatpak update && updatePip'
+# neovim has a few things
+alias updateNvim='nvim -c "PackerSync" && nvim -c "TSUpdate all" && nvim -c "Mason"'
+# the rest has simple commands, but I usually use them all at once
+upateAll() {
+    echo '++++++++++++++++++++++++++++++'
+    echo '+++ complete system update +++'
+    echo '++++++++++++++++++++++++++++++'
+    echo '+++'
+    echo '+++'
+    echo '+++'
+    echo '++++++++++++++++++++++'
+    echo '+++ pacman and yay +++'
+    echo '++++++++++++++++++++++'
+    yay || return
+    echo '++++++++++++++++'
+    echo '+++ npm/node +++'
+    echo '++++++++++++++++'
+    sudo npm --global update || return
+    echo '+++++++++++++++'
+    echo '+++ flatpak +++'
+    echo '+++++++++++++++'
+    flatpak update || return
+    echo '++++++++++++++++++'
+    echo '+++ python/pip +++'
+    echo '++++++++++++++++++'
+    updatePip || return
+    echo '++++++++++++++'
+    echo '+++ neovim +++'
+    echo '++++++++++++++'
+    updateNvim || return
+    echo '+++'
+    echo '+++'
+    echo '+++'
+    echo '++++++++++++++++++++++++++++++'
+    echo '+++  updates are complete  +++'
+    echo '+++    you may have to     +++'
+    echo '+++  restart your system   +++'
+    echo '++++++++++++++++++++++++++++++'
+    echo '+++'
+    echo '+++'
+    echo '+++'
+}
 
 ### --- sudo
 
