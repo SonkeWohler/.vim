@@ -314,6 +314,16 @@ require('packer').startup(function()
         },
         indent = {
           enable = true,
+        },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = 'false',
+            node_incremental = '[[',
+            node_decremental = ']]',
+            scope_incremental = '{{',
+            scope_decremental = '}}',
+          }
         }
       }
       vim.opt.foldmethod = "expr"
