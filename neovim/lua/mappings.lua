@@ -57,12 +57,6 @@ nmap('gP', 'P')
 -- easier to reach
 nmap(',<', '\'[')
 nmap(',>', '\']')
--- methods are sort of functions
--- usually there is no point in separating them
-nmap(']f', ']m')
-nmap(']F', ']M')
-nmap('[f', '[m')
-nmap('[F', '[M')
 -- emacs navigation in command mode
 local readline = require 'readline'
 vim.keymap.set('!', '<M-f>', readline.forward_word)
