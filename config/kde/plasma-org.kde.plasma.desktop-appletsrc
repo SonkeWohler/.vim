@@ -45,6 +45,7 @@ popupWidth=1710
 [Containments][2][Applets][17][Configuration][Appearance]
 enabledCalendarPlugins=/usr/lib/qt/plugins/plasmacalendarplugins/holidaysevents.so
 firstDayOfWeek=1
+showSeconds=true
 showWeekNumbers=true
 use24hFormat=2
 
