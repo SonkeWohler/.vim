@@ -124,11 +124,11 @@ TerminalApplication=alacritty
 TerminalService=Alacritty.desktop
 XftHintStyle=hintslight
 XftSubPixel=rgb
-fixed=Hack,16,-1,5,50,0,0,0,0,0
-font=Noto Sans,16,-1,5,50,0,0,0,0,0
-menuFont=Noto Sans,16,-1,5,50,0,0,0,0,0
-smallestReadableFont=Noto Sans,14,-1,5,50,0,0,0,0,0
-toolBarFont=Noto Sans,16,-1,5,50,0,0,0,0,0
+fixed=Hack,18,-1,5,50,0,0,0,0,0
+font=Noto Sans,18,-1,5,50,0,0,0,0,0
+menuFont=Noto Sans,18,-1,5,50,0,0,0,0,0
+smallestReadableFont=Noto Sans,16,-1,5,50,0,0,0,0,0
+toolBarFont=Noto Sans,18,-1,5,50,0,0,0,0,0
 
 [KDE]
 AnimationDurationFactor=0.7071067811865475
@@ -168,7 +168,7 @@ Activate Previous Tab=Ctrl+[
 [WM]
 activeBackground=29,33,47
 activeBlend=29,33,47
-activeFont=Noto Sans,16,-1,5,50,0,0,0,0,0
+activeFont=Noto Sans,18,-1,5,50,0,0,0,0,0
 activeForeground=214,219,241
 inactiveBackground=29,33,47
 inactiveBlend=29,33,47
