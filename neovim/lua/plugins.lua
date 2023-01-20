@@ -160,7 +160,7 @@ require('packer').startup(function()
   use 'junegunn/fzf.vim'
   -- telescope and related
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.*',
     requires = { {'nvim-lua/plenary.nvim'} },
     after = 'telescope-fzf-native.nvim',
     config = function()
