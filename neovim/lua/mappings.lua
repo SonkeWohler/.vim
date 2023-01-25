@@ -87,31 +87,30 @@ nmap('<Right>', '<c-d>')
 -- either way these mappings are experimental and I have to figure out which I
 -- prefer
 -- next/prev/list error
-nmap('Ln', ':lua vim.diagnostic.goto_next()<cr>')
-nmap('LN', ':lua vim.diagnostic.goto_prev()<cr>')
-nmap('LT', '<cmd>Telescope diagnostics<CR>')
+nmap('<space>n', ':lua vim.diagnostic.goto_next()<cr>')
+nmap('<space>N', ':lua vim.diagnostic.goto_prev()<cr>')
+nmap('<space>T', '<cmd>Telescope diagnostics<CR>')
 nmap('gT', '<cmd>Telescope diagnostics<CR>') -- trouble
 -- go to definition, references or implementations
-nmap('Ld', '<cmd>Telescope lsp_definitions<CR>')
+nmap('<space>d', '<cmd>Telescope lsp_definitions<CR>')
 nmap('gd', '<cmd>Telescope lsp_definitions<CR>')
-nmap('LD', '<cmd>Telescope lsp_references<CR>') -- opposite of definition
+nmap('<space>D', '<cmd>Telescope lsp_references<CR>') -- opposite of definition
 nmap('gD', '<cmd>Telescope lsp_references<CR>')
-nmap('Li', '<cmd>Telescope lsp_implementations<CR>')
+nmap('<space>i', '<cmd>Telescope lsp_implementations<CR>')
 nmap('gi', '<cmd>Telescope lsp_implementations<CR>')
-nmap('Lt', '<cmd>Telescope lsp_type_definitions<CR>')
+nmap('<space>t', '<cmd>Telescope lsp_type_definitions<CR>')
 -- nmap('gt', '<cmd>Telescope lsp_type_definitions<CR>')  -- already taken by tab navigation
 -- show docs and signatures
-nmap('Lk', ':lua vim.lsp.buf.hover()<cr>') -- not sure why I picked k, but that is what I use
+nmap('<space>k', ':lua vim.lsp.buf.hover()<cr>') -- not sure why I picked k, but that is what I use
 nmap('gk', ':lua vim.lsp.buf.hover()<cr>')
-nmap('LK', ':lua vim.lsp.buf.signature_help()<cr>') -- similar(-ish) to hover
+nmap('<space>K', ':lua vim.lsp.buf.signature_help()<cr>') -- similar(-ish) to hover
 nmap('gK', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 -- code action
-nmap('Ll', '<cmd>Telescope lsp_code_actions<CR>') -- not sure why I picked L, maybe lsp-action?
-nmap('gl', '<cmd>Telescope lsp_code_actions<CR>')
-nmap('LL', '<cmd>Telescope lsp_code_actions<CR>')
+nmap('gl', ':lua vim.lsp.buf.code_action()<CR>')
+nmap('<space>l', ':lua vim.lsp.buf.code_action()<CR>')
 -- rename
-nmap('Lr', ':lua vim.lsp.buf.rename()<cr>')
+nmap('<space>r', ':lua vim.lsp.buf.rename()<cr>')
 nmap('R', ':lua vim.lsp.buf.rename()<cr>')
 
 ----- GitSigns -----
@@ -154,8 +153,6 @@ nmap('va{', 'va{V')
 nmap('sx', '"xx"xp')
 -- help in vertical split
 cmap(':hh', 'vert help ')
--- insert only a space
-nmap('<space>', 'i<space><esc>')
 -- fold less => zl, asopposed to fold more => zm
 -- this shouldn't have an uppercase version because zL is already in use
 nmap('zl', 'zr')
