@@ -116,9 +116,12 @@ nmap('R', ':lua vim.lsp.buf.rename()<cr>')
 ----- GitSigns -----
 -- next/prev hunk
 nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
+-- nmap('<space>g', ':lua require("gitsigns").next_hunk()<CR>')
 nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
+-- nmap('<space>G', ':lua require("gitsigns").prev_hunk()<CR>')
 nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
--- nmap('gr', ':lua require("gitsigns").reset_hunk()<CR>') -- taken by rename tab
+nmap('<space>s', ':lua require("gitsigns").stage_hunk()<CR>')
+nmap('<space>u', ':lua require("gitsigns").reset_hunk()<CR>')
 nmap('gl', ':Gitsigns<CR>')
 
 -- https://vim.fandom.com/wiki/Search_for_visually_selected_text
