@@ -319,7 +319,7 @@ DialogHeight=1110
 DialogWidth=1480
 
 [Containments][38][General]
-positions={"3840x2160":["1"\\,"22"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"]}
+positions={"3840x2160":["1"\\,"22"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"]}
 sortMode=-1
 
 [Containments][38][Wallpaper][org.kde.image][General]
@@ -416,4 +416,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
