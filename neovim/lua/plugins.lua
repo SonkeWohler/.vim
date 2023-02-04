@@ -146,6 +146,27 @@ require('packer').startup(function()
       }
     end
   }
+  use {
+  'nyngwang/NeoZoom.lua',
+  config = function ()
+    require('neo-zoom').setup {
+      top_ratio = 1,
+      left_ratio = 1,
+      width_ratio = 1,
+      height_ratio = 1,
+      border = 'double',
+      disable_by_cursor = true, -- zoom-out/unfocus when you click anywhere else.
+      exclude_filetypes = { 'lspinfo', 'mason', 'lazy', 'fzf', 'qf' },
+      popup = {
+        enabled = true,
+        exclude_filetypes = {},
+        exclude_buftypes = {},
+      },
+    }
+    vim.keymap.set('n', '<CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+  end
+}
+
   ------ search ------
   -- better string conversions I still have to get used to
   -- a bit like tpope's vim-abolish

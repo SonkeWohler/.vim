@@ -40,6 +40,7 @@ nmap('<c-w>9', '9gt')
 nmap('<c-w>0', '10gt')
 -- I keep hitting ` instead of 1
 nmap('`gt', '1gt')
+-- neozoom is defined in plugin, since it doesn't work here
 -- resize this buffer
 nmap('<c-w><', ':lua require("smart-splits").resize_left(3)<CR>')
 nmap('<c-w>>', ':lua require("smart-splits").resize_right(3)<CR>')
