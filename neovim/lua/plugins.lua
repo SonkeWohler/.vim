@@ -110,6 +110,21 @@ require('packer').startup(function()
       }
     end
   }
+  use {
+    'tummetott/reticle.nvim',
+    config = function()
+      require('reticle').setup {
+        -- set default, just in case it changes in the future
+        follow = {
+          cursorline = true,
+          cursorcolumn = true,
+        },
+        -- I can still tell where the cursor is in the other files, it is just
+        -- less distracting now
+        always_show_cl_number = true
+      }
+    end
+  }
   -- better resizing
   use {
     'mrjones2014/smart-splits.nvim',
@@ -146,6 +161,7 @@ require('packer').startup(function()
       }
     end
   }
+  -- like tmux zoom, but even more user friendly
   use {
   'nyngwang/NeoZoom.lua',
   config = function ()
@@ -605,9 +621,6 @@ lspconfig.bashls.setup {
   capabilities = capabilities
 }
 lspconfig.angularls.setup {
-  capabilities = capabilities
-}
-lspconfig.bashls.setup {
   capabilities = capabilities
 }
 lspconfig.cmake.setup {
