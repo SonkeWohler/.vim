@@ -11,9 +11,11 @@
 ----------------------------------------------
 
 require('packer').startup(function()
+
   ------ meta ------
   -- packer itself
   use 'wbthomason/packer.nvim'
+
   ------ looks ------
   -- nerd fonds, should be part of requirements in other plugins as well anyway
   use {
@@ -40,6 +42,7 @@ require('packer').startup(function()
   use 'altercation/vim-colors-solarized'
   use 'xXTgamerXx/everforest-neovim'
   use 'shaunsingh/nord.nvim'
+
   ------ commands ------
   -- better . use
   use 'tpope/vim-repeat'
@@ -53,6 +56,7 @@ require('packer').startup(function()
   require('dial.map').setup{}
   end
   } ]]
+
   ------ buffers ------
   -- tab and status lines
   use {
