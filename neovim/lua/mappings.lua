@@ -55,9 +55,10 @@ nmap('p', 'gp')
 nmap('P', 'gP')
 nmap('gp', 'p')
 nmap('gP', 'P')
--- easier to reach
+-- navigating/selecting last edit - easier to reach
 nmap(',<', '\'[')
 nmap(',>', '\']')
+nmap('gv', '\'[v\']V')
 -- emacs navigation in command mode
 local readline = require 'readline'
 vim.keymap.set('!', '<M-f>', readline.forward_word)
