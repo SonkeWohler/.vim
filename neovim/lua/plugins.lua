@@ -183,7 +183,9 @@ require('packer').startup(function()
         exclude_buftypes = {},
       },
     }
-    vim.keymap.set('n', '<CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+    vim.keymap.set('n', '<BS>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+    vim.keymap.set('n', '|', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+    vim.keymap.set('n', '<C-W><CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
   end
 }
 
