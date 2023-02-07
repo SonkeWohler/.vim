@@ -42,6 +42,7 @@ terminal and hit enter:
 ./script.bash
 ./kde.bash
 ./docker.bash
+./desktop.bash
 ```
 
 They should just run without further intervention.  They take care of, in the
