@@ -308,12 +308,16 @@ require('packer').startup(function()
       require('gitsigns').setup()
     end
   }
-  -- like fugitive in lua
+  -- a bit like fugitive in lua
   use {
     'TimUntersberger/neogit',
     config = function()
       require('neogit').setup {}
     end
+  }
+  -- but still need fugitive for some stuff
+  use {
+    'tpope/vim-fugitive'
   }
 
   ------ hints ------
