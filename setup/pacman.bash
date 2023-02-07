@@ -38,6 +38,9 @@ sudo pacman -S python-pip --noconfirm
 sudo pacman -S yay --noconfirm
 sudo pacman -S npm --noconfirm
 sudo pacman -S flatpak --noconfirm
+# libraries for other things
+sudo pacman -S postgresql --noconfirm
+cargo install diesel_cli --no-default-features --features postgres
 # graphical stuff
 sudo pacman -S vivaldi --noconfirm
 sudo pacman -S signal-desktop --noconfirm
@@ -58,3 +61,8 @@ sudo npm install -g n
 sudo npm install -g @angular/cli
 sudo npm install -g typescript
 sudo npm install -g ts-node
+
+# just to make sure in all this time we didn't add partial upgrades by accident
+# this is unlikely, but since each pacman and yay command is separate and takes
+# a moment it is theoretically possible
+sudo pacman -Syu --noconfirm

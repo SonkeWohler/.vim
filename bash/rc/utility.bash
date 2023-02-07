@@ -88,10 +88,6 @@ scimage() {
 
 ### --- editor related
 
-# for <C-x-e>
-export EDITOR="nvim"
-export SUDO_EDITOR="nvim"
-
 # vim with fzf
 # this is only necessary on systems where fzf the vim plugin and fzf the bash
 # tool don't play nice
