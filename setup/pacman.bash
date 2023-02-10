@@ -41,6 +41,7 @@ sudo pacman -S flatpak --noconfirm
 # libraries for other things
 sudo pacman -S postgresql --noconfirm
 cargo install diesel_cli --no-default-features --features postgres
+cargo install diesel_cli_ext
 # graphical stuff
 sudo pacman -S vivaldi --noconfirm
 sudo pacman -S signal-desktop --noconfirm
