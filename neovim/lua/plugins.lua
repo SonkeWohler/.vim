@@ -601,7 +601,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "sumneko_lua",
+    "lua_ls",
     "bashls",
     "angularls",
     "bashls",
@@ -624,7 +624,7 @@ require("mason-lspconfig").setup({
 -- capabilities are from the completion plugin above, normally people just leave
 -- these empy
 local lspconfig = require("lspconfig")
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   capabilities = capabilities
 }
 lspconfig.bashls.setup {
