@@ -126,10 +126,6 @@ nmap('<space>s', ':lua require("gitsigns").stage_hunk()<CR>')
 nmap('<space>u', ':lua require("gitsigns").reset_hunk()<CR>')
 nmap('gl', ':Gitsigns<CR>')
 
--- https://vim.fandom.com/wiki/Search_for_visually_selected_text
---vmap('//', '"vy/\V<C-R>=escape(@v,'/\')<CR><CR>')
-vmap('//', '"vy/<C-R>v<CR>')
-
 ----- searching -----
 -- fuzzy find in current buffer
 nmap('//', ':FH<cr>')
