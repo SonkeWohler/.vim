@@ -1,36 +1,15 @@
 ### --- anything vim related --- ###
 
 # in case that anything is wrong with vim or special use cases
-alias novim='vim -u NONE' 
-
-#-- find swp files and open them in vim
-# TODO handle more than just .swp
-vimswaps() { 
-  echo "swap files:"
-  find | grep .swp
-  echo "   ---"
-  # I am quite proud of this line, but it would break the terminal without '-o' 
-  # https://superuser.com/a/1268932/1065274
-  # TODO if empty
-  find | grep .swp | sed 's/\.swp//' | sed 's/\/\./\//' | xargs -o vim -p 
-  echo "remove swap files?"
-  echo "all (a), one by one (y), no (n)"
-  read -n 1 yesNo
-  echo ""
-  # TODO get list of swap files here to loop over or just display, based on user choice
-  if [ $yesNo = "a" ]; then
-    find | grep .swp | xargs rm -v
-  elif [ $yesNo = "y" ]; then
-    echo "not currently supported, TODO"
-  else
-    echo "these are the swap files you may wish to view:"
-    find | grep .swp
-    echo "   ---"
-  fi
-}
+alias vim='vim -u NONE' 
+# since this is fewer keystrokes and quite common
+alias vi='nvim'
+# quick local notes
+alias nvimn='cd $notesCD && nvim tmp.md'
 
 #-- for quick temporary notes
-vimt() {
+alias vimt='nvimt'
+nvimt() {
   if [ $tempCD ] ; then
     cd $tempCD
   else
@@ -62,7 +41,7 @@ vimt() {
       rmv quickNotes.txt
     fi
   fi
-  vim quickNotes.txt +startinsert
+  nvim quickNotes.txt +startinsert
   if test -f quickNotes.txt; then
     echo "save file to writingLibrary (s) or remove (r)?"
     read -n 1 yesNo
@@ -81,7 +60,8 @@ vimt() {
 
 #-- for quick permanent notes that are accesible online (privately)
 # requires $writingCD to be set and internet with github credentials saved
-vimNotes(){
+alias vimNotes='nvimNotes'
+nvimNotes(){
   # if required bookmark missing exit
   if [ $writingCD ]; then
     cd $writingCD
@@ -90,7 +70,7 @@ vimNotes(){
     return
   fi
   # write note
-  vim notes.md
+  nvim notes.md
   echo " --- uploading to github --- "
   # update remote
   git restore --staged :/
@@ -104,7 +84,10 @@ vimNotes(){
 
 #-- journal entries
 # requires $writingCD to be set and internet with github credentials saved
+alias diary='cd $writingCD/diary'
 alias nvimd='nvimdd'
+alias vimd='nvimdd'
+alias vimdd='nvimdd'
 nvimdd() {
   #-- does library exist on this machine?
   if not test $writingCD  ; then
@@ -153,122 +136,6 @@ nvimdd() {
   echo ""
   # todo lower case yesNo
   if [ $yesNo = "y" ]; then
-    git pull
-    git push
-  else
-    echo "not uploading"
-    echo "feel free to upload later"
-  fi
-  echo "---"
-  # return to previous file location
-  cd -
-}
-
-#-- journal entries
-# requires $writingCD to be set and internet with github credentials saved
-alias vimd='vimdd'
-vimdd() {
-  #-- does library exist on this machine?
-  if not test $writingCD  ; then
-    echo '$writingCD undefined, command failed'
-    return
-  fi
-  if test -z $writingCD ; then
-      echo '$writingCD improperly defined, command failed'
-      return
-  fi
-  if test -d $writingCD ; then
-      cd $writingCD
-  else
-      echo "$writingCD is not a directory, command failed"
-      return
-  fi
-  #-- get current date
-  # if $1 is an offset in days i.e. "+4" or "-1"
-  if echo $1 | grep -Eq "[+-][0-9]+" ; then
-    title=$(date --date "$1 days" +'%Y/%m/%d')
-  # if $1 is the day of the month i.e. "22" or "5"
-  elif echo $1 | grep -Eq "[0-9]+" ; then
-    year=$(date +"%Y")
-    month=$(date +"%m")
-    title=$(date --date "$year-$month-$1" )
-  # if $1 is not a date argument that is currently accepted
-  else
-    title="now"
-  fi
-  #-- format the date
-  filename="simpleEntries/$(date --date "$title" +'%Y.%m.%d').md"
-  title="# $(date --date "$title" +'%d/%m/%Y')"
-  #-- create file... or not?
-  if test -f $filename ; then
-    echo "today's entry has already been started"
-  else
-    echo "$title" > "$filename"
-  fi
-  vim $filename
-  #-- update remote
-  git restore --staged :/
-  git add $filename
-  git commit -m "diary entry"
-  echo "upload to github? (y/n)"
-  read -n 1 yesNo
-  echo ""
-  # todo lower case yesNo
-  if [ $yesNo = "y" ]; then
-    git pull
-    git push
-  else
-    echo "not uploading"
-    echo "feel free to upload later"
-  fi
-  echo "---"
-  # return to previous file location
-  cd -
-}
-
-alias diary='cd $writingCD/diary'
-
-# requires $writingCD to be set and internet with github credentials saved
-vimworknotes() {
-  #-- does library exist on this machine?
-  if [ $writingCD ] ; then
-    cd $writingCD/ihp/weeklyNotes
-  else
-    echo "$writingCD undefined, command failed"
-    return
-  fi
-  #-- get current date
-  # if $1 is an offset in days i.e. "+4" or "-1"
-  if echo $1 | grep -Eq "[+-][0-9]+" ; then
-    title=$(date --date +"$1 days")
-  # if $1 is the day of the month i.e. "22" or "5"
-  elif echo $1 | grep -Eq "[0-9]+" ; then
-    year=$(date +"%Y")
-    month=$(date +"%m")
-    title=$(date --date "$year-$month-$1" )
-  # if $1 is not a date argument that is currently accepted
-  else
-    title="now"
-  fi
-  # format the date
-  filename="$(date --date "$title" +'%Y.%m.%d').md"
-  title="# $(date --date "$title" +'%d/%m/%Y')"
-  #-- create file... or not?
-  if test -f $filename ; then
-    echo "today's entry has already been started"
-  else
-    echo "$title" > "$filename"
-  fi
-  vim $filename
-  #-- update remote
-  echo "upload to github? (y/n)"
-  read -n 1 yesNo
-  echo ""
-  # todo lower case yesNo
-  if [ $yesNo = "y" ]; then
-    git restore --staged :/
-    git add $filename
-    git commit -m "diary entry"
     git pull
     git push
   else
