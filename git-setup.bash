@@ -58,8 +58,10 @@ echo 'tempCD="/tmp"' >> locationsForCD.bash
 echo 'librariesCD="$HOME/libraries"' >> locationsForCD.bash
 echo 'writingCD="$librariesCD/writingLibrary"' >> locationsForCD.bash
 echo 'vimCD="$librariesCD/.vim"' >> locationsForCD.bash
+echo 'notesCD="$librariesCD/notes' >> locationsForCD.bash
 librariesCD="~/libraries"
 vimCD="$librariesCD/.vim"
+notesCD="$librariesCD/notes"
 
 #-- dotfiles and other basic repos
  
@@ -72,6 +74,9 @@ git clone $dotfilesURL
 git config --global core.excludesFile "$vimCD/config/gitignore"
 print "cloning journal and related writing stuff (private)"
 git clone git@github.com:SonkeWohler/writingLibrary.git
+print "setting up notes"
+mkdir notes
+echo '# Local Temporary Notes' > notes/tmp.md
 
 #-- final default git config
 echo 'would you like to use the default git config?'
