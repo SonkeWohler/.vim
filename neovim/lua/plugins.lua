@@ -346,7 +346,12 @@ require('packer').startup(function()
       }
     end
   }
-  use {"ellisonleao/glow.nvim"}
+  use {
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup{}
+    end
+  }
 
   -- Treesitter
   -- better syntax highlighting
