@@ -75,6 +75,12 @@ require('packer').startup(function()
       }
     end
   }
+  use({
+    "roobert/node-type.nvim",
+    config = function()
+      require("node-type").setup()
+    end,
+  })
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -93,7 +99,7 @@ require('packer').startup(function()
               path = 1,
             }
           },
-          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_x = { require("node-type").statusline,  'encoding', 'fileformat', 'filetype'  },
           lualine_y = { 'progress' },
           lualine_z = { 'location' }
         },
