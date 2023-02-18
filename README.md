@@ -110,8 +110,13 @@ There are some things that you still have to setup manually:
   annoying, you can play with `~/.gitignore` and that's the end of my ideas so
   far.  I will work on this, at some point.
 
-Now it is time for work setups, and cloning work repos.  For Docker desktop
-remember to setup the system resources and Kubernetes in the settings.
+Depending on the machine this is set up on you may want to adjust some things,
+perhaps specific to this machine only.  A common example is to adjust
+`/bin/start_alacritty.bash` with `--option font.size=12.0` for laptops - since
+the screen I use on my desk is a lot bigger than that on my laptop.
+
+Now it is time to clone work repos and set that stuff up.  Obviously, that is
+not part of my dotfiles anymore.
 
 # Notes and explanations
 
@@ -124,6 +129,14 @@ and then I may update the stable branch, but I don't really have a use for that
 yet, since I probably won't be updating it regularly enough.  It is simply
 easier to rebase the local branch regularly and sort out conflicts as they arise
 than to put off merging branches and inviting merge conflicts in this way.
+
+I try to stick to [conventional
+commits](https://www.conventionalcommits.org/en/v1.0.0/) most of the time.
+Sometimes you will find commits with the message `chore(kde): no functional
+changes`, these are about my kde settings.  Because kde is not designed to be
+backed up the way I do sometimes there are changes to the dotfiles without me
+doing anything, and without that having any effect on the kde setup (that I can
+tell).  But I still commit them just in case and so they are out of the way.
 
 ### Git Submodules as vim Plugins
 
