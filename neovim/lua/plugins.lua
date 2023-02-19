@@ -75,12 +75,6 @@ require('packer').startup(function()
       }
     end
   }
-  use({
-    "roobert/node-type.nvim",
-    config = function()
-      require("node-type").setup()
-    end,
-  })
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -366,6 +360,13 @@ require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     -- run = ':TSUpdate',
   }
+  -- current node displayed in lualine
+  use({
+    "roobert/node-type.nvim",
+    config = function()
+      require("node-type").setup()
+    end,
+  })
   -- more textobjects
   use {
     'nvim-treesitter/nvim-treesitter-textobjects',
