@@ -83,6 +83,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][25][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
 
 [Containments][2][Applets][25][Configuration][Appearance]
@@ -113,6 +114,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][26][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
 
 [Containments][2][Applets][26][Configuration][Appearance]
@@ -136,6 +138,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][27][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
 
 [Containments][2][Applets][27][Configuration][Appearance]
@@ -189,6 +192,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][32][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
 
 [Containments][2][Applets][32][Configuration][Appearance]
@@ -211,6 +215,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][33][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
 
 [Containments][2][Applets][33][Configuration][Appearance]
@@ -246,6 +251,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][36][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
 
 [Containments][2][Applets][36][Configuration][Appearance]
@@ -319,7 +325,7 @@ DialogHeight=1110
 DialogWidth=1480
 
 [Containments][38][General]
-positions={"3840x2160":["3"\\,"22"\\,"desktop:/notes-for-professionals"\\,"2"\\,"20"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"]}
+positions={"3840x2160":["3"\\,"22"\\,"desktop:/notes-for-professionals"\\,"2"\\,"20"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"]}
 sortMode=-1
 
 [Containments][38][Wallpaper][org.kde.image][General]
@@ -350,6 +356,9 @@ plugin=org.kde.plasma.volume
 
 [Containments][8][Applets][11][Configuration]
 PreloadWeight=100
+
+[Containments][8][Applets][11][Configuration][General]
+migrated=true
 
 [Containments][8][Applets][12]
 immutability=1
@@ -412,8 +421,8 @@ DialogWidth=2074
 
 [Containments][8][General]
 extraItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.kscreen
-knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.kdeconnect
+knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.kscreen
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
