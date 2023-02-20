@@ -38,8 +38,9 @@ sudo pacman -S python-pip --noconfirm
 sudo pacman -S yay --noconfirm
 sudo pacman -S npm --noconfirm
 sudo pacman -S flatpak --noconfirm
-# libraries for other things
+# tools from cargo
 sudo pacman -S postgresql --noconfirm
+cargo install cargo-update
 cargo install diesel_cli --no-default-features --features postgres
 cargo install diesel_cli_ext
 # graphical stuff
@@ -49,6 +50,7 @@ sudo pacman -S mupdf --noconfirm
 sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
 # gaming, uncomment for any system I want that on
 # sudo pacman -S steam --noconfirm
+# sudo pacman -S lutris --noconfirm
 
 # from AUR
 # yay -S nerd-fonts-complete --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
