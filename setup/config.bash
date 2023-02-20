@@ -63,8 +63,12 @@ print "setting up starship"
 ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
 
 print "setting up glow"
-mkdir ~/.config/glow
+mkdir --parents --verbose ~/.config/glow
 ln --symbolic --verbose $vimCD/config/glow.yml ~/.config/glow/glow.yml
+
+print "k9s plugins"
+mkdir --parents --verbose ~/.config/k9s
+ln --symbolic --verbose $vimCD/config/k9s/plugin.yml ~/.config/k9s/plugin.yml
 
 #-- rustup
 

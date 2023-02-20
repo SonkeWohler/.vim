@@ -60,10 +60,11 @@ sudo yay -S nvim-packer-git --nocleanmenu --nodiffmenu --noeditmenu --noupgradem
 sudo yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 
 # from node
-sudo npm install -g n
-sudo npm install -g @angular/cli
-sudo npm install -g typescript
-sudo npm install -g ts-node
+sudo npm install --global n
+sudo npm install --global @angular/cli
+sudo npm install --global typescript
+sudo npm install --global ts-node
+sudo npm install --global pino-pretty
 
 # just to make sure in all this time we didn't add partial upgrades by accident
 # this is unlikely, but since each pacman and yay command is separate and takes

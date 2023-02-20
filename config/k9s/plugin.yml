@@ -1,0 +1,22 @@
+# credit https://github.com/derailed/k9s/issues/364#issuecomment-1232686274
+plugin:
+  pinologs:
+    shortCut: Ctrl-L
+    description: "attach (pretty)"
+    scopes:
+      - pods
+    command: bash
+    args:
+      - "-i"
+      - "-c"
+      - "kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT | pino-pretty"
+  pinologs-dep:
+    shortCut: Ctrl-L
+    description: "attach (pretty)"
+    scopes:
+      - deploy
+    command: bash
+    args:
+      - "-i"
+      - "-c"
+      - "kubectl logs -f -l app=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty"
