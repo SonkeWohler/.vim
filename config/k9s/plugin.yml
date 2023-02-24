@@ -1,4 +1,12 @@
 # credit https://github.com/derailed/k9s/issues/364#issuecomment-1232686274
+
+# note: this does not get displayed like your normal logs do.  It sort of
+# suspends k9s and opens a stream displaying the pino output directly in your
+# shell.
+
+# in tmux that means you need to scroll up using the tmux visual mode
+# (<C-B><C-[> for me, which I think is the default).
+
 plugin:
   pinologs:
     shortCut: Ctrl-L
@@ -9,7 +17,7 @@ plugin:
     args:
       - "-i"
       - "-c"
-      - "kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT | pino-pretty"
+      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize"
   pinologs-dep:
     shortCut: Ctrl-L
     description: "attach (pretty)"
@@ -19,4 +27,4 @@ plugin:
     args:
       - "-i"
       - "-c"
-      - "kubectl logs -f -l app=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty"
+      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f -l app=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize"
