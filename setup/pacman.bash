@@ -28,6 +28,7 @@ sudo pacman -S code --noconfirm
 # other cli stuff
 sudo pacman -S wget --noconfirm
 sudo pacman -S glow --noconfirm
+sudo pacman -S aspell aspell-en --noconfirm
 # languages
 sudo pacman -S python --noconfirm
 sudo pacman -S rustup --noconfirm

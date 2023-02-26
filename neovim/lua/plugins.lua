@@ -167,27 +167,27 @@ require('packer').startup(function()
   }
   -- like tmux zoom, but even more user friendly
   use {
-  'nyngwang/NeoZoom.lua',
-  config = function ()
-    require('neo-zoom').setup {
-      top_ratio = 1,
-      left_ratio = 1,
-      width_ratio = 1,
-      height_ratio = 1,
-      border = 'double',
-      disable_by_cursor = true, -- zoom-out/unfocus when you click anywhere else.
-      exclude_filetypes = { 'lspinfo', 'mason', 'lazy', 'fzf', 'qf' },
-      popup = {
-        enabled = true,
-        exclude_filetypes = {},
-        exclude_buftypes = {},
-      },
-    }
-    vim.keymap.set('n', '<BS>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
-    vim.keymap.set('n', '|', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
-    vim.keymap.set('n', '<C-W><CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
-  end
-}
+    'nyngwang/NeoZoom.lua',
+    config = function ()
+      require('neo-zoom').setup {
+        top_ratio = 1,
+        left_ratio = 1,
+        width_ratio = 1,
+        height_ratio = 1,
+        border = 'double',
+        disable_by_cursor = true, -- zoom-out/unfocus when you click anywhere else.
+        exclude_filetypes = { 'lspinfo', 'mason', 'lazy', 'fzf', 'qf' },
+        popup = {
+          enabled = true,
+          exclude_filetypes = {},
+          exclude_buftypes = {},
+        },
+      }
+      vim.keymap.set('n', '<BS>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+      vim.keymap.set('n', '|', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+      vim.keymap.set('n', '<C-W><CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+    end
+  }
 
   ------ search ------
   -- better string conversions I still have to get used to
@@ -524,19 +524,39 @@ end,
 }) ]]
   -- Completions of various kinds
   use { -- more setup at the bottom
+    -- lsp
     'hrsh7th/cmp-nvim-lsp',
+    -- commands (:)
     'hrsh7th/cmp-cmdline',
+    -- words in this or other open buffers
     'hrsh7th/cmp-buffer',
+    -- filepaths
     'hrsh7th/cmp-path',
+    -- the core plugin
     'hrsh7th/nvim-cmp',
+    -- items with underscore are not at the top
+    'lukas-reineke/cmp-under-comparator',
+    -- arguments to functions etc
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    -- dictionary
+    'uga-rosa/cmp-dictionary',
   }
-  -- I don't use snippets (yet), but cmp requires it
+  -- I don't use snippets (yet), but cmp requires it for setup
   use {
     'dcampos/cmp-snippy',
     'dcampos/nvim-snippy',
     config = function()
       require('snippy').setup {}
     end
+  }
+  -- completion for crates
+  use {
+    'saecki/crates.nvim',
+    tag = 'v0.3.0',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('crates').setup()
+    end,
   }
   -- terminal.  Not that I use it often, but as nvim becomes more like an IDE in
   -- it can be useful sometimes.
@@ -586,13 +606,15 @@ vim.g.nord_contrast = true
 vim.cmd [[ colorscheme nord ]]
 
 -- Completion
+
 -- If you want insert `(` after select function or method item
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 cmp.event:on(
   'confirm_done',
-  cmp_autopairs.on_confirm_done()
+  require('nvim-autopairs.completion.cmp').on_confirm_done()
 )
+
+-- the main completion setup function
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -603,16 +625,88 @@ cmp.setup({
     -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-<Space>>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-Q>'] = cmp.mapping.abort(),
+    ['<c-j>'] = cmp.mapping.confirm({ select = false }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-  }, {
-      { name = 'buffer' },
-    }),
+  sources = cmp.config.sources(
+    -- these I use all the time
+    {
+      -- lsp completion
+      { name = 'nvim_lsp' },
+      -- lsp specific to arguments for functions
+      { name = 'nvim_lsp_signature_help' },
+      -- { name = 'crates' },
+      -- I don't use snippy yet
+      -- { name = 'snippy' },
+    },
+    -- only when the above is not available, use this
+    {
+      -- words from any visible buffers
+      {
+        name = 'buffer',
+        -- all visible buffers
+        option = {
+          get_bufnrs = function()
+            local bufs = {}
+            for _, win in ipairs(vim.api.nvim_list_wins()) do
+              bufs[vim.api.nvim_win_get_buf(win)] = true
+            end
+            return vim.tbl_keys(bufs)
+          end
+        }
+        -- all buffers
+        -- option = {
+        --   get_bufnrs = function()
+        --     return vim.api.nvim_list_bufs()
+        --   end
+        -- }
+      },
+      -- dictionary (english right now)
+      {
+        name = "dictionary",
+        keyword_length = 2,
+      },
+    }
+    -- and if none of the above is available maybe I am typing a filepath
+    -- ,
+    -- this is currenlty breaking dictionary.  I guess I need to do some sorting
+    -- or something
+    -- {
+    --   -- paths
+    --   {
+    --     name = 'path',
+    --     options = {
+    --       trailing_slash = false,
+    --       label_trailing_slash = false,
+    --     },
+    --   },
+    -- }
+  ),
+  -- recommended order from
+  -- sorting = {
+  --   comparators = {
+  --     cmp.config.compare.offset,
+  --     cmp.config.compare.exact,
+  --     cmp.config.compare.score,
+  --     require "cmp-under-comparator".under,
+  --     cmp.config.compare.kind,
+  --     cmp.config.compare.sort_text,
+  --     cmp.config.compare.length,
+  --     cmp.config.compare.order,
+  --   }
+  -- }
 })
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+local dict = require('cmp_dictionary')
+dict.setup({})
+dict.switcher({
+  spelllang = {
+    en = "/usr/share/dicts/en.dict"
+  }
+})
 
 -- LSP
 -- this doesn't seem to work right if setup in config above
