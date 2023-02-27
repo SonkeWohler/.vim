@@ -138,6 +138,35 @@ backed up the way I do sometimes there are changes to the dotfiles without me
 doing anything, and without that having any effect on the kde setup (that I can
 tell).  But I still commit them just in case and so they are out of the way.
 
+Beyond this the scope of the conventional commit message can be:
+* `bash`, which is anything under `./bash/*`.  This is stuff that gets loaded
+  via the `~/.bashrc`, I just have it split up into multiple files for
+  cleanliness.
+* `setup`, scripts used in the above installation instructions.
+* `config`, most things not included in neovim or the above go in here.  Mostly
+  these are dotfiles that go under `~/.config/*`, but not exclusively.
+* stuff related to neovim I split up, since I commit to this quite often:
+    - `map`, is `./neovim/lua/mappings.lua`.  As you can imagine, this is
+      any remaps, which in vimscript would be `nnoremap` and stuff.
+    - `plug`, `./neovim/lua/plugin.lua`, all the plugins that I have collected
+      in this time, plus configuration that doesn't belong in the other files.
+    - `cmd`, `./neovim/lua/commands.lua`, anything I call with `:`.
+* `readme`, this file
+* anything not listed above I don't commit often enough, so there is not
+  standard that I try to keep myself to.  For example, tmux stuff you may see
+  under `tmux` or you may see under `config`.
+
+The action is usually `fix` and `feat` - which are obvious - `new` when I add
+something new, like a new neovim plugin `new(plug)` or a new file to my bashrc
+`new(bash)`, you get the idea.  Sometimes I do `ref` for refactors, `doc` for
+documentation (which may also just be `feat(readme)`) and I think `clean`, when
+it's not really refactoring but more like formatting and the like.
+
+The Issues on GitHub are pretty much dead now and the PRs probably won't be used
+anymore either.  The latter used to be convenient when I wanted to merge across
+machines while on my phone, but since I don't use different branches for
+different machines anymore that won't really be a thing.
+
 ### Git Submodules as vim Plugins
 
 I used to use git submodules to maintain vim plugins, since I was managing my
