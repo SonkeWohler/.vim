@@ -369,6 +369,16 @@ require('packer').startup(function()
     end,
   })
 
+  -- more advanced search word under cursor
+  use {
+    "dvoytik/hi-my-words.nvim",
+    config = function()
+      require("hi-my-words").setup{}
+      nmap('*', ':HiMyWordsToggle<CR>n')
+      nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
+    end
+  }
+
   -- highlight code blocks
   use {
     "atusy/tsnode-marker.nvim",
