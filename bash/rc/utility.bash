@@ -1,5 +1,33 @@
 ### --- general purpose --- ###
 
+### --- memory helps
+# timer
+mytimednotify() {
+    if test -z $2; then
+        message='...'
+    else
+        message="$2"
+    fi
+    if test -z $1; then
+        time='1m'
+    else
+        time="$1"
+    fi
+    code=$(sleep $time && notify-send $message --action 'done' --action '+1min' --action 'repeat' --app-name 'note to self' --wait --expire-time 300000)
+    if test $code -eq 1; then
+        mytimednotify '1m' $message
+    else
+        if test $code -eq 2; then
+            mytimednotify $time $message
+        fi
+    fi
+}
+
+remindme() {
+    mytimednotify $@ &
+}
+
+
 ### --- updates
 # pip is a little hands on
 alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
