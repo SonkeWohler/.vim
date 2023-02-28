@@ -379,6 +379,43 @@ require('packer').startup(function()
     end
   }
 
+  -- better tpope/vim-unimpaired
+  use {
+    'echasnovski/mini.bracketed',
+    config = function()
+      require('mini.bracketed').setup{
+        -- probably don't really use it, but why not
+        buffer     = { suffix = 'b', options = {} },
+        -- because # is above 3, and / is harder to reach
+        comment    = { suffix = '3', options = {} },
+        -- I'm excited to try this one
+        conflict   = { suffix = 'x', options = {} },
+        -- same as <space>n for me
+        diagnostic = { suffix = '', options = {} },
+        -- no need, plus ]f is for functions
+        file       = { suffix = '', options = {} },
+        -- might be useful in json
+        indent     = { suffix = 'j', options = {} },
+        -- don't use this
+        jump       = { suffix = '', options = {} },
+        -- no need
+        location   = { suffix = '', options = {} },
+        -- similar enough to <C-O> that I don't really need it
+        oldfile    = { suffix = '', options = {} },
+        -- wonder if this makes any difference to <space>n
+        quickfix   = { suffix = 'q', options = {} },
+        -- not sure what this does, but why not
+        treesitter = { suffix = 't', options = {} },
+        -- can be nice
+        undo       = { suffix = 'u', options = {} },
+        -- don't think I use it, but that's ok for now
+        window     = { suffix = 'w', options = {} },
+        -- can be nice
+        yank       = { suffix = 'y', options = {} },
+      }
+    end
+  }
+
   -- highlight code blocks
   use {
     "atusy/tsnode-marker.nvim",
