@@ -114,7 +114,7 @@ ForegroundPositive=0,106,128
 ForegroundVisited=0,106,128
 
 [DirSelect Dialog]
-DirSelectDialog Size=882,622
+DirSelectDialog Size=1652,1096
 History Items[$e]=file:$HOME/libraries/work/app
 
 [General]
@@ -147,10 +147,10 @@ Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
 Show hidden files=true
-Sort by=Name
+Sort by=Date
 Sort directories first=true
 Sort hidden files last=false
-Sort reversed=false
+Sort reversed=true
 Speedbar Width=283
 View Style=DetailTree
 
