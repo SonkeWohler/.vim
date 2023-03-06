@@ -7,7 +7,7 @@ show_always = true
 style_root = "bold red"
 style_user = "bold red"
 
-# Second param: shortened host (compuer) name
+# Second param: shortened host (computer) name
 [hostname]
 disabled = true
 format = "[$hostname]($style) "
@@ -93,9 +93,13 @@ disabled = false
 # I don't use this, but it would be here somewhere
 
 # Second: time this prompt was printed (right after the last command completed)
+# I also use this to make the prompt more visible with that --- part
+# this can be helpful when scrolling through long outputs that I might print
+# repeatedly, so as I scroll through the last output I find myself reading the
+# previous, outdated output
 [time]
 disabled = false
-format = " 🕙 $time($style)\n"
+format = " 🕙 $time($style) [-----------------------------------------------------------------](bold blue)\n"
 style = "bright-white"
 time_format = "%T"
 
@@ -112,12 +116,14 @@ style = "bold red"
 
 # --- SYMBOLS
 
+# last process succeeded
 success_symbol = "[λ](red)"
+# last process failed
 symbol = "[x](bold green)[X](bold #734bab)[X](bold blue)[X](bold yellow)[x](bold green)"
+# self explanatory
 not_executable_symbol = "[ ](bold #734bab)"
-# not_found_symbol = "[ ](bold red)"
 not_found_symbol = "[🔍 ](bold #734bab)"
-# not_executable_symbol = "[ ](bold red)"
+# interrupt like <C-C>
 sigint_symbol = "[⚡](bold #734bab)"
 signal_symbol = "[⚡](bold #734bab)"
 
