@@ -28,3 +28,13 @@ plugin:
       - "-i"
       - "-c"
       - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f -l app=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize"
+  pinologs-job:
+    shortCut: Ctrl-L
+    description: "attach (pretty)"
+    scopes:
+      - jobs
+    command: bash
+    args:
+      - "-i"
+      - "-c"
+      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f -l job-name=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize"
