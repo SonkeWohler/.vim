@@ -1,7 +1,7 @@
 -- ### these are used throughout my config, so no local on these
 
 -- mapping
-keymap = vim.api.nvim_set_keymap
+keymap = vim.keymap.set
 keyopt = { noremap = true }
 -- commands
 cmd = vim.api.nvim_create_user_command
