@@ -443,6 +443,16 @@ require('packer').startup(function()
     requires = 'nvim-treesitter/nvim-treesitter',
   }
 
+  -- navigation using treesitter
+  use {
+    'drybalka/tree-climber.nvim',
+    config = function()
+      require('tree-climber').setup{}
+    end,
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
+
   -- more textobjects
   use {
     'nvim-treesitter/nvim-treesitter-textobjects',

@@ -61,6 +61,16 @@ nmap('gP', 'P')
 nmap(',<', '\'[')
 nmap(',>', '\']')
 nmap('gv', '\'[v\']V')
+-- treesitter based - can be nice for ifs with many branches
+-- this can be a little counter-intuitive, where each `elif` is a child of the
+-- `if`, but the contents of the first branch of the `if` is also a
+-- child of that same if.  Each expression is a child of the branch it is a
+-- child of (every foo = bar, try:...except:..., etc)
+-- Just takes a little getting used to.
+nmap(']n', ":lua require('tree-climber').goto_next()<CR>" )
+nmap('[n', ":lua require('tree-climber').goto_prev()<CR>" )
+nmap(']p', ":lua require('tree-climber').goto_child()<CR>" )
+nmap('[p', ":lua require('tree-climber').goto_parent()<CR>" )
 -- emacs navigation in command mode
 local readline = require 'readline'
 vim.keymap.set('!', '<M-f>', readline.forward_word)
