@@ -433,6 +433,16 @@ require('packer').startup(function()
     end
   }
 
+  -- autopair for html using treesitter
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
+
   -- more textobjects
   use {
     'nvim-treesitter/nvim-treesitter-textobjects',
