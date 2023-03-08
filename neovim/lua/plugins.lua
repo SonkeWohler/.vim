@@ -796,8 +796,6 @@ dict.switcher({
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "lua_ls",
-    "bashls",
     "angularls",
     "bashls",
     "cmake",
@@ -807,8 +805,9 @@ require("mason-lspconfig").setup({
     "jdtls",
     "jsonls",
     "lemminx",
-    "jedi_language_server",
+    "lua_ls",
     "marksman",
+    "pylsp",
     "rust_analyzer",
     "sqlls",
     "texlab",
@@ -849,15 +848,9 @@ lspconfig.jsonls.setup {
 lspconfig.lemminx.setup {
   capabilities = capabilities
 }
--- lspconfig.jedi_language_server.setup {
---   capabilities = capabilities
--- }
 lspconfig.pylsp.setup {
   capabilities = capabilities
 }
--- lspconfig.pyright.setup {
---   capabilities = capabilities
--- }
 lspconfig.marksman.setup {
   capabilities = capabilities
 }
