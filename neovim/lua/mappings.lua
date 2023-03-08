@@ -126,6 +126,8 @@ nmap('<space>l', ':lua vim.lsp.buf.code_action()<CR>')
 -- rename
 nmap('<space>r', ':lua vim.lsp.buf.rename()<cr>')
 nmap('R', ':lua vim.lsp.buf.rename()<cr>')
+-- format buffer
+nmap('<space>f', ':lua vim.lsp.buf.format()<CR>')
 
 ----- GitSigns -----
 -- next/prev hunk
