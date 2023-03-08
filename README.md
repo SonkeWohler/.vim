@@ -53,6 +53,9 @@ above order:
   - this doesn't just cover pacman, but also yay, pip and npm, but it is
     Arch-specific
 * dotfiles like ~/.bashrc
+  - this also runs installs for anything that requires this config to be in
+    place for the installation to work properly.  The only one right now is
+    neovim, so it will open a few times now.
 * useful scripts for keyboard remaps and alacritty
 * kde files
   - this is still somewhat experimental, so a few things don't work quite the
@@ -72,17 +75,6 @@ above order:
     - Bios not allowing hardware virtualisation
     - rootless docker working correctly
     - is `docker.socket` running (`systemctl status docker.socket`)
-
-You, also need to start neovim and run `:PackerSync`, reload and run `:Mason`,
-run `:TSInstall all` and finally setup the [pylsp
-extensions](https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/server_configurations/pylsp/README.md).
-Note that I seem to be having a problem with flake8, so I am skipping that for
-now.  It seems to work without that.
-
-```
-nvim -c 'PackerSync' && nvim -c 'TSInstall all' && nvim -c 'Mason' && nvim -c
-'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope'
-```
 
 ### The tedious bit
 

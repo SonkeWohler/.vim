@@ -74,3 +74,7 @@ sudo npm install --global pino-pretty
 # this is unlikely, but since each pacman and yay command is separate and takes
 # a moment it is theoretically possible
 sudo pacman -Syu --noconfirm
+
+# rustup
+
+rustup toolchain install stable

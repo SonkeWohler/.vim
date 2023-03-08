@@ -40,13 +40,6 @@ echo "source $vimCD/bash/bashrc" >> ~/.bashrc
 
 ln --symbolic --verbose $vimCD/bash/inputrc ~/.inputrc
 
-#-- neovim
-
-print "setting up neovim"
-
-mkdir --parents --verbose ~/.config/nvim
-ln --symbolic --verbose $vimCD/neovim/* ~/.config/nvim
-
 #-- tmux
 
 print "setting up tmux"
@@ -70,6 +63,12 @@ print "k9s plugins"
 mkdir --parents --verbose ~/.config/k9s
 ln --symbolic --verbose $vimCD/config/k9s/plugin.yml ~/.config/k9s/plugin.yml
 
-#-- rustup
+#-- neovim
 
-rustup toolchain install stable
+print "setting up neovim"
+
+mkdir --parents --verbose ~/.config/nvim
+ln --symbolic --verbose $vimCD/neovim/* ~/.config/nvim
+
+nvim -c 'PackerSync' && nvim -c 'TSInstall all' && nvim -c 'Mason' && nvim -c
+'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope'
