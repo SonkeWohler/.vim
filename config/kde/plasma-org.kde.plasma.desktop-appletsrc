@@ -325,7 +325,7 @@ DialogHeight=1110
 DialogWidth=1480
 
 [Containments][38][General]
-positions={"3840x2160":["3"\\,"22"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"\\,"desktop:/notes-for-professionals"\\,"2"\\,"20"]}
+positions={"3840x2160":["3"\\,"22"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"\\,"desktop:/notes-for-professionals"\\,"2"\\,"20"]}
 sortMode=-1
 
 [Containments][38][Wallpaper][org.kde.image][General]
@@ -364,6 +364,9 @@ migrated=true
 immutability=1
 plugin=org.kde.plasma.clipboard
 
+[Containments][8][Applets][12][Configuration]
+PreloadWeight=55
+
 [Containments][8][Applets][13]
 immutability=1
 plugin=org.kde.plasma.printmanager
@@ -377,7 +380,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][8][Applets][15][Configuration]
-PreloadWeight=60
+PreloadWeight=65
 
 [Containments][8][Applets][16]
 immutability=1
@@ -425,4 +428,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
