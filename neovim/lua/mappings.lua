@@ -58,8 +58,8 @@ nmap('P', 'gP')
 nmap('gp', 'p')
 nmap('gP', 'P')
 -- navigating/selecting last edit - easier to reach
-nmap(',<', '\'[')
-nmap(',>', '\']')
+nmap('\'"', '\'[')
+nmap('\'\'', '\']')
 nmap('gv', '\'[v\']V')
 -- treesitter based - can be nice for ifs with many branches
 -- this can be a little counter-intuitive, where each `elif` is a child of the
