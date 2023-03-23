@@ -43,7 +43,7 @@ ln --symbolic --verbose $vimCD/bash/inputrc ~/.inputrc
 #-- tmux
 
 print "setting up tmux"
-ln --symbolic --verbose $vimCD/config/.tmux.conf ~/.tmux.conf
+ln --symbolic --verbose $vimCD/config/tmux.conf ~/.tmux.conf
 
 #-- alacritty
 
