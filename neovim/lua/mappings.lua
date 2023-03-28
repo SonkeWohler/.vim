@@ -242,3 +242,22 @@ nmap('zz', 'z=1<CR><CR>')
 -- choose the first suggestion for the last misspelled word (before the cursor)
 -- also returns the cursor to its original position
 nmap('zs', 'ms[sz=1<CR><CR>`s')
+
+---- temporary fixes ----
+-- I should try to keep this list empty whenever possible, but that may require
+-- some investigation
+-- here I keep any mappings that exist solely to fix issues that I cannot
+-- explain.  Like if '%' suddenly stops working in visual mode I can fix that
+-- here, but I also need to investigate why it suddenly stopped working.  Once I
+-- figured that out and fixed it I can remove it from here.
+
+--- % broken in visual mode ---
+-- started:
+-- not sure, definitely broken 28.03.2023, but I think I saw it before this point
+-- description:
+-- In visual mode % doesn't do anything anymore
+-- notes:
+-- this is not working as a fix, which tells me this is broken by something
+-- after this file is loaded
+-- running the lua below in manually will 'fix' the issue
+-- vmap('%', '%')
