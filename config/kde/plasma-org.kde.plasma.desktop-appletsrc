@@ -170,8 +170,8 @@ popupHeight=869
 popupWidth=1214
 
 [Containments][2][Applets][3][Configuration][ConfigDialog]
-DialogHeight=810
-DialogWidth=1110
+DialogHeight=882
+DialogWidth=1260
 
 [Containments][2][Applets][3][Configuration][General]
 favoritesPortedToKAstats=true
@@ -325,7 +325,7 @@ DialogHeight=1110
 DialogWidth=1480
 
 [Containments][38][General]
-positions={"3840x2160":["3"\\,"22"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"\\,"desktop:/notes-for-professionals"\\,"2"\\,"20"]}
+positions={"3840x2160":["3"\\,"22"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"20"\\,"desktop:/Steam.desktop"\\,"0"\\,"18"\\,"desktop:/notes-for-professionals"\\,"2"\\,"20"]}
 sortMode=-1
 
 [Containments][38][Wallpaper][org.kde.image][General]
@@ -358,6 +358,7 @@ plugin=org.kde.plasma.volume
 PreloadWeight=100
 
 [Containments][8][Applets][11][Configuration][General]
+currentTab=streams
 migrated=true
 
 [Containments][8][Applets][12]
@@ -365,7 +366,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][8][Applets][12][Configuration]
-PreloadWeight=75
+PreloadWeight=90
 
 [Containments][8][Applets][13]
 immutability=1
@@ -428,4 +429,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
