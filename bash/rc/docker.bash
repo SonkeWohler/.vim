@@ -51,15 +51,38 @@ klogj() {
 # scripts to do all this are below
 
 
+log_into_production_kubernetes() {
+    start_kube_production_session &>/tmp/kube_config.log &
+}
+
+debug_log_into_production_kubernetes() {
+    set -x
+    start_kube_production_session
+}
+
 start_kube_production_session() {
-    notify-send 'Switching Kubernetes context to production environment for 5mins!!!' --urgency critical
+    code=$(notify-send 'Switching Kubernetes context to production environment for 5mins!!!' --action 'I changed my mind' --action "Let's go!" --urgency critical)
+    if test -z $code; then
+        code=0
+    fi
+    if test $code -eq 0; then
+        return
+    fi
 
     cp -v ~/.kube/config ~/.kube/config.bak
     cp -v ~/.kube/production.config ~/.kube/config
 
-    notify-send 'YOU ARE NOW ON PRODUCTION KUBERNETES!  You have 5mins' --urgency critical
+    notify-send 'YOU ARE NOW ON PRODUCTION KUBERNETES!  You have 5mins' --action 'OK' --urgency critical >&/tmp/kube_config.log &
+    # 300000 = 5mins
+    code=$(notify-send 'you can cut out early below' --action "that's ok" --action 'CUT NOW' --expire-time 300000)
+    # when notify-send expires code will be empty
+    if test -z $code; then
+        code=1
+    fi
+    if test $code -eq 0; then
+        sleep 5m
+    fi
 
-    sleep 5m
     end_kube_production_session
 }
 
@@ -74,7 +97,7 @@ end_kube_production_session() {
 
     if test $code -eq 0; then
         mv -v ~/.kube/config.bak ~/.kube/config
-        notify-send 'you are back on your local kubernetes config' --urgency critical
+        notify-send 'you are back on your local kubernetes config' --action 'cool' --urgency critical >&/tmp/kube_config.log &
     else
         sleep 1m
         end_kube_production_session
