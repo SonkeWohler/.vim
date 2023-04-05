@@ -46,23 +46,36 @@ klogj() {
 
 # Kubernetes context etc is set via the ~/.kube/config file.  This file will be
 # overwritten with production.config when I want to work on production stuff,
-# and will be overwritten with config.bak when I am done
+# which acts as a log in to the production environment
+# When I am done the file is overwritten with config.bak again, which acts as
+# a log off, sometimes referred to as cut off.
+# This creates a sort of session dynamic that I log into and log out of.
+
+# you should be notified of everything that is happening as it does.
+# also, the start and end notifications are fully blocking, so if you don't
+# interact with the notification the process will not continue.  This way you
+# can't be put online or log off without acknowledging.
 
 # scripts to do all this are below
 
 
+
+# so you can conveniently start it on any bash shell.  Sends all terminal output
+# to /tmp/kube_config.log and allows you to keep using this shell
 log_into_production_kubernetes() {
     start_kube_production_session &>/tmp/kube_config.log &
 }
 
+# if you want to debug
 debug_log_into_production_kubernetes() {
     set -x
     start_kube_production_session
 }
 
+# allow to leave production early
 early_cut_out_from_production_kubernetes() {
     # 300000 = 5mins
-    code=$(notify-send 'you can cut out early from production kubernetes below' --action "that's ok" --action 'CUT NOW' --expire-time 300000)
+    code=$(notify-send 'you can log out early from production kubernetes below' --action "that's ok" --action 'CUT NOW' --expire-time 300000)
     # when notify-send expires code will be empty
     # default to 0
     if test -z $code; then
@@ -73,6 +86,7 @@ early_cut_out_from_production_kubernetes() {
     fi
 }
 
+# switch to production kubernetes, wait for 5mins and trigger log off
 start_kube_production_session() {
     code=$(notify-send 'Switching Kubernetes context to production environment for 5mins!!!' --action 'I changed my mind' --action "Let's go!" --urgency critical)
     if test -z $code; then
@@ -100,7 +114,7 @@ ensure_kube_production_will_end_in_ten() {
 
 end_kube_production_session() {
     if ! test -f ~/.kube/config.bak; then
-        notify-send 'looks like you are already off from production kubernetes'
+        notify-send 'looks like you are already logged off from production kubernetes'
         return
     fi
     if [ "$1" != "force" ]; then
