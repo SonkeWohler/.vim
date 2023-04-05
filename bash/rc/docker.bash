@@ -60,12 +60,26 @@ debug_log_into_production_kubernetes() {
     start_kube_production_session
 }
 
+early_cut_out_from_production_kubernetes() {
+    # 300000 = 5mins
+    code=$(notify-send 'you can cut out early from production kubernetes below' --action "that's ok" --action 'CUT NOW' --expire-time 300000)
+    # when notify-send expires code will be empty
+    # default to 0
+    if test -z $code; then
+        code=0
+    fi
+    if test $code -eq 1; then
+        end_kube_production_session force
+    fi
+}
+
 start_kube_production_session() {
     code=$(notify-send 'Switching Kubernetes context to production environment for 5mins!!!' --action 'I changed my mind' --action "Let's go!" --urgency critical)
     if test -z $code; then
         code=0
     fi
     if test $code -eq 0; then
+        echo 'not switching to production'
         return
     fi
 
@@ -73,21 +87,24 @@ start_kube_production_session() {
     cp -v ~/.kube/production.config ~/.kube/config
 
     notify-send 'YOU ARE NOW ON PRODUCTION KUBERNETES!  You have 5mins' --action 'OK' --urgency critical >&/tmp/kube_config.log &
-    # 300000 = 5mins
-    code=$(notify-send 'you can cut out early below' --action "that's ok" --action 'CUT NOW' --expire-time 300000)
-    # when notify-send expires code will be empty
-    if test -z $code; then
-        code=1
-    fi
-    if test $code -eq 0; then
-        sleep 5m
-    fi
+    early_cut_out_from_production_kubernetes &>/tmp/kube_config.log &
 
+    sleep 5m
     end_kube_production_session
 }
 
+ensure_kube_production_will_end_in_ten() {
+    sleep 10m
+    end_kube_production_session force
+}
+
 end_kube_production_session() {
+    if ! test -f ~/.kube/config.bak; then
+        notify-send 'looks like you are already off from production kubernetes' --urgency critical
+        return
+    fi
     if [ "$1" != "force" ]; then
+        # ensure_kube_production_will_end_in_ten >&/tmp/kube_config.log &
         code=$(notify-send 'CUTTING KUBERNETES PRODUCTION ACCESS!' --action 'OK' --action '+1min' --urgency critical)
     fi
     # if notify-send expires or $1 was 'force'
