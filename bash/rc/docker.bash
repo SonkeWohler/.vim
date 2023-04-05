@@ -66,6 +66,10 @@ log_into_production_kubernetes() {
     start_kube_production_session &>/tmp/kube_config.log &
 }
 
+log_out_of_production_kubernetes() {
+    end_kube_production_session &>>/tmp/kube_config.log &
+}
+
 # if you want to debug
 debug_log_into_production_kubernetes() {
     set -x
