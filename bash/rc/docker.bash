@@ -86,8 +86,8 @@ start_kube_production_session() {
     cp -v ~/.kube/config ~/.kube/config.bak
     cp -v ~/.kube/production.config ~/.kube/config
 
-    notify-send 'YOU ARE NOW ON PRODUCTION KUBERNETES!  You have 5mins' --action 'OK' --urgency critical >&/tmp/kube_config.log &
-    early_cut_out_from_production_kubernetes &>/tmp/kube_config.log &
+    notify-send 'YOU ARE NOW ON PRODUCTION KUBERNETES!  You have 5mins' --action 'OK' --urgency critical &>>/tmp/kube_config.log &
+    early_cut_out_from_production_kubernetes &>>/tmp/kube_config.log &
 
     sleep 5m
     end_kube_production_session
@@ -100,11 +100,11 @@ ensure_kube_production_will_end_in_ten() {
 
 end_kube_production_session() {
     if ! test -f ~/.kube/config.bak; then
-        notify-send 'looks like you are already off from production kubernetes' --urgency critical
+        notify-send 'looks like you are already off from production kubernetes'
         return
     fi
     if [ "$1" != "force" ]; then
-        # ensure_kube_production_will_end_in_ten >&/tmp/kube_config.log &
+        # ensure_kube_production_will_end_in_ten &>>/tmp/kube_config.log &
         code=$(notify-send 'CUTTING KUBERNETES PRODUCTION ACCESS!' --action 'OK' --action '+1min' --urgency critical)
     fi
     # if notify-send expires or $1 was 'force'
@@ -114,7 +114,7 @@ end_kube_production_session() {
 
     if test $code -eq 0; then
         mv -v ~/.kube/config.bak ~/.kube/config
-        notify-send 'you are back on your local kubernetes config' --action 'cool' --urgency critical >&/tmp/kube_config.log &
+        notify-send 'you are back on your local kubernetes config' --action 'cool' --urgency critical &>>/tmp/kube_config.log &
     else
         sleep 1m
         end_kube_production_session
