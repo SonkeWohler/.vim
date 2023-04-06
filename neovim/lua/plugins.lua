@@ -17,6 +17,7 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   ------ looks ------
+
   -- nerd fonds, should be part of requirements in other plugins as well anyway
   use {
     'kyazdani42/nvim-web-devicons',
@@ -26,6 +27,17 @@ require('packer').startup(function()
       }
     end
   }
+
+  -- pretty notifications
+  use{
+    'rcarriga/nvim-notify',
+    config = function()
+      require("notify").setup{}
+      require('telescope').load_extension('notify')
+    end,
+    after = 'telescope.nvim'
+  }
+
   -- smooth scrolling, not sure yet
   --[[ use {
   'karb94/neoscroll.nvim',
@@ -35,6 +47,7 @@ require('packer').startup(function()
   }
   end
   } ]]
+
   -- color schemes
   use 'tomasr/molokai'
   use 'tanvirtin/monokai.nvim'
