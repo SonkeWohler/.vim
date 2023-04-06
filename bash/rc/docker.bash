@@ -56,9 +56,13 @@ klogj() {
 # interact with the notification the process will not continue.  This way you
 # can't be put online or log off without acknowledging.
 
+# the notifications should work pretty well on any GNU environment, see man
+# notify-send for details.  All other logic is just part of common bash.
+
 # scripts to do all this are below
 
 
+# --- user interface, convenient to call from bash
 
 # so you can conveniently start it on any bash shell.  Sends all terminal output
 # to /tmp/kube_config.log and allows you to keep using this shell
@@ -66,6 +70,8 @@ log_into_production_kubernetes() {
     start_kube_production_session &>/tmp/kube_config.log &
 }
 
+# so you can always log out from bash, without needing to wait for the
+# notifcations etc
 log_out_of_production_kubernetes() {
     end_kube_production_session &>>/tmp/kube_config.log &
 }
@@ -75,6 +81,8 @@ debug_log_into_production_kubernetes() {
     set -x
     start_kube_production_session
 }
+
+# --- logic, these are not as convenient to call from bash
 
 # allow to leave production early
 early_cut_out_from_production_kubernetes() {
