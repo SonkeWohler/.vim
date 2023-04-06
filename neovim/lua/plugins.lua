@@ -38,6 +38,32 @@ require('packer').startup(function()
     after = 'telescope.nvim'
   }
 
+  -- improved ui interfaces
+  use {
+    'stevearc/dressing.nvim',
+    config = function()
+      require('dressing').setup{
+        -- insert_only = false,
+        mappings = {
+          n = {
+            ['<esc>'] = 'Close',
+            ['<c-q>'] = 'Close', -- doesn't seem to work as intended
+            ['<c-j>'] = 'Confirm', -- this is a bit of a problem due to my remaps
+            ['<c-m>'] = 'Confirm',
+          },
+          i = {
+            ['<c-c>'] = 'Close',
+            ['<c-q>'] = 'Close', -- doesn't seem to work as intended
+            ['<c-j>'] = 'Confirm', -- this is a bit of a problem due to by remaps
+            ['<c-m>'] = 'Confirm',
+            ["<Up>"] = "HistoryPrev",
+            ["<Down>"] = "HistoryNext",
+          }
+        }
+      }
+    end
+  }
+
   -- smooth scrolling, not sure yet
   --[[ use {
   'karb94/neoscroll.nvim',
