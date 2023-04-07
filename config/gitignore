@@ -10,3 +10,11 @@ Session.vim
 # anything else that should be ignored
 
 *.local.*
+
+### --- common stuff that is also in most normal .gitignore files --- ###
+# I'll try to be conservative with these, but there are some things that I am
+# extremely unlikely to not want to ignore
+# This of course means that I may not be the first person in the project to add
+# these to the gitignore, since I won't native them coming up in the work space.
+
+/target
