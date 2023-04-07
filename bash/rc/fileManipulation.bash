@@ -15,6 +15,7 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 alias lessx='less -RF'
 alias lsa='ls -l --almost-all --classify --human-readable --color=always'
 lsx() { lsa $@ | lessx ; }
+alias tre='tree --gitfile="$vimCD/config/gitignore"'
 
 # -- cd
 # back
