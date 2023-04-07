@@ -52,5 +52,8 @@ slideEnabled=false
 [Tiling]
 padding=4
 
+[Tiling][2ac0fc4c-a238-5420-8385-a10ea5b8172c]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][544a35cd-967a-58c1-9624-73bddfbb886c]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
