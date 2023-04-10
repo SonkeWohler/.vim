@@ -4,6 +4,8 @@
 cmd('Q', 'q!', { desc = 'force quit' })
 cmd('Qa', 'qa!', { desc = 'force quit all buffers' })
 cmd('TERM', 'ToggleTerm size=100 direction=vertical', { desc = 'ToggleTerm vertical' })
+cmd('YankFilePath', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
+cmd('YY', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
 
 ----- Filetree -----
 cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
