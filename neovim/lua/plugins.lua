@@ -302,6 +302,15 @@ require('packer').startup(function()
     end
   }
 
+  -- lastplace
+  -- maintain the last cursor position in files you opened before
+  use {
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require('nvim-lastplace').setup{}
+    end
+  }
+
   -- readline commands everywhere
   -- this is sort of the basic emacs shortcuts
   use 'linty-org/readline.nvim'
