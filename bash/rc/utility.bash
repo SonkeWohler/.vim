@@ -32,7 +32,7 @@ remindme() {
 # pip is a little hands on
 alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
 # neovim has a few things
-alias updateNvim='nvim -c "PackerSync" && nvim -c "TSUpdate all" && nvim -c "Mason"'
+alias updateNvim='nvim -c TSUpdate -c PackerSync && nvim -c Mason'
 # the rest has simple commands, but I usually use them all at once
 alias updateAll='yay && sudo npm --global update && flatpak update && updatePip && rustup update && cargo install-update -a && updateNvim'
 alias pullAndUpdateAll='cdw && make pull-and-rebuild-dev && cdv && git pull && updateAll'
