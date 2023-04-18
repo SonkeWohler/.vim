@@ -183,24 +183,12 @@ require('packer').startup(function()
     },
     config = function()
       require("nvim-tree").setup {
-        view = {
-          adaptive_size = true,
-          mappings = {
-            list = {
-              { key = "o", action = "edit_no_picker" },
-              { key = "O", action = "edit" },
-              { key = "v", action = "vsplit" },
-              { key = "s", action = "split" },
-              { key = "t", action = "tabnew" },
-              { key = "i", action = "toggle_file_info" },
-            },
-          },
-        },
         actions = {
           open_file = {
             quit_on_open = true,
           },
         },
+        on_attach = NvimTreeOnAttach,
       }
     end
   }

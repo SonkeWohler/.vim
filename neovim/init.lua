@@ -24,6 +24,7 @@ end
 
 -- ### other lua files
 
+require('nvim_tree_on_attach')
 require('plugins')
 require('mappings')
 require('commands')
