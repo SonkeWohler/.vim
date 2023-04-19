@@ -20,15 +20,15 @@ sudo pacman -S newsboat --noconfirm
 sudo pacman -S xclip --noconfirm
 sudo pacman -S zip --noconfirm
 sudo pacman -S unzip --noconfirm
+sudo pacman -S wget --noconfirm
+sudo pacman -S glow --noconfirm
+sudo pacman -S aspell aspell-en --noconfirm
+sudo pacman -S just --noconfirm
 # tui related stuff
 sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-nerd-fonts-symbols-2048-em --noconfirm
 # other editors
 sudo pacman -S code --noconfirm
-# other cli stuff
-sudo pacman -S wget --noconfirm
-sudo pacman -S glow --noconfirm
-sudo pacman -S aspell aspell-en --noconfirm
 # languages
 sudo pacman -S python --noconfirm
 sudo pacman -S rustup --noconfirm
