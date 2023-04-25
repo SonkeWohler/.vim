@@ -97,7 +97,8 @@ require('packer').startup(function()
   } ]]
 
   ------ buffers ------
-  -- tab and status lines
+
+  -- tabline
   use {
     'kdheepak/tabline.nvim',
     requires = {
@@ -114,6 +115,8 @@ require('packer').startup(function()
       }
     end
   }
+
+  -- statusline
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -154,6 +157,8 @@ require('packer').startup(function()
       }
     end
   }
+
+  -- better cursor line behaviour, especially for inactive buffers
   use {
     'tummetott/reticle.nvim',
     config = function()
@@ -169,6 +174,7 @@ require('packer').startup(function()
       }
     end
   }
+
   -- better resizing
   use {
     'mrjones2014/smart-splits.nvim',
@@ -176,6 +182,7 @@ require('packer').startup(function()
       require('smart-splits').setup {}
     end
   }
+
   -- file view as tree, like nerdtree
   use {
     'kyazdani42/nvim-tree.lua',
@@ -193,6 +200,7 @@ require('packer').startup(function()
       }
     end
   }
+
   -- like tmux zoom, but even more user friendly
   use {
     'nyngwang/NeoZoom.lua',
@@ -218,6 +226,7 @@ require('packer').startup(function()
   }
 
   ------ search ------
+
   -- better string conversions I still have to get used to
   -- a bit like tpope's vim-abolish
   use {
@@ -226,6 +235,7 @@ require('packer').startup(function()
       require('textcase').setup {}
     end
   }
+
   -- fuzzy finding with fzf
   -- NOTE: requires fzf and ripgrep installed on the system.
   use 'junegunn/fzf.vim'
@@ -267,9 +277,11 @@ require('packer').startup(function()
       require('telescope').load_extension('fzf')
     end
   }
+
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
   ------ motions ------
+
   -- like tpope's surround but more maintained
   use {
     'machakann/vim-sandwich',
@@ -472,13 +484,6 @@ require('packer').startup(function()
     requires = 'nvim-treesitter/nvim-treesitter',
   }
 
-  use {
-    "chrisgrieser/nvim-various-textobjs",
-    config = function()
-      require("various-textobjs").setup({ useDefaultKeymaps = true })
-    end,
-  }
-
   -- show current function, class, etc if its definition is not currently visible
   use {
     'nvim-treesitter/nvim-treesitter-context',
@@ -509,15 +514,31 @@ require('packer').startup(function()
     end
   }
 
+  -- current node displayed in lualine
+  use({
+    "roobert/node-type.nvim",
+    config = function()
+      require("node-type").setup()
+    end,
+  })
+
   ------ various/awesome ------
-  -- hydras are awesome, they have their own lua file in my setup
-  use { 'anuvyklack/hydra.nvim',
-    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+
+  -- a bunch of textobjects, but not treesitter dependent
+  -- I was expecting this as part of a treesitter plugin, but we will see if
+  -- that will come around as well.  And if it will be better.
+  use {
+    "chrisgrieser/nvim-various-textobjs",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
+    end,
   }
+
   -- better sessions, also useful (apparently) for tmux sessions
   use {
     'tpope/vim-obsession',
   }
+
   -- so far the best autopair I've tried.  I used to have reservations
   use {
     "windwp/nvim-autopairs",
@@ -526,20 +547,14 @@ require('packer').startup(function()
       }
     end
   }
+
+  -- view markdown
   use {
     "ellisonleao/glow.nvim",
     config = function()
       require("glow").setup{}
     end
   }
-
-  -- current node displayed in lualine
-  use({
-    "roobert/node-type.nvim",
-    config = function()
-      require("node-type").setup()
-    end,
-  })
 
   -- more advanced search word under cursor
   use {
@@ -549,6 +564,12 @@ require('packer').startup(function()
       nmap('*', ':HiMyWordsToggle<CR>n')
       nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
     end
+  }
+
+  -- hydras are awesome, they have their own lua file in my setup
+  -- unfortunately, they are mostly awesome in theory.  Not sure why
+  use { 'anuvyklack/hydra.nvim',
+    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
 
   -- better tpope/vim-unimpaired
@@ -607,6 +628,8 @@ require('packer').startup(function()
 
   -- indentation guides
   -- use 'lukas-reineke/indent-blankline.nvim'
+
+  ------- Language Client -----------
 
   -- Language Client
   -- lsp and installer for lsp
