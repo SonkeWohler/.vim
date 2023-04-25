@@ -137,9 +137,12 @@ nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
 -- nmap('<space>G', ':lua require("gitsigns").prev_hunk()<CR>')
 nmap('gs', ':lua require("gitsigns").stage_buffer()<CR>')
 nmap('<space>s', ':lua require("gitsigns").stage_hunk()<CR>')
-nmap('<space>u', ':lua require("gitsigns").reset_hunk()<CR>')
-nmap('<space>h', ':lua require("gitsigns").undo_stage_hunk()<CR>')
+nmap('<space>U', ':lua require("gitsigns").reset_hunk()<CR>')
+nmap('<space>u', ':lua require("gitsigns").undo_stage_hunk()<CR>')
 nmap('gl', ':Gitsigns<CR>')
+
+----- Telescope -----
+nmap('<space>h', ':lua require("telescope").extensions.undo.undo()<cr>')
 
 ----- searching -----
 -- fuzzy find in current buffer

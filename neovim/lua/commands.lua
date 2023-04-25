@@ -40,6 +40,8 @@ cmd('FD', 'lua require("telescope.builtin").lsp_document_symbols()<cr>', { desc 
 cmd('FW', 'lua require("telescope.builtin").lsp_workspace_symbols()<cr>', { desc = 'Find lsp Workspace symbols' })
 -- commands
 cmd('FC', 'lua require("telescope.builtin").commands()<cr>', { desc = 'help commands' })
+-- undo history
+cmd('FU', 'lua require("telescope").extensions.undo.undo()<cr>', { desc = 'help commands' })
 
 ----- help stuff -----
 -- help tags
