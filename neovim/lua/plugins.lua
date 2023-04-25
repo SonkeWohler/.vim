@@ -119,8 +119,14 @@ require('packer').startup(function()
   -- statusline
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = {
+      -- plugin dependency
+      { 'kyazdani42/nvim-web-devicons', opt = true },
+      -- add on for this plugin
+      "roobert/node-type.nvim",
+    },
     config = function()
+      require("node-type").setup()
       require('lualine').setup {
         options = {
           theme = 'auto',
@@ -513,14 +519,6 @@ require('packer').startup(function()
       })
     end
   }
-
-  -- current node displayed in lualine
-  use({
-    "roobert/node-type.nvim",
-    config = function()
-      require("node-type").setup()
-    end,
-  })
 
   ------ various/awesome ------
 
