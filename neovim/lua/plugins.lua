@@ -248,7 +248,12 @@ require('packer').startup(function()
   -- telescope and related
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.*',
-    requires = { {'nvim-lua/plenary.nvim'} },
+    requires = {
+      -- plugin dependency
+      {'nvim-lua/plenary.nvim'},
+      -- addons for this plugin
+      "debugloop/telescope-undo.nvim",
+    },
     after = 'telescope-fzf-native.nvim',
     config = function()
       require('telescope').setup {
@@ -272,7 +277,9 @@ require('packer').startup(function()
             override_file_sorter = true, -- override the file sorter
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
-          }
+          },
+          undo = {
+          },
         },
         pickers = {
           find_files = {
@@ -281,6 +288,7 @@ require('packer').startup(function()
         },
       }
       require('telescope').load_extension('fzf')
+      require('telescope').load_extension('undo')
     end
   }
 
