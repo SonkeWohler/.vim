@@ -371,131 +371,17 @@ require('packer').startup(function()
     end
   }
 
-  ------ various/awesome ------
-  -- hydras are awesome, they have their own lua file in my setup
-  use { 'anuvyklack/hydra.nvim',
-    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
-  }
-  -- better sessions, also useful (apparently) for tmux sessions
-  use {
-    'tpope/vim-obsession',
-  }
-  -- so far the best autopair I've tried.  I used to have reservations
-  use {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup {
-      }
-    end
-  }
-  use {
-    "ellisonleao/glow.nvim",
-    config = function()
-      require("glow").setup{}
-    end
-  }
+  ----------- TreeSitter -----------
 
-  -- Treesitter
-  -- better syntax highlighting
-  -- note that this is setup (config = function()) under textobjects
+  -- the main treesitter config
+  -- those listed here under required are interconnected in their config, so
+  -- they are to me part of the main treesitter package, not just an extension
   use {
     'nvim-treesitter/nvim-treesitter',
-    -- run = ':TSUpdate',
-  }
-
-  -- current node displayed in lualine
-  use({
-    "roobert/node-type.nvim",
-    config = function()
-      require("node-type").setup()
-    end,
-  })
-
-  -- more advanced search word under cursor
-  use {
-    "dvoytik/hi-my-words.nvim",
-    config = function()
-      require("hi-my-words").setup{}
-      nmap('*', ':HiMyWordsToggle<CR>n')
-      nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
-    end
-  }
-
-  -- better tpope/vim-unimpaired
-  use {
-    'echasnovski/mini.bracketed',
-    config = function()
-      require('mini.bracketed').setup{
-        -- probably don't really use it, but why not
-        buffer     = { suffix = 'b', options = {} },
-        -- because # is above 3, and / is harder to reach
-        comment    = { suffix = '3', options = {} },
-        -- I'm excited to try this one
-        conflict   = { suffix = 'x', options = {} },
-        -- same as <space>n for me
-        diagnostic = { suffix = '', options = {} },
-        -- no need, plus ]f is for functions
-        file       = { suffix = '', options = {} },
-        -- might be useful in json
-        indent     = { suffix = 'j', options = {} },
-        -- don't use this
-        jump       = { suffix = '', options = {} },
-        -- no need
-        location   = { suffix = '', options = {} },
-        -- similar enough to <C-O> that I don't really need it
-        oldfile    = { suffix = '', options = {} },
-        -- wonder if this makes any difference to <space>n
-        quickfix   = { suffix = 'q', options = {} },
-        -- not sure what this does, but why not
-        treesitter = { suffix = 't', options = {} },
-        -- can be nice
-        undo       = { suffix = 'u', options = {} },
-        -- don't think I use it, but that's ok for now
-        window     = { suffix = 'w', options = {} },
-        -- can be nice
-        yank       = { suffix = 'y', options = {} },
-      }
-    end
-  }
-
-  -- highlight code blocks
-  use {
-    "atusy/tsnode-marker.nvim",
-    config = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
-        pattern = "markdown",
-        callback = function(ctx)
-          require("tsnode-marker").set_automark(ctx.buf, {
-            target = { "code_fence_content" }, -- list of target node types
-            hl_group = "CursorLine", -- highlight group
-          })
-        end,
-      })
-    end
-  }
-
-  -- autopair for html using treesitter
-  use {
-    'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end,
-    after = 'nvim-treesitter',
-    requires = 'nvim-treesitter/nvim-treesitter',
-  }
-
-  -- navigation using treesitter
-  use {
-    'drybalka/tree-climber.nvim',
-    after = 'nvim-treesitter',
-    requires = 'nvim-treesitter/nvim-treesitter',
-  }
-
-  -- more textobjects
-  use {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
+    requires = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'drybalka/tree-climber.nvim',
+    },
     config = function()
       require 'nvim-treesitter.configs'.setup {
         highlight = {
@@ -573,7 +459,19 @@ require('packer').startup(function()
       vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
       vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
     end,
+    -- run = ':TSUpdate',
   }
+
+  -- autopair for html using treesitter
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
+
   use {
     "chrisgrieser/nvim-various-textobjs",
     config = function()
@@ -610,6 +508,103 @@ require('packer').startup(function()
       })
     end
   }
+
+  ------ various/awesome ------
+  -- hydras are awesome, they have their own lua file in my setup
+  use { 'anuvyklack/hydra.nvim',
+    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+  }
+  -- better sessions, also useful (apparently) for tmux sessions
+  use {
+    'tpope/vim-obsession',
+  }
+  -- so far the best autopair I've tried.  I used to have reservations
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {
+      }
+    end
+  }
+  use {
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup{}
+    end
+  }
+
+  -- current node displayed in lualine
+  use({
+    "roobert/node-type.nvim",
+    config = function()
+      require("node-type").setup()
+    end,
+  })
+
+  -- more advanced search word under cursor
+  use {
+    "dvoytik/hi-my-words.nvim",
+    config = function()
+      require("hi-my-words").setup{}
+      nmap('*', ':HiMyWordsToggle<CR>n')
+      nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
+    end
+  }
+
+  -- better tpope/vim-unimpaired
+  use {
+    'echasnovski/mini.bracketed',
+    config = function()
+      require('mini.bracketed').setup{
+        -- probably don't really use it, but why not
+        buffer     = { suffix = 'b', options = {} },
+        -- because # is above 3, and / is harder to reach
+        comment    = { suffix = '3', options = {} },
+        -- I'm excited to try this one
+        conflict   = { suffix = 'x', options = {} },
+        -- same as <space>n for me
+        diagnostic = { suffix = '', options = {} },
+        -- no need, plus ]f is for functions
+        file       = { suffix = '', options = {} },
+        -- might be useful in json
+        indent     = { suffix = 'j', options = {} },
+        -- don't use this
+        jump       = { suffix = '', options = {} },
+        -- no need
+        location   = { suffix = '', options = {} },
+        -- similar enough to <C-O> that I don't really need it
+        oldfile    = { suffix = '', options = {} },
+        -- wonder if this makes any difference to <space>n
+        quickfix   = { suffix = 'q', options = {} },
+        -- not sure what this does, but why not
+        treesitter = { suffix = 't', options = {} },
+        -- can be nice
+        undo       = { suffix = 'u', options = {} },
+        -- don't think I use it, but that's ok for now
+        window     = { suffix = 'w', options = {} },
+        -- can be nice
+        yank       = { suffix = 'y', options = {} },
+      }
+    end
+  }
+
+  -- highlight code blocks
+  use {
+    "atusy/tsnode-marker.nvim",
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
+        pattern = "markdown",
+        callback = function(ctx)
+          require("tsnode-marker").set_automark(ctx.buf, {
+            target = { "code_fence_content" }, -- list of target node types
+            hl_group = "CursorLine", -- highlight group
+          })
+        end,
+      })
+    end
+  }
+
   -- indentation guides
   -- use 'lukas-reineke/indent-blankline.nvim'
 
