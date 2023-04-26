@@ -92,7 +92,9 @@ alias vif='vimf'
 alias cleanLatex='find . | grep -v ".git" | grep -P "\.pdf|\.aux|\.log|\.out" | xargs rm -v'
 
 # xclip
-alias xclipp='xclip -selection clipboard'
+# alias xclipp='xclip -selection clipboard'
+# fix stuff being copied to clipboard but not primary
+alias fclip='xclip -selection clipboard -out | xclip -selection primary -in'
 
 #-- python
 # clean and check and all that
