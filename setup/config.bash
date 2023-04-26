@@ -70,5 +70,5 @@ print "setting up neovim"
 mkdir --parents --verbose ~/.config/nvim
 ln --symbolic --verbose $vimCD/neovim/* ~/.config/nvim
 
-nvim -c 'PackerSync' && nvim -c 'TSInstall all' && nvim -c 'Mason' && nvim -c
+nvim -c 'PackerSync' && nvim -c 'TSInstall all' -c 'MasonUpdate' && nvim -c 'Mason' && nvim -c
 'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope'
