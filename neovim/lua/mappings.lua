@@ -142,7 +142,11 @@ nmap('<space>u', ':lua require("gitsigns").undo_stage_hunk()<CR>')
 nmap('gl', ':Gitsigns<CR>')
 
 ----- Telescope -----
+-- undo tree
 nmap('<space>h', ':lua require("telescope").extensions.undo.undo()<cr>')
+-- yank history
+nmap('<space>y', ':Telescope neoclip <cr>')
+nmap('<space>m', ':Telescope macroscope <cr>')
 
 ----- searching -----
 -- fuzzy find in current buffer

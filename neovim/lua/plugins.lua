@@ -251,8 +251,11 @@ require('packer').startup(function()
     requires = {
       -- plugin dependency
       {'nvim-lua/plenary.nvim'},
-      -- addons for this plugin
+      ---- addons for this plugin -----
+      -- undo tree
       "debugloop/telescope-undo.nvim",
+      -- clipboard
+      "AckslD/nvim-neoclip.lua",
     },
     after = 'telescope-fzf-native.nvim',
     config = function()
@@ -287,8 +290,12 @@ require('packer').startup(function()
           },
         },
       }
+      -- addons
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('undo')
+      require('neoclip').setup()
+      require('telescope').load_extension('neoclip')
+      require('telescope').load_extension('macroscope')
     end
   }
 
