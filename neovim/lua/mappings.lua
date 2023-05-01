@@ -155,7 +155,7 @@ nmap('/', 'mh/')
 -- for commands e.g. :%s/
 nmap(':', 'mg:')
 -- when auto-indenting a paragraph or function
-nmap('==', 'mh=ip=if`h')
+nmap('==', 'mh=`h')
 -- when indenting or unindenting a line
 nmap('<<', 'mh<<`hhh')
 nmap('>>', 'mh>>`hll')
