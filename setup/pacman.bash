@@ -49,6 +49,8 @@ sudo pacman -S vivaldi --noconfirm
 sudo pacman -S signal-desktop --noconfirm
 yay -S whatsdesk-bin
 # office stuff
+sudo pacman -S pandoc --noconfirm
+sudo pacman -S texlive-most --noconfirm
 sudo pacman -S mupdf --noconfirm
 sudo pacman -S skanlite --noconfirm
 sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
