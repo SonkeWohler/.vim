@@ -94,7 +94,7 @@ early_cut_out_from_production_kubernetes() {
         code=0
     fi
     if test $code -eq 1; then
-        end_kube_production_session force
+        end_kube_production_session
     fi
 }
 
