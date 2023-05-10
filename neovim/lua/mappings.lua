@@ -135,15 +135,17 @@ nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
 -- nmap('<space>g', ':lua require("gitsigns").next_hunk()<CR>')
 nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
 -- nmap('<space>G', ':lua require("gitsigns").prev_hunk()<CR>')
-nmap('gs', ':lua require("gitsigns").stage_buffer()<CR>')
+nmap('gS', ':lua require("gitsigns").stage_buffer()<CR>')
+nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
 nmap('<space>s', ':lua require("gitsigns").stage_hunk()<CR>')
-nmap('<space>U', ':lua require("gitsigns").reset_hunk()<CR>')
-nmap('<space>u', ':lua require("gitsigns").undo_stage_hunk()<CR>')
+-- I don't use the default gu or gU in normal mode, only really in visual mode
+nmap('gU', ':lua require("gitsigns").reset_hunk()<CR>')
+nmap('gu', ':lua require("gitsigns").undo_stage_hunk()<CR>')
 nmap('gl', ':Gitsigns<CR>')
 
 ----- Telescope -----
 -- undo tree
-nmap('<space>h', ':lua require("telescope").extensions.undo.undo()<cr>')
+nmap('<space>u', ':lua require("telescope").extensions.undo.undo()<cr>')
 -- yank history
 nmap('<space>y', ':Telescope neoclip <cr>')
 nmap('<space>m', ':Telescope macroscope <cr>')
