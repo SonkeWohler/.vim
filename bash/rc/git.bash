@@ -77,17 +77,8 @@ alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
 
 #-- updating/pulling
-alias gitp='git pull --all --tags'
-# WIP haven't fully tested it yet
-gitUp() {
-  git restore --staged :/
-  git stash
-  git pull --all --tags --no-commit
-  git submodule update --init --revursive --remote
-  git add -A
-  git commit -m "update submodules and pull remote"
-  git stash apply
-}
+# https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
+alias gitp='git pull && printf '\n--------------------\n' && gitlog @{1}..'
 
 ### --- branches
 
