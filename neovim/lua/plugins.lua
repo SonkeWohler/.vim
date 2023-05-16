@@ -640,7 +640,26 @@ require('packer').startup(function()
   }
 
   -- indentation guides
-  -- use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#2E3440 gui=nocombine]]
+      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#323845 gui=nocombine]]
+      -- vim.cmd [[highlight IndentBlanklineIndent2 guibg=#343a48 gui=nocombine]]
+      require("indent_blankline").setup{
+        char = "",
+        char_highlight_list = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
+        },
+        space_char_highlight_list = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
+        },
+        show_trailing_blankline_indent = false,
+      }
+    end
+  }
 
   ------- Language Client -----------
 
