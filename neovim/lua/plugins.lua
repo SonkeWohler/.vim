@@ -342,7 +342,7 @@ require('packer').startup(function()
     'rareitems/printer.nvim',
     config = function()
       require('printer').setup({
-        keymap = "gp" -- Plugin doesn't have any keymaps by default
+        keymap = "<space>p" -- Plugin doesn't have any keymaps by default
       })
     end
   }
