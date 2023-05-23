@@ -764,7 +764,20 @@ end,
   -- use nvim inside browser
   use {
     'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end
+    run = function() vim.fn['firenvim#install'](0) end,
+    config = function()
+      vim.g.firenvim_config = {
+        globalSettings = { alt = "all" },
+        localSettings = {
+          [".*"] = {
+            cmdline  = "firenvim",
+            content  = "text",
+            priority = 0,
+            takeover = "never",
+          }
+        }
+      }
+    end,
   }
 
 end)
