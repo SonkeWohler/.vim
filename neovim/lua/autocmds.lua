@@ -1,13 +1,13 @@
 -- relative line numbers in normal mode, absolute in insert or inactive windows
 
-local augroup_line_number_toggle = vim.api.nvim_create_augroup('line_number_toggle', {clear = true})
+local augroup_line_number_toggle = vim.api.nvim_create_augroup('line_number_toggle', { clear = true })
 vim.api.nvim_create_autocmd({
-    -- 'BufWinEnter',
-    'WinEnter',
-    'BufEnter',
-    'FocusGained',
-    'InsertLeave',
-  }, {
+  -- 'BufWinEnter',
+  'WinEnter',
+  'BufEnter',
+  'FocusGained',
+  'InsertLeave',
+}, {
   group = augroup_line_number_toggle,
   desc = 'relative number on',
   callback = function()
@@ -15,12 +15,12 @@ vim.api.nvim_create_autocmd({
   end
 })
 vim.api.nvim_create_autocmd({
-    -- 'BufWinLeave',
-    'WinLeave',
-    'BufLeave',
-    'FocusLost',
-    'InsertEnter',
-  }, {
+  -- 'BufWinLeave',
+  'WinLeave',
+  'BufLeave',
+  'FocusLost',
+  'InsertEnter',
+}, {
   group = augroup_line_number_toggle,
   desc = 'relative number off',
   callback = function()

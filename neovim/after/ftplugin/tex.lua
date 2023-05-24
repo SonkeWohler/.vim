@@ -1,7 +1,7 @@
 vim.opt.spell = true
 
 function Compile_LaTeX()
-vim.cmd([[
+  vim.cmd([[
   :w
   let b:pdfFile = expand('%:r') . ".pdf"
   !pdflatex %

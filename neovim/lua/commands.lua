@@ -13,12 +13,12 @@ cmd('LSC', 'NvimTreeClose', { desc = 'close NvimTree' })
 cmd('LSX', 'NvimTreeClose', { desc = 'close NvimTree' })
 
 ----- Common Editing
-cmd('Trim', '%s/\\v\\s+$//eg', {desc = 'trim whitespace'})
+cmd('Trim', '%s/\\v\\s+$//eg', { desc = 'trim whitespace' })
 -- TODO formatting
 -- TODO organising imports
 
 ----- maintenance -----
-cmd('PP', 'PackerSync', {desc = 'run PackerSync'} )
+cmd('PP', 'PackerSync', { desc = 'run PackerSync' })
 
 ----- finding things -----
 ----- mostly telescope now
@@ -28,8 +28,10 @@ cmd('FF', 'lua require("telescope.builtin").find_files()<cr>', { desc = 'find fi
 cmd('RG', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
 cmd('FS', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
 cmd('FG', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
-cmd('FT', 'lua require("telescope.builtin").grep_string()<cr>', { desc = 'find this word - grep string under the cursor' })
-cmd('FH', 'lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>', { desc = 'find here - grep current buffer only' })
+cmd('FT', 'lua require("telescope.builtin").grep_string()<cr>',
+  { desc = 'find this word - grep string under the cursor' })
+cmd('FH', 'lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>',
+  { desc = 'find here - grep current buffer only' })
 -- jump marks
 cmd('FM', 'lua require("telescope.builtin").marks()<cr>', { desc = 'find jump marks' })
 cmd('FJ', 'lua require("telescope.builtin").jumplist()<cr>', { desc = 'find in jumplist' })

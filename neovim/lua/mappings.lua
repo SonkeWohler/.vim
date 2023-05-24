@@ -67,10 +67,10 @@ nmap('gv', '\'[v\']V')
 -- child of that same if.  Each expression is a child of the branch it is a
 -- child of (every foo = bar, try:...except:..., etc)
 -- Just takes a little getting used to.
-nmap(']n', ":lua require('tree-climber').goto_next()<CR>" )
-nmap('[n', ":lua require('tree-climber').goto_prev()<CR>" )
-nmap(']p', ":lua require('tree-climber').goto_child()<CR>" )
-nmap('[p', ":lua require('tree-climber').goto_parent()<CR>" )
+nmap(']n', ":lua require('tree-climber').goto_next()<CR>")
+nmap('[n', ":lua require('tree-climber').goto_prev()<CR>")
+nmap(']p', ":lua require('tree-climber').goto_child()<CR>")
+nmap('[p', ":lua require('tree-climber').goto_parent()<CR>")
 -- emacs navigation in command mode
 local readline = require 'readline'
 vim.keymap.set('!', '<M-f>', readline.forward_word)
@@ -115,7 +115,7 @@ nmap('gi', '<cmd>Telescope lsp_implementations<CR>')
 nmap('<space>t', '<cmd>Telescope lsp_type_definitions<CR>')
 -- nmap('gt', '<cmd>Telescope lsp_type_definitions<CR>')  -- already taken by tab navigation
 -- show docs and signatures
-nmap('<space>k', ':lua vim.lsp.buf.hover()<cr>') -- not sure why I picked k, but that is what I use
+nmap('<space>k', ':lua vim.lsp.buf.hover()<cr>')          -- not sure why I picked k, but that is what I use
 nmap('gk', ':lua vim.lsp.buf.hover()<cr>')
 nmap('<space>K', ':lua vim.lsp.buf.signature_help()<cr>') -- similar(-ish) to hover
 nmap('gK', ':lua vim.lsp.buf.signature_help()<cr>')

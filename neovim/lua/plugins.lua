@@ -11,7 +11,6 @@
 ----------------------------------------------
 
 require('packer').startup(function()
-
   ------ meta ------
 
   -- packer itself
@@ -24,16 +23,16 @@ require('packer').startup(function()
     'kyazdani42/nvim-web-devicons',
     config = function()
       require('nvim-web-devicons').setup {
-        default = true;
+        default = true,
       }
     end
   }
 
   -- pretty notifications
-  use{
+  use {
     'rcarriga/nvim-notify',
     config = function()
-      require("notify").setup{}
+      require("notify").setup {}
       require('telescope').load_extension('notify')
     end,
     after = 'telescope.nvim'
@@ -43,18 +42,18 @@ require('packer').startup(function()
   use {
     'stevearc/dressing.nvim',
     config = function()
-      require('dressing').setup{
+      require('dressing').setup {
         -- insert_only = false,
         mappings = {
           n = {
             ['<esc>'] = 'Close',
-            ['<c-q>'] = 'Close', -- doesn't seem to work as intended
+            ['<c-q>'] = 'Close',   -- doesn't seem to work as intended
             ['<c-j>'] = 'Confirm', -- this is a bit of a problem due to my remaps
             ['<c-m>'] = 'Confirm',
           },
           i = {
             ['<c-c>'] = 'Close',
-            ['<c-q>'] = 'Close', -- doesn't seem to work as intended
+            ['<c-q>'] = 'Close',   -- doesn't seem to work as intended
             ['<c-j>'] = 'Confirm', -- this is a bit of a problem due to by remaps
             ['<c-m>'] = 'Confirm',
             ["<Up>"] = "HistoryPrev",
@@ -105,7 +104,7 @@ require('packer').startup(function()
   use {
     'ethanholz/nvim-lastplace',
     config = function()
-      require('nvim-lastplace').setup{}
+      require('nvim-lastplace').setup {}
     end
   }
 
@@ -113,7 +112,7 @@ require('packer').startup(function()
   use {
     'kdheepak/tabline.nvim',
     requires = {
-      { 'hoob3rt/lualine.nvim', opt = true },
+      { 'hoob3rt/lualine.nvim',         opt = true },
       { 'kyazdani42/nvim-web-devicons', opt = true }
     },
     config = function()
@@ -152,7 +151,7 @@ require('packer').startup(function()
               path = 1,
             }
           },
-          lualine_x = { 'encoding', 'fileformat', 'filetype'  },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
           -- lualine_x = { require("node-type").statusline,  'encoding', 'fileformat', 'filetype'  },
           lualine_y = { 'progress' },
           lualine_z = { 'location' }
@@ -221,7 +220,7 @@ require('packer').startup(function()
   -- like tmux zoom, but even more user friendly
   use {
     'nyngwang/NeoZoom.lua',
-    config = function ()
+    config = function()
       require('neo-zoom').setup {
         top_ratio = 1,
         left_ratio = 1,
@@ -236,9 +235,9 @@ require('packer').startup(function()
           exclude_buftypes = {},
         },
       }
-      vim.keymap.set('n', '<BS>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
-      vim.keymap.set('n', '|', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
-      vim.keymap.set('n', '<C-W><CR>', function () vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+      vim.keymap.set('n', '<BS>', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+      vim.keymap.set('n', '|', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+      vim.keymap.set('n', '<C-W><CR>', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
     end
   }
 
@@ -257,7 +256,7 @@ require('packer').startup(function()
   use {
     "dvoytik/hi-my-words.nvim",
     config = function()
-      require("hi-my-words").setup{}
+      require("hi-my-words").setup {}
       nmap('*', ':HiMyWordsToggle<CR>n')
       nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
     end
@@ -271,7 +270,7 @@ require('packer').startup(function()
     'nvim-telescope/telescope.nvim', tag = '0.1.*',
     requires = {
       -- plugin dependency
-      {'nvim-lua/plenary.nvim'},
+      { 'nvim-lua/plenary.nvim' },
       ---- addons for this plugin -----
       -- undo tree
       "debugloop/telescope-undo.nvim",
@@ -296,10 +295,10 @@ require('packer').startup(function()
         },
         extensions = {
           fzf = {
-            fuzzy = true, -- false will only do exact matching
+            fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
           },
           undo = {
@@ -337,7 +336,7 @@ require('packer').startup(function()
   use {
     'echasnovski/mini.bracketed',
     config = function()
-      require('mini.bracketed').setup{
+      require('mini.bracketed').setup {
         -- probably don't really use it, but why not
         buffer     = { suffix = 'b', options = {} },
         -- because # is above 3, and / is harder to reach
@@ -374,7 +373,7 @@ require('packer').startup(function()
   use {
     'uga-rosa/ccc.nvim',
     config = function()
-      require("ccc").setup{
+      require("ccc").setup {
         highlighter = {
           auto_enable = true
         }
@@ -610,7 +609,7 @@ require('packer').startup(function()
         callback = function(ctx)
           require("tsnode-marker").set_automark(ctx.buf, {
             target = { "code_fence_content" }, -- list of target node types
-            hl_group = "CursorLine", -- highlight group
+            hl_group = "CursorLine",           -- highlight group
           })
         end,
       })
@@ -657,7 +656,7 @@ require('packer').startup(function()
   use {
     "ellisonleao/glow.nvim",
     config = function()
-      require("glow").setup{}
+      require("glow").setup {}
     end
   }
 
@@ -676,7 +675,7 @@ require('packer').startup(function()
       vim.cmd [[highlight IndentBlanklineIndent1 guibg=#2E3440 gui=nocombine]]
       vim.cmd [[highlight IndentBlanklineIndent2 guibg=#323845 gui=nocombine]]
       -- vim.cmd [[highlight IndentBlanklineIndent2 guibg=#343a48 gui=nocombine]]
-      require("indent_blankline").setup{
+      require("indent_blankline").setup {
         char = "",
         show_current_context = true,
         show_current_context_start = true,
@@ -795,7 +794,6 @@ end,
       require('crates').setup()
     end,
   }
-
 end)
 
 ----------------------------------------------
@@ -807,10 +805,10 @@ end)
 
 -- colors
 require('ayu').setup({
-    mirage = false,
-    overrides = {},
+  mirage = false,
+  overrides = {},
 })
-require('monokai').setup{ palette = require('monokai').soda }
+require('monokai').setup { palette = require('monokai').soda }
 -- require('molokai').setup{}
 vim.g.nord_borders = true
 vim.g.nord_contrast = true
@@ -844,7 +842,7 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }),
   sources = cmp.config.sources(
-    -- these I use all the time
+  -- these I use all the time
     {
       -- lsp completion
       { name = 'nvim_lsp' },
@@ -882,20 +880,20 @@ cmp.setup({
         keyword_length = 2,
       },
     }
-    -- and if none of the above is available maybe I am typing a filepath
-    -- ,
-    -- this is currenlty breaking dictionary.  I guess I need to do some sorting
-    -- or something
-    -- {
-    --   -- paths
-    --   {
-    --     name = 'path',
-    --     options = {
-    --       trailing_slash = false,
-    --       label_trailing_slash = false,
-    --     },
-    --   },
-    -- }
+  -- and if none of the above is available maybe I am typing a filepath
+  -- ,
+  -- this is currenlty breaking dictionary.  I guess I need to do some sorting
+  -- or something
+  -- {
+  --   -- paths
+  --   {
+  --     name = 'path',
+  --     options = {
+  --       trailing_slash = false,
+  --       label_trailing_slash = false,
+  --     },
+  --   },
+  -- }
   ),
   -- recommended order from
   -- sorting = {
