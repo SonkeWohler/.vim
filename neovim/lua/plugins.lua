@@ -13,6 +13,7 @@
 require('packer').startup(function()
 
   ------ meta ------
+
   -- packer itself
   use 'wbthomason/packer.nvim'
 
@@ -83,6 +84,7 @@ require('packer').startup(function()
   use 'shaunsingh/nord.nvim'
 
   ------ commands ------
+
   -- better . use
   use 'tpope/vim-repeat'
   -- more <C-A>
@@ -97,6 +99,15 @@ require('packer').startup(function()
   } ]]
 
   ------ buffers ------
+
+  -- lastplace
+  -- maintain the last cursor position in files you opened before
+  use {
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require('nvim-lastplace').setup{}
+    end
+  }
 
   -- tabline
   use {
@@ -242,6 +253,16 @@ require('packer').startup(function()
     end
   }
 
+  -- better search for multiple words under cursor
+  use {
+    "dvoytik/hi-my-words.nvim",
+    config = function()
+      require("hi-my-words").setup{}
+      nmap('*', ':HiMyWordsToggle<CR>n')
+      nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
+    end
+  }
+
   -- fuzzy finding with fzf
   -- NOTE: requires fzf and ripgrep installed on the system.
   use 'junegunn/fzf.vim'
@@ -312,6 +333,43 @@ require('packer').startup(function()
     end
   }
 
+  -- better tpope/vim-unimpaired
+  use {
+    'echasnovski/mini.bracketed',
+    config = function()
+      require('mini.bracketed').setup{
+        -- probably don't really use it, but why not
+        buffer     = { suffix = 'b', options = {} },
+        -- because # is above 3, and / is harder to reach
+        comment    = { suffix = '3', options = {} },
+        -- I'm excited to try this one
+        conflict   = { suffix = 'x', options = {} },
+        -- same as <space>n for me
+        diagnostic = { suffix = '', options = {} },
+        -- no need, plus ]f is for functions
+        file       = { suffix = '', options = {} },
+        -- might be useful in json
+        indent     = { suffix = 'j', options = {} },
+        -- don't use this
+        jump       = { suffix = '', options = {} },
+        -- no need
+        location   = { suffix = '', options = {} },
+        -- similar enough to <C-O> that I don't really need it
+        oldfile    = { suffix = '', options = {} },
+        -- wonder if this makes any difference to <space>n
+        quickfix   = { suffix = 'q', options = {} },
+        -- not sure what this does, but why not
+        treesitter = { suffix = 't', options = {} },
+        -- can be nice
+        undo       = { suffix = 'u', options = {} },
+        -- don't think I use it, but that's ok for now
+        window     = { suffix = 'w', options = {} },
+        -- can be nice
+        yank       = { suffix = 'y', options = {} },
+      }
+    end
+  }
+
   -- color picker and stuff
   use {
     'uga-rosa/ccc.nvim',
@@ -324,18 +382,20 @@ require('packer').startup(function()
     end
   }
 
-  -- lastplace
-  -- maintain the last cursor position in files you opened before
-  use {
-    'ethanholz/nvim-lastplace',
-    config = function()
-      require('nvim-lastplace').setup{}
-    end
-  }
-
   -- readline commands everywhere
   -- this is sort of the basic emacs shortcuts
   use 'linty-org/readline.nvim'
+
+  ------ edit actions ------
+
+  -- so far the best autopair I've tried.  I used to have reservations
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {
+      }
+    end
+  }
 
   -- print as action
   use {
@@ -365,6 +425,7 @@ require('packer').startup(function()
   }
 
   ------ git ------
+
   -- view git messages
   use {
     'rhysd/git-messenger.vim',
@@ -375,6 +436,7 @@ require('packer').startup(function()
       nmap('gm', '<Plug>(git-messenger)')
     }
   }
+
   -- in line git display
   use {
     'lewis6991/gitsigns.nvim',
@@ -383,6 +445,7 @@ require('packer').startup(function()
       require('gitsigns').setup()
     end
   }
+
   -- a bit like fugitive in lua
   use {
     'TimUntersberger/neogit',
@@ -390,12 +453,14 @@ require('packer').startup(function()
       require('neogit').setup {}
     end
   }
+
   -- but still need fugitive for some stuff
   use {
     'tpope/vim-fugitive'
   }
 
   ------ hints ------
+
   -- cheatsheet, except for hydras
   use {
     "folke/which-key.nvim",
@@ -408,7 +473,7 @@ require('packer').startup(function()
 
   -- the main treesitter config
   -- those listed here under required are interconnected in their config, so
-  -- they are to me part of the main treesitter package, not just an extension
+  -- they are to me part of the main treesitter installation, not just an extension
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
@@ -535,93 +600,6 @@ require('packer').startup(function()
     end
   }
 
-  ------ various/awesome ------
-
-  -- a bunch of textobjects, but not treesitter dependent
-  -- I was expecting this as part of a treesitter plugin, but we will see if
-  -- that will come around as well.  And if it will be better.
-  use {
-    "chrisgrieser/nvim-various-textobjs",
-    config = function()
-      require("various-textobjs").setup({ useDefaultKeymaps = true })
-    end,
-  }
-
-  -- better sessions, also useful (apparently) for tmux sessions
-  use {
-    'tpope/vim-obsession',
-  }
-
-  -- so far the best autopair I've tried.  I used to have reservations
-  use {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup {
-      }
-    end
-  }
-
-  -- view markdown
-  use {
-    "ellisonleao/glow.nvim",
-    config = function()
-      require("glow").setup{}
-    end
-  }
-
-  -- more advanced search word under cursor
-  use {
-    "dvoytik/hi-my-words.nvim",
-    config = function()
-      require("hi-my-words").setup{}
-      nmap('*', ':HiMyWordsToggle<CR>n')
-      nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
-    end
-  }
-
-  -- hydras are awesome, they have their own lua file in my setup
-  -- unfortunately, they are mostly awesome in theory.  Not sure why
-  use { 'anuvyklack/hydra.nvim',
-    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
-  }
-
-  -- better tpope/vim-unimpaired
-  use {
-    'echasnovski/mini.bracketed',
-    config = function()
-      require('mini.bracketed').setup{
-        -- probably don't really use it, but why not
-        buffer     = { suffix = 'b', options = {} },
-        -- because # is above 3, and / is harder to reach
-        comment    = { suffix = '3', options = {} },
-        -- I'm excited to try this one
-        conflict   = { suffix = 'x', options = {} },
-        -- same as <space>n for me
-        diagnostic = { suffix = '', options = {} },
-        -- no need, plus ]f is for functions
-        file       = { suffix = '', options = {} },
-        -- might be useful in json
-        indent     = { suffix = 'j', options = {} },
-        -- don't use this
-        jump       = { suffix = '', options = {} },
-        -- no need
-        location   = { suffix = '', options = {} },
-        -- similar enough to <C-O> that I don't really need it
-        oldfile    = { suffix = '', options = {} },
-        -- wonder if this makes any difference to <space>n
-        quickfix   = { suffix = 'q', options = {} },
-        -- not sure what this does, but why not
-        treesitter = { suffix = 't', options = {} },
-        -- can be nice
-        undo       = { suffix = 'u', options = {} },
-        -- don't think I use it, but that's ok for now
-        window     = { suffix = 'w', options = {} },
-        -- can be nice
-        yank       = { suffix = 'y', options = {} },
-      }
-    end
-  }
-
   -- highlight code blocks
   use {
     "atusy/tsnode-marker.nvim",
@@ -639,10 +617,62 @@ require('packer').startup(function()
     end
   }
 
+  ------ various/awesome ------
+
+  -- use nvim inside browser
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end,
+    config = function()
+      vim.g.firenvim_config = {
+        globalSettings = { alt = "all" },
+        localSettings = {
+          [".*"] = {
+            cmdline  = "firenvim",
+            content  = "text",
+            priority = 0,
+            takeover = "never",
+          }
+        }
+      }
+    end,
+  }
+
+  -- a bunch of textobjects, but not treesitter dependent
+  -- I was expecting this as part of a treesitter plugin, but we will see if
+  -- that will come around as well.  And if it will be better.
+  use {
+    "chrisgrieser/nvim-various-textobjs",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
+    end,
+  }
+
+  -- better sessions, also useful (apparently) for tmux sessions
+  use {
+    'tpope/vim-obsession',
+  }
+
+  -- view markdown
+  use {
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup{}
+    end
+  }
+
+  -- hydras are awesome, they have their own lua file in my setup
+  -- unfortunately, they are mostly awesome in theory.  Not sure why
+  use { 'anuvyklack/hydra.nvim',
+    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+  }
+
   -- indentation guides
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
+      -- these are colorscheme specific - maybe I will create a command at some
+      -- point
       vim.cmd [[highlight IndentBlanklineIndent1 guibg=#2E3440 gui=nocombine]]
       vim.cmd [[highlight IndentBlanklineIndent2 guibg=#323845 gui=nocombine]]
       -- vim.cmd [[highlight IndentBlanklineIndent2 guibg=#343a48 gui=nocombine]]
@@ -660,6 +690,24 @@ require('packer').startup(function()
         },
         show_trailing_blankline_indent = false,
       }
+    end
+  }
+
+  -- terminal.  Not that I use it often, but as nvim becomes more like an IDE
+  -- it can be useful sometimes.
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = '2.3.*',
+    config = function()
+      require("toggleterm").setup {
+        size = 100,
+        direction = 'vertical',
+      }
+      function _G.set_terminal_keymaps()
+        local opts = { buffer = 0 }
+        vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+        vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>q]], opts)
+      end
     end
   }
 
@@ -700,6 +748,7 @@ require('packer').startup(function()
       }
     end
   }
+
   -- pretty in line visalisation of diagnostics
   --[[ use({
 "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -707,6 +756,7 @@ config = function()
 require("lsp_lines").setup()
 end,
 }) ]]
+
   -- Completions of various kinds
   use { -- more setup at the bottom
     -- lsp
@@ -726,6 +776,7 @@ end,
     -- dictionary
     'uga-rosa/cmp-dictionary',
   }
+
   -- I don't use snippets (yet), but cmp requires it for setup
   use {
     'dcampos/cmp-snippy',
@@ -734,6 +785,7 @@ end,
       require('snippy').setup {}
     end
   }
+
   -- completion for crates
   use {
     'saecki/crates.nvim',
@@ -741,42 +793,6 @@ end,
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('crates').setup()
-    end,
-  }
-  -- terminal.  Not that I use it often, but as nvim becomes more like an IDE in
-  -- it can be useful sometimes.
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = '2.3.*',
-    config = function()
-      require("toggleterm").setup {
-        size = 100,
-        direction = 'vertical',
-      }
-      function _G.set_terminal_keymaps()
-        local opts = { buffer = 0 }
-        vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-        vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>q]], opts)
-      end
-    end
-  }
-
-  -- use nvim inside browser
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end,
-    config = function()
-      vim.g.firenvim_config = {
-        globalSettings = { alt = "all" },
-        localSettings = {
-          [".*"] = {
-            cmdline  = "firenvim",
-            content  = "text",
-            priority = 0,
-            takeover = "never",
-          }
-        }
-      }
     end,
   }
 
