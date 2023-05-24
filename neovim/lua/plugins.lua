@@ -243,12 +243,14 @@ require('packer').startup(function()
 
   ------ search ------
 
-  -- better string conversions I still have to get used to
-  -- a bit like tpope's vim-abolish
+  -- better string conversions
+  -- a bit like tpope's vim-abolish, but with telescope integration
   use {
     'johmsalas/text-case.nvim',
+    after = 'telescope.nvim',
     config = function()
       require('textcase').setup {}
+      require('telescope').load_extension('textcase')
     end
   }
 

@@ -137,7 +137,6 @@ nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
 -- nmap('<space>G', ':lua require("gitsigns").prev_hunk()<CR>')
 nmap('gS', ':lua require("gitsigns").stage_buffer()<CR>')
 nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
-nmap('<space>s', ':lua require("gitsigns").stage_hunk()<CR>')
 -- I don't use the default gu or gU in normal mode, only really in visual mode
 nmap('gU', ':lua require("gitsigns").reset_hunk()<CR>')
 nmap('gu', ':lua require("gitsigns").undo_stage_hunk()<CR>')
@@ -149,10 +148,14 @@ nmap('<space>u', ':lua require("telescope").extensions.undo.undo()<cr>')
 -- yank history
 nmap('<space>y', ':Telescope neoclip <cr>')
 nmap('<space>m', ':Telescope macroscope <cr>')
-
------ searching -----
 -- fuzzy find in current buffer
 nmap('//', ':FH<cr>')
+-- convert text case
+-- this may be one of the cases where creating mappings for each command is not
+-- a good idea, because I don't use it often enough to remember them well.
+-- Luckily this has a telescope integration, so I don't even have to do any work
+nmap('<space>s', '<cmd>TextCaseOpenTelescope<CR>')
+vmap('<space>s', '<cmd>TextCaseOpenTelescope<CR>')
 
 ---- fixes to remember the cursor position ----
 -- when searching
