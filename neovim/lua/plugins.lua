@@ -380,18 +380,6 @@ require('packer').startup(function()
     end
   }
 
-  -- color picker and stuff
-  use {
-    'uga-rosa/ccc.nvim',
-    config = function()
-      require("ccc").setup {
-        highlighter = {
-          auto_enable = true
-        }
-      }
-    end
-  }
-
   -- readline commands everywhere
   -- this is sort of the basic emacs shortcuts
   use 'linty-org/readline.nvim'
@@ -422,6 +410,18 @@ require('packer').startup(function()
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
+    end
+  }
+
+  -- color picker and stuff
+  use {
+    'uga-rosa/ccc.nvim',
+    config = function()
+      require("ccc").setup {
+        highlighter = {
+          auto_enable = true
+        }
+      }
     end
   }
 
