@@ -573,11 +573,18 @@ require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
+      -- jump to context, often handled by treesitter parent node, depending on
+      -- the mode setting below
+      -- vim.keymap.set("n", "[c", function()
+      --   require("treesitter-context").go_to_context()
+      -- end, { silent = true })
+      -- setup
       require('treesitter-context').setup {
-        line_numbers = true,
-        separator = ' ',
-        -- mode = 'topline',
-        -- max_lines = 7,
+        line_numbers = false, -- I can jump there with [p (treesitter parent node)
+        separator = ' ',      -- easier on my eyes
+        mode = 'topline',     -- provide only the context not in view, rather than changing with the cursor
+        max_lines = 7,
+        trim_scope = 'outer', -- provide the most relevant context
       }
     end,
     after = 'nvim-treesitter',
