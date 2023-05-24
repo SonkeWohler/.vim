@@ -51,7 +51,17 @@ nmap('<c-w>+', '<c-W>=')
 nmap('<c-w>f', ':lua require("telescope.builtin").find_files()<CR>')
 -- more window controls are defined in the hydra-<C-W>
 
----- intra-buffer navigation ----
+---- intra-buffer navigation or motion ----
+-- better word definitions that take CamelCase, snake_case, etc, into account
+vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
+vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')
+-- indentation
+vim.keymap.set({ "o", "x" }, "ii", '<cmd>lua require("various-textobjs").indentation(true, true)<CR>')
+vim.keymap.set({ "o", "x" }, "ai", '<cmd>lua require("various-textobjs").indentation(false, true)<CR>')
 -- I prefer the cursor at the end of a paste, usually
 nmap('p', 'gp')
 nmap('P', 'gP')

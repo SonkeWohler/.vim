@@ -325,6 +325,11 @@ require('packer').startup(function()
 
   ------ motions ------
 
+  use {
+    "chrisgrieser/nvim-spider",
+  }
+
+
   -- see where f/F will take you quickly, so you can plan ahead with ;/,
   use {
     'jinh0/eyeliner.nvim',
@@ -663,7 +668,9 @@ require('packer').startup(function()
   use {
     "chrisgrieser/nvim-various-textobjs",
     config = function()
-      require("various-textobjs").setup({ useDefaultKeymaps = true })
+      -- I only use subword from here so far, so I use manual mappings
+      -- consider markdown links and html attributes for the future
+      require("various-textobjs").setup({ useDefaultKeymaps = false })
     end,
   }
 
