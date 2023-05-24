@@ -323,6 +323,17 @@ require('packer').startup(function()
 
   ------ motions ------
 
+  -- see where f/F will take you quickly, so you can plan ahead with ;/,
+  use {
+    'jinh0/eyeliner.nvim',
+    config = function()
+      require 'eyeliner'.setup {
+        highlight_on_key = false, -- show highlights only after keypress
+        dim = false,              -- dim all other characters if set to true
+      }
+    end
+  }
+
   -- like tpope's surround but more maintained
   use {
     'machakann/vim-sandwich',
