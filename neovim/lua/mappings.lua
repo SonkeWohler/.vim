@@ -59,6 +59,15 @@ vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>
 vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
 vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')
+-- redefine large words with previous vim definition of words
+-- I don't think I need W motions as much as w motions, but the above "subword"
+-- motions I need even more
+vim.keymap.set({"n", "o", "x"}, "W", "w", { desc = "Spider-w" })
+vim.keymap.set({"n", "o", "x"}, "E", "e", { desc = "Spider-e" })
+vim.keymap.set({"n", "o", "x"}, "B", "b", { desc = "Spider-b" })
+vim.keymap.set({ "o", "x" }, "aW", 'aw')
+vim.keymap.set({ "o", "x" }, "iW", 'iw')
+-- vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 -- indentation
 vim.keymap.set({ "o", "x" }, "ii", '<cmd>lua require("various-textobjs").indentation(true, true)<CR>')
 vim.keymap.set({ "o", "x" }, "ai", '<cmd>lua require("various-textobjs").indentation(false, true)<CR>')
