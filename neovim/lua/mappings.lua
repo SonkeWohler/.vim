@@ -1,11 +1,11 @@
------ cleanup -----
--- unlike in vim, neovim by default splits undos in insert mode when using these
--- I use these a lot and prefer a single insert mode to be atomic
-vim.api.nvim_del_keymap('i', '<C-W>')
-vim.api.nvim_del_keymap('i', '<C-U>')
-
 ---- insert mode ----
--- delete key in insert mode
+-- not sure why nvim breaks undo with these by default, but I really prefer
+-- without that.
+imap('<c-w>', '<c-w>')
+imap('<c-u>', '<c-u>')
+-- in autopairs there is an auto-move-right, but then I have to remember what
+-- pair has been autoclosed.  This is more of a universial move-right
+-- it looks useless but helps me a lot
 imap('<C-l>', '<Right>')
 
 ----- inter-buffer navigation -----
