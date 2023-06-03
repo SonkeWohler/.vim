@@ -398,6 +398,10 @@ require('packer').startup(function()
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup {
+        check_ts = true,
+        break_undo = false,
+        map_c_h = true,
+        map_c_w = true,
       }
     end
   }
