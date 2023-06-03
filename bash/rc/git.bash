@@ -78,7 +78,10 @@ alias gitF='git pull ; git status'
 
 #-- updating/pulling
 # https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
-alias gitp='git pull && printf '\n--------------------\n' && gitlog @{1}..'
+gitp() {
+    git pull $@ && printf '\n---------------------\n' && gitlog @{1}..
+}
+alias gitpp='gitp --rebase'
 
 ### --- branches
 
