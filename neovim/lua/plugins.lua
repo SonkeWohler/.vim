@@ -75,12 +75,44 @@ require('packer').startup(function()
   } ]]
 
   -- color schemes
-  use 'tomasr/molokai'
-  use 'tanvirtin/monokai.nvim'
-  use 'Shatur/neovim-ayu'
-  use 'altercation/vim-colors-solarized'
-  use 'xXTgamerXx/everforest-neovim'
-  use 'shaunsingh/nord.nvim'
+
+  -- use {
+  --   'tanvirtin/monokai.nvim',
+  --   config = function()
+  --     require('monokai').setup {
+  --       palette = require('monokai').soda
+  --     }
+  --   end
+  -- }
+
+  -- use {
+  --   'Shatur/neovim-ayu',
+  --   config = function()
+  --     require('ayu').setup({
+  --       mirage = false,
+  --       overrides = {},
+  --     })
+  --   end
+  -- }
+
+  -- use 'xXTgamerXx/everforest-neovim'
+
+  use {
+    'shaunsingh/nord.nvim',
+    config = function()
+      vim.g.nord_borders = true
+      vim.g.nord_contrast = true
+      -- vim.g.nord_disable_background = true
+    end
+  }
+
+  use {
+    'ribru17/bamboo.nvim',
+    condif = function()
+      require('bamboo').setup {}
+      require('bamboo').load()
+    end
+  }
 
   ------ commands ------
 
@@ -703,9 +735,12 @@ require('packer').startup(function()
     config = function()
       -- these are colorscheme specific - maybe I will create a command at some
       -- point
-      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#2E3440 gui=nocombine]]
-      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#323845 gui=nocombine]]
-      -- vim.cmd [[highlight IndentBlanklineIndent2 guibg=#343a48 gui=nocombine]]
+      -- nord
+      -- vim.cmd [[highlight IndentBlanklineIndent1 guibg=#2E3440 gui=nocombine]]
+      -- vim.cmd [[highlight IndentBlanklineIndent2 guibg=#323845 gui=nocombine]]
+      -- bamboo
+      vim.cmd [[highlight IndentBlanklineIndent1 guibg=#252623 gui=nocombine]]
+      vim.cmd [[highlight IndentBlanklineIndent2 guibg=#2f312c gui=nocombine]]
       require("indent_blankline").setup {
         char = "",
         show_current_context = true,
@@ -835,18 +870,7 @@ end)
 -- but well...
 
 -- colors
-require('ayu').setup({
-  mirage = false,
-  overrides = {},
-})
-require('monokai').setup { palette = require('monokai').soda }
--- require('molokai').setup{}
-vim.g.nord_borders = true
-vim.g.nord_contrast = true
--- vim.g.nord_disable_background = true
--- vim.cmd [[ colorscheme monokai_soda ]]
--- vim.cmd [[ colorscheme ayu ]]
-vim.cmd [[ colorscheme nord ]]
+vim.cmd [[ colorscheme bamboo ]]
 
 -- Completion
 
