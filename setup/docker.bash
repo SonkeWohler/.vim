@@ -11,7 +11,7 @@
 sudo pacman -S docker --noconfirm
 
 # make it runnable from non-root
-sudo yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
+yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 echo "$(whoami):165536:65536:" | sudo tee /etc/subuid
 echo "$(whoami):165536:65536:" | sudo tee /etc/subgid
 gpasswd -a "${whoami}" docker
