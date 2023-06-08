@@ -92,7 +92,7 @@ else
     echo 'git config --global user.email sonke.does.git@somewhere.com'
 fi
 
-cd $vimCD/setup
+cd ~/libraries/.vim/setup
 echo '--------------------------'
 echo '--- git setup is done! ---'
 echo '--------------------------'
