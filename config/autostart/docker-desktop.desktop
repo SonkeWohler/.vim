@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Development;
+Comment=Docker Desktop for Linux
+Exec=/opt/docker-desktop/bin/docker-desktop
+Icon=/opt/docker-desktop/share/icon.original.png
+Keywords=container;docker;
+Name=Docker Desktop
+Type=Application
