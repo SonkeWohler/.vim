@@ -170,7 +170,7 @@ plugin=org.kde.plasma.kickoff
 [Containments][2][Applets][3][Configuration]
 PreloadWeight=100
 popupHeight=1050
-popupWidth=1185
+popupWidth=1197
 
 [Containments][2][Applets][3][Configuration][ConfigDialog]
 DialogHeight=882
@@ -306,16 +306,16 @@ PreloadWeight=100
 SystrayContainmentId=8
 
 [Containments][2][ConfigDialog]
-DialogHeight=129
+DialogHeight=140
 DialogWidth=3840
 
 [Containments][2][General]
 AppletOrder=3;5;29;33;27;36;25;26;32;30;4;6;7;22;21;24;17
 
-[Containments][38]
+[Containments][40]
 ItemGeometries-3840x2160=
 ItemGeometriesHorizontal=
-activityId=cfb83869-1c76-493d-9c24-d10a158fa3ce
+activityId=991c96b7-ef81-4ee0-aa76-c107e1dfe334
 formfactor=0
 immutability=1
 lastScreen=0
@@ -323,26 +323,13 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][38][ConfigDialog]
-DialogHeight=1110
-DialogWidth=1480
+[Containments][40][ConfigDialog]
+DialogHeight=1260
+DialogWidth=1680
 
-[Containments][38][General]
-positions={"3840x2160":["1"\\,"22"\\,"desktop:/Epic Games.desktop"\\,"0"\\,"1"\\,"desktop:/Steam.desktop"\\,"0"\\,"2"\\,"desktop:/notes-for-professionals"\\,"0"\\,"0"]\\,"0x0":[]}
-sortMode=-1
-
-[Containments][38][Wallpaper][org.kde.image][General]
+[Containments][40][Wallpaper][org.kde.image][General]
 Image=/home/sonke/libraries/.vim/config/backgrounds/ddforest.jpeg
 SlidePaths=/home/sonke/.local/share/wallpapers/,/usr/share/wallpapers/
-
-[Containments][39]
-activityId=cfb83869-1c76-493d-9c24-d10a158fa3ce
-formfactor=0
-immutability=1
-lastScreen=1
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
 
 [Containments][8]
 activityId=
@@ -440,4 +427,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334
