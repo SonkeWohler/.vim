@@ -114,6 +114,11 @@ require('packer').startup(function()
     end
   }
 
+  -- use {
+  --   "phha/zenburn.nvim",
+  --   config = function() require("zenburn").setup() end
+  -- }
+
   ------ commands ------
 
   -- better . use
