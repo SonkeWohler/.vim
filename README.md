@@ -81,7 +81,8 @@ above order:
 There are some things that you still have to setup manually:
 * On any Nvidia cards you have to [install
   drivers](https://wiki.archlinux.org/title/NVIDIA).  EndeavourOS has
-  `nvidia-inst` for that which works well in my experience.
+  `nvidia-inst` for that which works well in my experience to cover steps 1.* in
+  [the Arch Wiki instructions](https://wiki.archlinux.org/title/NVIDIA).
 * KDE theme, as this has to be downloaded first.  I use Desert-Global
 * Start and setup Vivaldi
   - this is kind of annoying.  After logging into my account and decrypting the
