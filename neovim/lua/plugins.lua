@@ -357,6 +357,24 @@ require('packer').startup(function()
 
   ------ motions ------
 
+  -- visual feedback on undo/redo
+  -- this currently has a problem with cmp, but otherwise is awesome
+  -- https://github.com/tzachar/highlight-undo.nvim/issues/2
+  use {
+    'tzachar/highlight-undo.nvim',
+    config = function()
+      require('highlight-undo').setup({
+        hlgroup = 'HighlightUndo',
+        duration = 300,
+        keymaps = {
+          { 'n', 'u',     'undo', {} },
+          { 'n', '<C-r>', 'redo', {} },
+        }
+      })
+    end
+  }
+
+  -- better word based movement
   use {
     "chrisgrieser/nvim-spider",
   }
@@ -410,7 +428,7 @@ require('packer').startup(function()
         -- not sure what this does, but why not
         treesitter = { suffix = 't', options = {} },
         -- can be nice
-        undo       = { suffix = 'u', options = {} },
+        undo       = { suffix = '', options = {} },
         -- don't think I use it, but that's ok for now
         window     = { suffix = 'w', options = {} },
         -- can be nice
