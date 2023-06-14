@@ -55,13 +55,23 @@ ln --symbolic --verbose $vimCD/config/alacritty.yml ~/.config/
 print "setting up starship"
 ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
 
+#-- glow, used for neovim, but can be used independently
+
 print "setting up glow"
 mkdir --parents --verbose ~/.config/glow
 ln --symbolic --verbose $vimCD/config/glow.yml ~/.config/glow/glow.yml
 
-print "k9s plugins"
+#-- k9s
+
+print "setting up k9s plugins"
 mkdir --parents --verbose ~/.config/k9s
 ln --symbolic --verbose $vimCD/config/k9s/plugin.yml ~/.config/k9s/plugin.yml
+
+#-- newsboat, rss reader
+
+print "setting up newsboat - my rss reader"
+mkdir --parents --verbose ~/.newsboat
+ln --symbolic --verbose $vimCD/config/newsboat ~/.newsboat/config
 
 #-- neovim
 
