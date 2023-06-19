@@ -815,6 +815,15 @@ require('packer').startup(function()
     'folke/neodev.nvim',
   }
 
+  use {
+    'RubixDev/mason-update-all',
+    after = 'mason.nvim',
+    config = function()
+      require('mason-update-all').setup()
+    end
+  }
+
+
   -- non-lsp lsps, like linters etc
   use({
     "jose-elias-alvarez/null-ls.nvim",
