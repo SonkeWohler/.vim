@@ -119,7 +119,7 @@ style = "bold red"
 # last process succeeded
 success_symbol = "[λ](red)"
 # last process failed
-symbol = "[x](bold green)[X](bold #734bab)[X](bold blue)[X](bold yellow)[x](bold green)"
+symbol = "[x](bold green)[X](bold #734bab) [$status](bold blue) [X](bold yellow)[x](bold green)"
 # self explanatory
 not_executable_symbol = "[ ](bold #734bab)"
 not_found_symbol = "[🔍 ](bold #734bab)"
