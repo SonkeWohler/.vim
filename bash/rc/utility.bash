@@ -27,6 +27,11 @@ remindme() {
     mytimednotify $@ &
 }
 
+### --- unimportant
+
+# because I can't remember neofetch
+# but it is 'that cool way to display your system info'
+alias cool='neofetch'
 
 ### --- updates
 # pip is a little hands on
