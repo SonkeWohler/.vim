@@ -37,11 +37,15 @@ alias cool='neofetch'
 # pip is a little hands on
 alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
 # neovim has a few things
+# those with autocmd can be done in series, so we can auto-quit on completion
+# those without can be all done at once, since I have to quit manually anyway
 updateNvim() {
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  nvim --headless -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
+  # plugins
+  nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  # lsp etc, these can take a while
+  nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll' -c 'Mason'
+  # haven't found an autocmd for TS yet
   nvim -c 'TSUpdate'
-  # nvim --headless -c 'TSUpdate'
 }
 # the rest has simple commands, but I usually use them all at once
 alias updateAll='yay && sudo npm --global update && flatpak update && updatePip && rustup update && cargo install-update -a && updateNvim'
