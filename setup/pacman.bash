@@ -50,7 +50,7 @@ sudo pacman -S signal-desktop --noconfirm
 yay -S whatsdesk-bin
 # office stuff
 sudo pacman -S pandoc --noconfirm
-sudo pacman -S texlive-core texlive-fontsextra texlive-bibtexextra texlive-humanities texlive-science texlive-latexextra texlive-pictures texlive-pstricks --noconfirm
+sudo pacman -S texlive --noconfirm
 sudo pacman -S mupdf --noconfirm
 sudo pacman -S skanlite --noconfirm
 sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
