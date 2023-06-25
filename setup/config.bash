@@ -80,12 +80,9 @@ print "setting up neovim"
 mkdir --parents --verbose ~/.config/nvim
 ln --symbolic --verbose $vimCD/neovim/* ~/.config/nvim
 
-# plugin install, including TS, Mason, firenvim
-nvim -c 'PackerSync' && \
-# TS
-nvim -c 'TSInstall all' -c 'MasonUpdate' && \
-# Mason
-nvim -c 'Mason' && \
+nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync' && \
+nvim -c 'autocmd User MasonInstallAllComplete quitall' -c 'MasonInstallAll' -c 'Mason' && \
+nvim -c 'TSInstallSync all' -c 'quitall' && \
 # https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/server_configurations/pylsp/README.md
 nvim -c 'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope' && \
 # https://github.com/glacambre/firenvim/blob/master/TROUBLESHOOTING.md
