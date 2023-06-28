@@ -3,6 +3,30 @@
 ### --- note: with Capital letters in it means it will commit something/ make
 # permanent changes/ delete something that has been staged for commit etc.
 
+### --- fzf and similar
+
+# branches
+gitb() {
+    git branch --color \
+        | fzf --ansi \
+        | sed -e 's/* //' \
+        | xargs -I {} git switch {} --recurse-submodules
+}
+# add changes
+gita() {
+    git -c color.status=always status --short \
+        | fzf --multi --ansi \
+        | awk '{print $2}' \
+        | xargs -I {} git add {} --verbose
+}
+# un-add changes
+gitu() {
+    git -c color.status=always status --short \
+        | fzf --multi --ansi \
+        | awk '{print $2}' \
+        | xargs -I {} git restore {} --staged
+}
+
 ### --- navigation
 
 # root of git repo
