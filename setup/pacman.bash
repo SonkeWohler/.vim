@@ -5,12 +5,11 @@ sudo pacman -Syyu --noconfirm
 sudo pacman -S alacritty --noconfirm
 sudo pacman -S tmux --noconfirm
 # cli search
-sudo pacman -S rg --noconfirm
 sudo pacman -S fd --noconfirm
 sudo pacman -S fzf --noconfirm
-sudo pacman -S ack --noconfirm
 sudo pacman -S ripgrep --noconfirm
 sudo pacman -S ripgrep-all --noconfirm
+sudo pacman -S repgrep --noconfirm
 # command line editors
 sudo pacman -S vim --noconfirm
 sudo pacman -S neovim --noconfirm

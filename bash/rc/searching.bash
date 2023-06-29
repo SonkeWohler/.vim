@@ -10,45 +10,6 @@ alias gv='grep -v'
 # configure ripgrep
 export RIPGREP_CONFIG_PATH="$vimCD/config/ripgreprc"
 
-# simple ack with less
-axx() {
-  pattern="$1"
-  shift
-  ack --color "$pattern" $@ | less -RF
-}
-# usually I don't like case sensitivity
-ax() {
-  pattern="$1"
-  shift
-  ack --color -i "$pattern" $@ | less -RF
-}
-# search and replace using ack
-acks() {
-  if test -z "$1" | test -z "$2"; then
-    echo "requires non-zero search string and a replace string"
-    return 1
-  fi
-  ack --color "$1" | less -RF
-  echo "confirm replace [a]ll or [n]ot"
-  read -n 1 yesNo
-  if [ "$yesNo" = "n" ];then
-    echo "not replacing anything, the end"
-    return 0
-  fi
-  # TODO replace one by one
-  ack -l "$1" | xargs perl -pi -E "s/$1/$2/g"
-}
-faxx() {
-  arg1=$1
-  shift
-  find -maxdepth $arg1 -type f | ack --color --files-from=- $@
-}
-fax() {
-  arg1=$1
-  shift
-  faxx $arg1 -i $@
-}
-
 ### --- filenames
 
 # this is mostly a chain of functions building on each other
