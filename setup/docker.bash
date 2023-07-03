@@ -27,7 +27,7 @@ sudo pacman -S qemu-full --noconfirm
 # currently version 4.15 - you have to update the version number with every
 # update, but at least you won't install a breaking change without knowing it,
 # so it's not all bad.
-wget --output-document=/tmp/docker-desktop.pkg.tar.zst https://desktop.docker.com/linux/main/amd64/docker-desktop-4.20.1-x86_64.pkg.tar.zst
+wget --output-document=/tmp/docker-desktop.pkg.tar.zst https://desktop.docker.com/linux/main/amd64/docker-desktop-4.21.0-x86_64.pkg.tar.zst
 sudo pacman -U /tmp/docker-desktop.pkg.tar.zst
 
 # install kubernetes tools
