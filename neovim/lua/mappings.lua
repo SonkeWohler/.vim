@@ -67,6 +67,8 @@ vim.keymap.set({"n", "o", "x"}, "E", "e", { desc = "Spider-e" })
 vim.keymap.set({"n", "o", "x"}, "B", "b", { desc = "Spider-b" })
 vim.keymap.set({ "o", "x" }, "aW", 'aw')
 vim.keymap.set({ "o", "x" }, "iW", 'iw')
+vim.keymap.set({ "o", "x" }, "aR", 'aW')
+vim.keymap.set({ "o", "x" }, "iR", 'iW')
 -- vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 -- indentation
 vim.keymap.set({ "o", "x" }, "ii", '<cmd>lua require("various-textobjs").indentation(true, true)<CR>')
