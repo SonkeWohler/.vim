@@ -7,11 +7,6 @@ imap('<c-u>', '<c-u>')
 -- pair has been autoclosed.  This is more of a universial move-right
 -- it looks useless but helps me a lot
 imap('<C-l>', '<Right>')
--- break undo at (half-)sentences
-imap('.  ', '.  <c-g>u')
-imap(', ', ', <c-g>u')
-imap('! ', '! <c-g>u')
-imap('?  ', '?  <c-g>u')
 
 ----- inter-buffer navigation -----
 -- similar window controls are defined in the hydra-<C-W>

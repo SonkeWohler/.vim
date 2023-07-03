@@ -1,4 +1,9 @@
 vim.opt.spell = true
+-- break undo at (half-)sentences
+imap('.  ', '.  <c-g>u')
+imap(', ', ', <c-g>u')
+imap('! ', '! <c-g>u')
+imap('?  ', '?  <c-g>u')
 
 function Compile_LaTeX()
   vim.cmd([[
