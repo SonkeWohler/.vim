@@ -184,15 +184,15 @@ nmap('?', 'mh?')
 nmap('/', 'mh/')
 -- for commands e.g. :%s/
 nmap(':', 'mg:')
--- when auto-indenting a paragraph or function
-nmap('==', 'mh=`h')
--- when indenting or unindenting a line
+-- when auto-indenting a line or paragraph
+nmap('==', 'mh==`h')
+nmap('=ip', 'mh=ip`h')
+-- when manually indenting or unindenting a line
 nmap('<<', 'mh<<`hhh')
 nmap('>>', 'mh>>`hll')
--- when formatting a line, also indent it, and remember the cursor position
-nmap('gqq', 'mhgqq==`h')
--- when formatting a paragraph and remember the cursor position
-nmap('gqip', 'mhgqip=ip`h')
+-- when formatting a line or a paragraph
+nmap('gqq', 'mhgqq`h')
+nmap('gqip', 'mhgqip`h')
 
 ---- various ----
 -- select the surrounding {} block including its definition (on the same line)
