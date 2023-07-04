@@ -103,9 +103,7 @@ vim.keymap.set('!', '<C-w>', readline.backward_kill_word)
 vim.keymap.set('!', '<M-BS>', readline.unix_word_rubout)
 vim.keymap.set('!', '<C-k>', readline.kill_line)
 vim.keymap.set('!', '<C-u>', readline.backward_kill_line)
--- scroll screen up/down in insert mode
-imap('<C-e>', '<C-o><C-e>')
-imap('<C-y>', '<C-o><C-y>')
+vim.keymap.set('!', '<C-d>', '<DEL>')
 -- arrow keys
 -- I only use these when my hands aren't properly on the keyboard, so it can
 -- be quite comfortable to keep just one hand near the arrow keys sometimes
