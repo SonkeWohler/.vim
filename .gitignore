@@ -6,7 +6,7 @@
 
 ### --- compiled files
 # vim spell files
-*.add.spl
+*.spl
 
 ### --- logs, histories, settings, etc
 # vim's netrw historian
