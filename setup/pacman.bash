@@ -28,16 +28,17 @@ sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-iosevka-nerd --noconfirm
 # other editors
 sudo pacman -S code --noconfirm
-# languages
-sudo pacman -S python --noconfirm
-sudo pacman -S rustup --noconfirm
-sudo pacman -S rust-analyzer --noconfirm
-sudo pacman -S go --noconfirm
 # package managers
 sudo pacman -S python-pip --noconfirm
 sudo pacman -S yay --noconfirm
 sudo pacman -S npm --noconfirm
 sudo pacman -S flatpak --noconfirm
+# languages
+# sudo pacman -S python --noconfirm  # already installed by python-pip
+sudo pacman -S rustup --noconfirm
+sudo pacman -S rust-analyzer --noconfirm
+sudo pacman -S go --noconfirm
+sudo pacman -S ts-node --noconfirm  # typescript
 # tools from cargo
 sudo pacman -S postgresql --noconfirm
 cargo install cargo-update
@@ -65,10 +66,11 @@ yay -S nvim-packer-git --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 
 # from node
-sudo npm install --global n
+# sometimes specific node versions are required for stuff
+# sudo npm install --global n  # haven't used in a while
+# creating/editing/managing angular components
 sudo npm install --global @angular/cli
-sudo npm install --global typescript
-sudo npm install --global ts-node
+# pretty print json from kubernetes logs
 sudo npm install --global pino-pretty
 
 # just to make sure in all this time we didn't add partial upgrades by accident
