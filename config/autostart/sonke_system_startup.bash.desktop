@@ -1,7 +1,7 @@
 [Desktop Entry]
-Exec=/sbin/start_alacritty.bash
+Exec=/bin/sonke_system_startup.bash
 Icon=dialog-scripts
-Name=start_alacritty.bash
+Name=sonke_system_startup.bash
 Path=
 Type=Application
 X-KDE-AutostartScript=true

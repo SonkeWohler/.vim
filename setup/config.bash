@@ -44,6 +44,8 @@ ln --symbolic --verbose $vimCD/bash/inputrc ~/.inputrc
 
 print "setting up tmux"
 ln --symbolic --verbose $vimCD/config/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
 
 #-- alacritty
 
