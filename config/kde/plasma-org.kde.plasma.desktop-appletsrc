@@ -328,7 +328,7 @@ DialogHeight=1260
 DialogWidth=1680
 
 [Containments][40][General]
-positions={"3840x2160":["1"\\,"22"\\,"desktop:/net.lutris.ubisoft-connect-1.desktop"\\,"0"\\,"2"\\,"desktop:/Steam.desktop"\\,"0"\\,"1"\\,"desktop:/notes-for-professionals"\\,"0"\\,"0"]\\,"0x0":[]}
+positions={"3840x2160":["1"\\,"22"\\,"desktop:/net.lutris.ubisoft-connect-1.desktop"\\,"0"\\,"2"\\,"desktop:/notes-for-professionals"\\,"0"\\,"0"\\,"desktop:/Steam.desktop"\\,"0"\\,"1"]\\,"0x0":[]}
 sortMode=-1
 
 [Containments][40][Wallpaper][org.kde.image][General]
@@ -431,4 +431,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/net.lutris.ubisoft-connect-1.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334
+screenMapping=desktop:/notes-for-professionals,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/Steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.ubisoft-connect-1.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
