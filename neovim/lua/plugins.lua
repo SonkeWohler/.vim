@@ -500,6 +500,23 @@ require('packer').startup(function()
     }
   }
 
+  ---- python specific
+
+  -- python indent
+  use {
+    'Vimjas/vim-python-pep8-indent'
+  }
+
+  -- python f-string
+  use {
+    "roobert/f-string-toggle.nvim",
+    config = function()
+      require("f-string-toggle").setup{
+        key_binding = "<space>S"
+      }
+    end,
+  }
+
   ------ git ------
 
   -- view git messages
@@ -891,6 +908,12 @@ end,
     config = function()
       require('crates').setup()
     end,
+  }
+
+  ------- experiment
+
+  use {
+    'sk1418/HowMuch',
   }
 end)
 
