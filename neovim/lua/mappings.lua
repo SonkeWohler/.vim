@@ -154,6 +154,8 @@ nmap('<space>f', ':lua vim.lsp.buf.format()<CR>')
 nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
 -- nmap('<space>g', ':lua require("gitsigns").next_hunk()<CR>')
 nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
+nmap('GN', ':lua require("gitsigns").prev_hunk()<CR>')
+nmap('GG', 'G')  -- because of the above command
 -- nmap('<space>G', ':lua require("gitsigns").prev_hunk()<CR>')
 nmap('gS', ':lua require("gitsigns").stage_buffer()<CR>')
 nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
