@@ -85,9 +85,9 @@ alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
 #-- diff
 # list unstaged changes
-gitd() { git diff --color=always --submodule -M -C -B $@ | lessx ; }
+gitd() { git diff --color=always --submodule -M -C -B $@ | delta ; }
 # staged changes only
-gitdif() { git diff --staged --color=always --submodule $@ | lessx ; }
+gitdif() { git diff --staged --color=always --submodule $@ | delta ; }
 
 # staged changes only
 alias gitdiff='git diff --staged' 
@@ -137,7 +137,7 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 ### --- log
 
 #-- note:
-# use lessx to clear the output with 'q', rather than spamming my screen after I'm done looking at it
+# use delta to clear the output with 'q', rather than spamming my screen after I'm done looking at it
 # $1 can be used for other options or to specify the number of commits to display before cutting
 
 #-- git log my way ; to make it easy to change my preferred format 
@@ -153,15 +153,15 @@ alias gitlogmg='git log --pretty=format:"%cr :: %s"'
 alias gitlogmb='git log --pretty=format:"%Cblue%cn, %cr %Cred(%cd)%Creset :: %H%n%Cgreen%s %n%n%b"'
 #-- list commits
 # history
-gitlog() { gitlogm --color=always $@ | lessx ; } 
+gitlog() { gitlogm --color=always $@ | delta ; } 
 # hashes
-gitlogh() { gitlogmh --color=always $@ | lessx ; }
+gitlogh() { gitlogmh --color=always $@ | delta ; }
 # diffs
-gitlogp() { gitlogmp -p --color=always $@ | lessx ; }
+gitlogp() { gitlogmp -p --color=always $@ | delta ; }
 # graph
-gitgraph() { gitlogmg --graph --color=always $@ | lessx ; } 
+gitgraph() { gitlogmg --graph --color=always $@ | delta ; } 
 # whole message
-gitlogb() { gitlogmb --color=always $@ | lessx ; }
+gitlogb() { gitlogmb --color=always $@ | delta ; }
 
 ### --- submodules
 
@@ -191,5 +191,5 @@ alias gitsubbranches='git submodule foreach "git branch --show-current"'
 alias gitresetwork='gitsubpull && make rebuild-dev'
 
 gitsubd() {
-    git diff --color=always -M -B -C $@ && git submodule foreach "git diff --color=always -M -B -C $@" | lessx
+    git diff --color=always -M -B -C $@ && git submodule foreach "git diff --color=always -M -B -C $@" | delta
 }
