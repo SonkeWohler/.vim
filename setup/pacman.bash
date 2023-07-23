@@ -1,6 +1,17 @@
 # --- basics
 # update system
 sudo pacman -Syyu --noconfirm
+# package managers
+sudo pacman -S python-pip --noconfirm
+sudo pacman -S yay --noconfirm
+sudo pacman -S npm --noconfirm
+sudo pacman -S flatpak --noconfirm
+# languages
+# sudo pacman -S python --noconfirm  # already installed by python-pip
+sudo pacman -S rustup --noconfirm
+sudo pacman -S rust-analyzer --noconfirm
+sudo pacman -S go --noconfirm
+sudo pacman -S ts-node --noconfirm  # typescript
 # command line emulator
 sudo pacman -S alacritty --noconfirm
 sudo pacman -S tmux --noconfirm
@@ -10,10 +21,17 @@ sudo pacman -S fzf --noconfirm
 sudo pacman -S ripgrep --noconfirm
 sudo pacman -S ripgrep-all --noconfirm
 sudo pacman -S repgrep --noconfirm
-# command line editors
+# cli paging and formatting
+sudo pacman -S bat  --noconfirm
+sudo pacman -S bat-extras  --noconfirm
+sudo pacman -S git-delta  --noconfirm
+sudo pacman -S prettier  --noconfirm
+sudo pacman -S shfmt  --noconfirm
+sudo pacman -S python-black  --noconfirm
+# cli editors
 sudo pacman -S vim --noconfirm
 sudo pacman -S neovim --noconfirm
-sudo pacman -S helix --noconfirm
+sudo pacman -S helix --noconfirm  # I don't use this usually, but can be nice
 # other cli
 sudo pacman -S newsboat --noconfirm
 sudo pacman -S xclip --noconfirm
@@ -28,17 +46,6 @@ sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-iosevka-nerd --noconfirm
 # other editors
 sudo pacman -S code --noconfirm
-# package managers
-sudo pacman -S python-pip --noconfirm
-sudo pacman -S yay --noconfirm
-sudo pacman -S npm --noconfirm
-sudo pacman -S flatpak --noconfirm
-# languages
-# sudo pacman -S python --noconfirm  # already installed by python-pip
-sudo pacman -S rustup --noconfirm
-sudo pacman -S rust-analyzer --noconfirm
-sudo pacman -S go --noconfirm
-sudo pacman -S ts-node --noconfirm  # typescript
 # tools from cargo
 sudo pacman -S postgresql --noconfirm
 cargo install cargo-update
