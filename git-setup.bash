@@ -64,7 +64,7 @@ vimCD="$librariesCD/.vim"
 notesCD="$librariesCD/notes"
 
 #-- dotfiles and other basic repos
- 
+
 cd ~
 print "setting up repos"
 mkdir libraries --parents --verbose
@@ -78,19 +78,10 @@ print "setting up notes"
 mkdir notes
 echo '# Local Temporary Notes' > notes/tmp.md
 
-#-- final default git config
-echo 'would you like to use the default git config?'
-echo 'this sets the default git user.name and user.email'
-read -n 1 yesNo
-if [ $yesNo = "y" ]; then
-    git config --global user.name sonke
-    git config --global user.email sonke.a.wohler@gmail.com
-else
-    echo 'you should setup your git user.name and user.email'
-    echo 'this is an example command:'
-    echo 'git config --global user.name sonke'
-    echo 'git config --global user.email sonke.does.git@somewhere.com'
-fi
+echo 'setting default git username and email for now, so you can continue'
+echo 'these will later be overwritten with the dotfiles with setup/config.bash'
+git config --global user.name sonke
+git config --global user.email sonke.a.wohler@gmail.com
 
 cd ~/libraries/.vim/setup
 echo '--------------------------'

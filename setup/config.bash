@@ -26,6 +26,12 @@ else
   exit 1
 fi
 
+#-- git
+
+mv --verbose ~/.gitconfig ~/gitconfig.old
+ln --symbolic --verbose $vimCD/config/gitconfig ~/.gitconfig
+ln --symbolic --verbose $vimCD/config/gitignore ~/gitignore
+
 #-- bash
 
 print "setting up bash"
