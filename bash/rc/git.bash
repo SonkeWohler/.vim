@@ -30,7 +30,7 @@ gitu() {
 ### --- navigation
 
 # root of git repo
-alias root='cd $(git rev-parse --show-toplevel)' 
+alias root='cd $(git rev-parse --show-toplevel)'
 # return from git submodule to root of superproject
 alias git.='root ; cd .. ; root'
 
@@ -44,9 +44,9 @@ alias git-='git switch -'
 
 #-- commits
 # easy commit everything
-alias gitCC='git add -A ; git commit -m' 
+alias gitCC='git add -A ; git commit -m'
 # easy commit everything
-alias gitC='git add -A ; git commit -v' 
+alias gitC='git add -A ; git commit -v'
 
 #-- multiple commits
 # squash commits on current branch similar to git squash
@@ -75,22 +75,21 @@ alias gitR='git reset --hard HEAD~'
 
 #-- clean
 # unstage a list of files
-alias gitq='git restore --staged' 
+alias gitq='git restore --staged'
 # unstage all changes
-alias gitqa='git restore --staged :/' 
+alias gitqa='git restore --staged :/'
 # completely restore a file to 'HEAD'
-gitQ() { git restore --staged $1 ; git restore $1 ; } 
+gitQ() { git restore --staged $1 ; git restore $1 ; }
 # restore to 'HEAD'
-alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/' 
+alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
 #-- diff
 # list unstaged changes
-gitd() { git diff --color=always --submodule -M -C -B $@ | delta ; }
+gitd() { git diff --color=always --submodule -M -C -B $@ | dlt ; }
 # staged changes only
-gitdif() { git diff --staged --color=always --submodule $@ | delta ; }
-
-# staged changes only
-alias gitdiff='git diff --staged' 
+gitdif() { git diff --staged --color=always --submodule $@ | dlt ; }
+alias gitdd='gitdif'
+alias gitdiff='gitdif'
 
 ### --- status
 
@@ -111,7 +110,7 @@ alias gitpp='gitp --rebase'
 
 alias gitch='git checkout'
 # list all branches
-alias gitvv='git branch -vv' 
+alias gitvv='git branch -vv'
 # create new branch, checkout that branch and push it upstream
 gitbranch() {
   git branch $1 && git checkout $1 && git push --set-upstream origin $1
@@ -124,42 +123,32 @@ alias pleasegit='git push --force-with-lease'
 
 ### --- cleaning
 
-# remove dead branches 
+# remove dead branches
 # ( https://medium.com/@kcmueller/delete-local-git-branches-that-were-deleted-on-remote-repository-b596b71b530c  )
-gitqbranches() { 
+gitqbranches() {
   git checkout master
   git remote prune origin
-  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D 
+  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
 }
 # thorough cleanup in line with origin
-alias gitQean='gitqbranches ; git pull ; gitQa' 
+alias gitQean='gitqbranches ; git pull ; gitQa'
 
 ### --- log
 
-#-- note:
-# use delta to clear the output with 'q', rather than spamming my screen after I'm done looking at it
-# $1 can be used for other options or to specify the number of commits to display before cutting
-
-#-- git log my way ; to make it easy to change my preferred format 
+#-- git log my way ; I might refactor using git alias at some point
 # default
-alias gitlogm='git log --pretty=format:"%cn, %cr :: %s"' 
-# hash
-alias gitlogmh='git log --pretty=format:"%h, %cd  -- %cn  :: %s"'
-# diffs
-alias gitlogmp='git log --pretty=format:"%n%h, %cd :: %s%n=============================================%n"'
-# graph
-alias gitlogmg='git log --pretty=format:"%cr :: %s"'
+export gitLogMessageFormat='%Cblue%cn, %Creset%cr :: %Cred%h%Creset :: %Cblue%s'
+# just default
+alias gitlogmm='git log --pretty=format:"$gitLogMessageFormat"'
+# diffs, where I need to catch the line between commits
+alias gitlogmp='git log --pretty=format:"%n=============================================%n$gitLogMessageFormat%n=============================================%n"'
 # whole message (%B)
 alias gitlogmb='git log --pretty=format:"%Cblue%cn, %cr %Cred(%cd)%Creset :: %H%n%Cgreen%s %n%n%b"'
-#-- list commits
+#-- list commits ; I don't usually need this without a pager
 # history
-gitlog() { gitlogm --color=always $@ | delta ; } 
-# hashes
-gitlogh() { gitlogmh --color=always $@ | delta ; }
+gitlog() { gitlogmm --color=always $@ | delta ; }
 # diffs
 gitlogp() { gitlogmp -p --color=always $@ | delta ; }
-# graph
-gitgraph() { gitlogmg --graph --color=always $@ | delta ; } 
 # whole message
 gitlogb() { gitlogmb --color=always $@ | delta ; }
 
