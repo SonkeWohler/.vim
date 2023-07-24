@@ -102,13 +102,6 @@ alias gitsx='git -c color.status=always status | less -RF --use-color'
 alias gitf='git fetch ; git status'
 alias gitF='git pull ; git status'
 
-#-- updating/pulling
-# https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
-gitp() {
-    git pull $@ && printf '\n---------------------\n' && gitlog @{1}..
-}
-alias gitpp='gitp --rebase'
-
 ### --- branches
 
 alias gitch='git checkout'
@@ -154,6 +147,17 @@ gitlog() { gitlogmm --color=always $@ | dlt ; }
 gitlogp() { gitlogmp -p --color=always $@ | dlt ; }
 # whole message
 gitlogb() { gitlogmb --color=always $@ | dlt ; }
+# since last pull
+# https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
+alias gitln='gitlog @{1}..'
+https://stackoverflow.com/a/8182309
+alias gitl='gitlog @{u}..'
+
+#-- updating/pulling
+gitp() {
+    git pull $@ && printf '\n---------------------\n' && gitln
+}
+alias gitpp='gitp --rebase'
 
 ### --- submodules
 
