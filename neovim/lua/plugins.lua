@@ -136,6 +136,15 @@ require('packer').startup(function()
 
   ------ buffers ------
 
+  -- I could add it to my own autocommands, or use off the shelf
+  -- honestly, which is better?
+  use({
+    "cappyzawa/trim.nvim",
+    config = function()
+      require("trim").setup({})
+    end
+  })
+
   -- lastplace
   -- maintain the last cursor position in files you opened before
   use {
@@ -511,7 +520,7 @@ require('packer').startup(function()
   use {
     "roobert/f-string-toggle.nvim",
     config = function()
-      require("f-string-toggle").setup{
+      require("f-string-toggle").setup {
         key_binding = "<space>S"
       }
     end,
