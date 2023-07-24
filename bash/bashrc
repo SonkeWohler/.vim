@@ -33,6 +33,7 @@ fi
 
 ### --- source more scripts organised in files
 cd $vimCD/bash 
+source ./common.bash
 for file in rc/*; do
   source $file
 done

@@ -91,6 +91,9 @@ gitdif() { git diff --staged --color=always --submodule $@ | dlt ; }
 alias gitdd='gitdif'
 alias gitdiff='gitdif'
 
+# staged changes only
+alias gitdiff='git diff --staged'
+
 ### --- status
 
 #-- viewing status
@@ -146,11 +149,11 @@ alias gitlogmp='git log --pretty=format:"%n=====================================
 alias gitlogmb='git log --pretty=format:"%Cblue%cn, %cr %Cred(%cd)%Creset :: %H%n%Cgreen%s %n%n%b"'
 #-- list commits ; I don't usually need this without a pager
 # history
-gitlog() { gitlogmm --color=always $@ | delta ; }
+gitlog() { gitlogmm --color=always $@ | dlt ; }
 # diffs
-gitlogp() { gitlogmp -p --color=always $@ | delta ; }
+gitlogp() { gitlogmp -p --color=always $@ | dlt ; }
 # whole message
-gitlogb() { gitlogmb --color=always $@ | delta ; }
+gitlogb() { gitlogmb --color=always $@ | dlt ; }
 
 ### --- submodules
 
@@ -180,5 +183,5 @@ alias gitsubbranches='git submodule foreach "git branch --show-current"'
 alias gitresetwork='gitsubpull && make rebuild-dev'
 
 gitsubd() {
-    git diff --color=always -M -B -C $@ && git submodule foreach "git diff --color=always -M -B -C $@" | delta
+    git diff --color=always -M -B -C $@ && git submodule foreach "git diff --color=always -M -B -C $@" | dlt
 }

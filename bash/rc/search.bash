@@ -5,7 +5,7 @@
 export RIPGREP_CONFIG_PATH="$vimCD/config/ripgreprc"
 
 # search with pager, I am experimenting with different options
-rgg() { rg --json $@ | delta ; }
+rgg() { rg --json $@ | dlt ; }
 alias rgb='batgrep'
 
 ### --- general paging - mostly bat
@@ -17,6 +17,6 @@ export MANROFFOPT="-c"
 ### --- find = fd
 
 # usually I prefer having a pager, because then scrolling up isn't ass spammed
-fdd() { fd $@ | delta ;}
+fdd() { fd $@ | dlt ;}
 # include hidden, but not git, files only
-ff() { fdd --hidden --type f --exclude .git $@ | delta ;}
+ff() { fdd --hidden --type f --exclude .git $@ | dlt ;}
