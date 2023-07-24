@@ -18,7 +18,6 @@ sudo touch /bin/sonke_system_startup.bash
 echo '#!/bin/bash' | sudo tee /bin/sonke_system_startup.bash
 echo '/bin/xswap.bash' | sudo tee -a /bin/sonke_system_startup.bash
 echo '~/.tmux/plugins/tpm/bin/update_plugins all' | sudo tee -a /bin/sonke_system_startup.bash
-echo '/bin/start_alacritty.bash' | sudo tee -a /bin/sonke_system_startup.bash
 sudo chmod +x /bin/sonke_system_startup.bash
 
 # dictionary for nvim cmp
