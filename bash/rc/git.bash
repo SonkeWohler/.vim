@@ -136,8 +136,8 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 export gitLogMessageFormat='%Cblue%cn, %Creset%cr :: %Cred%h%Creset :: %Cblue%s'
 # just default
 alias gitlogmm='git log --pretty=format:"$gitLogMessageFormat"'
-# diffs, where I need to catch the line between commits
-alias gitlogmp='git log --pretty=format:"%n=============================================%n$gitLogMessageFormat%n=============================================%n"'
+# diffs, where I need to catch the line between commits as I scroll through
+alias gitlogmp='git log --pretty=format:"%Cgreen%n%n%n%n%n==================================================================================================================%n      === $gitLogMessageFormat ===%n==================================================================================================================%n%n%n%n%n"'
 # whole message (%B)
 alias gitlogmb='git log --pretty=format:"%Cblue%cn, %cr %Cred(%cd)%Creset :: %H%n%Cgreen%s %n%n%b"'
 #-- list commits ; I don't usually need this without a pager
@@ -150,7 +150,7 @@ gitlogb() { gitlogmb --color=always $@ | dlt ; }
 # since last pull
 # https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
 alias gitln='gitlog @{1}..'
-https://stackoverflow.com/a/8182309
+# https://stackoverflow.com/a/8182309
 alias gitl='gitlog @{u}..'
 
 #-- updating/pulling
