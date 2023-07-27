@@ -131,35 +131,43 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 
 ### --- log
 
-#-- git log my way ; I might refactor using git alias at some point
+#-- git log format my way ; I might refactor using git alias at some point, but
+#I would have to be able to use variables, which I haven't figured out yet.
 # default
 export gitLogMessageFormat='%Cblue%cn, %Creset%cr :: %Cred%h%Creset :: %Cblue%s'
-# just default
+# display just default
 alias gitlogmm='git log --pretty=format:"$gitLogMessageFormat"'
 # diffs, where I need to catch the line between commits as I scroll through
 alias gitlogmp='git log --pretty=format:"%Cgreen%n%n%n%n%n==================================================================================================================%n      === $gitLogMessageFormat ===%n==================================================================================================================%n%n%n%n%n"'
-# whole message (%B)
+# whole message (%B), this is old but I haven't removed it yet
 alias gitlogmb='git log --pretty=format:"%Cblue%cn, %cr %Cred(%cd)%Creset :: %H%n%Cgreen%s %n%n%b"'
-#-- list commits ; I don't usually need this without a pager
+#-- list commits with a pager by default
 # history
 gitlog() { gitlogmm --color=always $@ | dlt ; }
 # diffs
 gitlogp() { gitlogmp -p --color=always $@ | dlt ; }
 # whole message
 gitlogb() { gitlogmb --color=always $@ | dlt ; }
+#-- use pager to show common comparisons
+# new compared to development branch
+alias gitlogn='gitlog development..HEAD'
+# missing compared to development branch
+alias gitlogm='gitlog HEAD..development'
 # since last pull
 # https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
 alias gitln='gitlog @{1}..'
+# since last push
 # https://stackoverflow.com/a/8182309
 alias gitl='gitlog @{u}..'
 
-#-- updating/pulling
+### --- updating/pulling
 gitp() {
     git pull $@ && printf '\n---------------------\n' && gitln
 }
 alias gitpp='gitp --rebase'
 
 ### --- submodules
+# not really used anymore, but used to sometimes be useful
 
 giteach() {
   git submodule foreach "$@ && echo '' || echo '+++ command failed +++' && echo ''"
