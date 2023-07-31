@@ -110,6 +110,9 @@ There are some things that you still have to setup manually:
   - add work directories to `~/locationsForCD.bash`
   - change `/bin/start_alacritty.bash` to open the work directory
   - consider adding `git -C $workCD pull` to `/bin/sonke_system_startup.bash`
+* Consider `sudo pacman -S github-cli` and authenticating the new machine.  I
+  don't use it really right now, but maybe in the future I will start using it
+  more.
 * KDE has a tendency to make changes to the version controlled files after
   restarts, not just the first time you set this up.  Often they are not really
   functionally different, so you can often just commit those changes.
