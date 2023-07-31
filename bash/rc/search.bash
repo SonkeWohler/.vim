@@ -25,3 +25,12 @@ fdg() {
     shift
     fdd $@ -X rg $ripgrepargument --json
 }
+
+### --- fzf related
+
+# use fd
+export FZF_DEFAULT_COMMAND='fd --color=always --type file --hidden --exclude .git'
+# use default command with <C-T>
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# correctly parse color from fd
+export FZF_DEFAULT_OPTS="--ansi"
