@@ -151,18 +151,23 @@ gitlogb() { gitlogmb --color=always $@ | dlt ; }
 #-- use pager to show common comparisons
 # new compared to development branch
 alias gitlogn='gitlog development..HEAD'
+alias gitdn='gitd development..HEAD'
+alias gitn='gitlogn'
 # missing compared to development branch
 alias gitlogm='gitlog HEAD..development'
+alias gitdm='gitd HEAD..development'
+alias gitm='gitlogm'
 # since last pull
 # https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
 alias gitln='gitlog @{1}..'
 # since last push
 # https://stackoverflow.com/a/8182309
 alias gitl='gitlog @{u}..'
+# git diff --name-status first-branch..second-branch
 
 ### --- updating/pulling
 gitp() {
-    git pull $@ && printf '\n---------------------\n' && gitln
+    git pull $@ && printf '\n---------------------\n' && gitlogmm @{1}..
 }
 alias gitpp='gitp --rebase'
 
