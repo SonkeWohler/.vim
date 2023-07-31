@@ -97,10 +97,7 @@ alias gitdiff='git diff --staged'
 ### --- status
 
 #-- viewing status
-alias gits='git status'
-alias gitsx='git -c color.status=always status | less -RF --use-color'
-alias gitf='git fetch ; git status'
-alias gitF='git pull ; git status'
+alias gits='git -c color.status=always status | dlt'
 
 ### --- branches
 
@@ -148,15 +145,26 @@ gitlog() { gitlogmm --color=always $@ | dlt ; }
 gitlogp() { gitlogmp -p --color=always $@ | dlt ; }
 # whole message
 gitlogb() { gitlogmb --color=always $@ | dlt ; }
-#-- use pager to show common comparisons
-# new compared to development branch
-alias gitlogn='gitlog development..HEAD'
+#-- new compared to development branch
+# log
+alias gitn='gitlog development..HEAD'
+alias gitnn='gitlog development...HEAD'
+# diff
 alias gitdn='gitd development..HEAD'
-alias gitn='gitlogn'
-# missing compared to development branch
-alias gitlogm='gitlog HEAD..development'
+alias gitdnn='gitd development...HEAD'
+# status
+alias gitsn='gitdn --name-status'
+alias gitsnn='gitdnn --name-status'
+#-- missing compared to development branch
+# log
+alias gitm='gitlog HEAD..development'
+alias gitmm='gitlog HEAD...development'
+# diff
 alias gitdm='gitd HEAD..development'
-alias gitm='gitlogm'
+alias gitdmm='gitd HEAD...development'
+# status
+alias gitsm='gitdm --name-status'
+alias gitsmm='gitdmm --name-status'
 # since last pull
 # https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
 alias gitln='gitlog @{1}..'
