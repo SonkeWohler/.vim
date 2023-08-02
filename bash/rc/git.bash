@@ -97,7 +97,7 @@ alias gitdiff='git diff --staged'
 ### --- status
 
 #-- viewing status
-alias gits='git -c color.status=always status | dlt'
+alias gits='git -c color.status=always status'
 
 ### --- branches
 
