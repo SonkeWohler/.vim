@@ -1,14 +1,14 @@
 [user]
-  name = sonke
-  email = sonke.a.wohler@gmail.com
+	name = sonke
+	email = sonke.a.wohler@gmail.com
 [core]
-  symlinks = true
-  editor = nvim
-  excludesFile = ~/gitignore
+	symlinks = true
+	editor = nvim
+	excludesFile = ~/gitignore
 [rebase]
-  autoStash = true
-  autoSquash = true
+	autoStash = true
+	autoSquash = true
 [pull]
-  rebase = false
+	rebase = false
 [fetch]
-  prune = false
+	prune = false
