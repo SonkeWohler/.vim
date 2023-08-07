@@ -35,23 +35,30 @@ alias cool='neofetch'
 
 ### --- updates
 # pip is a little hands on
-alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
-# neovim has a few things
-# I do most of them in series so the `quitall` does not cut anything short
-# without having to write logic that checks that all updates really have
-# finished
+# pip is now managed by pacman, don't worry about it anymore
+# alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
+# neovim has a few things, but they should all work automated now
 updateNvim() {
   # plugins
   nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  # lsp etc, these can take a while
-  nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll' -c 'Mason'
   # treesitter is handled a little differently
   # https://github.com/nvim-treesitter/nvim-treesitter/issues/2900
   nvim -c 'TSUpdateSync' -c 'quitall'
+  # lsp etc.  I think there is something not quite working as intended.  I may
+  # look into this at some point.
+  nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
+  # finally, check whether update worked.  This part is manual, and there may be
+  # further manual intervention required.
+  nvim -c 'Mason'
 }
 # the rest has simple commands, but I usually use them all at once
-alias updateAll='yay && sudo npm --global update && flatpak update && updatePip && rustup update && cargo install-update -a && updateNvim'
-alias pullAndUpdateAll='cdw && make pull-and-rebuild-dev && cdv && git pull && updateAll'
+# note that due to conflicts between npm and pacman I don't usually update npm
+# unless I have to
+# alias updateAll='sudo pacman -Syu && yay && updateNvim && cargo install-update -a && flatpak update && sudo npm --global update'
+alias updateAll='sudo pacman -Syu && yay && updateNvim && cargo install-update -a && flatpak update'
+# pull important repos, rebuild and list new commits so I know if there is
+# anything I need to do
+alias pullAll='cdw && gitp && make rebuild-dev && gitln && cdv && gitp'
 
 ### --- sudo
 
@@ -136,7 +143,7 @@ clean_py() {
   echo 'running mypy >> /tmp/<date>.mypy.log ...'
   mypy $@ > "$logfilename.mypy.log"
   cat "$logfilename.mypy.log"
-  echo "pylint output has been saved to $logfilename.pylint.log" 
+  echo "pylint output has been saved to $logfilename.pylint.log"
   echo "mypy output has been saved to $logfilename.mypy.log"
 }
 
