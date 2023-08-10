@@ -24,7 +24,7 @@ mytimednotify() {
 }
 
 remindme() {
-    mytimednotify $@ &
+    mytimednotify "$@" &
 }
 
 ### --- unimportant
@@ -134,14 +134,14 @@ clean_py() {
     return 1
   fi
   echo 'running isort ... '
-  isort $@
+  isort "$@"
   echo 'running black ... '
-  black --skip-string-normalization --line-length 79 $@
+  black --skip-string-normalization --line-length 79 "$@"
   echo 'running pylint >> /tmp/<date>.pylint.log ...'
-  pylint $@ --output="$logfilename.pylint.log"
+  pylint "$@" --output="$logfilename.pylint.log"
   cat "$logfilename.pylint.log"
   echo 'running mypy >> /tmp/<date>.mypy.log ...'
-  mypy $@ > "$logfilename.mypy.log"
+  mypy "$@" > "$logfilename.mypy.log"
   cat "$logfilename.mypy.log"
   echo "pylint output has been saved to $logfilename.pylint.log"
   echo "mypy output has been saved to $logfilename.mypy.log"

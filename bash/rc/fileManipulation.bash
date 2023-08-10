@@ -14,16 +14,16 @@ mkcd() { mkdir -vp $1 ; cd $1 ; }
 # -- ls etc
 alias lessx='less -RF'
 alias lsa='ls -l --almost-all --classify --human-readable --color=always'
-lsx() { lsa $@ | lessx ; }
+lsx() { lsa "$@" | lessx ; }
 alias tre='tree --gitfile="$vimCD/config/gitignore" | grep -v "\->"'
 
 # -- cd
 # back
-alias cd-='cd -' 
+alias cd-='cd -'
 # up
-alias cd.='cd ..' 
+alias cd.='cd ..'
 # lsa after cd
-cda() { cd $@ && lsa ; }
+cda() { cd "$@" && lsa ; }
 
 # shasum
 shafile() {

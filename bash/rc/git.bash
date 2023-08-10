@@ -85,9 +85,9 @@ alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
 #-- diff
 # list unstaged changes
-gitd() { git diff --color=always --submodule -M -C -B $@ | dlt ; }
+gitd() { git diff --color=always --submodule -M -C -B "$@" | dlt ; }
 # staged changes only
-gitdif() { git diff --staged --color=always --submodule $@ | dlt ; }
+gitdif() { git diff --staged --color=always --submodule "$@" | dlt ; }
 alias gitdd='gitdif'
 alias gitdiff='gitdif'
 
@@ -140,11 +140,11 @@ alias gitlogmp='git log --pretty=format:"%n%n%n%n%n=============================
 alias gitlogmb='git log --pretty=format:"$gitLogMessageFormat%n---------------------%n%b%n%n"'
 #-- list commits with a pager by default
 # history
-gitlog() { gitlogmm --color=always $@ | dlt ; }
+gitlog() { gitlogmm --color=always "$@" | dlt ; }
 # diffs
-gitlogp() { gitlogmp -p --color=always $@ | dlt ; }
+gitlogp() { gitlogmp -p --color=always "$@" | dlt ; }
 # whole message
-gitlogb() { gitlogmb --color=always $@ | dlt ; }
+gitlogb() { gitlogmb --color=always "$@" | dlt ; }
 #-- new compared to development branch
 # log
 alias gitn='gitlog development..HEAD'
@@ -175,7 +175,7 @@ alias gitl='gitlog @{u}..'
 
 ### --- updating/pulling
 gitp() {
-    git pull $@ && printf '\n---------------------\n' && gitlogmm @{1}..
+    git pull "$@" && printf '\n---------------------\n' && gitlogmm @{1}..
 }
 alias gitpp='gitp --rebase'
 
@@ -186,7 +186,7 @@ giteach() {
   git submodule foreach "$@ && echo '' || echo '+++ command failed +++' && echo ''"
 }
 giteachall() {
-  giteach --recursive $@
+  giteach --recursive "$@"
 }
 giteachone() {
   giteach $1

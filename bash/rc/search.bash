@@ -11,19 +11,19 @@ export MANROFFOPT="-c"
 export RIPGREP_CONFIG_PATH="$vimCD/config/ripgreprc"
 
 # search with pager, I am experimenting with different options
-rgg() { rg --json $@ | dlt ; }
+rgg() { rg --json "$@" | dlt ; }
 alias rgb='batgrep'
 
 # usually I prefer having a pager, because then scrolling up isn't as spammed
-fdd() { fd --color=always $@ | dlt ; }
+fdd() { fd --color=always "$@" | dlt ; }
 # include hidden, but not git, files only
-ff() { fdd --hidden --type f --exclude .git $@ ; }
+ff() { fdd --hidden --type f --exclude .git "$@" ; }
 
 # I often use ripgrep and fd together, and this simple setup does work
 fdg() {
     ripgrepargument=$1
     shift
-    fdd $@ -X rg $ripgrepargument --json
+    fdd "$@" -X rg $ripgrepargument --json
 }
 
 ### --- fzf related
