@@ -9,6 +9,8 @@
 [rebase]
 	autoStash = true
 	autoSquash = true
+	missingCommitsCheck = error
+	abbreviateCommands = true
 [merge]
 	autoStash = true
 [pull]
