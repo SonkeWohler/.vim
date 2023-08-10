@@ -22,3 +22,5 @@
 	navigate = true
 	light = false
 	line-numbers = true
+[rerere]
+	enabled = true
