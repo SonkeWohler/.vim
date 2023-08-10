@@ -41,6 +41,7 @@ sudo pacman -S wget --noconfirm
 sudo pacman -S glow --noconfirm
 sudo pacman -S aspell aspell-en --noconfirm
 sudo pacman -S just --noconfirm
+sudo pacman -S github-cli --noconfirm
 # tui related stuff
 sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-iosevka-nerd --noconfirm

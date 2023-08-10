@@ -81,6 +81,13 @@ print "setting up newsboat - my rss reader"
 mkdir --parents --verbose ~/.newsboat
 ln --symbolic --verbose $vimCD/config/newsboat ~/.newsboat/config
 
+#-- github cli
+
+print "setting up github cli config"
+print "github cli also requires you to go through 'gh auth login'"  # TODO
+mkdir --verbose --parents ~/.config/gh
+ln --symbolic --verbose $vimCD/config/githubcli.yml ~/.config/gh/config.yml
+
 #-- neovim
 
 print "setting up neovim"
