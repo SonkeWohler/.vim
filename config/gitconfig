@@ -4,6 +4,7 @@
 [core]
 	symlinks = true
 	editor = nvim
+	pager = delta
 	excludesFile = ~/gitignore
 [rebase]
 	autoStash = true
@@ -14,3 +15,8 @@
 	rebase = false
 [fetch]
 	prune = false
+[delta]
+	paging = always
+	navigate = true
+	light = false
+	line-numbers = true
