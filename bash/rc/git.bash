@@ -79,7 +79,7 @@ alias gitq='git restore --staged'
 # unstage all changes
 alias gitqa='git restore --staged :/'
 # completely restore a file to 'HEAD'
-gitQ() { git restore --staged $1 ; git restore $1 ; }
+gitQ() { git restore --staged $@ ; git restore $@ ; git clean --force $@ ; }
 # restore to 'HEAD'
 alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 
