@@ -1062,7 +1062,8 @@ require("mason-lspconfig").setup({
     "texlab",
     "tsserver",
     "yamlls",
-  }
+  },
+  automatic_installation = true,
 })
 -- capabilities are from the completion plugin above, normally people just leave
 -- these empy
