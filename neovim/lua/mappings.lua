@@ -163,6 +163,11 @@ nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
 nmap('gU', ':lua require("gitsigns").reset_hunk()<CR>')
 nmap('gu', ':lua require("gitsigns").undo_stage_hunk()<CR>')
 nmap('gl', ':Gitsigns<CR>')
+-- most of the above in visual mode too
+vmap('gs', function() require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+vmap('gU', function() require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+vmap('gu', function() require('gitsigns').undo_stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+vmap('gl', ':Gitsigns<CR>')
 
 ----- Telescope -----
 -- undo tree
