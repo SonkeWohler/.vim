@@ -167,11 +167,14 @@ alias gitsm='gitdm --name-status'
 alias gitsmm='gitdmm --name-status'
 # since last pull
 # https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
-alias gitln='gitlog @{1}..'
+alias gitl='gitlog @{1}..'
+alias gitdl='gitd @{1}..'
+alias gitsl='gitdl --name-status'
 # since last push
 # https://stackoverflow.com/a/8182309
-alias gitl='gitlog @{u}..'
-# git diff --name-status first-branch..second-branch
+alias gitln='gitlog @{u}..'
+alias gitdln='gitd @{u}..'
+alias gitsln='gitdln --name-status'
 
 ### --- updating/pulling
 gitp() {
