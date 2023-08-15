@@ -185,6 +185,8 @@ nmap('//', ':FH<cr>')
 -- Luckily this has a telescope integration, so I don't even have to do any work
 nmap('<space>s', '<cmd>TextCaseOpenTelescope<CR>')
 vmap('<space>s', '<cmd>TextCaseOpenTelescope<CR>')
+-- notification history
+nmap('<space>q', ':lua require("telescope").extensions.notify.notify()<CR>')
 
 ---- fixes to remember the cursor position ----
 -- when searching

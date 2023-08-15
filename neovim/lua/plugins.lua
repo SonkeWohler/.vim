@@ -31,9 +31,14 @@ require('packer').startup(function()
   -- pretty notifications
   use {
     'rcarriga/nvim-notify',
+    -- "folke/noice.nvim",
+    -- "MunifTanjim/nui.nvim",
     config = function()
-      require("notify").setup {}
+      require("notify").setup {
+        stages = 'slide',
+      }
       require('telescope').load_extension('notify')
+      vim.notify = require("notify")
     end,
     after = 'telescope.nvim'
   }
