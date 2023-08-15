@@ -82,6 +82,21 @@ alias gitqa='git restore --staged :/'
 gitQ() { git restore --staged $@ ; git restore $@ ; git clean --force $@ ; }
 # restore to 'HEAD'
 alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
+# prune and remove all branches not on remote
+# to be aliased from gitconfig
+gitAliasPruneWell() {
+  echo '-------------------------------------------------------'
+  echo '---  WARNING, this will delete branches with -D !!! ---'
+  echo '--- you may <C-C> now, or forever hold your silence ---'
+  echo '-------------------------------------------------------'
+  echo ''
+  sleep 2s
+  echo '`$ git getch --prune`'
+  git fetch --prune
+  sleep 1s
+  echo '`$ git branch delete -D {}`'
+  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
+}
 
 #-- diff
 # list unstaged changes
