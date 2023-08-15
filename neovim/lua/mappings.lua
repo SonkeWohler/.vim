@@ -150,24 +150,26 @@ nmap('R', ':lua vim.lsp.buf.rename()<cr>')
 nmap('<space>f', ':lua vim.lsp.buf.format()<CR>')
 
 ----- GitSigns -----
+--- keep in mind that I use git from bash a lot, so this is limited
+local gitsigns = require 'gitsigns'
 -- next/prev hunk
-nmap('gn', ':lua require("gitsigns").next_hunk()<CR>')
--- nmap('<space>g', ':lua require("gitsigns").next_hunk()<CR>')
-nmap('gN', ':lua require("gitsigns").prev_hunk()<CR>')
-nmap('GN', ':lua require("gitsigns").prev_hunk()<CR>')
+nmap('gn', gitsigns.next_hunk)
+-- nmap('<space>g', gitsigns.next_hunk)
+nmap('gN', gitsigns.prev_hunk)
+nmap('GN', gitsigns.prev_hunk)
 nmap('GG', 'G')  -- because of the above command
--- nmap('<space>G', ':lua require("gitsigns").prev_hunk()<CR>')
-nmap('gS', ':lua require("gitsigns").stage_buffer()<CR>')
-nmap('gs', ':lua require("gitsigns").stage_hunk()<CR>')
+-- nmap('<space>G', gitsigns.prev_hunk)
+nmap('gS', gitsigns.stage_buffer)
+nmap('gs', gitsigns.stage_hunk)
 -- I don't use the default gu or gU in normal mode, only really in visual mode
-nmap('gU', ':lua require("gitsigns").reset_hunk()<CR>')
-nmap('gu', ':lua require("gitsigns").undo_stage_hunk()<CR>')
-nmap('gl', ':Gitsigns<CR>')
+nmap('gU', gitsigns.reset_hunk)
+nmap('gu', gitsigns.undo_stage_hunk)
+nmap('gl', ':Gitsigns')
 -- most of the above in visual mode too
-vmap('gs', function() require('gitsigns').stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-vmap('gU', function() require('gitsigns').reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-vmap('gu', function() require('gitsigns').undo_stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-vmap('gl', ':Gitsigns<CR>')
+vmap('gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+vmap('gU', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+vmap('gu', function() gitsigns.undo_stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+vmap('gl', ':Gitsigns')
 
 ----- Telescope -----
 -- undo tree
