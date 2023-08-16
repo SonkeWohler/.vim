@@ -785,6 +785,20 @@ require('packer').startup(function()
     end,
   }
 
+  -- better open files from terminals inside neovim
+  use {
+    'willothy/flatten.nvim',
+    config = function()
+      require('flatten').setup {
+        window = {
+          open = "tab",
+          diff = "tab_vsplit",
+          focus = "first",
+        }
+      }
+    end
+  }
+
   -- a bunch of textobjects, but not treesitter dependent
   -- I was expecting this as part of a treesitter plugin, but we will see if
   -- that will come around as well.  And if it will be better.
