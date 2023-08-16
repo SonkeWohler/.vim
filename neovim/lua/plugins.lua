@@ -139,6 +139,16 @@ require('packer').startup(function()
   end
   } ]]
 
+  -- quick diff between files
+  -- using telescope
+  use {
+    "jemag/telescope-diff.nvim",
+    after = 'telescope.nvim',
+    config = function()
+      require("telescope").load_extension("diff")
+    end
+  }
+
   ------ buffers ------
 
   -- close unused buffers

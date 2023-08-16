@@ -67,6 +67,10 @@ cmd('GT', 'lua require("telescope.builtin").git_stash()<cr>', { desc = 'git sTas
 cmd('GB', 'lua require("telescope.builtin").git_branches()<cr>', { desc = 'git branches' })
 cmd('GF', 'lua require("telescope.builtin").git_files()<cr>', { desc = 'git (tracked) files' })
 
+----- diff view -----
+cmd('DD', 'lua require("telescope").extensions.diff.diff_current({hidden=true})<cr>', { desc = 'diff this file with another' })
+cmd('DDD', 'lua require("telescope").extensions.diff.diff_files({hidden=true})<cr>', { desc = 'diff this file with another' })
+
 ----- viewing or running things -----
 cmd('GLOW', 'Glow', { desc = 'Markdown preview with Glow' })
 cmd('GG', 'Glow', { desc = 'Markdown preview with Glow' })
