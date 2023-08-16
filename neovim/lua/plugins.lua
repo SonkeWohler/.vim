@@ -141,6 +141,29 @@ require('packer').startup(function()
 
   ------ buffers ------
 
+  -- close unused buffers
+  use {
+    "chrisgrieser/nvim-early-retirement",
+    config = function()
+      require("early-retirement").setup {
+        -- close as early as possible
+        -- since I have a tendency to use tabs if there is any way I will still
+        -- use them
+        -- that's why I need this plugin
+        retirementAgeMins = 1,
+        -- for now lets keep track of this one
+        -- after some evaluation I will turn this off
+        notificationOnAutoClose = true,
+        -- I may change this in the future, but lets not autosave (default)
+        ignoreUnsavedChangesBufs = true,
+        -- no minimum (default)
+        minimumBufferNum = 1,
+        -- obviously, I wouldn't want visible buffers closed (default)
+        ignoreVisibleBufs = true,
+      }
+    end,
+  }
+
   -- I could add it to my own autocommands, or use off the shelf
   -- honestly, which is better?
   use({
