@@ -23,53 +23,67 @@ cmd('PP', 'PackerSync', { desc = 'run PackerSync' })
 ----- finding things -----
 ----- mostly telescope now
 -- files
-cmd('FF', 'lua require("telescope.builtin").find_files()<cr>', { desc = 'find file' })
+cmd('FF', function() require("telescope.builtin").find_files() end, { desc = 'find file' })
 -- grep
-cmd('RG', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
-cmd('FS', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
-cmd('FG', 'lua require("telescope.builtin").live_grep()<cr>', { desc = 'rg - live grep in workspace' })
-cmd('FT', 'lua require("telescope.builtin").grep_string()<cr>',
-  { desc = 'find this word - grep string under the cursor' })
-cmd('FH', 'lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>',
-  { desc = 'find here - grep current buffer only' })
+cmd('RG', function() require("telescope.builtin").live_grep() end, { desc = 'rg - live grep in workspace' })
+cmd('FS', function() require("telescope.builtin").live_grep() end, { desc = 'rg - live grep in workspace' })
+cmd('FG', function() require("telescope.builtin").live_grep() end, { desc = 'rg - live grep in workspace' })
+cmd(
+  'FT',
+  function() require("telescope.builtin").grep_string() end,
+  { desc = 'find this word - grep string under the cursor' }
+)
+cmd(
+  'FH',
+  function() require("telescope.builtin").current_buffer_fuzzy_find() end,
+  { desc = 'find here - grep current buffer only' }
+)
 -- jump marks
-cmd('FM', 'lua require("telescope.builtin").marks()<cr>', { desc = 'find jump marks' })
-cmd('FJ', 'lua require("telescope.builtin").jumplist()<cr>', { desc = 'find in jumplist' })
+cmd('FM', function() require("telescope.builtin").marks() end, { desc = 'find jump marks' })
+cmd('FJ', function() require("telescope.builtin").jumplist() end, { desc = 'find in jumplist' })
 -- lsp diagnostics
 cmd('TT', 'Telescope diagnostics', { desc = 'toggle Trouble - lsp diagnostics' })
 -- lsp document symbols
-cmd('FD', 'lua require("telescope.builtin").lsp_document_symbols()<cr>', { desc = 'Find lsp Document symbols' })
-cmd('FW', 'lua require("telescope.builtin").lsp_workspace_symbols()<cr>', { desc = 'Find lsp Workspace symbols' })
+cmd('FD', function() require("telescope.builtin").lsp_document_symbols() end, { desc = 'Find lsp Document symbols' })
+cmd('FW', function() require("telescope.builtin").lsp_workspace_symbols() end, { desc = 'Find lsp Workspace symbols' })
 -- commands
-cmd('FC', 'lua require("telescope.builtin").commands()<cr>', { desc = 'help commands' })
+cmd('FC', function() require("telescope.builtin").commands() end, { desc = 'help commands' })
 -- undo history
-cmd('FU', 'lua require("telescope").extensions.undo.undo()<cr>', { desc = 'help commands' })
+cmd('FU', function() require("telescope").extensions.undo.undo() end, { desc = 'help commands' })
 
 ----- help stuff -----
 -- help tags
-cmd('HH', 'lua require("telescope.builtin").help_tags()<cr>', { desc = 'help from helptags' })
-cmd('HK', 'lua require("telescope.builtin").keymaps()<cr>', { desc = 'help keymaps' })
-cmd('HM', 'lua require("telescope.builtin").map_pages()<cr>', { desc = 'help manpages' })
-cmd('HO', 'lua require("telescope.builtin").vim_options()<cr>', { desc = 'help vim options' })
+cmd('HH', function() require("telescope.builtin").help_tags() end, { desc = 'help from helptags' })
+cmd('HK', function() require("telescope.builtin").keymaps() end, { desc = 'help keymaps' })
+cmd('HM', function() require("telescope.builtin").map_pages() end, { desc = 'help manpages' })
+cmd('HO', function() require("telescope.builtin").vim_options() end, { desc = 'help vim options' })
 
 ----- history -----
 ----- except anything git
-cmd('HS', 'lua require("telescope.builtin").search_history()<cr>', { desc = 'History of recent Searches' })
-cmd('HC', 'lua require("telescope.builtin").command_history()<cr>', { desc = 'History of Commands' })
-cmd('HF', 'lua require("telescope.builtin").old_files()<cr>', { desc = 'History of opened Files' })
-cmd('HB', 'lua require("telescope.builtin").buffers()<cr>', { desc = 'History of Buffers' })
+cmd('HS', function() require("telescope.builtin").search_history() end, { desc = 'History of recent Searches' })
+cmd('HC', function() require("telescope.builtin").command_history() end, { desc = 'History of Commands' })
+cmd('HF', function() require("telescope.builtin").old_files() end, { desc = 'History of opened Files' })
+cmd('HB', function() require("telescope.builtin").buffers() end, { desc = 'History of Buffers' })
 
 ----- git -----
-cmd('GC', 'lua require("telescope.builtin").git_commits()<cr>', { desc = 'git commits' })
-cmd('GH', 'lua require("telescope.builtin").git_bcommits()<cr>', { desc = 'git history for this file' })
-cmd('GS', 'lua require("telescope.builtin").git_status()<cr>', { desc = 'git status - files with changes' })
-cmd('GT', 'lua require("telescope.builtin").git_stash()<cr>', { desc = 'git sTash' })
-cmd('GB', 'lua require("telescope.builtin").git_branches()<cr>', { desc = 'git branches' })
-cmd('GF', 'lua require("telescope.builtin").git_files()<cr>', { desc = 'git (tracked) files' })
+cmd('GC', function() require("telescope.builtin").git_commits() end, { desc = 'git commits' })
+cmd('GH', function() require("telescope.builtin").git_bcommits() end, { desc = 'git history for this file' })
+cmd('GS', function() require("telescope.builtin").git_status() end, { desc = 'git status - files with changes' })
+cmd('GT', function() require("telescope.builtin").git_stash() end, { desc = 'git sTash' })
+cmd('GB', function() require("telescope.builtin").git_branches() end, { desc = 'git branches' })
+cmd('GF', function() require("telescope.builtin").git_files() end, { desc = 'git (tracked) files' })
 
 ----- diff view -----
-cmd('DD', 'lua require("telescope").extensions.diff.diff_current({hidden=true})<cr>', { desc = 'diff this file with another' })
-cmd('DDD', 'lua require("telescope").extensions.diff.diff_files({hidden=true})<cr>', { desc = 'diff this file with another' })
+cmd(
+  'DD',
+  function() require("telescope").extensions.diff.diff_current({ hidden = true }) end,
+  { desc = 'diff this file with another' }
+)
+cmd(
+  'DDD',
+  function() require("telescope").extensions.diff.diff_files({ hidden = true }) end,
+  { desc = 'diff this file with another' }
+)
 
 ----- viewing or running things -----
 cmd('GLOW', 'Glow', { desc = 'Markdown preview with Glow' })
