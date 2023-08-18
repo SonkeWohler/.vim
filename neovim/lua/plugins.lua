@@ -161,9 +161,8 @@ require('packer').startup(function()
         -- use them
         -- that's why I need this plugin
         retirementAgeMins = 1,
-        -- for now lets keep track of this one
-        -- after some evaluation I will turn this off
-        notificationOnAutoClose = true,
+        -- can be nice when checking it works well, but usually don't need (default)
+        notificationOnAutoClose = false,
         -- I may change this in the future, but lets not autosave (default)
         ignoreUnsavedChangesBufs = true,
         -- no minimum (default)
