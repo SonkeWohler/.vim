@@ -1,9 +1,9 @@
 ### --- anything vim related --- ###
 
 # in case that anything is wrong with vim or special use cases
-alias vim='vim -u NONE' 
-# since this is fewer keystrokes and quite common
-alias vi='nvim'
+alias vim='vim -u NONE'
+# open multiple files in tabs, and using 'vi' is quite short and common
+alias vi='nvim -p'
 # quick local notes
 alias nvimn='cd $notesCD && nvim tmp.md'
 
