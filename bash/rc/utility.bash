@@ -37,19 +37,18 @@ alias cool='neofetch'
 # pip is a little hands on
 # pip is now managed by pacman, don't worry about it anymore
 # alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
+
 # neovim has a few things, but they should all work automated now
+# so long as you do them one by one, or the auto-commands/syncs would interfere
 updateNvim() {
   # plugins
   nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   # treesitter is handled a little differently
   # https://github.com/nvim-treesitter/nvim-treesitter/issues/2900
   nvim -c 'TSUpdateSync' -c 'quitall'
-  # lsp etc.  I think there is something not quite working as intended.  I may
-  # look into this at some point.
-  nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
-  # finally, check whether update worked.  This part is manual, and there may be
-  # further manual intervention required.
-  nvim -c 'Mason'
+  # finally, lsp and stuff
+  # show the lsp overview once done
+  nvim -c 'autocmd User MasonUpdateAllComplete Mason' -c 'MasonUpdateAll'
 }
 # the rest has simple commands, but I usually use them all at once
 # note that due to conflicts between npm and pacman I don't usually update npm
