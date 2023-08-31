@@ -84,18 +84,25 @@ gitQ() { git restore --staged $@ ; git restore $@ ; git clean --force $@ ; }
 alias gitQa='git clean --force -d ; git restore --staged :/ ; git restore :/'
 # prune and remove all branches not on remote
 # to be aliased from gitconfig
-gitAliasPruneWell() {
+gitGetPrunableBranches() {
+    git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }'
+}
+gitPruneWell() {
   echo '-------------------------------------------------------'
   echo '---  WARNING, this will delete branches with -D !!! ---'
   echo '--- you may <C-C> now, or forever hold your silence ---'
   echo '-------------------------------------------------------'
   echo ''
   sleep 2s
-  echo '`$ git getch --prune`'
+  echo '`$ git fetch --prune`'
   git fetch --prune
-  sleep 1s
+  sleep 0.5s
+  echo 'branches to be deleted:'
+  gitGetPrunableBranches | tr ' ' '\n'
+  sleep 2s
   echo '`$ git branch delete -D {}`'
-  git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -D
+  sleep 1s
+  gitGetPrunableBranches | xargs -r git branch -D
 }
 
 #-- diff
