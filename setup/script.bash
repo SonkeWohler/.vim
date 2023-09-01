@@ -20,6 +20,15 @@ echo '/bin/xswap.bash' | sudo tee -a /bin/sonke_system_startup.bash
 echo '~/.tmux/plugins/tpm/bin/update_plugins all' | sudo tee -a /bin/sonke_system_startup.bash
 sudo chmod +x /bin/sonke_system_startup.bash
 
+# I need to move more, and I don't remember
+# this will be called hourly by systemd
+sudo touch /bin/remind_me_to_move.bash
+echo '#!/bin/bash' | sudo tee /bin/remind_me_to_move.bash
+echo 'notify-send Move --app-name remind' | sudo tee -a /bin/remind_me_to_move.bash
+sudo chmox +x /bin/remind_me_to_move.bash
+sudo ln --symbolic --verbose $configs/systemd/* /lib/systemd/system/
+systemctl enable --now remind-me-to-move.timer
+
 # dictionary for nvim cmp
 sudo mkdir --parents --verbose /usr/share/dicts
 aspell -d en dump master | aspell -l en expand | sudo tee /usr/share/dicts/en.dict

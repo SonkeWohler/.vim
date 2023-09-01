@@ -1,0 +1,5 @@
+[Unit]
+Description="You should try to move regularly, this should remind you"
+
+[Service]
+ExecStart=/bin/remind_me_to_move.bash
