@@ -97,8 +97,14 @@ gitPruneWell() {
   echo '`$ git fetch --prune`'
   git fetch --prune
   sleep 0.5s
+  echo ''
+  echo ''
   echo 'branches to be deleted:'
+  echo '-----------------------'
   gitGetPrunableBranches | tr ' ' '\n'
+  echo '-----------------------'
+  echo ''
+  echo ''
   sleep 2s
   echo '`$ git branch delete -D {}`'
   sleep 1s
