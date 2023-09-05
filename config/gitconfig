@@ -24,3 +24,5 @@
 	line-numbers = true
 [rerere]
 	enabled = true
+[alias]
+	ls = !git ls-files $@ | delta
