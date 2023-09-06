@@ -12,6 +12,7 @@ sudo pacman -S rustup --noconfirm
 sudo pacman -S rust-analyzer --noconfirm
 sudo pacman -S go --noconfirm
 sudo pacman -S ts-node --noconfirm  # typescript
+sudo pacman -S luarocks --noconfirm
 # command line emulator
 sudo pacman -S alacritty --noconfirm
 sudo pacman -S tmux --noconfirm
@@ -28,6 +29,7 @@ sudo pacman -S git-delta  --noconfirm
 sudo pacman -S prettier  --noconfirm
 sudo pacman -S shfmt  --noconfirm
 sudo pacman -S python-black  --noconfirm
+sudo pacman -S ruff --noconfirm
 # cli editors
 sudo pacman -S vim --noconfirm
 sudo pacman -S neovim --noconfirm
@@ -52,6 +54,7 @@ sudo pacman -S postgresql --noconfirm
 cargo install cargo-update
 cargo install diesel_cli --no-default-features --features postgres
 cargo install diesel_cli_ext
+diesel completions bash | sudo tee /etc/bash_completion.d/diesel
 # communication stuff
 sudo pacman -S vivaldi --noconfirm
 sudo pacman -S signal-desktop --noconfirm
