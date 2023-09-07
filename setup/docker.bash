@@ -9,6 +9,7 @@
 
 # install docker
 sudo pacman -S docker --noconfirm
+sudo pacman -S docker-buildx --noconfirm
 
 # make it runnable from non-root
 yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
