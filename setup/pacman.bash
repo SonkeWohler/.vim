@@ -65,6 +65,7 @@ sudo pacman -S texlive --noconfirm
 sudo pacman -S mupdf --noconfirm
 sudo pacman -S skanlite --noconfirm
 sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
+sudo pacman -S nextcloud-client keepassxc --noconfirm
 # gaming, uncomment for any system I want that on
 # sudo pacman -S steam --noconfirm
 # sudo pacman -S lutris --noconfirm

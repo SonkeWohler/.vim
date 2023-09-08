@@ -91,12 +91,19 @@ There are some things that you still have to setup manually:
   `nvidia-inst`](https://discovery.endeavouros.com/nvidia/new-nvidia-driver-installer-nvidia-inst/2022/03/)
   for that which works well in my experience to cover steps 1.* in [the Arch Wiki
   instructions](https://wiki.archlinux.org/title/NVIDIA) fully automated.
+* Nextcloud
+  - go to [cloud.sonki.codes](cloud.sonki.codes) and log in
+  - open your local nextcloud and use your browser to authenticate it
+  - sync files to `~/nextcloud`
+  - decript the password database in `~/nextcloud/sync/passwords.kdbx`
+  - optionally, use another machine to add the public ssh key for this new
+    machine to the trusted keys on the server
 * Start and setup Vivaldi
   - this is kind of annoying.  After logging into my account and decrypting the
     passwords many things are setup.  And several aren't.
   - keyboard shortcuts are the most annoying.  They need to be set up manually
     until I figure out where the damn file is to copy.
-  - theming and other appearance settings also don't seem to sync all the time.
+  - theming and other appearance settings also don't seem to sync
 * Docker Desktop settings.  You have to wait for it to start up and then restart
   after you adjust the settings:
   - Enable the Kubernetes extension
