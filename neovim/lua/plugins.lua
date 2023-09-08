@@ -821,11 +821,6 @@ require('packer').startup(function()
     end,
   }
 
-  -- better sessions, also useful (apparently) for tmux sessions
-  use {
-    'tpope/vim-obsession',
-  }
-
   -- view markdown
   use {
     "ellisonleao/glow.nvim",
