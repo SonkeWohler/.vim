@@ -451,6 +451,17 @@ require('packer').startup(function()
     end
   }
 
+  -- surround built in lua, but not sure it is where I need it to be
+  -- use({
+  --   "kylechui/nvim-surround",
+  --   tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+  --   config = function()
+  --     require("nvim-surround").setup({
+  --       -- Configuration here, or leave empty to use defaults
+  --     })
+  --   end
+  -- })
+
   -- better tpope/vim-unimpaired
   use {
     'echasnovski/mini.bracketed',
