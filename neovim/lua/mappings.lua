@@ -1,3 +1,7 @@
+---- other ----
+-- local leader
+vim.g.maplocalleader = '\\'
+
 ---- insert mode ----
 -- not sure why nvim breaks undo with these by default, but I really prefer
 -- without that.

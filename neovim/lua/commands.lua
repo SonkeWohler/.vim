@@ -88,3 +88,7 @@ cmd(
 ----- viewing or running things -----
 cmd('GLOW', 'Glow', { desc = 'Markdown preview with Glow' })
 cmd('GG', 'Glow', { desc = 'Markdown preview with Glow' })
+
+----- Neorg -----
+cmd('NN', 'Neorg workspace work', { desc = 'notes for work' })
+cmd('NTOC', 'Neorg toc', { desc = 'Table of Contents for Neorg' })
