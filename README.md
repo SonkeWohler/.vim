@@ -9,15 +9,16 @@ some tweaks for any other distro.
 
 ## Setup
 
-The majority of my setup is automated.  There are some manual things noted at
-the end of this section, and you may wish to do the kde setup first, before
-copying in the kde files (before sourcing the `setup/kde.bash` script).  It
-should be fine if you don't.
+A significant amount of my setup is automated.  While you may want to experiment
+with a different order, you are safe to follow these steps in the order they are
+documented in here.
 
 The first thing to do is to setup git.  This and the cloning of the dotfiles can
-be done with a script.  Run the commands below and that script will take you
-through the steps of registering this machine with GitHub and will take care of
-everything else.
+be done with a script.  Run the commands below and that script will walk you
+through the steps of registering this machine with GitHub (ssh-key) and will
+take care of everything else.
+
+[@authentication requires GitHub Username, Password and 2FA]
 
 ```
 cd /tmp
@@ -46,9 +47,11 @@ without restarting first.
 And finally the remaining scripts for DE settings and docker.  These require a
 restart to test.
 
-On Plasma this is also the point when I download the system
-theme *Desert-Global* from the settings.  This should be in place before a
-restart as without it the settings revert.
+On Plasma this is also the point when I download the system theme
+*Desert-Global* from the settings.  This should be in place before a restart as
+without it the settings revert and you have to change them back manually.
+
+When testing whether docker works, there are some notes below on common issues.
 
 ```
 ./kde.bash
@@ -59,26 +62,26 @@ restart as without it the settings revert.
 These scripts take care of, in the above order:
 
 * software, like nvim, kubernetes etc.
-  - note: Docker Desktop might not work quite right, see below.
-  - this doesn't just cover pacman, but also yay, pip and npm, but it is
-    Arch-specific
+    - note: Docker Desktop might not work quite right, see below.
+    - this doesn't just cover pacman, but also yay, pip and npm, but it is
+      Arch-specific
 * dotfiles like ~/.bashrc
-  - this also runs installs for anything that requires this config to be in
-    place for the installation to work properly, like tmux and neovim.
+    - this also runs installs for anything that requires this config to be in
+      place for the installation to work properly, like tmux and neovim.
 * useful scripts for keyboard remaps and terminal autostarts
 * kde files
-  - the most important things this takes care of are:
-    - keyboard shortcuts
-    - plasma widgets
-  - this is still somewhat experimental, so a few things don't work quite the
-    way you might expect.  Stuff like the search preferences in Dolphin, which
-    change somewhat regularly.
+    - the most important things this takes care of are:
+        - keyboard shortcuts
+        - plasma widgets
+    - this is still somewhat experimental, so a few things don't work quite the
+      way you might expect.  Stuff like the search preferences in Dolphin, which
+      change somewhat regularly.
 * setting up docker-desktop to run
-  - After restart you can test with `docker info`.  Consult [the arch
-    wiki](https://wiki.archlinux.org/title/Docker) on common problems like:
-    - Bios not allowing hardware virtualisation
-    - rootless docker working correctly
-    - is `docker.socket` running (`systemctl status docker.socket`)
+    - After restart you can test with `docker info`.  Consult [the arch
+      wiki](https://wiki.archlinux.org/title/Docker) on common problems like:
+        - Bios not allowing hardware virtualisation
+        - rootless docker working correctly
+        - is `docker.socket` running (`systemctl enable --now docker.socket`)
 * place some files on desktop for convenience.
 
 Make sure everything works as intended before moving on to:
@@ -91,35 +94,45 @@ There are some things that you still have to setup manually:
   `nvidia-inst`](https://discovery.endeavouros.com/nvidia/new-nvidia-driver-installer-nvidia-inst/2022/03/)
   for that which works well in my experience to cover steps 1.* in [the Arch Wiki
   instructions](https://wiki.archlinux.org/title/NVIDIA) fully automated.
-* Nextcloud
-  - go to [cloud.sonki.codes](cloud.sonki.codes) and log in
-  - open your local nextcloud and use your browser to authenticate it
-  - sync files to `~/nextcloud`
-  - decript the password database in `~/nextcloud/sync/passwords.kdbx`
-  - optionally, use another machine to add the public ssh key for this new
-    machine to the trusted keys on the server
 * Start and setup Vivaldi
-  - this is kind of annoying.  After logging into my account and decrypting the
-    passwords many things are setup.  And several aren't.
-  - keyboard shortcuts are the most annoying.  They need to be set up manually
-    until I figure out where the damn file is to copy.
-  - theming and other appearance settings also don't seem to sync
+    - Log into my Vivaldi Account to get extensions and their settings
+      [@authentication requires Vivaldi Password and Username]
+    - You can skip the passwords, as these are managed by KeePassXC, see
+      Nextcloud below
+    - this step is kind of annoying.  Even after logging into my account two
+      things are not set up:
+        - keyboard shortcuts are the most annoying.  They need to be set up manually
+          until I figure out where the damn file is to copy/sync
+        - theming and other appearance settings also don't seem to sync.  They
+          are less problematic.
+* Nextcloud
+    - go to [cloud.sonki.codes](cloud.sonki.codes) and log in as `sonki`
+      [@authentication requires Nextcloud Password and Username]
+    - open your local nextcloud and use your browser to authenticate it
+    - sync files to `~/nextcloud`
+    - decript the password database in `~/nextcloud/sync/passwords.kdbx`
+      [@authentication requires keepass-phrase]
+    - connect the KeePassXC browser extension to the database
+        - In KeePassXC go to *Tools > Settings > Browser* and *Enable* for Vivaldi
+        - In the Browser Extension connect to the database
+        - In KeePassXC name the connection and allow it
+    - optionally, use another machine to add the public ssh key for this new
+      machine to the trusted keys on the server
+      [@authentication requires ssh access to nextcloud server]
 * Docker Desktop settings.  You have to wait for it to start up and then restart
   after you adjust the settings:
-  - Enable the Kubernetes extension
-  - CPU and RAM below 4 sometimes causes problems, but you can experiment with
-    that.  On my current I have 4 and 3.8 respectively.
-  - you will want to copy over any k8s config to `~/.kube/config`
-    - this may contain access keys and stuff, similar to `~/.ssh`
-  - consider running `systemctl --user enable docker-desktop`
+    - Enable the Kubernetes extension
+    - CPU and RAM below 4 sometimes causes problems, but you can experiment with
+      that.  On my current I have 4 and 3.8 respectively.
+    - you will want to copy over any k8s config to `~/.kube/config`
+        - this may contain access keys and stuff, similar to `~/.ssh`
+    - consider running `systemctl --user enable docker-desktop`
 * Anything work related:
-  - clone repos and follow setup instructions there
-  - add work directories to `~/locationsForCD.bash`
-  - change `/bin/start_alacritty.bash` to open the work directory
-  - consider adding `git -C $workCD pull` to `/bin/sonke_system_startup.bash`
-* Consider `sudo pacman -S github-cli` and authenticating the new machine.  I
-  don't use it really right now, but maybe in the future I will start using it
-  more.
+  [@authentication requires KeePassXC running and GitHub login]
+    - clone repos and follow setup instructions there
+    - add work directories to `~/locationsForCD.bash`
+    - change `/bin/start_alacritty.bash` to open the work directory
+    - consider adding `git -C $workCD pull` to `/bin/sonke_system_startup.bash`
 * KDE has a tendency to make changes to the version controlled files after
   restarts, not just the first time you set this up.  Often they are not really
   functionally different, so you can often just commit those changes.
