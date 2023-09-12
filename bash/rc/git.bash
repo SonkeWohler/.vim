@@ -159,7 +159,7 @@ alias gitQean='gitqbranches ; git pull ; gitQa'
 #-- git log format my way ; I might refactor using git alias at some point, but
 #I would have to be able to use variables, which I haven't figured out yet.
 # default
-export gitLogMessageFormat='%Cblue%cn, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset'
+export gitLogMessageFormat='%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset'
 # display just default
 alias gitlogmm='git log --pretty=format:"$gitLogMessageFormat"'
 # diffs, where I need to catch the line between commits as I scroll through
