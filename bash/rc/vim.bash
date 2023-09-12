@@ -5,7 +5,7 @@ alias vim='vim -u NONE'
 # open multiple files in tabs, and using 'vi' is quite short and common
 alias vi='nvim -p'
 # quick local notes
-alias nvimnw='nvim -c 'Neorg workspace work''
+alias nvimnw='nvim -c "Neorg workspace work"'
 alias nvimn='nvimnw'
 
 #-- for quick temporary notes
