@@ -17,4 +17,4 @@ Session.vim
 # This of course means that I may not be the first person in the project to add
 # these to the gitignore, since I won't native them coming up in the work space.
 
-/target
+**/target
