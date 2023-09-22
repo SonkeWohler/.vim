@@ -47,6 +47,7 @@ sudo pacman -S github-cli --noconfirm
 # tui related stuff
 sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-iosevka-nerd --noconfirm
+sudo pacman -S otf-droid-nerd --noconfirm
 # other editors
 sudo pacman -S code --noconfirm
 # tools from cargo
