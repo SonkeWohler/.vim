@@ -332,7 +332,7 @@ positions={"3840x2160":["1"\\,"22"\\,"desktop:/notes-for-professionals"\\,"0"\\,
 sortMode=-1
 
 [Containments][40][Wallpaper][org.kde.image][General]
-Image=/home/sonke/libraries/.vim/config/backgrounds/ddforest.jpeg
+Image=/home/sonke/libraries/.vim/config/backgrounds/background_sunflower.jpg
 SlidePaths=/home/sonke/.local/share/wallpapers/,/usr/share/wallpapers/
 
 [Containments][8]
@@ -394,7 +394,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=65
+PreloadWeight=70
 
 [Containments][8][Applets][20]
 immutability=1
