@@ -57,18 +57,18 @@ nmap('<c-w>f', ':lua require("telescope.builtin").find_files()<CR>')
 
 ---- intra-buffer navigation or motion ----
 -- better word definitions that take CamelCase, snake_case, etc, into account
-vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 vim.keymap.set({ "o", "x" }, "aw", '<cmd>lua require("various-textobjs").subword(false)<CR>')
 vim.keymap.set({ "o", "x" }, "iw", '<cmd>lua require("various-textobjs").subword(true)<CR>')
 -- redefine large words with previous vim definition of words
 -- I don't think I need W motions as much as w motions, but the above "subword"
 -- motions I need even more
-vim.keymap.set({"n", "o", "x"}, "W", "w", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "E", "e", { desc = "Spider-e" })
-vim.keymap.set({"n", "o", "x"}, "B", "b", { desc = "Spider-b" })
+vim.keymap.set({ "n", "o", "x" }, "W", "w", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "E", "e", { desc = "Spider-e" })
+vim.keymap.set({ "n", "o", "x" }, "B", "b", { desc = "Spider-b" })
 vim.keymap.set({ "o", "x" }, "aW", 'aw')
 vim.keymap.set({ "o", "x" }, "iW", 'iw')
 vim.keymap.set({ "o", "x" }, "aR", 'aW')
@@ -163,7 +163,7 @@ nmap('gn', gitsigns.next_hunk)
 -- nmap('<space>g', gitsigns.next_hunk)
 nmap('gN', gitsigns.prev_hunk)
 nmap('GN', gitsigns.prev_hunk)
-nmap('GG', 'G')  -- because of the above command
+nmap('GG', 'G') -- because of the above command
 -- nmap('<space>G', gitsigns.prev_hunk)
 nmap('gS', gitsigns.stage_buffer)
 nmap('gs', gitsigns.stage_hunk)
@@ -172,9 +172,9 @@ nmap('gU', gitsigns.reset_hunk)
 nmap('gu', gitsigns.undo_stage_hunk)
 nmap('gl', ':Gitsigns')
 -- most of the above in visual mode too
-vmap('gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-vmap('gU', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-vmap('gu', function() gitsigns.undo_stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+vmap('gs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+vmap('gU', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+vmap('gu', function() gitsigns.undo_stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
 vmap('gl', ':Gitsigns')
 
 ----- Telescope -----
