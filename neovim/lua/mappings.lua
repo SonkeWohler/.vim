@@ -130,10 +130,12 @@ nmap('<space>N', ':lua vim.diagnostic.goto_prev()<cr>')
 nmap('<space>T', '<cmd>Telescope diagnostics<CR>')
 nmap('gT', '<cmd>Telescope diagnostics<CR>') -- trouble
 -- go to definition, references or implementations
-nmap('<space>d', '<cmd>Telescope lsp_definitions<CR>')
-nmap('gd', '<cmd>Telescope lsp_definitions<CR>')
-nmap('<space>D', '<cmd>Telescope lsp_references<CR>') -- opposite of definition
-nmap('gD', '<cmd>Telescope lsp_references<CR>')
+local goToDefinition = '<cmd>Telescope lsp_definitions<CR>'
+nmap('<space>d', goToDefinition)
+nmap('gd', goToDefinition)
+local goToReferences = '<cmd>Telescope lsp_references<CR>'
+nmap('<space>D', goToReferences) -- opposite of definition
+nmap('gD', goToReferences)
 nmap('<space>i', '<cmd>Telescope lsp_implementations<CR>')
 nmap('gi', '<cmd>Telescope lsp_implementations<CR>')
 nmap('<space>t', '<cmd>Telescope lsp_type_definitions<CR>')
@@ -191,6 +193,46 @@ nmap('<space>s', '<cmd>TextCaseOpenTelescope<CR>')
 vmap('<space>s', '<cmd>TextCaseOpenTelescope<CR>')
 -- notification history
 nmap('<space>q', ':lua require("telescope").extensions.notify.notify()<CR>')
+
+----- Obsidian -----
+--- these are some wrapper functions that overwrite my normal settings,
+--- conditional on whether I am inside my obsidian vault and inside
+--- also markdown file
+local whichKey = '<cmd>WhichKey<CR>'
+local isInObsidianVault = function()
+  if nil == string.find(vim.fn.getcwd(), 'nextcloud/sync/vault') then
+    return false
+  end
+  if vim.bo.filetype ~= 'markdown' then
+    return false
+  end
+  return true
+end
+-- follow links
+vim.keymap.set("n", "<space>d", function()
+  if not isInObsidianVault() then
+    return goToDefinition
+  end
+  if require("obsidian").util.cursor_on_markdown_link() then
+    return "<cmd>ObsidianFollowLink<CR>"
+  else
+    return goToDefinition
+  end
+end, { noremap = false, expr = true })
+-- get pages linking to this one
+vim.keymap.set("n", "<space>D", function()
+  if not isInObsidianVault() then
+    return goToReferences
+  end
+  return "<cmd>ObsidianBacklinks<CR>"
+end, { noremap = false, expr = true })
+-- open in obsidian
+vim.keymap.set("n", "<space>g", function()
+  if not isInObsidianVault() then
+    return whichKey
+  end
+  return "<cmd>ObsidianOpen<CR>"
+end, { noremap = false, expr = true })
 
 ---- fixes to remember the cursor position ----
 -- when searching
