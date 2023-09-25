@@ -2,17 +2,17 @@
 
 # First param: whoami
 [username]
-format = " [$user]($style)♥️ "
+format = " [$user]($style)[♥️ ](red)"
 show_always = true
 style_root = "bold red"
-style_user = "bold red"
+style_user = "bold #c538ad"
 
 # Second param: shortened host (computer) name
 [hostname]
 disabled = true
 format = "[$hostname]($style) "
 ssh_only = false
-style = "bold dimmed red"
+style = "bold dimmed #d068e4"
 trim_at = "-"
 
 # Third: number of nested shells
@@ -28,7 +28,7 @@ symbol = " "
 [kubernetes]
 disabled = false
 format = '☸ [$context\($namespace\)]($style) '
-style = "dimmed purple"
+style = "dimmed #1191ec"
 [kubernetes.context_aliases]
 "dev.local.cluster.k8s" = "dev"
 ".*/openshift-cluster/.*" = "openshift"
@@ -53,13 +53,13 @@ style = "dimmed green"
 # Seventh: git status
 [git_status]
 format = "[<$modified$staged$deleted$renamed$untracked$stashed$ahead_behind$conflicted>](green) "
-modified = "[ $count](red)"
+modified = "[ $count](#d068e4)"
 staged = '[+\($count\)](green)'
-deleted = "[x$count](red bold)"
+deleted = "[x$count](#eaa0f8 bold)"
 ahead = "[⇡$count](yellow)"
 behind = "[⇣$count](yellow)"
 up_to_date = "[✓](green bold)"
-untracked = "[?$count](red bold)"
+untracked = "[?$count](#eaa0f8 bold)"
 stashed = "[ $count](white)"
 # diverged = "[⇕$ahead_count⇣$behind_count](orange bold)"
 diverged = "[ﬔ $ahead_count⇣$behind_count](orange bold)"
@@ -80,7 +80,7 @@ symbol = "  "
 # Last: how long the last command took to run
 [cmd_duration]
 disabled = false
-format = "♥️ [$duration]($style)"
+format = "[♥️ ](red)[$duration](bold #eaa0f8)"
 min_time = 1
 
 # --- SECOND LINE: Intermediate
@@ -99,8 +99,8 @@ disabled = false
 # previous, outdated output
 [time]
 disabled = false
-format = " 🕙 $time($style) [-----------------------------------------------------------------](bold blue)\n"
-style = "bright-white"
+format = " 🕙 $time(bold blue) [-----------------------------------------------------------------](bold blue)\n"
+style = "bold blue"
 time_format = "%T"
 
 # --- THIRD LINE: LAST COMMAND STATUS
@@ -109,23 +109,23 @@ time_format = "%T"
 [status]
 disabled = false
 # format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
-format = ' $not_found_symbol$not_executable_symbol$success_symbol$symbol$signal_number'
+format = ' $not_found_symbol$not_executable_symbol$success_symbol$symbol$signal_number[--](bold #d068e4)'
 map_symbol = true
 pipestatus = true
-style = "bold red"
+style = "bold #d068e4"
 
 # --- SYMBOLS
 
 # last process succeeded
-success_symbol = "[λ](red)"
+success_symbol = "[λ](#d068e4)"
 # last process failed
-symbol = "[x](bold green)[X](bold #734bab) [$status](bold blue) [X](bold yellow)[x](bold green)"
+symbol = "[x](bold green)[X](bold #734bab) [$status](bold #d068e4) [X](bold yellow)[x](bold green)"
 # self explanatory
-not_executable_symbol = "[ ](bold #734bab)"
-not_found_symbol = "[🔍 ](bold #734bab)"
+not_executable_symbol = "[x](bold green) [ ](bold #d068e4)[x](bold green)"
+not_found_symbol = "[x](bold green) [🔍 ](bold #d068e4)[x](bold green)"
 # interrupt like <C-C>
-sigint_symbol = "[⚡](bold #734bab)"
-signal_symbol = "[⚡](bold #734bab)"
+sigint_symbol = "[x](bold green) [⚡](bold #d068e4)[x](bold green)[--](bold #d068e4)"
+signal_symbol = "[x](bold green) [⚡](bold #d068e4)[x](bold green)[--](bold #d068e4)"
 
 # the prompt that is usually '$'
 # is replaced by status from above
