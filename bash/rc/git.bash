@@ -178,8 +178,8 @@ gitlogb() { gitlogmb --color=always "$@" | dlt ; }
 alias gitn='gitlog development..HEAD'
 alias gitnn='gitlog development...HEAD'
 # diff
-alias gitdn='gitd development..HEAD'
-alias gitdnn='gitd development...HEAD'
+alias gitdn='gitd development..HEAD --relative'
+alias gitdnn='gitd development...HEAD --relative'
 # status
 alias gitsn='gitdn --name-status'
 alias gitsnn='gitdnn --name-status'
@@ -188,15 +188,15 @@ alias gitsnn='gitdnn --name-status'
 alias gitm='gitlog HEAD..development'
 alias gitmm='gitlog HEAD...development'
 # diff
-alias gitdm='gitd HEAD..development'
-alias gitdmm='gitd HEAD...development'
+alias gitdm='gitd HEAD..development --relative'
+alias gitdmm='gitd HEAD...development --relative'
 # status
 alias gitsm='gitdm --name-status'
 alias gitsmm='gitdmm --name-status'
 # since last pull
 # https://stackoverflow.com/questions/12216595/how-to-show-new-commits-in-git
 alias gitl='gitlog @{1}..'
-alias gitdl='gitd @{1}..'
+alias gitdl='gitd @{1}.. --relative'
 alias gitsl='gitdl --name-status'
 # since last push
 # https://stackoverflow.com/a/8182309
