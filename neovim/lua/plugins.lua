@@ -916,19 +916,26 @@ require('packer').startup(function()
       -- bamboo
       vim.cmd [[highlight IndentBlanklineIndent1 guibg=#252623 gui=nocombine]]
       vim.cmd [[highlight IndentBlanklineIndent2 guibg=#2f312c gui=nocombine]]
-      require("indent_blankline").setup {
-        char = "",
-        show_current_context = true,
-        show_current_context_start = true,
-        char_highlight_list = {
+      require("ibl").setup {
+        indent = {
+          char = "",
+          highlight = {
+            "IndentBlanklineIndent1",
+            "IndentBlanklineIndent2",
+          },
+        },
+        scope = {
+          enabled = true,
+          show_start = true,
+          show_end = true,
+        },
+        whitespace = {
+          remove_blankline_trail = false,
+          highlight = {
           "IndentBlanklineIndent1",
           "IndentBlanklineIndent2",
+          },
         },
-        space_char_highlight_list = {
-          "IndentBlanklineIndent1",
-          "IndentBlanklineIndent2",
-        },
-        show_trailing_blankline_indent = false,
       }
     end
   }
