@@ -51,6 +51,17 @@ cmd('FC', function() require("telescope.builtin").commands() end, { desc = 'help
 -- undo history
 cmd('FU', function() require("telescope").extensions.undo.undo() end, { desc = 'help commands' })
 
+----- lint/format/lsp stuff -----
+--- this may be somewhat specific to my work
+-- NPM lint and fomat
+cmd('FormatNpm', '!npm run format %:p', {desc = 'npm run format this file'})
+cmd('LintNpm', '!npm run lint %:p', {desc = 'npm run lint this file'})
+cmd('CheckNpm', '!npm run format %:p && npm run lint %:p', {desc = 'npm run lint and format this file'})
+-- python
+cmd('FormatPy', '!pipenv run black %:p', {desc = 'pipenv run lint this file'})
+cmd('LintPy', '!pipenv run ruff --fix %:p', {desc = 'pipenv run format this file'})
+cmd('CheckPy', '!pipenv run black %:p && pipenv run ruff --fix %:p', {desc = 'pipenv run lint and format this file'})
+
 ----- help stuff -----
 -- help tags
 cmd('HH', function() require("telescope.builtin").help_tags() end, { desc = 'help from helptags' })
