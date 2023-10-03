@@ -114,8 +114,8 @@ ForegroundPositive=0,106,128
 ForegroundVisited=0,106,128
 
 [DirSelect Dialog]
-DirSelectDialog Size=1652,1096
-History Items[$e]=file:$HOME/libraries/work/app
+DirSelectDialog Size=943,630
+History Items[$e]=file:$HOME/nextcloud/,file:$HOME,file:$HOME/libraries/work/app
 
 [General]
 BrowserApplication=vivaldi-stable.desktop

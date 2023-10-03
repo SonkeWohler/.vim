@@ -60,7 +60,7 @@ plugin=org.kde.plasma.battery
 
 [Containments][2][Applets][21][Configuration]
 PreloadWeight=100
-popupHeight=292
+popupHeight=397
 popupWidth=840
 
 [Containments][2][Applets][22]
@@ -431,4 +431,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
