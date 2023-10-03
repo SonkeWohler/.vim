@@ -818,33 +818,6 @@ require('packer').startup(function()
     end,
   })
 
-  -- note taking
-  -- lets see how awesome this is
-  use {
-    "nvim-neorg/neorg",
-    config = function()
-      require('neorg').setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.summary"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/nextcloud/sync/notes/main",
-                work = "~/nextcloud/sync/notes/work",
-                loc = "~/libraries/notes",
-              },
-              default_workspace = "work",
-            },
-          },
-        },
-      }
-    end,
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-  }
-
   -- use nvim inside browser
   use {
     'glacambre/firenvim',
