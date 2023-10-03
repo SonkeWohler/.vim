@@ -60,6 +60,7 @@ diesel completions bash | sudo tee /etc/bash_completion.d/diesel
 sudo pacman -S vivaldi --noconfirm
 flatpak install flathub com.brave.Browser
 sudo pacman -S signal-desktop --noconfirm
+sudo pacman -S obsidian
 yay -S whatsdesk-bin
 # office stuff
 sudo pacman -S pandoc --noconfirm

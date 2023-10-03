@@ -18,7 +18,7 @@ _k_friendly_name=Keyboard Layout Switcher
 
 [com.brave.Browser.desktop]
 _k_friendly_name=Brave
-_launch=Meta+R,none,Brave
+_launch=Meta+B,none,Brave
 new-private-window=none,none,New Incognito Window
 new-window=none,none,New Window
 
@@ -233,6 +233,10 @@ playmedia=none,none,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
+
+[obsidian.desktop]
+_k_friendly_name=Obsidian
+_launch=Meta+O,none,Obsidian
 
 [org.kde.dolphin.desktop]
 _k_friendly_name=Dolphin

@@ -110,8 +110,8 @@ There are some things that you still have to setup manually:
       [@authentication requires Nextcloud Password and Username]
     - open your local nextcloud and use your browser to authenticate it
     - sync files to `~/nextcloud`
-    - decript the password database in `~/nextcloud/sync/passwords.kdbx`
-      [@authentication requires keepass-phrase]
+    - decrypt the password database in `~/nextcloud/sync/passwords.kdbx`
+      [@authentication requires keepass-phrase etc]
     - connect the KeePassXC browser extension to the database
         - In KeePassXC go to *Tools > Settings > Browser* and *Enable* for Vivaldi
         - In the Browser Extension connect to the database
@@ -119,6 +119,12 @@ There are some things that you still have to setup manually:
     - optionally, use another machine to add the public ssh key for this new
       machine to the trusted keys on the server
       [@authentication requires ssh access to nextcloud server]
+* Obsidian
+    - open the obsidian vault under `~/nextcloud/sync/vault/`.  You can trust
+      the author, since it's me, and install any plugins.
+    - this is somewhat experimental right now, but looks very promising.  I
+      intuitively enjoy this better than other systems/software I have tried -
+      which begs the question why that is and I will eventually figure that out.
 * Docker Desktop settings.  You have to wait for it to start up and then restart
   after you adjust the settings:
     - Enable the Kubernetes extension
@@ -126,6 +132,7 @@ There are some things that you still have to setup manually:
       that.  On my current I have 4 and 3.8 respectively.
     - you will want to copy over any k8s config to `~/.kube/config`
         - this may contain access keys and stuff, similar to `~/.ssh`
+        [@authentication requires kubernetes access keys]
     - consider running `systemctl --user enable docker-desktop`
 * Anything work related:
   [@authentication requires KeePassXC running and GitHub login]
@@ -141,7 +148,7 @@ There are some things that you still have to setup manually:
   annoying, you can play with `~/.gitignore` and that's the end of my ideas so
   far.  I will work on this, at some point.
   - KDE seems to be working on making their dotfiles more dotfile friendly.  I
-    noticed Dolphin settings not being saved to the same files anymore, and
+    noticed Dolphin history not being saved to the same files anymore, and
     hence not being synch-ed across devices.
 
 Depending on the machine this is set up on you may want to adjust some things,
