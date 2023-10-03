@@ -56,8 +56,9 @@ cargo install cargo-update
 cargo install diesel_cli --no-default-features --features postgres
 cargo install diesel_cli_ext
 diesel completions bash | sudo tee /etc/bash_completion.d/diesel
-# communication stuff
+# communication and similar stuff
 sudo pacman -S vivaldi --noconfirm
+flatpak install flathub com.brave.Browser
 sudo pacman -S signal-desktop --noconfirm
 yay -S whatsdesk-bin
 # office stuff
