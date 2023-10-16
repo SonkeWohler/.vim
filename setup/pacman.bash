@@ -1,7 +1,7 @@
 # --- basics
 # update system
 sudo pacman -Syyu --noconfirm
-# package managers
+# system package managers
 sudo pacman -S python-pip --noconfirm
 sudo pacman -S yay --noconfirm
 sudo pacman -S npm --noconfirm
@@ -13,6 +13,8 @@ sudo pacman -S rust-analyzer --noconfirm
 sudo pacman -S go --noconfirm
 sudo pacman -S ts-node --noconfirm  # typescript
 sudo pacman -S luarocks --noconfirm
+# other language-like dependencies
+sudo pacman -S cmake --noconfirm
 # command line emulator
 sudo pacman -S alacritty --noconfirm
 sudo pacman -S tmux --noconfirm
