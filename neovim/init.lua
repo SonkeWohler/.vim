@@ -27,8 +27,17 @@ end
 
 -- ### other lua files
 
+-- nvim_tree requires a different way to customize mappings
+-- which has to be defined before you load the plugin
 require('nvim_tree_on_attach')
+-- make sure colors are right, for the colorscheme
+vim.opt.termguicolors = true
+
+-- install plugins
+-- this might become more split up in the future
 require('plugins')
+
+-- other customization stuff
 require('mappings')
 require('commands')
 require('settings')

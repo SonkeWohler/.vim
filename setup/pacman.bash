@@ -76,9 +76,6 @@ sudo pacman -S nextcloud-client keepassxc --noconfirm
 # sudo pacman -S lutris --noconfirm
 
 # from AUR
-# yay -S nerd-fonts-complete --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
-# package managers
-yay -S nvim-packer-git --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 # misc
 yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 

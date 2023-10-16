@@ -5,32 +5,48 @@
 --------------   for specific plugins, except hydra  --------------
 -------------------------------------------------------------------
 
+----------------------------------------------
+------         bootstrap lazy           ------
+------ install if not installed already ------
+----------------------------------------------
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 ----------------------------------------------
 ------        importing plugins         ------
 ----------------------------------------------
 
-require('packer').startup(function()
+require('lazy').setup({
   ------ meta ------
-
-  -- packer itself
-  use 'wbthomason/packer.nvim'
 
   ------ looks ------
 
   -- nerd fonds, should be part of requirements in other plugins as well anyway
-  use {
+  {
     'kyazdani42/nvim-web-devicons',
+    lazy = false,
     config = function()
       require('nvim-web-devicons').setup {
         default = true,
       }
     end
-  }
+  },
 
   -- pretty notifications
-  use {
+  {
     'rcarriga/nvim-notify',
+    lazy = false,
     -- "folke/noice.nvim",
     -- "MunifTanjim/nui.nvim",
     config = function()
@@ -40,11 +56,11 @@ require('packer').startup(function()
       require('telescope').load_extension('notify')
       vim.notify = require("notify")
     end,
-    after = 'telescope.nvim'
-  }
+    dependencies = 'telescope.nvim',
+  },
 
   -- improved ui interfaces
-  use {
+  {
     'stevearc/dressing.nvim',
     config = function()
       require('dressing').setup {
@@ -67,7 +83,7 @@ require('packer').startup(function()
         }
       }
     end
-  }
+  },
 
   -- smooth scrolling, not sure yet
   --[[ use {
@@ -102,22 +118,23 @@ require('packer').startup(function()
 
   -- use 'xXTgamerXx/everforest-neovim'
 
-  use {
-    'shaunsingh/nord.nvim',
-    config = function()
-      vim.g.nord_borders = true
-      vim.g.nord_contrast = true
-      -- vim.g.nord_disable_background = true
-    end
-  }
+  -- {
+  --   'shaunsingh/nord.nvim',
+  --   config = function()
+  --     vim.g.nord_borders = true
+  --     vim.g.nord_contrast = true
+  --     -- vim.g.nord_disable_background = true
+  --   end
+  -- },
 
-  use {
+  {
     'ribru17/bamboo.nvim',
-    condif = function()
+    lazy = false,
+    config = function()
       require('bamboo').setup {}
       require('bamboo').load()
     end
-  }
+  },
 
   -- use {
   --   "phha/zenburn.nvim",
@@ -127,13 +144,22 @@ require('packer').startup(function()
   ------ commands ------
 
   -- better . use
-  use 'tpope/vim-repeat'
+  {
+    'tpope/vim-repeat',
+    lazy = false,
+  },
   -- more <C-A>
-  use 'tpope/vim-speeddating'
-  use 'zef/vim-cycle'
+  {
+    'tpope/vim-speeddating',
+    lazy = false,
+  },
+  {
+    'zef/vim-cycle',
+    lazy = false,
+  },
   --[[ use {
   'monaqa/dial.nvim',
-  tag = 'v0.3.0',
+  version = 'v0.3.0',
   config = function()
   require('dial.map').setup{}
   end
@@ -141,19 +167,20 @@ require('packer').startup(function()
 
   -- quick diff between files
   -- using telescope
-  use {
+  {
     "jemag/telescope-diff.nvim",
-    after = 'telescope.nvim',
+    dependencies = 'telescope.nvim',
     config = function()
       require("telescope").load_extension("diff")
     end
-  }
+  },
 
   ------ buffers ------
 
   -- close unused buffers
-  use {
+  {
     "chrisgrieser/nvim-early-retirement",
+    lazy = false,
     config = function()
       require("early-retirement").setup {
         -- close as early as possible
@@ -171,32 +198,35 @@ require('packer').startup(function()
         ignoreVisibleBufs = true,
       }
     end,
-  }
+  },
 
   -- I could add it to my own autocommands, or use off the shelf
   -- honestly, which is better?
-  use({
+  {
     "cappyzawa/trim.nvim",
+    lazy = false,
     config = function()
       require("trim").setup({})
     end
-  })
+  },
 
   -- lastplace
   -- maintain the last cursor position in files you opened before
-  use {
+  {
     'ethanholz/nvim-lastplace',
+    lazy = false,
     config = function()
       require('nvim-lastplace').setup {}
     end
-  }
+  },
 
   -- tabline
-  use {
+  {
     'kdheepak/tabline.nvim',
-    requires = {
-      { 'hoob3rt/lualine.nvim',         opt = true },
-      { 'kyazdani42/nvim-web-devicons', opt = true }
+    lazy = false,
+    dependencies = {
+      { 'nvim-lualine/lualine.nvim'},
+      { 'kyazdani42/nvim-web-devicons'}
     },
     config = function()
       require('tabline').setup {
@@ -207,14 +237,15 @@ require('packer').startup(function()
         },
       }
     end
-  }
+  },
 
   -- statusline
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = {
+    lazy = false,
+    dependencies = {
       -- plugin dependency
-      { 'kyazdani42/nvim-web-devicons', opt = true },
+      { 'kyazdani42/nvim-web-devicons'},
       -- add on for this plugin
       "roobert/node-type.nvim",
     },
@@ -255,11 +286,12 @@ require('packer').startup(function()
         },
       }
     end
-  }
+  },
 
   -- better cursor line behaviour, especially for inactive buffers
-  use {
+  {
     'tummetott/reticle.nvim',
+    lazy = false,
     config = function()
       require('reticle').setup {
         -- set default, just in case it changes in the future
@@ -272,20 +304,22 @@ require('packer').startup(function()
         always_show_cl_number = true
       }
     end
-  }
+  },
 
   -- better resizing
-  use {
+  {
     'mrjones2014/smart-splits.nvim',
+    lazy = false,
     config = function()
       require('smart-splits').setup {}
     end
-  }
+  },
 
   -- file view as tree, like nerdtree
-  use {
+  {
     'kyazdani42/nvim-tree.lua',
-    requires = {
+    lazy = false,
+    dependencies = {
       'kyazdani42/nvim-web-devicons',
     },
     config = function()
@@ -298,11 +332,12 @@ require('packer').startup(function()
         on_attach = NvimTreeOnAttach,
       }
     end
-  }
+  },
 
   -- like tmux zoom, but even more user friendly
-  use {
+  {
     'nyngwang/NeoZoom.lua',
+    lazy = false,
     config = function()
       require('neo-zoom').setup {
         top_ratio = 1,
@@ -322,38 +357,45 @@ require('packer').startup(function()
       vim.keymap.set('n', '|', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
       vim.keymap.set('n', '<C-W><CR>', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
     end
-  }
+  },
 
   ------ search ------
 
   -- better string conversions
   -- a bit like tpope's vim-abolish, but with telescope integration
-  use {
+  {
     'johmsalas/text-case.nvim',
-    after = 'telescope.nvim',
+    lazy = false,
+    dependencies = 'telescope.nvim',
     config = function()
       require('textcase').setup {}
       require('telescope').load_extension('textcase')
     end
-  }
+  },
 
   -- better search for multiple words under cursor
-  use {
+  {
     "dvoytik/hi-my-words.nvim",
+    lazy = false,
     config = function()
       require("hi-my-words").setup {}
       nmap('*', ':HiMyWordsToggle<CR>n')
       nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
     end
-  }
+  },
 
   -- fuzzy finding with fzf
   -- NOTE: requires fzf and ripgrep installed on the system.
-  use 'junegunn/fzf.vim'
+  {
+    'junegunn/fzf.vim',
+    lazy = false,
+  },
   -- telescope and related
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.*',
-    requires = {
+  {
+    'nvim-telescope/telescope.nvim',
+    version = '0.1.*',
+    lazy = false,
+    dependencies = {
       -- plugin dependency
       { 'nvim-lua/plenary.nvim' },
       ---- addons for this plugin -----
@@ -362,7 +404,7 @@ require('packer').startup(function()
       -- clipboard
       "AckslD/nvim-neoclip.lua",
     },
-    after = 'telescope-fzf-native.nvim',
+    dependencies = 'telescope-fzf-native.nvim',
     config = function()
       require('telescope').setup {
         defaults = {
@@ -386,8 +428,7 @@ require('packer').startup(function()
             case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
           },
-          undo = {
-          },
+          undo = {},
         },
         pickers = {
           find_files = {
@@ -402,17 +443,18 @@ require('packer').startup(function()
       require('telescope').load_extension('neoclip')
       require('telescope').load_extension('macroscope')
     end
-  }
+  },
 
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
 
   ------ motions ------
 
   -- visual feedback on undo/redo
   -- this currently has a problem with cmp, but otherwise is awesome
   -- https://github.com/tzachar/highlight-undo.nvim/issues/2
-  use {
+  {
     'tzachar/highlight-undo.nvim',
+    lazy = false,
     config = function()
       require('highlight-undo').setup({
         hlgroup = 'HighlightUndo',
@@ -423,38 +465,41 @@ require('packer').startup(function()
         }
       })
     end
-  }
+  },
 
   -- better word based movement
-  use {
+  {
     "chrisgrieser/nvim-spider",
-  }
+    lazy = false,
+  },
 
 
   -- see where f/F will take you quickly, so you can plan ahead with ;/,
-  use {
+  {
     'jinh0/eyeliner.nvim',
+    lazy = false,
     config = function()
       require 'eyeliner'.setup {
         highlight_on_key = false, -- show highlights only after keypress
         dim = false,              -- dim all other characters if set to true
       }
     end
-  }
+  },
 
   -- like tpope's surround but more maintained
-  use {
+  {
     'machakann/vim-sandwich',
+    lazy = false,
     -- I am still used to the tpope/surround keys
     config = function()
       vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
     end
-  }
+  },
 
   -- surround built in lua, but not sure it is where I need it to be
   -- use({
   --   "kylechui/nvim-surround",
-  --   tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+  --   version = "*", -- Use for stability; omit to use `main` branch for the latest features
   --   config = function()
   --     require("nvim-surround").setup({
   --       -- Configuration here, or leave empty to use defaults
@@ -463,8 +508,9 @@ require('packer').startup(function()
   -- })
 
   -- better tpope/vim-unimpaired
-  use {
+  {
     'echasnovski/mini.bracketed',
+    lazy = false,
     config = function()
       require('mini.bracketed').setup {
         -- probably don't really use it, but why not
@@ -497,17 +543,21 @@ require('packer').startup(function()
         yank       = { suffix = 'y', options = {} },
       }
     end
-  }
+  },
 
   -- readline commands everywhere
   -- this is sort of the basic emacs shortcuts
-  use 'linty-org/readline.nvim'
+  {
+    'linty-org/readline.nvim',
+    lazy = false,
+  },
 
   ------ edit actions ------
 
   -- so far the best autopair I've tried.  I used to have reservations
-  use {
+  {
     "windwp/nvim-autopairs",
+    lazy = false,
     config = function()
       require("nvim-autopairs").setup {
         check_ts = true,
@@ -516,29 +566,32 @@ require('packer').startup(function()
         map_c_w = true,
       }
     end
-  }
+  },
 
   -- print as action
-  use {
+  {
     'rareitems/printer.nvim',
+    lazy = false,
     config = function()
       require('printer').setup({
         keymap = "<space>p" -- Plugin doesn't have any keymaps by default
       })
     end
-  }
+  },
 
   -- comments as actions
-  use {
+  {
     'numToStr/Comment.nvim',
+    lazy = false,
     config = function()
       require('Comment').setup()
     end
-  }
+  },
 
   -- color picker and stuff
-  use {
+  {
     'uga-rosa/ccc.nvim',
+    lazy = false,
     config = function()
       require("ccc").setup {
         highlighter = {
@@ -546,87 +599,88 @@ require('packer').startup(function()
         }
       }
     end
-  }
+  },
 
   -- tmux integration for registers
-  use {
+  {
     'tpope/vim-tbone',
-    setup = {
-      vmap('<C-T>', ':Tyank<CR>'),
+    lazy = false,
+    init = function ()
+      vmap('<C-T>', ':Tyank<CR>')
       nmap('<C-T>', 'V:Tyank<CR>')
-    }
-  }
+    end
+  },
 
   ---- python specific
 
   -- python indent
-  use {
-    'Vimjas/vim-python-pep8-indent'
-  }
+  {
+    'Vimjas/vim-python-pep8-indent',
+    lazy = false,
+  },
 
   -- python f-string
-  use {
+  {
     "roobert/f-string-toggle.nvim",
+    lazy = false,
     config = function()
       require("f-string-toggle").setup {
         key_binding = "<space>S"
       }
     end,
-  }
+  },
 
   ------ git ------
 
   -- view git messages
-  use {
+  {
     'rhysd/git-messenger.vim',
-    setup = function()
+    lazy = false,
+    config = function ()
       vim.g.git_messenger_no_default_mappings = false
-    end,
-    config = {
       nmap('gm', '<Plug>(git-messenger)')
-    }
-  }
+    end,
+  },
 
   -- in line git display
-  use {
+  {
     'lewis6991/gitsigns.nvim',
-    requires = 'nvim-lua/plenary.nvim',
+    lazy = false,
+    dependencies = 'nvim-lua/plenary.nvim',
     config = function()
       require('gitsigns').setup()
     end
-  }
+  },
 
   -- a bit like fugitive in lua
-  use {
+  {
     'TimUntersberger/neogit',
+    lazy = false,
     config = function()
       require('neogit').setup {}
     end
-  }
-
-  -- but still need fugitive for some stuff
-  use {
-    'tpope/vim-fugitive'
-  }
+  },
 
   ------ hints ------
 
   -- cheatsheet, except for hydras
-  use {
+  {
     "folke/which-key.nvim",
+    lazy = false,
     config = function()
       require("which-key").setup {}
     end
-  }
+  },
 
   ----------- TreeSitter -----------
 
   -- the main treesitter config
   -- those listed here under required are interconnected in their config, so
   -- they are to me part of the main treesitter installation, not just an extension
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
+    lazy = false,
+    dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'drybalka/tree-climber.nvim',
     },
@@ -709,22 +763,23 @@ require('packer').startup(function()
       vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
       vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
     end,
-    -- run = ':TSUpdate',
-  }
+    -- build = ':TSUpdate',
+  },
 
   -- autopair for html using treesitter
-  use {
+  {
     'windwp/nvim-ts-autotag',
+    lazy = false,
     config = function()
       require('nvim-ts-autotag').setup()
     end,
-    after = 'nvim-treesitter',
-    requires = 'nvim-treesitter/nvim-treesitter',
-  }
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+  },
 
   -- show current function, class, etc if its definition is not currently visible
-  use {
+  {
     'nvim-treesitter/nvim-treesitter-context',
+    lazy = false,
     config = function()
       -- jump to context, often handled by treesitter parent node, depending on
       -- the mode setting below
@@ -740,13 +795,14 @@ require('packer').startup(function()
         trim_scope = 'outer', -- provide the most relevant context
       }
     end,
-    after = 'nvim-treesitter',
-  }
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+  },
 
   -- better folds using treesitter
-  use {
+  {
     'kevinhwang91/nvim-ufo',
-    requires = {
+    lazy = false,
+    dependencies = {
       'kevinhwang91/promise-async',
       'nvim-treesitter/nvim-treesitter',
     },
@@ -757,11 +813,12 @@ require('packer').startup(function()
         end
       })
     end
-  }
+  },
 
   -- highlight code blocks
-  use {
+  {
     "atusy/tsnode-marker.nvim",
+    lazy = false,
     config = function()
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
@@ -774,54 +831,52 @@ require('packer').startup(function()
         end,
       })
     end
-  }
+  },
 
   ------ various/awesome ------
 
-  -- interacting with obsidian
-  -- lets see how awesome this one is
-  use({
-    "epwalsh/obsidian.nvim",
-    requires = {
-      -- Required.
-      "nvim-lua/plenary.nvim",
-
-      -- see below for full list of optional dependencies 👇
-    },
-    config = function()
-      require("obsidian").setup({
-        dir = "~/nextcloud/sync/vault",
-
-        mappings = {},
-        completion = {
-          -- If using nvim-cmp, otherwise set to false
-          nvim_cmp = true,
-          -- Trigger completion at 2 chars
-          min_chars = 2,
-          -- Where to put new notes created from completion. Valid options are
-          --  * "current_dir" - put new notes in same directory as the current buffer.
-          --  * "notes_subdir" - put new notes in the default notes subdirectory.
-          new_notes_location = "current_dir",
-
-          -- Whether to add the output of the node_id_func to new notes in autocompletion.
-          -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
-          prepend_note_id = true
-        },
-        open_app_foreground = true,
-        finder = "telescope.nvim",
-        sort_by = "modified",
-        sort_reversed = true,
-        open_notes_in = "vertical"
-
-        -- see below for full list of options 👇
-      })
-    end,
-  })
+  -- -- interacting with obsidian
+  -- -- lets see how awesome this one is
+  -- {
+  --   "epwalsh/obsidian.nvim",
+  --   lazy = false,
+  --   dependencies = {
+  --     -- Required.
+  --     "nvim-lua/plenary.nvim",
+  --     -- see below for full list of optional dependencies 👇
+  --   },
+  --   config = function()
+  --     require("obsidian").setup({
+  --       dir = "~/nextcloud/sync/vault",
+  --       mappings = {},
+  --       completion = {
+  --         -- If using nvim-cmp, otherwise set to false
+  --         nvim_cmp = true,
+  --         -- Trigger completion at 2 chars
+  --         min_chars = 2,
+  --         -- Where to put new notes created from completion. Valid options are
+  --         --  * "current_dir" - put new notes in same directory as the current buffer.
+  --         --  * "notes_subdir" - put new notes in the default notes subdirectory.
+  --         new_notes_location = "current_dir",
+  --         -- Whether to add the output of the node_id_func to new notes in autocompletion.
+  --         -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
+  --         prepend_note_id = true
+  --       },
+  --       open_app_foreground = true,
+  --       finder = "telescope.nvim",
+  --       sort_by = "modified",
+  --       sort_reversed = true,
+  --       open_notes_in = "vertical"
+  --       -- see below for full list of options 👇
+  --     })
+  --   end,
+  -- },
 
   -- use nvim inside browser
-  use {
+  {
     'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end,
+    lazy = false,
+    build = function() vim.fn['firenvim#install'](0) end,
     config = function()
       vim.g.firenvim_config = {
         globalSettings = { alt = "all" },
@@ -835,11 +890,12 @@ require('packer').startup(function()
         }
       }
     end,
-  }
+  },
 
   -- better open files from terminals inside neovim
-  use {
+  {
     'willothy/flatten.nvim',
+    lazy = false,
     config = function()
       require('flatten').setup {
         window = {
@@ -849,37 +905,42 @@ require('packer').startup(function()
         }
       }
     end
-  }
+  },
 
   -- a bunch of textobjects, but not treesitter dependent
   -- I was expecting this as part of a treesitter plugin, but we will see if
   -- that will come around as well.  And if it will be better.
-  use {
+  {
     "chrisgrieser/nvim-various-textobjs",
+    lazy = false,
     config = function()
       -- I only use subword from here so far, so I use manual mappings
       -- consider markdown links and html attributes for the future
       require("various-textobjs").setup({ useDefaultKeymaps = false })
     end,
-  }
+  },
 
   -- view markdown
-  use {
+  {
     "ellisonleao/glow.nvim",
+    lazy = false,
     config = function()
       require("glow").setup {}
     end
-  }
+  },
 
   -- hydras are awesome, they have their own lua file in my setup
   -- unfortunately, they are mostly awesome in theory.  Not sure why
-  use { 'anuvyklack/hydra.nvim',
-    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
-  }
+  {
+    'anuvyklack/hydra.nvim',
+    lazy = false,
+    dependencies = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+  },
 
   -- indentation guides
-  use {
+  {
     'lukas-reineke/indent-blankline.nvim',
+    lazy = false,
     config = function()
       -- these are colorscheme specific - maybe I will create a command at some
       -- point
@@ -905,37 +966,19 @@ require('packer').startup(function()
         whitespace = {
           remove_blankline_trail = false,
           highlight = {
-          "IndentBlanklineIndent1",
-          "IndentBlanklineIndent2",
+            "IndentBlanklineIndent1",
+            "IndentBlanklineIndent2",
           },
         },
       }
     end
-  }
-
-  -- terminal.  Not that I use it often, but as nvim becomes more like an IDE
-  -- it can be useful sometimes.
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = '2.3.*',
-    config = function()
-      require("toggleterm").setup {
-        size = 100,
-        direction = 'vertical',
-      }
-      function _G.set_terminal_keymaps()
-        local opts = { buffer = 0 }
-        vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-        vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>q]], opts)
-      end
-    end
-  }
+  },
 
   ------- Language Client -----------
 
   -- Language Client
   -- lsp and installer for lsp
-  use {
+  {
     -- servers for all manner of things
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -945,30 +988,34 @@ require('packer').startup(function()
     "j-hui/fidget.nvim",
     -- configure lua lsp for neovim stuff
     'folke/neodev.nvim',
-  }
+    lazy = false,
+  },
 
-  use {
+  {
     'RubixDev/mason-update-all',
-    after = 'mason.nvim',
+    lazy = false,
+    dependencies = 'mason.nvim',
     config = function()
       require('mason-update-all').setup()
     end
-  }
+  },
 
 
   -- non-lsp lsps, like linters etc
-  use({
+  {
     "jose-elias-alvarez/null-ls.nvim",
+    lazy = false,
     config = function()
       require("null-ls").setup()
     end,
-    requires = { "nvim-lua/plenary.nvim" },
-  })
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 
   -- pretty list of diagnostics
-  use {
+  {
     "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    lazy = false,
+    dependencies = "kyazdani42/nvim-web-devicons",
     config = function()
       require('trouble').setup {
         action_keys = {
@@ -976,7 +1023,7 @@ require('packer').startup(function()
         }
       }
     end
-  }
+  },
 
   -- pretty in line visalisation of diagnostics
   --[[ use({
@@ -987,7 +1034,7 @@ end,
 }) ]]
 
   -- Completions of various kinds
-  use { -- more setup at the bottom
+  { -- more setup at the bottom
     -- lsp
     'hrsh7th/cmp-nvim-lsp',
     -- commands (:)
@@ -1004,33 +1051,31 @@ end,
     'hrsh7th/cmp-nvim-lsp-signature-help',
     -- dictionary
     'uga-rosa/cmp-dictionary',
-  }
+    lazy = false,
+  },
 
   -- I don't use snippets (yet), but cmp requires it for setup
-  use {
+  {
     'dcampos/cmp-snippy',
     'dcampos/nvim-snippy',
+    lazy = false,
     config = function()
       require('snippy').setup {}
     end
-  }
+  },
 
   -- completion for crates
-  use {
+  {
     'saecki/crates.nvim',
-    tag = 'v0.3.0',
-    requires = { 'nvim-lua/plenary.nvim' },
+    lazy = false,
+    version = 'v0.3.0',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('crates').setup()
     end,
-  }
+  },
 
-  ------- experiment
-
-  use {
-    'sk1418/HowMuch',
-  }
-end)
+})
 
 ----------------------------------------------
 -----       setting up the plugins      ------
