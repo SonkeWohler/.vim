@@ -225,8 +225,8 @@ require('lazy').setup({
     'kdheepak/tabline.nvim',
     lazy = false,
     dependencies = {
-      { 'nvim-lualine/lualine.nvim'},
-      { 'kyazdani42/nvim-web-devicons'}
+      { 'nvim-lualine/lualine.nvim' },
+      { 'kyazdani42/nvim-web-devicons' }
     },
     config = function()
       require('tabline').setup {
@@ -245,7 +245,7 @@ require('lazy').setup({
     lazy = false,
     dependencies = {
       -- plugin dependency
-      { 'kyazdani42/nvim-web-devicons'},
+      { 'kyazdani42/nvim-web-devicons' },
       -- add on for this plugin
       "roobert/node-type.nvim",
     },
@@ -444,8 +444,9 @@ require('lazy').setup({
       require('telescope').load_extension('macroscope')
     end
   },
-
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  { 'nvim-telescope/telescope-fzf-native.nvim',
+    build =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
 
   ------ motions ------
 
@@ -605,7 +606,7 @@ require('lazy').setup({
   {
     'tpope/vim-tbone',
     lazy = false,
-    init = function ()
+    init = function()
       vmap('<C-T>', ':Tyank<CR>')
       nmap('<C-T>', 'V:Tyank<CR>')
     end
@@ -636,7 +637,7 @@ require('lazy').setup({
   {
     'rhysd/git-messenger.vim',
     lazy = false,
-    config = function ()
+    config = function()
       vim.g.git_messenger_no_default_mappings = false
       nmap('gm', '<Plug>(git-messenger)')
     end,
