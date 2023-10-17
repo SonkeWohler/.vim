@@ -444,9 +444,11 @@ require('lazy').setup({
       require('telescope').load_extension('macroscope')
     end
   },
-  { 'nvim-telescope/telescope-fzf-native.nvim',
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
     build =
-    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  },
 
   ------ motions ------
 
@@ -497,17 +499,6 @@ require('lazy').setup({
       })
     end
   },
-
-  -- surround built in lua, but not sure it is where I need it to be
-  -- use({
-  --   "kylechui/nvim-surround",
-  --   version = "*", -- Use for stability; omit to use `main` branch for the latest features
-  --   config = function()
-  --     require("nvim-surround").setup({
-  --       -- Configuration here, or leave empty to use defaults
-  --     })
-  --   end
-  -- })
 
   -- better tpope/vim-unimpaired
   {
@@ -892,21 +883,6 @@ require('lazy').setup({
         }
       }
     end,
-  },
-
-  -- better open files from terminals inside neovim
-  {
-    'willothy/flatten.nvim',
-    lazy = false,
-    config = function()
-      require('flatten').setup {
-        window = {
-          open = "tab",
-          diff = "tab_vsplit",
-          focus = "first",
-        }
-      }
-    end
   },
 
   -- a bunch of textobjects, but not treesitter dependent
