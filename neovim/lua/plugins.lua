@@ -478,7 +478,7 @@ require('lazy').setup({
   -- see where f/F will take you quickly, so you can plan ahead with ;/,
   {
     'jinh0/eyeliner.nvim',
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require 'eyeliner'.setup {
         highlight_on_key = false, -- show highlights only after keypress
@@ -487,13 +487,14 @@ require('lazy').setup({
     end
   },
 
-  -- like tpope's surround but more maintained
   {
-    'machakann/vim-sandwich',
-    lazy = false,
-    -- I am still used to the tpope/surround keys
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
     config = function()
-      vim.cmd [[ runtime macros/sandwich/keymap/surround.vim ]]
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
   },
 
