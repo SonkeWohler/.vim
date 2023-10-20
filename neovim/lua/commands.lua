@@ -3,7 +3,6 @@
 ----- Other -----
 cmd('Q', 'q!', { desc = 'force quit' })
 cmd('Qa', 'qa!', { desc = 'force quit all buffers' })
-cmd('TERM', 'ToggleTerm size=100 direction=vertical', { desc = 'ToggleTerm vertical' })
 cmd('YankFilePath', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
 cmd('YY', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
 
@@ -11,14 +10,6 @@ cmd('YY', 'let @+ = expand("%")', { desc = 'yank relative path to current file t
 cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
 cmd('LSC', 'NvimTreeClose', { desc = 'close NvimTree' })
 cmd('LSX', 'NvimTreeClose', { desc = 'close NvimTree' })
-
------ Common Editing
-cmd('Trim', '%s/\\v\\s+$//eg', { desc = 'trim whitespace' })
--- TODO formatting
--- TODO organising imports
-
------ maintenance -----
-cmd('PP', 'PackerSync', { desc = 'run PackerSync' })
 
 ----- finding things -----
 ----- mostly telescope now
@@ -99,10 +90,6 @@ cmd(
 ----- viewing or running things -----
 cmd('GLOW', 'Glow', { desc = 'Markdown preview with Glow' })
 cmd('GG', 'Glow', { desc = 'Markdown preview with Glow' })
-
------ Neorg -----
-cmd('NN', 'Neorg workspace work', { desc = 'notes for work' })
-cmd('NTOC', 'Neorg toc', { desc = 'Table of Contents for Neorg' })
 
 ----- Obsidian -----
 cmd('OO', 'ObsidianQuickSwitch', { desc = 'search obsidian note names'})
