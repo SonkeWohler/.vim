@@ -35,7 +35,7 @@ require('lazy').setup({
   -- nerd fonds, should be part of requirements in other plugins as well anyway
   {
     'kyazdani42/nvim-web-devicons',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('nvim-web-devicons').setup {
         default = true,
@@ -46,7 +46,7 @@ require('lazy').setup({
   -- pretty notifications
   {
     'rcarriga/nvim-notify',
-    even = "VeryLazy",
+    event = "VeryLazy",
     -- "folke/noice.nvim",
     -- "MunifTanjim/nui.nvim",
     config = function()
@@ -129,7 +129,7 @@ require('lazy').setup({
 
   {
     'ribru17/bamboo.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('bamboo').setup {}
       require('bamboo').load()
@@ -146,16 +146,16 @@ require('lazy').setup({
   -- better . use
   {
     'tpope/vim-repeat',
-    even = "VeryLazy",
+    lazy = false,
   },
   -- more <C-A>
   {
     'tpope/vim-speeddating',
-    even = "VeryLazy",
+    lazy = false,
   },
   {
     'zef/vim-cycle',
-    even = "VeryLazy",
+    lazy = false,
   },
   --[[ use {
   'monaqa/dial.nvim',
@@ -180,7 +180,7 @@ require('lazy').setup({
   -- close unused buffers
   {
     "chrisgrieser/nvim-early-retirement",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("early-retirement").setup {
         -- close as early as possible
@@ -204,7 +204,7 @@ require('lazy').setup({
   -- honestly, which is better?
   {
     "cappyzawa/trim.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("trim").setup({})
     end
@@ -214,7 +214,7 @@ require('lazy').setup({
   -- maintain the last cursor position in files you opened before
   {
     'ethanholz/nvim-lastplace',
-    even = "VeryLazy",
+    lazy = false,
     config = function()
       require('nvim-lastplace').setup {}
     end
@@ -223,7 +223,7 @@ require('lazy').setup({
   -- tabline
   {
     'kdheepak/tabline.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
       { 'nvim-lualine/lualine.nvim' },
       { 'kyazdani42/nvim-web-devicons' }
@@ -242,7 +242,7 @@ require('lazy').setup({
   -- statusline
   {
     'nvim-lualine/lualine.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
       -- plugin dependency
       { 'kyazdani42/nvim-web-devicons' },
@@ -291,7 +291,7 @@ require('lazy').setup({
   -- better cursor line behaviour, especially for inactive buffers
   {
     'tummetott/reticle.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('reticle').setup {
         -- set default, just in case it changes in the future
@@ -301,7 +301,7 @@ require('lazy').setup({
         },
         -- I can still tell where the cursor is in the other files, it is just
         -- less distracting now
-        always_show_cl_number = true
+        always_highlight_number = true,
       }
     end
   },
@@ -309,7 +309,7 @@ require('lazy').setup({
   -- better resizing
   {
     'mrjones2014/smart-splits.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('smart-splits').setup {}
     end
@@ -318,7 +318,7 @@ require('lazy').setup({
   -- file view as tree, like nerdtree
   {
     'kyazdani42/nvim-tree.lua',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
       'kyazdani42/nvim-web-devicons',
     },
@@ -337,7 +337,7 @@ require('lazy').setup({
   -- like tmux zoom, but even more user friendly
   {
     'nyngwang/NeoZoom.lua',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('neo-zoom').setup {
         top_ratio = 1,
@@ -365,7 +365,7 @@ require('lazy').setup({
   -- a bit like tpope's vim-abolish, but with telescope integration
   {
     'johmsalas/text-case.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = 'telescope.nvim',
     config = function()
       require('textcase').setup {}
@@ -376,7 +376,7 @@ require('lazy').setup({
   -- better search for multiple words under cursor
   {
     "dvoytik/hi-my-words.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("hi-my-words").setup {}
       nmap('*', ':HiMyWordsToggle<CR>n')
@@ -388,13 +388,13 @@ require('lazy').setup({
   -- NOTE: requires fzf and ripgrep installed on the system.
   {
     'junegunn/fzf.vim',
-    even = "VeryLazy",
+    event = "VeryLazy",
   },
   -- telescope and related
   {
     'nvim-telescope/telescope.nvim',
     version = '0.1.*',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
       -- plugin dependency
       { 'nvim-lua/plenary.nvim' },
@@ -457,7 +457,7 @@ require('lazy').setup({
   -- https://github.com/tzachar/highlight-undo.nvim/issues/2
   {
     'tzachar/highlight-undo.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('highlight-undo').setup({
         hlgroup = 'HighlightUndo',
@@ -473,7 +473,7 @@ require('lazy').setup({
   -- better word based movement
   {
     "chrisgrieser/nvim-spider",
-    even = "VeryLazy",
+    event = "VeryLazy",
   },
 
 
@@ -503,7 +503,7 @@ require('lazy').setup({
   -- better tpope/vim-unimpaired
   {
     'echasnovski/mini.bracketed',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('mini.bracketed').setup {
         -- probably don't really use it, but why not
@@ -542,7 +542,7 @@ require('lazy').setup({
   -- this is sort of the basic emacs shortcuts
   {
     'linty-org/readline.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
   },
 
   ------ edit actions ------
@@ -550,7 +550,7 @@ require('lazy').setup({
   -- so far the best autopair I've tried.  I used to have reservations
   {
     "windwp/nvim-autopairs",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("nvim-autopairs").setup {
         check_ts = true,
@@ -564,7 +564,7 @@ require('lazy').setup({
   -- print as action
   {
     'rareitems/printer.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('printer').setup({
         keymap = "<space>p" -- Plugin doesn't have any keymaps by default
@@ -575,7 +575,7 @@ require('lazy').setup({
   -- comments as actions
   {
     'numToStr/Comment.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('Comment').setup()
     end
@@ -584,7 +584,7 @@ require('lazy').setup({
   -- color picker and stuff
   {
     'uga-rosa/ccc.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("ccc").setup {
         highlighter = {
@@ -597,7 +597,7 @@ require('lazy').setup({
   -- tmux integration for registers
   {
     'tpope/vim-tbone',
-    even = "VeryLazy",
+    event = "VeryLazy",
     init = function()
       vmap('<C-T>', ':Tyank<CR>')
       nmap('<C-T>', 'V:Tyank<CR>')
@@ -609,13 +609,13 @@ require('lazy').setup({
   -- python indent
   {
     'Vimjas/vim-python-pep8-indent',
-    even = "VeryLazy",
+    event = "VeryLazy",
   },
 
   -- python f-string
   {
     "roobert/f-string-toggle.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("f-string-toggle").setup {
         key_binding = "<space>S"
@@ -628,7 +628,7 @@ require('lazy').setup({
   -- view git messages
   {
     'rhysd/git-messenger.vim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       vim.g.git_messenger_no_default_mappings = false
       nmap('gm', '<Plug>(git-messenger)')
@@ -638,7 +638,7 @@ require('lazy').setup({
   -- in line git display
   {
     'lewis6991/gitsigns.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = 'nvim-lua/plenary.nvim',
     config = function()
       require('gitsigns').setup()
@@ -648,7 +648,7 @@ require('lazy').setup({
   -- a bit like fugitive in lua
   {
     'TimUntersberger/neogit',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('neogit').setup {}
     end
@@ -659,7 +659,7 @@ require('lazy').setup({
   -- cheatsheet, except for hydras
   {
     "folke/which-key.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("which-key").setup {}
     end
@@ -672,7 +672,7 @@ require('lazy').setup({
   -- they are to me part of the main treesitter installation, not just an extension
   {
     'nvim-treesitter/nvim-treesitter',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'drybalka/tree-climber.nvim',
@@ -762,7 +762,7 @@ require('lazy').setup({
   -- autopair for html using treesitter
   {
     'windwp/nvim-ts-autotag',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('nvim-ts-autotag').setup()
     end,
@@ -772,7 +772,7 @@ require('lazy').setup({
   -- show current function, class, etc if its definition is not currently visible
   {
     'nvim-treesitter/nvim-treesitter-context',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       -- jump to context, often handled by treesitter parent node, depending on
       -- the mode setting below
@@ -794,7 +794,7 @@ require('lazy').setup({
   -- better folds using treesitter
   {
     'kevinhwang91/nvim-ufo',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
       'kevinhwang91/promise-async',
       'nvim-treesitter/nvim-treesitter',
@@ -811,7 +811,7 @@ require('lazy').setup({
   -- highlight code blocks
   {
     "atusy/tsnode-marker.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
@@ -832,7 +832,7 @@ require('lazy').setup({
   -- -- lets see how awesome this one is
   -- {
   --   "epwalsh/obsidian.nvim",
-  --   even = "VeryLazy",
+  --   event = "VeryLazy",
   --   dependencies = {
   --     -- Required.
   --     "nvim-lua/plenary.nvim",
@@ -868,7 +868,7 @@ require('lazy').setup({
   -- use nvim inside browser
   {
     'glacambre/firenvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     build = function() vim.fn['firenvim#install'](0) end,
     config = function()
       vim.g.firenvim_config = {
@@ -890,7 +890,7 @@ require('lazy').setup({
   -- that will come around as well.  And if it will be better.
   {
     "chrisgrieser/nvim-various-textobjs",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       -- I only use subword from here so far, so I use manual mappings
       -- consider markdown links and html attributes for the future
@@ -901,7 +901,7 @@ require('lazy').setup({
   -- view markdown
   {
     "ellisonleao/glow.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("glow").setup {}
     end
@@ -911,14 +911,14 @@ require('lazy').setup({
   -- unfortunately, they are mostly awesome in theory.  Not sure why
   {
     'anuvyklack/hydra.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   },
 
   -- indentation guides
   {
     'lukas-reineke/indent-blankline.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       -- these are colorscheme specific - maybe I will create a command at some
       -- point
@@ -966,12 +966,12 @@ require('lazy').setup({
     "j-hui/fidget.nvim",
     -- configure lua lsp for neovim stuff
     'folke/neodev.nvim',
-    even = "VeryLazy",
+    lazy = false,
   },
 
   {
     'RubixDev/mason-update-all',
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = 'mason.nvim',
     config = function()
       require('mason-update-all').setup()
@@ -982,7 +982,7 @@ require('lazy').setup({
   -- non-lsp lsps, like linters etc
   {
     "jose-elias-alvarez/null-ls.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require("null-ls").setup()
     end,
@@ -992,7 +992,7 @@ require('lazy').setup({
   -- pretty list of diagnostics
   {
     "folke/trouble.nvim",
-    even = "VeryLazy",
+    event = "VeryLazy",
     dependencies = "kyazdani42/nvim-web-devicons",
     config = function()
       require('trouble').setup {
@@ -1029,14 +1029,14 @@ end,
     'hrsh7th/cmp-nvim-lsp-signature-help',
     -- dictionary
     'uga-rosa/cmp-dictionary',
-    even = "VeryLazy",
+    event = "VeryLazy",
   },
 
   -- I don't use snippets (yet), but cmp requires it for setup
   {
     'dcampos/cmp-snippy',
     'dcampos/nvim-snippy',
-    even = "VeryLazy",
+    event = "VeryLazy",
     config = function()
       require('snippy').setup {}
     end
@@ -1045,7 +1045,7 @@ end,
   -- completion for crates
   {
     'saecki/crates.nvim',
-    even = "VeryLazy",
+    event = "VeryLazy",
     version = 'v0.3.0',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
