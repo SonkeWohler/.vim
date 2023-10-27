@@ -1053,7 +1053,19 @@ end,
     end,
   },
 
-})
+},
+{
+    install = {
+      missing = true,
+      colorscheme = { 'bamboo' },
+    },
+    checker = {
+      enabled = true,
+      notify = true,
+      frequency = 86400,
+    },
+}
+)
 
 ----------------------------------------------
 -----       setting up the plugins      ------
