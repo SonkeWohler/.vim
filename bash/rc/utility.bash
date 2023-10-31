@@ -52,12 +52,20 @@ updateNvim() {
   # finally, lsp and stuff
   # show the lsp overview once done
   nvim -c 'autocmd User MasonUpdateAllComplete Mason' -c 'MasonUpdateAll'
+
+updateCargo() {
+    # because I have installed this with limited features I can't just use the
+    # default update command
+    cargo install diesel_cli --no-default-features --features postgres
+    cargo install-update -a
+}
+
 }
 # the rest has simple commands, but I usually use them all at once
 # note that due to conflicts between npm and pacman I don't usually update npm
 # unless I have to
 # alias updateAll='sudo pacman -Syu && yay && updateNvim && cargo install-update -a && flatpak update && sudo npm --global update'
-alias updateAll='sudo pacman -Syu && yay && updateNvim && cargo install-update -a && flatpak update'
+alias updateAll='sudo pacman -Syu && yay && updateNvim && updateCargo && flatpak update'
 # pull important repos, rebuild and list new commits so I know if there is
 # anything I need to do
 alias pullAll='cdw && gitp && make rebuild-dev && gitln && cdv && gitp'
