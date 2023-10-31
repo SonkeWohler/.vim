@@ -18,8 +18,6 @@ wmclassmatch=1
 [1]
 Description=Window settings for keepassxc
 clientmachine=localhost
-desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
-desktopsrule=4
 maximizehoriz=true
 maximizevert=true
 position=1920,90
@@ -59,6 +57,18 @@ types=1
 windowrole=mainwindow#1
 windowrolematch=1
 wmclass=kcalc
+wmclassmatch=1
+
+[2549f403-f081-45b3-9da4-a85af2f22696]
+Description=Obsidian
+desktops=4ad30c34-6eb0-475b-93ea-e5abd3f0d5c0
+desktopsrule=3
+maximizehorizrule=3
+maximizevertrule=3
+shortcut=Meta+D
+shortcutrule=3
+types=1
+wmclass=Obsidian
 wmclassmatch=1
 
 [2eed0297-8c12-410c-a272-29ed3e0f79ce]
@@ -271,8 +281,8 @@ wmclass=dolphin
 wmclassmatch=1
 
 [General]
-count=10
-rules=1,2,3,4,5,6,7,8,9,10
+count=11
+rules=1,2,3,4,5,6,7,8,9,10,2549f403-f081-45b3-9da4-a85af2f22696
 
 [d3176604-3fa1-4999-9386-005bd04fc450]
 Description=Window settings for

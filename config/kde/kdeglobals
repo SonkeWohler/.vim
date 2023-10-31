@@ -164,6 +164,7 @@ Dialog Size=3072,1629
 [Shortcuts]
 Activate Next Tab=Ctrl+]
 Activate Previous Tab=Ctrl+[
+New=
 
 [WM]
 activeBackground=29,33,47
