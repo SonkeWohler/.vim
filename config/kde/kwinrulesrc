@@ -269,6 +269,24 @@ position=0,0
 positionrule=3
 wmclassmatch=1
 
+[67d7f550-7f01-4ee5-abc5-e46f6779cbba]
+Description=Window settings for brave-browser
+clientmachine=localhost
+desktops=e6c194ba-c20e-44a1-ba3c-067bbc206bdf
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+shortcut=Meta+B
+shortcutrule=3
+title=YouTube Music - Brave
+types=1
+windowrole=browser
+windowrolematch=1
+wmclass=brave-browser
+wmclassmatch=1
+
 [7]
 Description=Window settings for firefox
 clientmachine=localhost
@@ -340,8 +358,8 @@ wmclass=systemmonitor
 wmclassmatch=1
 
 [General]
-count=13
-rules=1,2,3,4,5,6,7,8,9,10,11,12,13
+count=14
+rules=67d7f550-7f01-4ee5-abc5-e46f6779cbba,1,2,3,4,5,6,7,8,9,10,11,12,13
 
 [d3176604-3fa1-4999-9386-005bd04fc450]
 Description=Window settings for
