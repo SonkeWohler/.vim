@@ -334,6 +334,6 @@ screenlocker=none,none,Screen Locking
 
 [vivaldi-stable.desktop]
 _k_friendly_name=Vivaldi
-_launch=,none,Vivaldi
-new-private-window=Meta+Shift+W,none,New Private Window
+_launch=Meta+Shift+W,none,Vivaldi
+new-private-window=none,none,New Private Window
 new-window=none,none,New Window

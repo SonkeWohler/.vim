@@ -16,8 +16,80 @@ wmclass=dolphin
 wmclassmatch=1
 
 [1]
+Description=Window settings for vivaldi-stable
+clientmachine=localhost
+desktops=2a769719-5e09-4777-afc6-f578a323324f
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+position=1920,90
+shortcut=Meta+W
+shortcutrule=3
+size=1920,2070
+title=Outlook Calendar - Knosc Inc. - Slack - Vivaldi
+types=1
+windowrole=browser
+windowrolematch=1
+wmclass=vivaldi-stable
+wmclassmatch=1
+
+[10]
+Description=Window settings for dolphin
+clientmachine=localhost
+desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
+maximizevert=true
+maximizevertrule=3
+position=1920,90
+positionrule=3
+size=1920,2070
+sizerule=3
+title=29,1 GiB Removable Media — Dolphin
+types=1
+windowrole=dolphin#1
+windowrolematch=1
+wmclass=dolphin
+wmclassmatch=1
+
+[11]
+Description=Docker Desktop
+desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
+desktopsrule=3
+maximizevert=true
+maximizevertrule=3
+position=0,0
+positionrule=3
+shortcut=Meta+D
+wmclass=docker desktop
+wmclassmatch=1
+
+[12]
+Description=Obsidian
+desktops=4ad30c34-6eb0-475b-93ea-e5abd3f0d5c0
+desktopsrule=3
+maximizehorizrule=3
+maximizevertrule=3
+shortcut=Meta+D
+shortcutrule=3
+types=1
+wmclass=Obsidian
+wmclassmatch=1
+
+[13]
+Description=Brave
+desktops=e6c194ba-c20e-44a1-ba3c-067bbc206bdf
+desktopsrule=3
+shortcut=Meta+B
+shortcutrule=3
+types=1
+wmclass=Brave
+wmclassmatch=1
+
+[2]
 Description=Window settings for keepassxc
 clientmachine=localhost
+desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
 maximizehoriz=true
 maximizevert=true
 position=1920,90
@@ -29,34 +101,6 @@ titlematch=1
 types=1
 windowrole=mainwindow#1
 wmclass=keepassxc
-wmclassmatch=1
-
-[10]
-Description=Docker Desktop
-desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
-desktopsrule=3
-maximizevert=true
-maximizevertrule=3
-position=0,0
-positionrule=3
-wmclass=docker desktop
-wmclassmatch=1
-
-[2]
-Description=Window settings for kcalc
-clientmachine=localhost
-desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
-maximizehoriz=true
-maximizevert=true
-position=0,1125
-positionrule=3
-size=1043,1035
-sizerule=3
-title=KCalc
-types=1
-windowrole=mainwindow#1
-windowrolematch=1
-wmclass=kcalc
 wmclassmatch=1
 
 [2549f403-f081-45b3-9da4-a85af2f22696]
@@ -86,6 +130,23 @@ wmclass=kcalc
 wmclassmatch=1
 
 [3]
+Description=Window settings for kcalc
+clientmachine=localhost
+desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
+maximizehoriz=true
+maximizevert=true
+position=0,1125
+positionrule=3
+size=1043,1035
+sizerule=3
+title=KCalc
+types=1
+windowrole=mainwindow#1
+windowrolematch=1
+wmclass=kcalc
+wmclassmatch=1
+
+[4]
 Description=Window settings for whatsdesk
 clientmachine=localhost
 desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
@@ -102,22 +163,6 @@ types=1
 windowrole=browser-window
 windowrolematch=1
 wmclass=whatsdesk
-wmclassmatch=1
-
-[4]
-Description=Window settings for systemsettings
-clientmachine=localhost
-desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
-maximizehoriz=true
-maximizevertrule=3
-position=0,90
-positionrule=3
-size=1920,2090
-title=Quick Settings — System Settings
-types=1
-windowrole=mainwindow#1
-windowrolematch=1
-wmclass=systemsettings
 wmclassmatch=1
 
 [45fef2d3-4a1f-432f-9a24-57c54dff63cf]
@@ -147,24 +192,20 @@ wmclass=systemmonitor
 wmclassmatch=1
 
 [5]
-Description=Window settings for signal
+Description=Window settings for systemsettings
 clientmachine=localhost
 desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
-desktopsrule=3
 maximizehoriz=true
-maximizevert=true
 maximizevertrule=3
-position=1920,90
+position=0,90
 positionrule=3
 shortcut=Meta+S
-shortcutrule=3
 size=1920,2090
-sizerule=3
-title=Signal
+title=Quick Settings — System Settings
 types=1
-windowrole=browser-window
+windowrole=mainwindow#1
 windowrolematch=1
-wmclass=signal
+wmclass=systemsettings
 wmclassmatch=1
 
 [5e108b82-b12d-4f98-91b0-8cdd0b5a4685]
@@ -183,19 +224,24 @@ wmclass=systemsettings
 wmclassmatch=1
 
 [6]
-Description=Window settings for firefox
+Description=Window settings for signal
 clientmachine=localhost
+desktops=cc48372f-6bd6-4bc2-9664-7ef5381bed9f
+desktopsrule=3
 maximizehoriz=true
-maximizehorizrule=3
 maximizevert=true
 maximizevertrule=3
-position=2228,0
-title=Mozilla Firefox
+position=1920,90
+positionrule=3
+shortcut=Meta+S
+shortcutrule=3
+size=1920,2090
+sizerule=3
+title=Signal
 types=1
-windowrole=browser
+windowrole=browser-window
 windowrolematch=1
-wmclass=navigator firefox
-wmclasscomplete=true
+wmclass=signal
 wmclassmatch=1
 
 [63a17bf5-a224-408e-a536-51f86949fe63]
@@ -224,15 +270,19 @@ positionrule=3
 wmclassmatch=1
 
 [7]
-Description=Window settings for
+Description=Window settings for firefox
 clientmachine=localhost
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
 maximizevertrule=3
 position=2228,0
-positionrule=3
-title=Task Manager - Vivaldi
-titlematch=1
+title=Mozilla Firefox
 types=1
-windowrole=mainwindow#1
+windowrole=browser
+windowrolematch=1
+wmclass=navigator firefox
+wmclasscomplete=true
 wmclassmatch=1
 
 [7409f091-e52b-4797-8ff8-762f27b33eea]
@@ -261,6 +311,20 @@ wmclass=keepassxc
 wmclassmatch=1
 
 [8]
+Description=Window settings for
+clientmachine=localhost
+desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
+maximizevertrule=3
+position=2228,0
+positionrule=3
+size=1920,2070
+title=Task Manager - Vivaldi
+titlematch=1
+types=1
+windowrole=mainwindow#1
+wmclassmatch=1
+
+[9]
 Description=Window settings for systemmonitor
 clientmachine=localhost
 desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
@@ -275,26 +339,9 @@ windowrolematch=1
 wmclass=systemmonitor
 wmclassmatch=1
 
-[9]
-Description=Window settings for dolphin
-clientmachine=localhost
-desktops=8b14bcfe-f72a-48d8-bc6c-bd64f3379dfd
-maximizevert=true
-maximizevertrule=3
-position=1920,90
-positionrule=3
-size=1920,2070
-sizerule=3
-title=29,1 GiB Removable Media — Dolphin
-types=1
-windowrole=dolphin#1
-windowrolematch=1
-wmclass=dolphin
-wmclassmatch=1
-
 [General]
 count=13
-rules=1,2,3,4,5,6,7,8,9,10,2549f403-f081-45b3-9da4-a85af2f22696,eced9a67-d5aa-43b5-bc30-099d0628a5b7,7409f091-e52b-4797-8ff8-762f27b33eea
+rules=1,2,3,4,5,6,7,8,9,10,11,12,13
 
 [d3176604-3fa1-4999-9386-005bd04fc450]
 Description=Window settings for
@@ -305,6 +352,22 @@ positionrule=3
 title=Task Manager - Vivaldi
 titlematch=1
 types=1
+wmclassmatch=1
+
+[e2f4d246-bb62-4312-a909-d15170eb7fb7]
+Description=Window settings for vivaldi-stable
+clientmachine=localhost
+desktops=2a769719-5e09-4777-afc6-f578a323324f
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+title=Outlook Calendar - Knosc Inc. - Slack - Vivaldi
+types=1
+windowrole=browser
+windowrolematch=1
+wmclass=vivaldi-stable
 wmclassmatch=1
 
 [eced9a67-d5aa-43b5-bc30-099d0628a5b7]
