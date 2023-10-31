@@ -156,6 +156,8 @@ maximizevert=true
 maximizevertrule=3
 position=1920,90
 positionrule=3
+shortcut=Meta+S
+shortcutrule=3
 size=1920,2090
 sizerule=3
 title=Signal
@@ -233,6 +235,16 @@ types=1
 windowrole=mainwindow#1
 wmclassmatch=1
 
+[7409f091-e52b-4797-8ff8-762f27b33eea]
+Description=Vivaldi
+desktops=2a769719-5e09-4777-afc6-f578a323324f
+desktopsrule=3
+shortcut=Meta+W
+shortcutrule=3
+types=1
+wmclass=Vivaldi
+wmclassmatch=1
+
 [75164a4c-0a7a-4c25-b86e-52e1c88dcffd]
 Description=Window settings for keepassxc
 clientmachine=localhost
@@ -281,8 +293,8 @@ wmclass=dolphin
 wmclassmatch=1
 
 [General]
-count=11
-rules=1,2,3,4,5,6,7,8,9,10,2549f403-f081-45b3-9da4-a85af2f22696
+count=13
+rules=1,2,3,4,5,6,7,8,9,10,2549f403-f081-45b3-9da4-a85af2f22696,eced9a67-d5aa-43b5-bc30-099d0628a5b7,7409f091-e52b-4797-8ff8-762f27b33eea
 
 [d3176604-3fa1-4999-9386-005bd04fc450]
 Description=Window settings for
@@ -293,6 +305,16 @@ positionrule=3
 title=Task Manager - Vivaldi
 titlematch=1
 types=1
+wmclassmatch=1
+
+[eced9a67-d5aa-43b5-bc30-099d0628a5b7]
+Description=Brave
+desktops=e6c194ba-c20e-44a1-ba3c-067bbc206bdf
+desktopsrule=3
+shortcut=Meta+B
+shortcutrule=3
+types=1
+wmclass=Brave
 wmclassmatch=1
 
 [ff3b8664-d17a-4769-9e6a-debe7fe3009e]

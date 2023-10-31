@@ -18,7 +18,7 @@ _k_friendly_name=Keyboard Layout Switcher
 
 [com.brave.Browser.desktop]
 _k_friendly_name=Brave
-_launch=Meta+B,none,Brave
+_launch=Meta+Shift+B,none,Brave
 new-private-window=none,none,New Incognito Window
 new-window=none,none,New Window
 
@@ -317,7 +317,7 @@ toggle do not disturb=none,,Toggle do not disturb
 
 [signal-desktop.desktop]
 _k_friendly_name=Signal
-_launch=Meta+S,none,Signal
+_launch=Meta+Shift+S,none,Signal
 
 [start_alacritty.bash.desktop]
 _k_friendly_name=start_alacritty.bash
@@ -325,7 +325,7 @@ _launch=Meta+Z,none,start_alacritty.bash
 
 [systemsettings.desktop]
 _k_friendly_name=System Settings
-_launch=Meta+Shift+S\tTools,Tools,System Settings
+_launch=Tools,Tools,System Settings
 kcm-kscreen=none,none,Display Configuration
 kcm-lookandfeel=none,none,Global Theme
 kcm-users=none,none,Users
@@ -334,6 +334,6 @@ screenlocker=none,none,Screen Locking
 
 [vivaldi-stable.desktop]
 _k_friendly_name=Vivaldi
-_launch=Meta+W,none,Vivaldi
-new-private-window=none,none,New Private Window
+_launch=,none,Vivaldi
+new-private-window=Meta+Shift+W,none,New Private Window
 new-window=none,none,New Window
