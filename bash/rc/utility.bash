@@ -52,6 +52,7 @@ updateNvim() {
   # finally, lsp and stuff
   # show the lsp overview once done
   nvim -c 'autocmd User MasonUpdateAllComplete Mason' -c 'MasonUpdateAll'
+}
 
 updateCargo() {
     # because I have installed this with limited features I can't just use the
@@ -60,7 +61,6 @@ updateCargo() {
     cargo install-update -a
 }
 
-}
 # the rest has simple commands, but I usually use them all at once
 # note that due to conflicts between npm and pacman I don't usually update npm
 # unless I have to
