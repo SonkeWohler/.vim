@@ -65,7 +65,7 @@ updateCargo() {
 # note that due to conflicts between npm and pacman I don't usually update npm
 # unless I have to
 # alias updateAll='sudo pacman -Syu && yay && updateNvim && cargo install-update -a && flatpak update && sudo npm --global update'
-alias updateAll='sudo pacman -Syu && yay && updateNvim && updateCargo && flatpak update'
+alias updateAll='sudo pacman -Syu && yay && updateCargo && flatpak update'
 # pull important repos, rebuild and list new commits so I know if there is
 # anything I need to do
 alias pullAll='cdw && gitp && make rebuild-dev && gitln && cdv && gitp'
