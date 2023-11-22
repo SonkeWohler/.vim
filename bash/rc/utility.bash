@@ -43,15 +43,21 @@ alias cool='neofetch'
 
 # neovim has a few things, but they should all work automated now
 # so long as you do them one by one, or the auto-commands/syncs would interfere
+#
+# some I like to **not** auto-quit, so don't just walk away when doing this
 updateNvim() {
-  # plugins
-  nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  # treesitter is handled a little differently
+  # plugin commands are only available once Lazy has loaded.  You can use
+  # --headless, but since I like seeing the summaries (mostly for peace of mind)
+  # I use autocommands instead.
+
+  # plugins, and show summary when done (does not auto-quit)
+  # https://github.com/folke/lazy.nvim/issues/285#issuecomment-1568575198
+  nvim -c "lua require('lazy').sync({wait = true})"
+  # treesitter, nothing much to see, so this one auto-quits
   # https://github.com/nvim-treesitter/nvim-treesitter/issues/2900
-  nvim -c 'TSUpdateSync' -c 'quitall'
-  # finally, lsp and stuff
-  # show the lsp overview once done
-  nvim -c 'autocmd User MasonUpdateAllComplete Mason' -c 'MasonUpdateAll'
+  nvim -c 'autocmd User VeryLazy TSUpdateSync' -c quitall
+  # lsp and stuff, show Mason menu when done (does not auto-quit)
+  nvim -c 'autocmd User MasonUpdateAllComplete Mason' -c 'autocmd User VeryLazy MasonUpdateAll'
 }
 
 updateCargo() {
