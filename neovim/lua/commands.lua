@@ -1,8 +1,7 @@
 -- ## commands
 
 ----- Other -----
-cmd('Q', 'q!', { desc = 'force quit' })
-cmd('Qa', 'qa!', { desc = 'force quit all buffers' })
+cmd('Qa', 'cq 77', { desc = 'force quit all buffers, exit with code 77' })
 cmd('YankFilePath', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
 cmd('YY', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
 

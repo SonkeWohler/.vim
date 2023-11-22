@@ -11,7 +11,10 @@
 	autoSquash = true
 	missingCommitsCheck = error
 	abbreviateCommands = true
+[mergetool "nvim"]
+	cmd = nvim -d $LOCAL $MERGED $REMOTE
 [merge]
+	tool = nvim
 	autoStash = true
 [pull]
 	rebase = false
