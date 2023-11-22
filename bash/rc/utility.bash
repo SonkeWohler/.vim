@@ -37,9 +37,6 @@ remindme() {
 alias cool='neofetch'
 
 ### --- updates
-# pip is a little hands on
-# pip is now managed by pacman, don't worry about it anymore
-# alias updatePip='pip list --outdated | awk "NR>2 {print \$1}" | xargs -I {} pip install {} --upgrade'
 
 # neovim has a few things, but they should all work automated now
 # so long as you do them one by one, or the auto-commands/syncs would interfere
