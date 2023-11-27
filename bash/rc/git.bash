@@ -173,23 +173,34 @@ gitlog() { gitlogmm --color=always "$@" | dlt ; }
 gitlogp() { gitlogmp -p --color=always "$@" | dlt ; }
 # whole message
 gitlogb() { gitlogmb --color=always "$@" | dlt ; }
-#-- new compared to development branch
+
+#-- new compared to GitHub PR base branch or development, if no base branch exists
+gitHubBaseBranchNoError() {
+    gitHubBaseBranch=$(gh pr view --json baseRefName | jq '.baseRefName' -r)
+    if test -z $gitHubBaseBranch; then
+        if git branch | grep development; then
+            gitHubBaseBranch='development'
+        else
+            gitHubBaseBranch='master'
+        fi
+    fi
+}
 # log
-alias gitn='gitlog development..HEAD'
-alias gitnn='gitlog development...HEAD'
+alias gitn='gitHubBaseBranchNoError && gitlog $gitHubBaseBranch..HEAD'
+alias gitnn='gitHubBaseBranchNoError && gitlog $gitHubBaseBranch...HEAD'
 # diff
-alias gitdn='gitd development..HEAD --relative'
-alias gitdnn='gitd development...HEAD --relative'
+alias gitdn='gitHubBaseBranchNoError && gitd $gitHubBaseBranch..HEAD --relative'
+alias gitdnn='gitHubBaseBranchNoError && gitd $gitHubBaseBranch...HEAD --relative'
 # status
 alias gitsn='gitdn --name-status'
 alias gitsnn='gitdnn --name-status'
 #-- missing compared to development branch
 # log
-alias gitm='gitlog HEAD..development'
-alias gitmm='gitlog HEAD...development'
+alias gitm='gitHubBaseBranchNoError && gitlog HEAD..$gitHubBaseBranch'
+alias gitmm='gitHubBaseBranchNoError && gitlog HEAD...$gitHubBaseBranch'
 # diff
-alias gitdm='gitd HEAD..development --relative'
-alias gitdmm='gitd HEAD...development --relative'
+alias gitdm='gitHubBaseBranchNoError && gitd HEAD..$gitHubBaseBranch --relative'
+alias gitdmm='gitHubBaseBranchNoError && gitd HEAD...$gitHubBaseBranch --relative'
 # status
 alias gitsm='gitdm --name-status'
 alias gitsmm='gitdmm --name-status'
