@@ -24,6 +24,7 @@ sudo pacman -S fzf --noconfirm
 sudo pacman -S ripgrep --noconfirm
 sudo pacman -S ripgrep-all --noconfirm
 sudo pacman -S repgrep --noconfirm
+sudo pacman -S jq --noconfirm
 # cli paging and formatting
 sudo pacman -S bat  --noconfirm
 sudo pacman -S bat-extras  --noconfirm
