@@ -1,0 +1,62 @@
+[bell]
+animation = "EaseOutSine"
+color = "#81A1C1"
+duration = 400
+
+[colors]
+transparent_background_colors = false
+
+[colors.bright]
+black = "#686868"
+blue = "#5CCFE6"
+cyan = "#95E6CB"
+green = "#A6CC70"
+magenta = "#FFEE99"
+red = "#F27983"
+white = "#FFFFFF"
+yellow = "#FFCC66"
+
+[colors.normal]
+black = "#191E2A"
+blue = "#73D0FF"
+cyan = "#95E6CB"
+green = "#BAE67E"
+magenta = "#FFD580"
+red = "#FF3333"
+white = "#C7C7C7"
+yellow = "#FFA759"
+
+[colors.primary]
+background = "#2E3440"
+foreground = "#CBCCC6"
+
+[cursor]
+blink_interval = 250
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "monospace"
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[shell]
+args = ["--login"]
+program = "/bin/bash"
+
+[window]
+decorations = "none"
+opacity = 0.6
+startup_mode = "Maximized"
+title = "Home Sweet Home"

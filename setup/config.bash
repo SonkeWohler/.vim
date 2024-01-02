@@ -56,7 +56,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 #-- alacritty
 
 print "setting up alacritty"
-ln --symbolic --verbose $vimCD/config/alacritty.yml ~/.config/
+ln --symbolic --verbose $vimCD/config/alacritty.toml ~/.config/
 
 #-- starship
 
