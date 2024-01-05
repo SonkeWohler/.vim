@@ -97,18 +97,19 @@ nmap('[n', ":lua require('tree-climber').goto_prev()<CR>")
 nmap(']p', ":lua require('tree-climber').goto_child()<CR>")
 nmap('[p', ":lua require('tree-climber').goto_parent()<CR>")
 -- emacs navigation in command mode
+-- this plugin has been removed, and I haven't found a replacement :(
 -- <C-d> for <DEL> is already taken by indentation, but I can use <C-l><C-h>
 -- stead, since I got <C-l> anyway (from the way I use auto-pair)
-local readline = require 'readline'
-vim.keymap.set('!', '<M-f>', readline.forward_word)
-vim.keymap.set('!', '<M-b>', readline.backward_word)
-vim.keymap.set('!', '<C-a>', readline.beginning_of_line)
-vim.keymap.set('!', '<C-e>', readline.end_of_line)
-vim.keymap.set('!', '<M-d>', readline.kill_word)
-vim.keymap.set('!', '<C-w>', readline.backward_kill_word)
-vim.keymap.set('!', '<M-BS>', readline.unix_word_rubout)
-vim.keymap.set('!', '<C-k>', readline.kill_line)
-vim.keymap.set('!', '<C-u>', readline.backward_kill_line)
+-- -- local readline = require 'readline'
+-- -- vim.keymap.set('!', '<M-f>', readline.forward_word)
+-- -- vim.keymap.set('!', '<M-b>', readline.backward_word)
+-- -- vim.keymap.set('!', '<C-a>', readline.beginning_of_line)
+-- -- vim.keymap.set('!', '<C-e>', readline.end_of_line)
+-- -- vim.keymap.set('!', '<M-d>', readline.kill_word)
+-- -- vim.keymap.set('!', '<C-w>', readline.backward_kill_word)
+-- -- vim.keymap.set('!', '<M-BS>', readline.unix_word_rubout)
+-- -- vim.keymap.set('!', '<C-k>', readline.kill_line)
+-- -- vim.keymap.set('!', '<C-u>', readline.backward_kill_le)
 -- arrow keys
 -- I only use these when my hands aren't properly on the keyboard, so it can
 -- be quite comfortable to keep just one hand near the arrow keys sometimes
