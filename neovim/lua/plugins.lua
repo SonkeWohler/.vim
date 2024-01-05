@@ -68,6 +68,7 @@ require('lazy').setup({
       end
     },
 
+  -- TODO add to looks.lua
     -- pretty notifications
     {
       'rcarriga/nvim-notify',
