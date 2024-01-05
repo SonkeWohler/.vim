@@ -31,13 +31,17 @@ end
 -- which has to be defined before you load the plugin
 require('nvim_tree_on_attach')
 -- make sure colors are right, for the colorscheme
+-- has to be before plugins, which has to be before everything else
 vim.opt.termguicolors = true
 
--- install plugins
--- this might become more split up in the future
+-- install plugins, before all the other settings
+-- since I don't usually remove plugins anymore I don't put a lot of effort into
+-- grouping settings etc by plugin, in favor of other groupings.
 require('plugins')
 
 -- other customization stuff
+-- grouped, roughly, by how I think of them, so if I have an idea and I go and
+-- add it I will see if it already exists and I just forgot about it.
 require('mappings')
 require('commands')
 require('settings')
