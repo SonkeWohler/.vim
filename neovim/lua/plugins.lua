@@ -944,6 +944,7 @@ require('lazy').setup({
       dependencies = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
     },
 
+    -- move to new setup done
     -- indentation guides
     {
       'lukas-reineke/indent-blankline.nvim',

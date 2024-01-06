@@ -1,3 +1,8 @@
+------------------------------------------------------
+---    stuff that affects the way things look      ---
+--- except colorschemes, which have their own file ---
+------------------------------------------------------
+
 return {
 
   -- improved ui interfaces
