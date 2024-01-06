@@ -23,7 +23,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 -- TODO, remove if
 -- while I do my migration I can use this
 -- to toggle between old and new setup
@@ -33,7 +32,7 @@ if false then
     {
       install = {
         missing = true,
-        colorscheme = { 'bamboo' },
+        -- colorscheme = { 'bamboo' },  # doesn't seem to work
       },
       checker = {
         enabled = true,
@@ -68,7 +67,7 @@ require('lazy').setup({
       end
     },
 
-  -- TODO add to looks.lua
+    -- TODO add to looks.lua after telescope
     -- pretty notifications
     {
       'rcarriga/nvim-notify',
@@ -162,7 +161,7 @@ require('lazy').setup({
       end
     },
 
-    -- use {
+    -- {
     --   "phha/zenburn.nvim",
     --   config = function() require("zenburn").setup() end
     -- }

@@ -39,6 +39,11 @@ vim.opt.termguicolors = true
 -- grouping settings etc by plugin, in favor of other groupings.
 require('plugins')
 
+-- colorscheme is kind of important
+-- this does not load properly (with the schemes I am using) when defined via
+-- lazy, but this does work
+vim.cmd [[colorscheme bamboo]]
+
 -- other customization stuff
 -- grouped, roughly, by how I think of them, so if I have an idea and I go and
 -- add it I will see if it already exists and I just forgot about it.
