@@ -163,7 +163,7 @@ export gitLogMessageFormat='%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%
 # display just default
 alias gitlogmm='git log --pretty=format:"$gitLogMessageFormat"'
 # diffs, where I need to catch the line between commits as I scroll through
-alias gitlogmp='git log --pretty=format:"%n%n%n%n%n==================================================================================================================%n      === $gitLogMessageFormat ===%n=================================================================================================================="'
+alias gitlogmp='git log --pretty=format:"%n%n%n%n%n==================================================================================================================%n === $gitLogMessageFormat ===%n=================================================================================================================="'
 # whole message (%B), this is old but I haven't removed it yet
 alias gitlogmb='git log --pretty=format:"$gitLogMessageFormat%n---------------------%n%b%n%n"'
 #-- list commits with a pager by default
