@@ -306,6 +306,11 @@ nmap('gX', ':tabclose!<CR>')
 -- waits for argument in command mode
 nmap('gr', ':TablineTabRename ')
 
+---- selection ----
+-- select the line, without the newline character
+-- then I can copy it to different registers, or whatever
+nmap('vv', '0v$h')
+
 ---- line ----
 -- start insert mode with a new line above or below while maintaining indent
 nmap('o', 'ox<BS>')
