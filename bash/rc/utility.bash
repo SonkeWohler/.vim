@@ -49,12 +49,12 @@ updateNvim() {
 
   # plugins, and show summary when done (does not auto-quit)
   # https://github.com/folke/lazy.nvim/issues/285#issuecomment-1568575198
-  nvim -c "lua require('lazy').sync({wait = true})"
+  nvim -c "lua require('lazy').sync({wait = true})" --headless -c 'quit'
   # treesitter, nothing much to see, so this one auto-quits
   # https://github.com/nvim-treesitter/nvim-treesitter/issues/2900
-  nvim -c 'autocmd User VeryLazy TSUpdateSync' -c quitall
+  nvim -c 'autocmd User VeryLazy TSUpdate' --headless -c 'quit'
   # lsp and stuff, show Mason menu when done (does not auto-quit)
-  nvim -c 'autocmd User MasonUpdateAllComplete Mason' -c 'autocmd User VeryLazy MasonUpdateAll'
+  nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'autocmd User VeryLazy MasonUpdateAll'
 }
 
 updateCargo() {
