@@ -73,7 +73,8 @@ ln --symbolic --verbose $vimCD/config/glow.yml ~/.config/glow/glow.yml
 
 print "setting up k9s plugins"
 mkdir --parents --verbose ~/.config/k9s
-ln --symbolic --verbose $vimCD/config/k9s/p.yml ~/.config/k9s/plugin.yml
+ln --symbolic --verbose $vimCD/config/k9s/p.yml ~/.config/k9s/plugins.yaml
+ln --symbolic --verbose $vimCD/config/k9s/c.yml ~/.config/k9s/config.yaml
 
 #-- newsboat, rss reader
 
