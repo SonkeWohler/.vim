@@ -1202,11 +1202,10 @@ cmp.setup({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local dict = require('cmp_dictionary')
-dict.setup({})
-dict.switcher({
-  spelllang = {
-    en = "/usr/share/dicts/en.dict"
-  }
+dict.setup({
+  paths = { '/usr/share/dicts/en.dict' },
+  exact_length = 2,  -- default
+  first_case_insensitive = true,  -- experimental
 })
 
 -- LSP
