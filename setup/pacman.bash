@@ -36,7 +36,6 @@ sudo pacman -S ruff --noconfirm
 # cli editors
 sudo pacman -S vim --noconfirm
 sudo pacman -S neovim --noconfirm
-sudo pacman -S helix --noconfirm  # I don't use this usually, but can be nice
 # other cli
 sudo pacman -S newsboat --noconfirm
 sudo pacman -S xclip --noconfirm
@@ -53,6 +52,7 @@ sudo pacman -S ttf-iosevka-nerd --noconfirm
 sudo pacman -S otf-droid-nerd --noconfirm
 # other editors
 sudo pacman -S code --noconfirm
+flatpak install flathub com.vscodium.codium
 # tools from cargo
 sudo pacman -S postgresql --noconfirm
 cargo install cargo-update
@@ -72,9 +72,8 @@ sudo pacman -S mupdf --noconfirm
 sudo pacman -S skanlite --noconfirm
 sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
 sudo pacman -S nextcloud-client keepassxc --noconfirm
-# gaming, uncomment for any system I want that on
-# sudo pacman -S steam --noconfirm
-# sudo pacman -S lutris --noconfirm
+# recording, debugging, etc
+sudo pacman -S obs-studio --noconfirm
 
 # from AUR
 # misc
