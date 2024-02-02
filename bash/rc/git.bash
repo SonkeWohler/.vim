@@ -113,9 +113,9 @@ gitPruneWell() {
 
 #-- diff
 # list unstaged changes
-gitd() { git diff --color=always --submodule -M -C -B "$@" | dlt ; }
+gitd() { git diff --color=always --irreversible-delete --submodule -M -C -B "$@" | dlt ; }
 # staged changes only
-gitdif() { git diff --staged --color=always --submodule "$@" | dlt ; }
+gitdif() { git diff --irreversible-delete --staged --color=always --submodule "$@" | dlt ; }
 alias gitdd='gitdif'
 alias gitdiff='gitdif'
 
