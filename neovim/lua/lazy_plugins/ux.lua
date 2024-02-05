@@ -10,6 +10,9 @@ return{
   -- * "kevinhwang91/nvim-ufo"
   -- * "atusy/tsnode-marker.nvim"
 
+  -- there is also in telescope.lua
+  -- * "rcarriga/nvim-notify"
+
     -- cheatsheet, except for hydras
     {
       "folke/which-key.nvim",

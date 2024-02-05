@@ -8,6 +8,9 @@ return{
   -- There is also in treesitter.lua
   -- * "windwp/nvim-ts-autotag"
 
+  -- there is also in telescope.lua
+  -- * "johmsalas/text-case.nvim"
+
     -- better . use
     {
       'tpope/vim-repeat',

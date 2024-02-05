@@ -5,6 +5,9 @@
 
 return{
 
+  -- there is also in telescope.lua
+  -- * "jemag/telescope-diff.nvim"
+
     -- file view as tree, like nerdtree
     {
       'kyazdani42/nvim-tree.lua',

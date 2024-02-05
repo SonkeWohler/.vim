@@ -68,7 +68,7 @@ require('lazy').setup({
       end
     },
 
-    -- [migration:: TODO] # requires telescope
+    -- [migration:: done] # requires telescope
     -- pretty notifications
     {
       'rcarriga/nvim-notify',
@@ -194,7 +194,7 @@ require('lazy').setup({
   end
   } ]]
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- quick diff between files
     -- using telescope
     {
@@ -403,7 +403,7 @@ require('lazy').setup({
 
     ------ search ------
 
-    -- [migration:: TODO]  # requires telescope
+    -- [migration:: done]  # requires telescope
     -- better string conversions
     -- a bit like tpope's vim-abolish, but with telescope integration
     {

@@ -68,4 +68,45 @@ return{
       build =
       'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     },
+
+    -- pretty notifications
+    -- could be ux.lua, but relies on telescope so it stays here
+    {
+      'rcarriga/nvim-notify',
+      event = "VeryLazy",
+      -- "folke/noice.nvim",
+      -- "MunifTanjim/nui.nvim",
+      config = function()
+        require("notify").setup {
+          stages = 'slide',
+        }
+        require('telescope').load_extension('notify')
+        vim.notify = require("notify")
+      end,
+      dependencies = 'telescope.nvim',
+    },
+
+    -- quick diff between files
+    -- could be inter_butter_navigation.lua, but relies on telescope so it stays here
+    {
+      "jemag/telescope-diff.nvim",
+      dependencies = 'telescope.nvim',
+      config = function()
+        require("telescope").load_extension("diff")
+      end
+    },
+
+    -- better string conversions
+    -- a bit like tpope's vim-abolish, but with telescope integration
+    -- could be simple_edit.lua, but relies on telescope so it stays here
+    {
+      'johmsalas/text-case.nvim',
+      event = "VeryLazy",
+      dependencies = 'telescope.nvim',
+      config = function()
+        require('textcase').setup {}
+        require('telescope').load_extension('textcase')
+      end
+    },
+
 }
