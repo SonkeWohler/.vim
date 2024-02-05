@@ -888,6 +888,7 @@ require('lazy').setup({
     ------ various/awesome ------
 
     -- [migration:: TODO]
+    -- this is copied, but cannot finish it off until cmp is done
     -- -- interacting with obsidian
     -- -- lets see how awesome this one is
     -- {
@@ -925,7 +926,7 @@ require('lazy').setup({
     --   end,
     -- },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- use nvim inside browser
     {
       'glacambre/firenvim',

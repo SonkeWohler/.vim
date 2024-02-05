@@ -2,6 +2,8 @@
 ---      Some of these options are default but I choose     ---
 ---            to explicitly specify them anyway            ---
 ---------------------------------------------------------------
+-- conceal, used with obsidian and some other things
+vim.opt.conceallevel = 1
 -- spell, since treesitter now sorts out comments vs code
 vim.opt.spell = true
 -- case-sensitivity when searching
