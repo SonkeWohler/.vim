@@ -208,6 +208,7 @@ require('lazy').setup({
 
     ------ buffers ------
 
+    -- [migration:: done]
     -- close unused buffers
     {
       "chrisgrieser/nvim-early-retirement",
