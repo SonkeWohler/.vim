@@ -637,7 +637,7 @@ require('lazy').setup({
       end
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- color picker and stuff
     {
       'uga-rosa/ccc.nvim',
@@ -651,7 +651,7 @@ require('lazy').setup({
       end
     },
 
-    -- [migration:: TODO]
+    -- [migration:: skip]
     -- tmux integration for registers
     {
       'tpope/vim-tbone',

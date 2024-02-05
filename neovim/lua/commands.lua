@@ -93,3 +93,7 @@ cmd('GG', 'Glow', { desc = 'Markdown preview with Glow' })
 ----- Obsidian -----
 cmd('OO', 'ObsidianQuickSwitch', { desc = 'search obsidian note names'})
 cmd('OS', 'ObsidianSearch', { desc = 'ripgrep obsidian note contents'})
+
+----- color picker -----
+cmd('CC', 'CccPick', { desc = 'color picker' })
+cmd('CCC', 'CccPick', { desc = 'color picker' })
