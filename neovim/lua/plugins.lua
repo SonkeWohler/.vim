@@ -416,6 +416,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- better search for multiple words under cursor
     {
       "dvoytik/hi-my-words.nvim",

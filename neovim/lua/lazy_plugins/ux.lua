@@ -100,4 +100,16 @@ return{
       end
     },
 
+    -- better search for multiple words under cursor
+    -- the search is nvim builtin, the way it looks is improved functionally
+    {
+      "dvoytik/hi-my-words.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("hi-my-words").setup {}
+        nmap('*', ':HiMyWordsToggle<CR>n')
+        nmap('<space>*', ':HiMyWordsClear<CR>:noh<CR>')
+      end
+    },
+
 }
