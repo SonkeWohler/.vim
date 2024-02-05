@@ -68,8 +68,7 @@ require('lazy').setup({
       end
     },
 
-    -- TODO add to looks.lua after telescope
-    -- [migration:: todo]
+    -- [migration:: TODO] # requires telescope
     -- pretty notifications
     {
       'rcarriga/nvim-notify',
@@ -404,6 +403,7 @@ require('lazy').setup({
 
     ------ search ------
 
+    -- [migration:: TODO]  # requires telescope
     -- better string conversions
     -- a bit like tpope's vim-abolish, but with telescope integration
     {
@@ -428,12 +428,15 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: TODO]
     -- fuzzy finding with fzf
     -- NOTE: requires fzf and ripgrep installed on the system.
     {
       'junegunn/fzf.vim',
       event = "VeryLazy",
     },
+
+    -- [migration:: TODO]
     -- telescope and related
     {
       'nvim-telescope/telescope.nvim',
@@ -496,6 +499,7 @@ require('lazy').setup({
 
     ------ motions ------
 
+    -- [migration:: skip]
     -- visual feedback on undo/redo
     -- this currently has a problem with cmp, but otherwise is awesome
     -- https://github.com/tzachar/highlight-undo.nvim/issues/2
@@ -586,6 +590,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: TODO]
     -- readline commands everywhere
     -- this is sort of the basic emacs shortcuts
     {
@@ -610,6 +615,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: skip]
     -- print as action
     {
       'rareitems/printer.nvim',
@@ -631,6 +637,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: TODO]
     -- color picker and stuff
     {
       'uga-rosa/ccc.nvim',
@@ -644,6 +651,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: TODO]
     -- tmux integration for registers
     {
       'tpope/vim-tbone',
@@ -656,12 +664,14 @@ require('lazy').setup({
 
     ---- python specific
 
+    -- [migration:: skip]
     -- python indent
     {
       'Vimjas/vim-python-pep8-indent',
       event = "VeryLazy",
     },
 
+    -- [migration:: skip]
     -- python f-string
     {
       "roobert/f-string-toggle.nvim",
@@ -709,6 +719,7 @@ require('lazy').setup({
 
     ------ hints ------
 
+    -- [migration:: done]
     -- cheatsheet, except for hydras
     {
       "folke/which-key.nvim",
@@ -720,6 +731,7 @@ require('lazy').setup({
 
     ----------- TreeSitter -----------
 
+    -- [migration:: TODO]
     -- the main treesitter config
     -- those listed here under required are interconnected in their config, so
     -- they are to me part of the main treesitter installation, not just an extension
@@ -812,6 +824,7 @@ require('lazy').setup({
       -- build = ':TSUpdate',
     },
 
+    -- [migration:: TODO]
     -- autopair for html using treesitter
     {
       'windwp/nvim-ts-autotag',
@@ -822,6 +835,7 @@ require('lazy').setup({
       dependencies = 'nvim-treesitter/nvim-treesitter',
     },
 
+    -- [migration:: TODO]
     -- show current function, class, etc if its definition is not currently visible
     {
       'nvim-treesitter/nvim-treesitter-context',
@@ -844,6 +858,7 @@ require('lazy').setup({
       dependencies = 'nvim-treesitter/nvim-treesitter',
     },
 
+    -- [migration:: TODO]
     -- better folds using treesitter
     {
       'kevinhwang91/nvim-ufo',
@@ -861,6 +876,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: TODO]
     -- highlight code blocks
     {
       "atusy/tsnode-marker.nvim",
@@ -881,6 +897,7 @@ require('lazy').setup({
 
     ------ various/awesome ------
 
+    -- [migration:: TODO]
     -- -- interacting with obsidian
     -- -- lets see how awesome this one is
     -- {
@@ -918,6 +935,7 @@ require('lazy').setup({
     --   end,
     -- },
 
+    -- [migration:: TODO]
     -- use nvim inside browser
     {
       'glacambre/firenvim',
@@ -952,6 +970,7 @@ require('lazy').setup({
       end,
     },
 
+    -- [migration:: TODO]
     -- view markdown
     {
       "ellisonleao/glow.nvim",
@@ -961,6 +980,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: TODO]
     -- hydras are awesome, they have their own lua file in my setup
     -- unfortunately, they are mostly awesome in theory.  Not sure why
     {
@@ -969,6 +989,7 @@ require('lazy').setup({
       dependencies = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
     },
 
+    -- [migration:: TODO]
     -- move to new setup done
     -- indentation guides
     {
@@ -1009,6 +1030,7 @@ require('lazy').setup({
 
     ------- Language Client -----------
 
+    -- [migration:: TODO]
     -- Language Client
     -- lsp and installer for lsp
     {
@@ -1024,6 +1046,7 @@ require('lazy').setup({
       lazy = false,
     },
 
+    -- [migration:: TODO]
     {
       'RubixDev/mason-update-all',
       event = "VeryLazy",
@@ -1034,6 +1057,7 @@ require('lazy').setup({
     },
 
 
+    -- [migration:: TODO]
     -- non-lsp lsps, like linters etc
     {
       "jose-elias-alvarez/null-ls.nvim",
@@ -1044,6 +1068,7 @@ require('lazy').setup({
       dependencies = { "nvim-lua/plenary.nvim" },
     },
 
+    -- [migration:: TODO]
     -- pretty list of diagnostics
     {
       "folke/trouble.nvim",
@@ -1066,6 +1091,7 @@ require("lsp_lines").setup()
 end,
 }) ]]
 
+    -- [migration:: TODO]
     -- Completions of various kinds
     { -- more setup at the bottom
       -- lsp
@@ -1087,6 +1113,7 @@ end,
       event = "VeryLazy",
     },
 
+    -- [migration:: TODO]
     -- I don't use snippets (yet), but cmp requires it for setup
     {
       'dcampos/cmp-snippy',
@@ -1097,6 +1124,7 @@ end,
       end
     },
 
+    -- [migration:: TODO]
     -- completion for crates
     {
       'saecki/crates.nvim',
