@@ -56,6 +56,7 @@ require('lazy').setup({
 
     ------ looks ------
 
+    -- [migration:: done]
     -- nerd fonds, should be part of requirements in other plugins as well anyway
     {
       'kyazdani42/nvim-web-devicons',
@@ -68,6 +69,7 @@ require('lazy').setup({
     },
 
     -- TODO add to looks.lua after telescope
+    -- [migration:: todo]
     -- pretty notifications
     {
       'rcarriga/nvim-notify',
@@ -84,6 +86,7 @@ require('lazy').setup({
       dependencies = 'telescope.nvim',
     },
 
+    -- [migration:: done]
     -- improved ui interfaces
     {
       'stevearc/dressing.nvim',
@@ -152,6 +155,7 @@ require('lazy').setup({
     --   end
     -- },
 
+    -- [migration:: done]
     {
       'ribru17/bamboo.nvim',
       event = "VeryLazy",
@@ -168,6 +172,7 @@ require('lazy').setup({
 
     ------ commands ------
 
+    -- [migration:: done]
     -- better . use
     {
       'tpope/vim-repeat',
@@ -190,6 +195,7 @@ require('lazy').setup({
   end
   } ]]
 
+    -- [migration:: TODO]
     -- quick diff between files
     -- using telescope
     {
@@ -340,6 +346,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- file view as tree, like nerdtree
     {
       'kyazdani42/nvim-tree.lua',
@@ -498,6 +505,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- better word based movement
     {
       "chrisgrieser/nvim-spider",
@@ -653,6 +661,7 @@ require('lazy').setup({
 
     ------ git ------
 
+    -- [migration:: done]
     -- view git messages
     {
       'rhysd/git-messenger.vim',
@@ -663,6 +672,7 @@ require('lazy').setup({
       end,
     },
 
+    -- [migration:: done]
     -- in line git display
     {
       'lewis6991/gitsigns.nvim',
@@ -673,6 +683,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: skip]
     -- a bit like fugitive in lua
     {
       'TimUntersberger/neogit',
