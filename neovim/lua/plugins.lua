@@ -243,6 +243,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- lastplace
     -- maintain the last cursor position in files you opened before
     {

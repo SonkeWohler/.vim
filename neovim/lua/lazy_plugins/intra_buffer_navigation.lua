@@ -80,4 +80,14 @@ return {
       end
     },
 
+    -- lastplace
+    -- maintain the last cursor position in files you opened before
+    {
+      'ethanholz/nvim-lastplace',
+      lazy = false,
+      config = function()
+        require('nvim-lastplace').setup {}
+      end
+    },
+
 }
