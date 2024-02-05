@@ -254,6 +254,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- tabline
     {
       'kdheepak/tabline.nvim',
@@ -273,6 +274,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- statusline
     {
       'nvim-lualine/lualine.nvim',
@@ -322,6 +324,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- better cursor line behaviour, especially for inactive buffers
     {
       'tummetott/reticle.nvim',
