@@ -54,4 +54,38 @@ return{
       end,
     },
 
+    -- more intuitive resizing keybindings
+    {
+      'mrjones2014/smart-splits.nvim',
+      event = "VeryLazy",
+      config = function()
+        require('smart-splits').setup {}
+      end
+    },
+
+    -- like tmux zoom, but even more user friendly
+    {
+      'nyngwang/NeoZoom.lua',
+      event = "VeryLazy",
+      config = function()
+        require('neo-zoom').setup {
+          top_ratio = 1,
+          left_ratio = 1,
+          width_ratio = 1,
+          height_ratio = 1,
+          border = 'double',
+          disable_by_cursor = true, -- zoom-out/unfocus when you click anywhere else.
+          exclude_filetypes = { 'lspinfo', 'mason', 'lazy', 'fzf', 'qf' },
+          popup = {
+            enabled = true,
+            exclude_filetypes = {},
+            exclude_buftypes = {},
+          },
+        }
+        vim.keymap.set('n', '<BS>', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+        vim.keymap.set('n', '|', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+        vim.keymap.set('n', '<C-W><CR>', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
+      end
+    },
+
 }

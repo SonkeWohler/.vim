@@ -343,6 +343,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- better resizing
     {
       'mrjones2014/smart-splits.nvim',
@@ -375,6 +376,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- like tmux zoom, but even more user friendly
     {
       'nyngwang/NeoZoom.lua',
