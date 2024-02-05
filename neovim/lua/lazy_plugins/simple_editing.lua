@@ -73,18 +73,4 @@ return{
       end
     },
 
-  -- color picker and displayer
-  -- I don't use this very often, but nice to have
-    {
-      'uga-rosa/ccc.nvim',
-      event = "VeryLazy",
-      config = function()
-        require("ccc").setup {
-          highlighter = {
-            auto_enable = true
-          }
-        }
-      end
-    },
-
 }

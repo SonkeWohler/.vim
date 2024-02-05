@@ -961,7 +961,7 @@ require('lazy').setup({
       end,
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- view markdown
     {
       "ellisonleao/glow.nvim",
