@@ -6,9 +6,10 @@
 --- Put last so even if anything is messed up with it, the rest of the setup is
 --- already done and I have all the quality of life stuff I need.
 
+-- the main completion engine
 local cmp = require('cmp')
 
--- If you want insert `(` after select function or method item
+-- for '()' after insert
 cmp.event:on(
   'confirm_done',
   require('nvim-autopairs.completion.cmp').on_confirm_done()
@@ -99,6 +100,9 @@ cmp.setup({
   -- }
 })
 
+-- dictionary completion
+-- this requires the dictionary to be setup
+-- which is currently done in setup/script.bash
 local dict = require('cmp_dictionary')
 dict.setup({
   paths = { '/usr/share/dicts/en.dict' },
@@ -106,10 +110,7 @@ dict.setup({
   first_case_insensitive = true,  -- experimental
 })
 
-
--- LSP
--- this doesn't seem to work right if setup in config above
---require("nvim-lsp-installer").setup {}
+-- LSP manager
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
@@ -134,9 +135,8 @@ require("mason-lspconfig").setup({
   automatic_installation = true,
 })
 
+-- connect completion with lsp and make them play nice
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- capabilities are from the completion plugin above, normally people just leave
--- these empty
 local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup {
   capabilities = capabilities
