@@ -73,4 +73,15 @@ return{
       end
     },
 
+  -- RIP readline
+  -- this is very sad.  I really enjoyed this one, but now it is 404
+  -- everywhere.
+  -- readline commands everywhere
+  -- readline commands everywhere
+  -- this is sort of the basic emacs shortcuts
+  -- {
+  --   'linty-org/readline.nvim',
+  --   event = "VeryLazy",
+  -- },
+
 }
