@@ -36,7 +36,8 @@ vim.opt.termguicolors = true
 
 -- install plugins, before all the other settings
 -- since I don't usually remove plugins anymore I don't put a lot of effort into
--- grouping settings etc by plugin, in favor of other groupings.
+-- grouping settings etc by plugin, in favor of other groupings, which make it
+-- easier to extend and fine tune them.
 require('plugins')
 
 -- colorscheme is kind of important
@@ -52,3 +53,4 @@ require('commands')
 require('settings')
 require('hydras')
 require('autocmds')
+require('lsp_setup')
