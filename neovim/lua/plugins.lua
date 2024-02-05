@@ -887,7 +887,7 @@ require('lazy').setup({
 
     ------ various/awesome ------
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- this is copied, but cannot finish it off until cmp is done
     -- -- interacting with obsidian
     -- -- lets see how awesome this one is
