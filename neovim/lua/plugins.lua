@@ -1111,7 +1111,7 @@ end,
       'dcampos/nvim-snippy',
       event = "VeryLazy",
       config = function()
-        require('snippy').setup {}
+        -- require('snippy').setup {}
       end
     },
 

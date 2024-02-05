@@ -6,6 +6,10 @@
 --- Put last so even if anything is messed up with it, the rest of the setup is
 --- already done and I have all the quality of life stuff I need.
 
+-- snippy is required for cmp
+-- I could set it up in its lazy file, or here, where it is needed
+require('snippy').setup {}
+
 -- the main completion engine
 local cmp = require('cmp')
 
