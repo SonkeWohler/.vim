@@ -1036,7 +1036,7 @@ require('lazy').setup({
       lazy = false,
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     {
       'RubixDev/mason-update-all',
       event = "VeryLazy",
@@ -1058,7 +1058,7 @@ require('lazy').setup({
       dependencies = { "nvim-lua/plenary.nvim" },
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- pretty list of diagnostics
     {
       "folke/trouble.nvim",
@@ -1114,7 +1114,7 @@ end,
       end
     },
 
-    -- [migration:: TODO]
+    -- [migration:: skip]
     -- completion for crates
     {
       'saecki/crates.nvim',

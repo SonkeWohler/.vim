@@ -43,4 +43,28 @@ return{
     lazy = false,  -- lsp does not work well lazy loaded
   },
 
+  -- better headless update
+  {
+    'RubixDev/mason-update-all',
+    event = "VeryLazy",
+    dependencies = 'mason.nvim',
+    config = function()
+      require('mason-update-all').setup()
+    end
+  },
+
+  -- pretty list of diagnostics
+  {
+    "folke/trouble.nvim",
+    event = "VeryLazy",
+    dependencies = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require('trouble').setup {
+        action_keys = {
+          jump_close = { 'o', '<c-j>', 'enter' }
+        }
+      }
+    end
+  },
+
 }
