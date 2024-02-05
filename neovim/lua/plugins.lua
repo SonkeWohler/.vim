@@ -980,8 +980,7 @@ require('lazy').setup({
       dependencies = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
     },
 
-    -- [migration:: TODO]
-    -- move to new setup done
+    -- [migration:: done]
     -- indentation guides
     {
       'lukas-reineke/indent-blankline.nvim',
@@ -1021,7 +1020,7 @@ require('lazy').setup({
 
     ------- Language Client -----------
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- Language Client
     -- lsp and installer for lsp
     {
@@ -1048,7 +1047,7 @@ require('lazy').setup({
     },
 
 
-    -- [migration:: TODO]
+    -- [migration:: skip]
     -- non-lsp lsps, like linters etc
     {
       "jose-elias-alvarez/null-ls.nvim",
@@ -1082,7 +1081,7 @@ require("lsp_lines").setup()
 end,
 }) ]]
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- Completions of various kinds
     { -- more setup at the bottom
       -- lsp
@@ -1104,7 +1103,7 @@ end,
       event = "VeryLazy",
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- I don't use snippets (yet), but cmp requires it for setup
     {
       'dcampos/cmp-snippy',
