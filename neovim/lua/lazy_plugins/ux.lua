@@ -13,6 +13,9 @@ return{
   -- there is also in telescope.lua
   -- * "rcarriga/nvim-notify"
 
+  -- there is also in colorscheme.lua:
+  -- * "lukas-reineke/indent-blankline.nvim"
+
     -- cheatsheet, except for hydras
     {
       "folke/which-key.nvim",

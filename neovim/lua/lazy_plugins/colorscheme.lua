@@ -62,9 +62,10 @@ return {
     end
   },
 
-  --- colorscheme related stuff
+  --- stuff that depends greatly on colorscheme, for now at least
 
   -- indentation guides
+  -- could be in ux.lua, but relies on treesitter so it stays here
   {
     'lukas-reineke/indent-blankline.nvim',
     event = "VeryLazy",
