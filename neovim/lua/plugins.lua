@@ -231,6 +231,7 @@ require('lazy').setup({
       end,
     },
 
+    -- [migration:: done]
     -- I could add it to my own autocommands, or use off the shelf
     -- honestly, which is better?
     {
@@ -526,6 +527,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     {
       "kylechui/nvim-surround",
       version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -585,6 +587,7 @@ require('lazy').setup({
 
     ------ edit actions ------
 
+    -- [migration:: done]
     -- so far the best autopair I've tried.  I used to have reservations
     {
       "windwp/nvim-autopairs",
@@ -610,6 +613,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- comments as actions
     {
       'numToStr/Comment.nvim',
