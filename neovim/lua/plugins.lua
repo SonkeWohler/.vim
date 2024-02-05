@@ -513,6 +513,7 @@ require('lazy').setup({
     },
 
 
+    -- [migration:: done]
     -- see where f/F will take you quickly, so you can plan ahead with ;/,
     {
       'jinh0/eyeliner.nvim',
@@ -536,6 +537,7 @@ require('lazy').setup({
       end
     },
 
+    -- [migration:: done]
     -- better tpope/vim-unimpaired
     {
       'echasnovski/mini.bracketed',
@@ -924,6 +926,7 @@ require('lazy').setup({
       end,
     },
 
+    -- [migration:: done]
     -- a bunch of textobjects, but not treesitter dependent
     -- I was expecting this as part of a treesitter plugin, but we will see if
     -- that will come around as well.  And if it will be better.
