@@ -35,8 +35,8 @@ if false then
         -- colorscheme = { 'bamboo' },  # doesn't seem to work
       },
       checker = {
-        enabled = true,
-        notify = true,
+        enabled = false,
+        notify = false,
         frequency = 86400,
       },
       change_detection = {
