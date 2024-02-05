@@ -5,6 +5,23 @@
 
 return{
 
+    -- better . use
+    {
+      'tpope/vim-repeat',
+      event = "VeryLazy",
+    },
+
+    -- more <C-A>
+    {
+      'tpope/vim-speeddating',
+      event = "VeryLazy",
+    },
+
+    {
+      'zef/vim-cycle',
+      event = "VeryLazy",
+    },
+
     -- treat surrounding pairs as one text object
     {
       "kylechui/nvim-surround",
