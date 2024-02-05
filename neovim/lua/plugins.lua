@@ -731,7 +731,7 @@ require('lazy').setup({
 
     ----------- TreeSitter -----------
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- the main treesitter config
     -- those listed here under required are interconnected in their config, so
     -- they are to me part of the main treesitter installation, not just an extension
