@@ -428,7 +428,7 @@ require('lazy').setup({
       end
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- fuzzy finding with fzf
     -- NOTE: requires fzf and ripgrep installed on the system.
     {
@@ -436,7 +436,7 @@ require('lazy').setup({
       event = "VeryLazy",
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- telescope and related
     {
       'nvim-telescope/telescope.nvim',
