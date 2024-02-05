@@ -86,4 +86,75 @@ return{
       -- build = ':TSUpdate',
     },
 
+    -- autopair for html using treesitter
+    -- could be simple_editor.lua, but relies on treesitter so it stays here
+    {
+      'windwp/nvim-ts-autotag',
+      event = "VeryLazy",
+      config = function()
+        require('nvim-ts-autotag').setup()
+      end,
+      dependencies = 'nvim-treesitter/nvim-treesitter',
+    },
+
+    -- show current function, class, etc if its definition is not currently visible
+    -- could be ux.lua, but relies on treesitter so it stays here
+    {
+      'nvim-treesitter/nvim-treesitter-context',
+      event = "VeryLazy",
+      config = function()
+        -- jump to context, often handled by treesitter parent node, depending on
+        -- the mode setting below
+        -- vim.keymap.set("n", "[c", function()
+        --   require("treesitter-context").go_to_context()
+        -- end, { silent = true })
+        -- setup
+        require('treesitter-context').setup {
+          line_numbers = false, -- I can jump there with [p (treesitter parent node)
+          separator = ' ',      -- easier on my eyes
+          mode = 'topline',     -- provide only the context not in view, rather than changing with the cursor
+          max_lines = 7,
+          trim_scope = 'outer', -- provide the most relevant context
+        }
+      end,
+      dependencies = 'nvim-treesitter/nvim-treesitter',
+    },
+
+    -- better folds using treesitter
+    -- could be ux.lua, but relies on treesitter so it stays here
+    {
+      'kevinhwang91/nvim-ufo',
+      event = "VeryLazy",
+      dependencies = {
+        'kevinhwang91/promise-async',
+        'nvim-treesitter/nvim-treesitter',
+      },
+      config = function()
+        require('ufo').setup({
+          provider_selector = function()
+            return { 'treesitter', 'indent' }
+          end
+        })
+      end
+    },
+
+    -- highlight code blocks
+    -- could be in ux.lua, but relies on treesitter so it stays here
+    {
+      "atusy/tsnode-marker.nvim",
+      event = "VeryLazy",
+      config = function()
+        vim.api.nvim_create_autocmd("FileType", {
+          group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
+          pattern = "markdown",
+          callback = function(ctx)
+            require("tsnode-marker").set_automark(ctx.buf, {
+              target = { "code_fence_content" }, -- list of target node types
+              hl_group = "CursorLine",           -- highlight group
+            })
+          end,
+        })
+      end
+    },
+
 }

@@ -814,7 +814,7 @@ require('lazy').setup({
       -- build = ':TSUpdate',
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- autopair for html using treesitter
     {
       'windwp/nvim-ts-autotag',
@@ -825,7 +825,7 @@ require('lazy').setup({
       dependencies = 'nvim-treesitter/nvim-treesitter',
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- show current function, class, etc if its definition is not currently visible
     {
       'nvim-treesitter/nvim-treesitter-context',
@@ -848,7 +848,7 @@ require('lazy').setup({
       dependencies = 'nvim-treesitter/nvim-treesitter',
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- better folds using treesitter
     {
       'kevinhwang91/nvim-ufo',
@@ -866,7 +866,7 @@ require('lazy').setup({
       end
     },
 
-    -- [migration:: TODO]
+    -- [migration:: done]
     -- highlight code blocks
     {
       "atusy/tsnode-marker.nvim",

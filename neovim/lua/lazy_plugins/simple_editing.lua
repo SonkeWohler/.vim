@@ -5,6 +5,9 @@
 
 return{
 
+  -- There is also in treesitter.lua
+  -- * "windwp/nvim-ts-autotag"
+
     -- better . use
     {
       'tpope/vim-repeat',

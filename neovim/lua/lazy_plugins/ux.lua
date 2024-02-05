@@ -5,6 +5,11 @@
 
 return{
 
+  -- there is also in treesitter.lua:
+  -- * "nvim-treesitter/nvim-treesitter-context"
+  -- * "kevinhwang91/nvim-ufo"
+  -- * "atusy/tsnode-marker.nvim"
+
     -- cheatsheet, except for hydras
     {
       "folke/which-key.nvim",
