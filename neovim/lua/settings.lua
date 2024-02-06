@@ -3,7 +3,7 @@
 ---            to explicitly specify them anyway            ---
 ---------------------------------------------------------------
 -- conceal, used with obsidian and some other things
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 0
 -- spell, since treesitter now sorts out comments vs code
 vim.opt.spell = true
 -- case-sensitivity when searching

@@ -37,6 +37,9 @@ return{
       },
       config = function()
         require("obsidian").setup({
+          ui = {
+            enable = false,
+          },
           dir = "~/nextcloud/sync/vault",
           mappings = {},
           completion = {
