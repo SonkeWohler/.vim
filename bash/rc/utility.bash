@@ -16,7 +16,7 @@ mytimednotify() {
         message="$@"
     fi
 
-    code=$(sleep $time && notify-send "$message" --action 'done' --action '+1min' --action 'repeat' --app-name 'note to self' --wait --expire-time 300000)
+    code=$(sleep $time && notify-send "$message" --action 'done' --action '+1min' --action 'repeat' --app-name "timer $time" --wait --expire-time 300000)
     if test $code -eq 1; then
         mytimednotify '1m' $message
     else
