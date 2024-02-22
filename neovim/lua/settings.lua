@@ -2,7 +2,7 @@
 ---      Some of these options are default but I choose     ---
 ---            to explicitly specify them anyway            ---
 ---------------------------------------------------------------
--- conceal, used with obsidian and some other things
+-- used with obsidian and some other things, but I really don't like it
 vim.opt.conceallevel = 0
 -- spell, since treesitter now sorts out comments vs code
 vim.opt.spell = true

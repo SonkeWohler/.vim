@@ -4,7 +4,7 @@
 ---     intertwined with them     ---
 -------------------------------------
 
-return{
+return {
 
   -- the cmp instructions are very interconnected, so I am putting them all
   -- together, plus lsp
@@ -40,7 +40,7 @@ return{
     -- configure lua lsp for neovim stuff
     'folke/neodev.nvim',
     -- config
-    lazy = false,  -- lsp does not work well lazy loaded
+    lazy = false, -- lsp does not work well lazy loaded
   },
 
   -- better headless update

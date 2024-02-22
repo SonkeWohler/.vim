@@ -110,8 +110,8 @@ cmp.setup({
 local dict = require('cmp_dictionary')
 dict.setup({
   paths = { '/usr/share/dicts/en.dict' },
-  exact_length = 2,  -- default
-  first_case_insensitive = true,  -- experimental
+  exact_length = 2,              -- default
+  first_case_insensitive = true, -- experimental
 })
 
 -- LSP manager

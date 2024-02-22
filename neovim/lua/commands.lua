@@ -44,13 +44,13 @@ cmd('FU', function() require("telescope").extensions.undo.undo() end, { desc = '
 ----- lint/format/lsp stuff -----
 --- this may be somewhat specific to my work
 -- NPM lint and fomat
-cmd('FormatNpm', '!npm run format %:p', {desc = 'npm run format this file'})
-cmd('LintNpm', '!npm run lint %:p', {desc = 'npm run lint this file'})
-cmd('CheckNpm', '!npm run format %:p && npm run lint %:p', {desc = 'npm run lint and format this file'})
+cmd('FormatNpm', '!npm run format %:p', { desc = 'npm run format this file' })
+cmd('LintNpm', '!npm run lint %:p', { desc = 'npm run lint this file' })
+cmd('CheckNpm', '!npm run format %:p && npm run lint %:p', { desc = 'npm run lint and format this file' })
 -- python
-cmd('FormatPy', '!pipenv run black %:p', {desc = 'pipenv run lint this file'})
-cmd('LintPy', '!pipenv run ruff --fix %:p', {desc = 'pipenv run format this file'})
-cmd('CheckPy', '!pipenv run black %:p && pipenv run ruff --fix %:p', {desc = 'pipenv run lint and format this file'})
+cmd('FormatPy', '!pipenv run black %:p', { desc = 'pipenv run lint this file' })
+cmd('LintPy', '!pipenv run ruff --fix %:p', { desc = 'pipenv run format this file' })
+cmd('CheckPy', '!pipenv run black %:p && pipenv run ruff --fix %:p', { desc = 'pipenv run lint and format this file' })
 
 ----- help stuff -----
 -- help tags
@@ -91,8 +91,8 @@ cmd('GLOW', 'Glow', { desc = 'Markdown preview with Glow' })
 cmd('GG', 'Glow', { desc = 'Markdown preview with Glow' })
 
 ----- Obsidian -----
-cmd('OO', 'ObsidianQuickSwitch', { desc = 'search obsidian note names'})
-cmd('OS', 'ObsidianSearch', { desc = 'ripgrep obsidian note contents'})
+cmd('OO', 'ObsidianQuickSwitch', { desc = 'search obsidian note names' })
+cmd('OS', 'ObsidianSearch', { desc = 'ripgrep obsidian note contents' })
 
 ----- color picker -----
 cmd('CC', 'CccPick', { desc = 'color picker' })

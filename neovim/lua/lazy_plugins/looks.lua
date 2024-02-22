@@ -15,14 +15,14 @@ return {
         mappings = {
           n = {
             ['<esc>'] = 'Close',
-            ['<c-q>'] = 'Close',     -- doesn't seem to work as intended
-            ['<c-j>'] = 'Confirm',   -- this is a bit of a problem due to my remaps
+            ['<c-q>'] = 'Close',   -- doesn't seem to work as intended
+            ['<c-j>'] = 'Confirm', -- this is a bit of a problem due to my remaps
             ['<c-m>'] = 'Confirm',
           },
           i = {
             ['<c-c>'] = 'Close',
-            ['<c-q>'] = 'Close',     -- doesn't seem to work as intended
-            ['<c-j>'] = 'Confirm',   -- this is a bit of a problem due to by remaps
+            ['<c-q>'] = 'Close',   -- doesn't seem to work as intended
+            ['<c-j>'] = 'Confirm', -- this is a bit of a problem due to by remaps
             ['<c-m>'] = 'Confirm',
             ["<Up>"] = "HistoryPrev",
             ["<Down>"] = "HistoryNext",
