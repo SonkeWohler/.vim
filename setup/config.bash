@@ -63,6 +63,19 @@ ln --symbolic --verbose $vimCD/config/alacritty.toml ~/.config/
 print "setting up starship"
 ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
 
+#-- fish shell - experimental for now
+print "setting up fish and fisher"
+# fish tends to initialize with this file at installation
+if test -f ~/.config/fish/config.fish; then
+    rm -v ~/.config/fish/config.fish
+fi
+if test -d ~/.config/fish/functions; then
+    rm -vdr ~/.config/fish/functions
+fi
+ln --symbolic --verbose $vimCD/config/fish/c.fish ~/.config/fish/config.fish
+ln --symbolic --verbose $vimCD/config/fish/p ~/.config/fish/fish_plugins
+ln --symbolic --verbose $vimCD/config/fish/functions/ ~/.config/fish/functions/
+
 #-- glow, used for neovim, but can be used independently
 
 print "setting up glow"
