@@ -30,3 +30,22 @@
 [alias]
 	ls = !git ls-files $@ | delta
     checkoub = checkout -b
+	s = status
+	d = diff --irreversible-delete --find-renames --find-copies
+	dd = diff --staged --irreversible-delete --find-renames --find-copies
+	log-message-default = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset\"
+	log-message-diff = log -p --pretty=format:\"%n%n%n%n%n==================================================================================================================%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
+	lp = log-message-diff
+	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
+	lb = log-message-text
+	l = log-message-default
+	ll = log-message-default @{1}..
+	dl = d @{1}.. --relative
+	sl = dl --name-status
+	ln = log-message-default @{u}..
+	dln = d @{u}..
+	sln = dln --name-status
+	q = restore --staged
+	qa = restore --staged :/
+	r = reset --soft HEAD~
+	qqq = restore --source=HEAD --staged --worktree
