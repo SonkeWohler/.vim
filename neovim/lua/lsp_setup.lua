@@ -6,34 +6,57 @@
 --- Put last so even if anything is messed up with it, the rest of the setup is
 --- already done and I have all the quality of life stuff I need.
 
--- snippy is required for cmp
--- I could set it up in its lazy file, or here, where it is needed
-require('snippy').setup {}
+local lsp_zero = require('lsp-zero')
 
--- the main completion engine
-local cmp = require('cmp')
+-- prevents me from manually setting up completion
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
 
--- for '()' after insert
-cmp.event:on(
-  'confirm_done',
-  require('nvim-autopairs.completion.cmp').on_confirm_done()
-)
-
--- the main completion setup function
--- this is pretty long, but needs to come first
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('snippy').expand_snippet(args.body)
-    end
+--- if you want to know more about lsp-zero and mason.nvim
+--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    lsp_zero.default_setup,
   },
+  ensure_installed = {
+    "angularls",
+    "bashls",
+    "cmake",
+    "dockerls",
+    "gopls",
+    "html",
+    "jdtls",
+    "jsonls",
+    "lemminx",
+    "lua_ls",
+    "marksman",
+    "rust_analyzer",
+    "sqlls",
+    "texlab",
+    "tsserver",
+    "yamlls",
+    "pylsp",
+    -- "docformatter",
+    -- "isort",
+  },
+  automatic_installation = true,
+})
+
+-- local lua_opts = lsp_zero.nvim_lua_ls()
+-- require('lspconfig').lua_ls.setup(lua_opts)
+
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
   mapping = cmp.mapping.preset.insert({
-    -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-<Space>>'] = cmp.mapping.complete(),
-    ['<C-Q>'] = cmp.mapping.abort(),
+    -- confirm
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
     ['<c-j>'] = cmp.mapping.confirm({ select = false }),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    -- different from <esc> by undoing any completion so far
+    ['<C-Q>'] = cmp.mapping.abort(),
   }),
   sources = cmp.config.sources(
   -- these I use all the time
@@ -61,12 +84,6 @@ cmp.setup({
             return vim.tbl_keys(bufs)
           end
         }
-        -- all buffers
-        -- option = {
-        --   get_bufnrs = function()
-        --     return vim.api.nvim_list_bufs()
-        --   end
-        -- }
       },
       -- dictionary (english right now)
       {
@@ -74,34 +91,7 @@ cmp.setup({
         keyword_length = 2,
       },
     }
-  -- and if none of the above is available maybe I am typing a filepath
-  -- ,
-  -- this is currenlty breaking dictionary.  I guess I need to do some sorting
-  -- or something
-  -- {
-  --   -- paths
-  --   {
-  --     name = 'path',
-  --     options = {
-  --       trailing_slash = false,
-  --       label_trailing_slash = false,
-  --     },
-  --   },
-  -- }
   ),
-  -- recommended order from
-  -- sorting = {
-  --   comparators = {
-  --     cmp.config.compare.offset,
-  --     cmp.config.compare.exact,
-  --     cmp.config.compare.score,
-  --     require "cmp-under-comparator".under,
-  --     cmp.config.compare.kind,
-  --     cmp.config.compare.sort_text,
-  --     cmp.config.compare.length,
-  --     cmp.config.compare.order,
-  --   }
-  -- }
 })
 
 -- dictionary completion
@@ -113,83 +103,3 @@ dict.setup({
   exact_length = 2,              -- default
   first_case_insensitive = true, -- experimental
 })
-
--- LSP manager
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "angularls",
-    "bashls",
-    "cmake",
-    "dockerls",
-    "gopls",
-    "html",
-    "jdtls",
-    "jsonls",
-    "lemminx",
-    "lua_ls",
-    "marksman",
-    "pylsp",
-    "rust_analyzer",
-    "sqlls",
-    "texlab",
-    "tsserver",
-    "yamlls",
-  },
-  automatic_installation = true,
-})
-
--- connect completion with lsp and make them play nice
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require("lspconfig")
-lspconfig.lua_ls.setup {
-  capabilities = capabilities
-}
-lspconfig.bashls.setup {
-  capabilities = capabilities
-}
-lspconfig.angularls.setup {
-  capabilities = capabilities
-}
-lspconfig.cmake.setup {
-  capabilities = capabilities
-}
-lspconfig.dockerls.setup {
-  capabilities = capabilities
-}
-lspconfig.gopls.setup {
-  capabilities = capabilities
-}
-lspconfig.html.setup {
-  capabilities = capabilities
-}
-lspconfig.jdtls.setup {
-  capabilities = capabilities
-}
-lspconfig.jsonls.setup {
-  capabilities = capabilities
-}
-lspconfig.lemminx.setup {
-  capabilities = capabilities
-}
-lspconfig.pylsp.setup {
-  capabilities = capabilities
-}
-lspconfig.marksman.setup {
-  capabilities = capabilities
-}
-lspconfig.rust_analyzer.setup {
-  capabilities = capabilities
-}
-lspconfig.sqlls.setup {
-  capabilities = capabilities
-}
-lspconfig.texlab.setup {
-  capabilities = capabilities
-}
-lspconfig.tsserver.setup {
-  capabilities = capabilities
-}
-lspconfig.yamlls.setup {
-  capabilities = capabilities
-}
