@@ -113,6 +113,8 @@ nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync' && \
 nvim -c 'autocmd User MasonInstallAllComplete quitall' -c 'MasonInstallAll' -c 'Mason' && \
 nvim -c 'TSInstallSync all' -c 'quitall' && \
 # https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/server_configurations/pylsp/README.md
+# if that moves, here is a commit that added this file
+# https://github.com/williamboman/mason-lspconfig.nvim/blob/1d459b6d19118b9944d5313e4439cb361d607366/lua/mason-lspconfig/server_configurations/pylsp/README.md
 nvim -c 'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope' && \
 # https://github.com/glacambre/firenvim/blob/master/TROUBLESHOOTING.md
 nvim -c 'call firenvim#install(0)'
