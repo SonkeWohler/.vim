@@ -20,8 +20,9 @@ return {
       "debugloop/telescope-undo.nvim",
       -- clipboard
       "AckslD/nvim-neoclip.lua",
+      -- better use of fzf
+      'nvim-telescope/telescope-fzf-native.nvim',
     },
-    dependencies = 'telescope-fzf-native.nvim',
     config = function()
       require('telescope').setup {
         defaults = {
