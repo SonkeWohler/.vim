@@ -29,6 +29,7 @@
 	enabled = true
 [alias]
 	ls = !git ls-files $@ | delta
+    p = !git pull && git log-since-last-pull
     checkoub = checkout -b
 	s = status
 	d = diff --irreversible-delete --find-renames --find-copies
@@ -39,7 +40,8 @@
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
 	lb = log-message-text
 	l = log-message-default
-	ll = log-message-default @{1}..
+	log-since-last-pull = log-message-default @{1}..
+	ll = log-since-last-pull
 	dl = d @{1}.. --relative
 	sl = dl --name-status
 	ln = log-message-default @{u}..
@@ -49,3 +51,5 @@
 	qa = restore --staged :/
 	r = reset --soft HEAD~
 	qqq = restore --source=HEAD --staged --worktree
+	s- = switch -
+	sw = switch
