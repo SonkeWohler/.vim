@@ -65,16 +65,35 @@ ln --symbolic --verbose $vimCD/config/starship.toml ~/.config/starship.toml
 
 #-- fish shell - experimental for now
 print "setting up fish and fisher"
-# fish tends to initialize with this file at installation
-if test -f ~/.config/fish/config.fish; then
-    rm -v ~/.config/fish/config.fish
+# fish tends to initialize these on install
+if test -e ~/.config/fish/config.fish; then
+    rm -vdr ~/.config/fish/config.fish
 fi
-if test -d ~/.config/fish/functions; then
+if test -e ~/.config/fish/fish_variables; then
+    rm -vdr ~/.config/fish/fish_variables
+fi
+if test -e ~/.config/fish/fish_plugins; then
+    rm -vdr ~/.config/fish/fish_plugins
+fi
+if test -e ~/.config/fish/functions; then
     rm -vdr ~/.config/fish/functions
 fi
+if test -e ~/.config/fish/conf.d; then
+    rm -vdr ~/.config/fish/conf.d
+fi
+if test -e ~/.config/fish/completions; then
+    rm -vdr ~/.config/fish/completions
+fi
+# if test -e ~/.config/fish/themes; then
+#     rm -vdr ~/.config/fish/themes
+# fi
 ln --symbolic --verbose $vimCD/config/fish/c.fish ~/.config/fish/config.fish
 ln --symbolic --verbose $vimCD/config/fish/p ~/.config/fish/fish_plugins
-ln --symbolic --verbose $vimCD/config/fish/functions/ ~/.config/fish/functions/
+ln --symbolic --verbose $vimCD/config/fish/functions ~/.config/fish/functions
+ln --symbolic --verbose $vimCD/config/fish/conf.d ~/.config/fish/conf.d
+ln --symbolic --verbose $vimCD/config/fish/completions ~/.config/fish/completions
+ln --symbolic --verbose $vimCD/config/fish/fish_variables ~/.config/fish/fish_variables
+# ln --symbolic --verbose $vimCD/config/fish/themes ~/.config/fish/themes
 
 #-- glow, used for neovim, but can be used independently
 
