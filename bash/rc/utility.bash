@@ -1,4 +1,4 @@
-### --- general purpose --- ###
+### --- general purpose --- ##
 
 ### --- memory helps
 # timer
@@ -67,7 +67,28 @@ updateCargo() {
 # the rest has simple commands, but I usually use them all at once
 # note that due to conflicts between npm and pacman I don't usually update npm
 # unless I have to
-alias updateAll='sudo pacman -Syu && yay && updateCargo && flatpak update && updateNvim'
+updateAll() {
+    echo '==========================================================='
+    echo '=== pacman'
+    echo '==========================================================='
+    sudo pacman -Syu && echo '=== done' || return 1
+    echo '==========================================================='
+    echo '=== AUR'
+    echo '==========================================================='
+    yay && echo '=== done' || return 1
+    echo '==========================================================='
+    echo '=== flatpak'
+    echo '==========================================================='
+    flatpak update && echo '=== done' || return 1
+    echo '==========================================================='
+    echo '=== Cargo'
+    echo '==========================================================='
+    updateCargo && echo '=== done' || return 1
+    echo '==========================================================='
+    echo '=== NeoVim'
+    echo '==========================================================='
+    updateNvim && echo '=== done' || return 1
+}
 # pull important repos, rebuild and list new commits so I know if there is
 # anything I need to do
 alias pullAll='cdw && gitp && make rebuild-dev && gitln && cdv && gitp'
