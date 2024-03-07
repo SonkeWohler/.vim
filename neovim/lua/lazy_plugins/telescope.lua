@@ -24,11 +24,15 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim',
     },
     config = function()
+      local actions = require('telescope.actions')
       require('telescope').setup {
         defaults = {
           mappings = {
             -- insert mode
             i = {
+              ['<esc>'] = actions.close,
+              ['<C-j>'] = actions.select_default,
+              ['<C-c>'] = { '<esc>', type = 'command'},
               -- mappings go here
               -- I'll play with this soon
               -- I need the readline to work here

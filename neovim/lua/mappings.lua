@@ -133,28 +133,22 @@ nmap('gT', '<cmd>Telescope diagnostics<CR>') -- trouble
 -- go to definition, references or implementations
 local goToDefinition = '<cmd>Telescope lsp_definitions<CR>'
 nmap('<space>d', goToDefinition)
-nmap('gd', goToDefinition)
 local goToReferences = '<cmd>Telescope lsp_references<CR>'
 nmap('<space>D', goToReferences) -- opposite of definition
-nmap('gD', goToReferences)
 nmap('<space>i', '<cmd>Telescope lsp_implementations<CR>')
-nmap('gi', '<cmd>Telescope lsp_implementations<CR>')
 nmap('<space>t', '<cmd>Telescope lsp_type_definitions<CR>')
 -- nmap('gt', '<cmd>Telescope lsp_type_definitions<CR>')  -- already taken by tab navigation
 -- show docs and signatures
 nmap('<space>k', ':lua vim.lsp.buf.hover()<cr>')          -- not sure why I picked k, but that is what I use
-nmap('gk', ':lua vim.lsp.buf.hover()<cr>')
 nmap('<space>K', ':lua vim.lsp.buf.signature_help()<cr>') -- similar(-ish) to hover
-nmap('gK', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 -- code action
-nmap('gl', ':lua vim.lsp.buf.code_action()<CR>')
 nmap('<space>l', ':lua vim.lsp.buf.code_action()<CR>')
 -- rename
 nmap('<space>r', ':lua vim.lsp.buf.rename()<cr>')
-nmap('R', ':lua vim.lsp.buf.rename()<cr>')
--- format buffer
-nmap('<space>f', ':lua vim.lsp.buf.format()<CR>')
+-- document symbols
+nmap('<space>o', require('telescope.builtin').lsp_document_symbols)
+nmap('<space>w', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
 -- TODO uncomment these, because gitsigns is fine
 ----- GitSigns -----
@@ -180,6 +174,8 @@ vmap('gu', function() gitsigns.undo_stage_hunk { vim.fn.line('.'), vim.fn.line('
 vmap('gl', ':Gitsigns')
 
 ----- Telescope -----
+-- find files
+nmap('<space>f', require("telescope.builtin").find_files)
 -- undo tree
 nmap('<space>u', ':lua require("telescope").extensions.undo.undo()<cr>')
 -- yank history
