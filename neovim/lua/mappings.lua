@@ -149,6 +149,8 @@ nmap('<space>r', ':lua vim.lsp.buf.rename()<cr>')
 -- document symbols
 nmap('<space>o', require('telescope.builtin').lsp_document_symbols)
 nmap('<space>w', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+-- format buffer
+nmap('<space>F', vim.lsp.buf.format)
 
 -- TODO uncomment these, because gitsigns is fine
 ----- GitSigns -----
