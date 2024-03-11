@@ -53,3 +53,15 @@
 	qqq = restore --source=HEAD --staged --worktree
 	s- = switch -
 	sw = switch
+    ln = log-message-default development..HEAD
+    lnn = log-message-default development...HEAD
+    dn = d development..HEAD
+    dnn = d development...HEAD
+    sn = dn --name-status
+    snn = dnn --name-status
+    lm = log-message-default HEAD..development
+    lmm = log-message-default HEAD...development
+    dm = d HEAD..development
+    dmm = d HEAD...development
+    sm = dm --name-status
+    smm = dmm --name-status
