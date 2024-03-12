@@ -31,21 +31,22 @@
 	ls = !git ls-files $@ | delta
     p = !git pull && git log-since-last-pull
     checkoub = checkout -b
-	s = status
-	d = diff --irreversible-delete --find-renames --find-copies
-	dd = diff --staged --irreversible-delete --find-renames --find-copies
+	standard-diff-format = diff --irreversible-delete --find-renames --find-copies
 	log-message-default = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-diff = log -p --pretty=format:\"%n%n%n%n%n==================================================================================================================%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
-	lp = log-message-diff
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
-	lb = log-message-text
+	s = status
+    d = standard-diff-format
+	dd = diff --staged --irreversible-delete --find-renames --find-copies
 	l = log-message-default
+	lb = log-message-text
+	lp = log-message-diff
 	log-since-last-pull = log-message-default @{1}..
 	ll = log-since-last-pull
-	dl = d @{1}.. --relative
+	dl = standard-diff-format @{1}.. --relative
 	sl = dl --name-status
 	ln = log-message-default @{u}..
-	dln = d @{u}..
+	dln = standard-diff-format @{u}..
 	sln = dln --name-status
 	q = restore --staged
 	qa = restore --staged :/
@@ -53,15 +54,15 @@
 	qqq = restore --source=HEAD --staged --worktree
 	s- = switch -
 	sw = switch
-    ln = log-message-default development..HEAD
-    lnn = log-message-default development...HEAD
-    dn = d development..HEAD
-    dnn = d development...HEAD
+    dn = standard-diff-format development..HEAD
     sn = dn --name-status
+    ln = log-message-default development..HEAD
+    dnn = standard-diff-format development...HEAD
     snn = dnn --name-status
-    lm = log-message-default HEAD..development
-    lmm = log-message-default HEAD...development
-    dm = d HEAD..development
-    dmm = d HEAD...development
+    lnn = log-message-default development...HEAD
+    dm = standard-diff-format HEAD..development
     sm = dm --name-status
+    lm = log-message-default HEAD..development
+    dmm = standard-diff-format HEAD...development
     smm = dmm --name-status
+    lmm = log-message-default HEAD...development
