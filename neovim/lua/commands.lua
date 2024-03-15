@@ -1,9 +1,13 @@
 -- ## commands
 
------ Other -----
+----- Buffer -----
 cmd('Qa', 'cq 77', { desc = 'force quit all buffers, exit with code 77' })
 cmd('YankFilePath', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
 cmd('YY', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
+
+----- Tabs -----
+cmap('RT<tab>', 'TablineTabRename ')
+cmap('RT ', 'TablineTabRename ')
 
 ----- Filetree -----
 cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
@@ -53,6 +57,8 @@ cmd('LintPy', '!pipenv run ruff --fix %:p', { desc = 'pipenv run format this fil
 cmd('CheckPy', '!pipenv run black %:p && pipenv run ruff --fix %:p', { desc = 'pipenv run lint and format this file' })
 
 ----- help stuff -----
+-- help in vertical split
+cmap(':hh', 'vert help ')
 -- help tags
 cmd('HH', function() require("telescope.builtin").help_tags() end, { desc = 'help from helptags' })
 cmd('HK', function() require("telescope.builtin").keymaps() end, { desc = 'help keymaps' })

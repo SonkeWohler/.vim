@@ -256,8 +256,6 @@ nmap('gqip', 'mhgqip`h')
 nmap('va{', 'va{V')
 -- swap the two keys under the cursor
 nmap('sx', '"xx"xp')
--- help in vertical split
-cmap(':hh', 'vert help ')
 -- fold less => zl, asopposed to fold more => zm
 -- this shouldn't have an uppercase version because zL is already in use
 nmap('zl', 'zr')
