@@ -23,9 +23,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- TODO, remove if
--- while I do my migration I can use this
--- to toggle between old and new setup
 require("lazy").setup(
   "lazy_plugins",
   {
