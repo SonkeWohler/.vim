@@ -9,6 +9,9 @@ imap('<c-u>', '<c-u>')
 imap('<C-l>', '<Right>')
 
 ----- inter-buffer navigation -----
+-- alt-file, go back and forth by one file
+-- similar to <c-o> and <c-i> combined, but for files and only one
+nmap('<m-o>', '<c-^>')
 -- similar window controls are defined in the hydra-<C-W>
 -- faster left and right, since that is the most common for me
 nmap('<c-h>', '<c-w>h')

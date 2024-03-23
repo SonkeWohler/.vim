@@ -46,8 +46,7 @@ vim.opt.mousefocus = false
 vim.opt.mousehide = true
 vim.opt.mousetime = 300
 -- these cpoptions are largely default, I just keep things consistent
--- a:
--- A:
+-- A: set alt-file when :w <path>
 -- c: search
 -- e: execute straight away with @q
 -- f: set buffer filename on read
@@ -55,7 +54,7 @@ vim.opt.mousetime = 300
 -- s: buffer options on enter
 -- J: sentences end with double spaces, not single spaces
 -- _: cw is more like ciw.  use caw to get the default cw
-vim.opt.cpoptions = 'aABcefFsJ_'
+vim.opt.cpoptions = 'ABcefFsJ_'
 -- j: handle spaces when using n_J
 -- c: autwrap comments
 -- r: insert comment leader in newline

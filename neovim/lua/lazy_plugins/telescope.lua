@@ -27,6 +27,7 @@ return {
       local actions = require('telescope.actions')
       require('telescope').setup {
         defaults = {
+          wrap_results = true,
           mappings = {
             -- insert mode
             i = {
