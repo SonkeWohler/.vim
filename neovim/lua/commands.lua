@@ -2,8 +2,8 @@
 
 ----- Buffer -----
 cmd('Qa', 'cq 77', { desc = 'force quit all buffers, exit with code 77' })
-cmd('YankFilePath', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
-cmd('YY', 'let @+ = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
+cmd('YankFilePath', 'let @+ = expand("%") | let @* = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
+cmd('YY', 'let @+ = expand("%") | let @* = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
 
 ----- Tabs -----
 cmap('RT<tab>', 'TablineTabRename ')
