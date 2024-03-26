@@ -15,6 +15,7 @@ aliases:
     merge: pr merge --squash --delete-branch
     review: '!gh pr checkout $1 && make rebuild-dev-most && gh pr view'
     watch: pr checks --watch --fail-fast
+    watch-deployment: run watch --exit-status
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
