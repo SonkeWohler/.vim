@@ -36,21 +36,21 @@ if status is-interactive
         echo '========================================='
         echo '-----------------------------------------'
         echo '========================================='
-        kubectl logs -n development --context docker-desktop -f -l app=$argv[1] | pino-pretty --colorize
+        kubectl logs --tail=-1 -n development --context docker-desktop -f -l app=$argv[1] | pino-pretty --colorize
     end
     function kubernetes-job-log-template --description 'view logs for a job on my local'
         # makes it easier to see the start of stream when quickly scrolling through
         echo '========================================='
         echo '-----------------------------------------'
         echo '========================================='
-        kubectl logs -n development --context docker-desktop -f -l job-name=$argv[1] | pino-pretty --colorize
+        kubectl logs --tail=-1 -n development --context docker-desktop -f -l job-name=$argv[1] | pino-pretty --colorize
     end
     function kubernetes-pod-log-template --description 'view logs for pod on my local'
         # makes it easier to see the start of stream when quickly scrolling through
         echo '========================================='
         echo '-----------------------------------------'
         echo '========================================='
-        kubectl logs -f -n development --context docker-desktop $argv[1]
+        kubectl logs --tail=-1 -f -n development --context docker-desktop $argv[1]
     end
     # --- utillity
     # change into directory after creating
