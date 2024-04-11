@@ -14,6 +14,8 @@
 	updateRefs = true
 [mergetool "nvim"]
 	cmd = nvim -d $LOCAL $MERGED $REMOTE
+[log]
+	date = iso-local
 [merge]
 	tool = nvim
 	autoStash = true
@@ -34,12 +36,14 @@
     checkoub = checkout -b
 	standard-diff-format = diff --irreversible-delete --find-renames --find-copies
 	log-message-default = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset\"
+	log-message-iso-dates = log --pretty=format:\"%Cblue%an, %Creset%cd :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-diff = log -p --pretty=format:\"%n%n%n%n%n==================================================================================================================%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
 	s = status
     d = standard-diff-format
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
 	l = log-message-default
+    liso = log-message-iso-dates
 	lb = log-message-text
 	lp = log-message-diff
 	log-since-last-pull = log-message-default @{1}..
