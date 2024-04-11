@@ -3,123 +3,117 @@ update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd
 
 [ColorEffects:Disabled]
 ChangeSelectionColor=
-Color=56,56,56
-ColorAmount=0
-ColorEffect=0
-ContrastAmount=0.65
-ContrastEffect=1
+Color=
+ColorAmount=
+ColorEffect=
+ContrastAmount=
+ContrastEffect=
 Enable=
-IntensityAmount=0.1
-IntensityEffect=2
+IntensityAmount=
+IntensityEffect=
 
 [ColorEffects:Inactive]
 ChangeSelectionColor=true
-Color=112,111,110
-ColorAmount=0.025000000000000001
-ColorEffect=2
-ContrastAmount=0.10000000000000001
-ContrastEffect=2
+Color=
+ColorAmount=
+ColorEffect=
+ContrastAmount=
+ContrastEffect=
 Enable=false
-IntensityAmount=0
-IntensityEffect=0
+IntensityAmount=
+IntensityEffect=
 
 [Colors:Button]
-BackgroundAlternate=29,33,47
-BackgroundNormal=29,33,47
-DecorationFocus=74,103,136
-DecorationHover=85,117,156
-ForegroundActive=68,137,206
-ForegroundInactive=192,201,232
-ForegroundLink=65,129,194
-ForegroundNegative=191,97,106
-ForegroundNeutral=58,129,179
-ForegroundNormal=214,219,241
-ForegroundPositive=0,106,128
-ForegroundVisited=0,106,128
+BackgroundAlternate=108,83,169
+BackgroundNormal=20,22,34
+DecorationFocus=146,110,228
+DecorationHover=146,110,228
+ForegroundActive=146,110,228
+ForegroundInactive=163,178,180
+ForegroundLink=146,110,228
+ForegroundNegative=253,84,126
+ForegroundNeutral=0,102,75
+ForegroundNormal=190,207,210
+ForegroundPositive=0,110,40
+ForegroundVisited=186,216,220
 
 [Colors:Complementary]
-BackgroundAlternate=29,33,47
-BackgroundNormal=29,33,47
-DecorationFocus=72,83,116
-DecorationHover=64,74,103
-ForegroundActive=68,137,206
-ForegroundInactive=180,188,218
-ForegroundLink=65,129,194
-ForegroundNegative=191,97,106
-ForegroundNeutral=78,122,179
-ForegroundNormal=214,219,241
-ForegroundPositive=0,106,128
-ForegroundVisited=0,106,128
-
-[Colors:Header]
-BackgroundAlternate=29,33,47
-ForegroundActive=68,137,206
-ForegroundInactive=179,187,216
-ForegroundNormal=214,219,241
+BackgroundAlternate=30,32,50
+BackgroundNormal=30,32,50
+DecorationFocus=146,110,228
+DecorationHover=146,110,228
+ForegroundActive=146,110,228
+ForegroundInactive=168,184,186
+ForegroundLink=146,110,228
+ForegroundNegative=255,85,127
+ForegroundNeutral=255,170,127
+ForegroundNormal[$d]
+ForegroundPositive[$d]
+ForegroundVisited=0,184,184
 
 [Colors:Selection]
-BackgroundAlternate=29,153,243
-BackgroundNormal=71,99,130
-DecorationFocus=74,103,136
-DecorationHover=85,117,156
-ForegroundActive=192,199,231
-ForegroundInactive=214,219,241
-ForegroundLink=65,129,194
-ForegroundNegative=191,97,106
-ForegroundNeutral=58,129,179
-ForegroundNormal=214,219,241
-ForegroundPositive=0,106,128
-ForegroundVisited=0,106,128
+BackgroundAlternate=108,83,169
+BackgroundNormal=108,83,169
+DecorationFocus=146,110,228
+DecorationHover=146,110,228
+ForegroundActive=146,110,228
+ForegroundInactive=255,255,255
+ForegroundLink=146,110,228
+ForegroundNegative=253,84,126
+ForegroundNeutral=0,102,75
+ForegroundNormal=255,255,255
+ForegroundPositive=128,255,128
+ForegroundVisited=17,20,21
 
 [Colors:Tooltip]
-BackgroundAlternate=29,33,47
-BackgroundNormal=29,33,47
-DecorationFocus=74,103,136
-DecorationHover=85,117,156
-ForegroundActive=68,137,206
-ForegroundInactive=180,188,218
-ForegroundLink=65,129,194
-ForegroundNegative=191,97,106
-ForegroundNeutral=58,129,179
-ForegroundNormal=214,219,241
-ForegroundPositive=0,106,128
-ForegroundVisited=0,106,128
+BackgroundAlternate=18,19,31
+BackgroundNormal=20,22,34
+DecorationFocus=146,110,228
+DecorationHover=146,110,228
+ForegroundActive=146,110,228
+ForegroundInactive=168,198,207
+ForegroundLink=146,110,228
+ForegroundNegative=253,84,126
+ForegroundNeutral=0,102,75
+ForegroundNormal=190,207,210
+ForegroundPositive=0,110,40
+ForegroundVisited=100,58,197
 
 [Colors:View]
-BackgroundAlternate=29,33,47
-BackgroundNormal=24,28,39
-DecorationFocus=74,103,136
-DecorationHover=85,117,156
-ForegroundActive=68,137,206
-ForegroundInactive=180,188,218
-ForegroundLink=65,129,194
-ForegroundNegative=191,97,106
-ForegroundNeutral=58,129,179
-ForegroundNormal=214,219,241
-ForegroundPositive=0,106,128
-ForegroundVisited=0,106,128
+BackgroundAlternate=30,32,50
+BackgroundNormal=20,22,34
+DecorationFocus=146,110,228
+DecorationHover=146,110,228
+ForegroundActive=146,110,228
+ForegroundInactive=189,206,207
+ForegroundLink=146,110,228
+ForegroundNegative=253,84,126
+ForegroundNeutral=0,102,75
+ForegroundNormal=212,231,234
+ForegroundPositive=0,110,40
+ForegroundVisited=178,193,195
 
 [Colors:Window]
-BackgroundAlternate=29,33,47
-BackgroundNormal=29,33,47
-DecorationFocus=74,103,136
-DecorationHover=85,117,156
-ForegroundActive=68,137,206
-ForegroundInactive=180,188,218
-ForegroundLink=65,129,194
-ForegroundNegative=191,97,106
-ForegroundNeutral=58,129,179
-ForegroundNormal=214,219,241
-ForegroundPositive=0,106,128
-ForegroundVisited=0,106,128
+BackgroundAlternate=18,19,31
+BackgroundNormal=20,22,34
+DecorationFocus=146,110,228
+DecorationHover=146,110,228
+ForegroundActive=146,110,228
+ForegroundInactive=139,151,153
+ForegroundLink=146,110,228
+ForegroundNegative=253,84,126
+ForegroundNeutral=0,102,75
+ForegroundNormal=190,207,210
+ForegroundPositive=0,110,40
+ForegroundVisited=88,51,173
 
 [DirSelect Dialog]
 DirSelectDialog Size=943,630
-History Items[$e]=file:$HOME/nextcloud/,file:$HOME,file:$HOME/libraries/work/app
+History Items[$e]=file:$HOME/nextcloud/sync,file:$HOME/nextcloud/,file:$HOME,file:$HOME/libraries/work/app
 
 [General]
 BrowserApplication=vivaldi-stable.desktop
-ColorSchemeHash=e7edd69a8636c2a7f350c9cd8d22cf2d0ab22510
+ColorSchemeHash=db1e6ae6731d640efa4c5cce54e2c036de000bfc
 TerminalApplication=alacritty
 TerminalService=Alacritty.desktop
 XftHintStyle=hintslight
@@ -132,7 +126,7 @@ toolBarFont=Noto Sans,18,-1,5,50,0,0,0,0,0
 
 [KDE]
 AnimationDurationFactor=0.7071067811865475
-LookAndFeelPackage=Desert-Global
+LookAndFeelPackage=KDE-Story-Dark-Global-6
 
 [KFileDialog Settings]
 Allow Expansion=false
@@ -166,11 +160,14 @@ Activate Next Tab=Ctrl+]
 Activate Previous Tab=Ctrl+[
 New=
 
+[Sounds]
+Theme=oxygen
+
 [WM]
-activeBackground=29,33,47
-activeBlend=29,33,47
+activeBackground=20,22,34
+activeBlend=20,22,34
 activeFont=Noto Sans,18,-1,5,50,0,0,0,0,0
-activeForeground=214,219,241
-inactiveBackground=29,33,47
-inactiveBlend=29,33,47
-inactiveForeground=192,197,217
+activeForeground=165,200,207
+inactiveBackground=20,22,34
+inactiveBlend=20,22,34
+inactiveForeground=165,200,207

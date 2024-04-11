@@ -41,8 +41,12 @@ Meta=
 
 [NightColor]
 Active=true
-LatitudeAuto=46.184
-LongitudeAuto=21.3225
+EveningBeginFixed=2000
+LatitudeAuto=47.05
+LongitudeAuto=21.92
+Mode=Times
+NightTemperature=4000
+TransitionTime=60
 
 [Plugins]
 kwin4_effect_fadedesktopEnabled=true
@@ -63,3 +67,12 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 
 [Tiling][544a35cd-967a-58c1-9624-73bddfbb886c]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][ce358b10-6568-5dd6-bb59-c5bbd0c0747b]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][d02c035d-eef0-5c68-aa2f-2e83d0ba08b1]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Xwayland]
+Scale=1
