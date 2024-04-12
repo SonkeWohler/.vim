@@ -62,6 +62,7 @@
 	qa = restore --staged :/
 	r = reset --soft HEAD~
 	qqq = restore --source=HEAD --staged --worktree
+	qqqqa = !git clean -df && git qqq :/
 	s- = switch -
 	sw = switch
 	dn = standard-diff-format development..HEAD
