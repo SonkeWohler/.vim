@@ -32,22 +32,22 @@
 	enabled = true
 [alias]
 	ls = !git ls-files $@ | delta
-    p = !git pull && git log-since-last-pull
-    checkoub = checkout -b
+	p = !git pull && git log-since-last-pull
+	checkoub = checkout -b
 	standard-diff-format = diff --irreversible-delete --find-renames --find-copies
 	log-message-default = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-iso-dates = log --pretty=format:\"%Cblue%an, %Creset%cd :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-diff = log -p --pretty=format:\"%n%n%n%n%n==================================================================================================================%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
-    list-prunable-branches = !git branch -vv | grep ': gone]' | awk '{print $1}'
-    prune-and-list-prunable-local-branches = !git fetch --prune && git list-prunable-branches
-    prune-remote-and-local-branches = !git prune-and-list-prunable-local-branches | xargs git branch -D
-    prunewell = prune-remote-and-local-branches
+	list-prunable-branches = !git branch -vv | grep ': gone]' | awk '{print $1}'
+	prune-and-list-prunable-local-branches = !git fetch --prune && git list-prunable-branches
+	prune-remote-and-local-branches = !git prune-and-list-prunable-local-branches | xargs git branch -D
+	prunewell = prune-remote-and-local-branches
 	s = status
-    d = standard-diff-format
+	d = standard-diff-format
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
 	l = log-message-default
-    liso = log-message-iso-dates
+	liso = log-message-iso-dates
 	lb = log-message-text
 	lp = log-message-diff
 	log-since-last-pull = log-message-default @{1}..
@@ -63,23 +63,23 @@
 	qqq = restore --source=HEAD --staged --worktree
 	s- = switch -
 	sw = switch
-    dn = standard-diff-format development..HEAD
-    sn = dn --name-status
-    ln = log-message-default development..HEAD
-    lbn = log-message-text development..HEAD
-    lpn = log-message-diff development..HEAD
-    dnn = standard-diff-format development...HEAD
-    snn = dnn --name-status
-    lnn = log-message-default development...HEAD
-    lbnn = log-message-text development...HEAD
-    lpnn = log-message-diff development...HEAD
-    dm = standard-diff-format HEAD..development
-    sm = dm --name-status
-    lm = log-message-default HEAD..development
-    lbm = log-message-text HEAD...development
-    lpm = log-message-diff HEAD...development
-    dmm = standard-diff-format HEAD...development
-    smm = dmm --name-status
-    lmm = log-message-default HEAD...development
-    lbmm = log-message-text HEAD...development
-    lpmm = log-message-diff HEAD...development
+	dn = standard-diff-format development..HEAD
+	sn = dn --name-status
+	ln = log-message-default development..HEAD
+	lbn = log-message-text development..HEAD
+	lpn = log-message-diff development..HEAD
+	dnn = standard-diff-format development...HEAD
+	snn = dnn --name-status
+	lnn = log-message-default development...HEAD
+	lbnn = log-message-text development...HEAD
+	lpnn = log-message-diff development...HEAD
+	dm = standard-diff-format HEAD..development
+	sm = dm --name-status
+	lm = log-message-default HEAD..development
+	lbm = log-message-text HEAD...development
+	lpm = log-message-diff HEAD...development
+	dmm = standard-diff-format HEAD...development
+	smm = dmm --name-status
+	lmm = log-message-default HEAD...development
+	lbmm = log-message-text HEAD...development
+	lpmm = log-message-diff HEAD...development
