@@ -43,11 +43,12 @@
 	prune-and-list-prunable-local-branches = !git fetch --prune && git list-prunable-branches
 	prune-remote-and-local-branches = !git prune-and-list-prunable-local-branches | xargs git branch -D
 	prunewell = prune-remote-and-local-branches
+	list-local-only-branches = !git branch -vv | grep -v ']' | awk '{print $1}'
 	s = status
 	d = standard-diff-format
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
 	l = log-message-default
-	liso = log-message-iso-dates
+	ldate = log-message-iso-dates
 	lb = log-message-text
 	lp = log-message-diff
 	log-since-last-pull = log-message-default @{1}..
