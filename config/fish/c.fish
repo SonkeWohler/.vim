@@ -58,6 +58,10 @@ if status is-interactive
         mkdir -vp $argv[1]
         cd $argv[1]
     end
+    # tree with ignored files
+    function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
+        tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
+    end
 
 
     # --------------------- #
@@ -85,8 +89,8 @@ if status is-interactive
     abbr -a -- cdn 'cd $nextcloud_synch_PATH'
     abbr -a -- cdNXT 'cd $nextcloud_synch_PATH'
     abbr -a -- sshNXT 'ssh $nextcloud_server_ip'
+    abbr -a -- tre 'tree-without-symlinks-etc'
     abbr -a -- viNXT 'cd $nextcloud_synch_PATH/vault && vi Index.md'
-    abbr -a -- tre 'tree --gitfile="$dotfiles_PATH/config/gitignore" | grep -v "\->"'
     abbr -a -- kk 'k9s'
     abbr -a -- klogj 'kubernetes-job-log-template'
     abbr -a -- klogd 'kubernetes-app-log-template'
