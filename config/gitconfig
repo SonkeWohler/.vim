@@ -41,8 +41,8 @@
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
 	list-prunable-branches = !git branch -vv | grep ': gone]' | awk '{print $1}'
 	prune-and-list-prunable-local-branches = !git fetch --prune && git list-prunable-branches
-	prune-remote-and-local-branches = !git prune-and-list-prunable-local-branches | xargs git branch -D
-	prunewell = prune-remote-and-local-branches
+	prune-remote-and-local-branches = !git list-prunable-branches | xargs git branch -D
+	prunewell = !git prune-and-list-prunable-local-branches && git prune-remote-and-local-branches
 	list-local-only-branches = !git branch -vv | grep -v ']' | awk '{print $1}'
 	s = status
 	d = standard-diff-format
