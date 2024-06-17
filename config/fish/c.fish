@@ -62,6 +62,9 @@ if status is-interactive
     function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
         tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
     end
+    function git-to-vi --description 'I can use git to create a list of the files I want to look at, and open them all with this'
+        awk '{print$2}' | tr "\n" " " | xargs nvim -p
+    end
 
 
     # --------------------- #
@@ -95,5 +98,6 @@ if status is-interactive
     abbr -a -- klogj 'kubernetes-job-log-template'
     abbr -a -- klogd 'kubernetes-app-log-template'
     abbr -a -- klogp 'kubernetes-pod-log-template'
+    abbr -a -- gvi 'git-to-vi'
 
 end
