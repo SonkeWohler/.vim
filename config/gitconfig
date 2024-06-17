@@ -39,6 +39,7 @@
 	log-message-iso-dates = log --pretty=format:\"%Cblue%an, %Creset%cd :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-diff = log -p --pretty=format:\"%n%n%n%n%n==================================================================================================================%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
+	log-message-diff-and-text = log -p --pretty=format:\"%n%n%n%n%n==================================================================================================================%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================%n%b%n%n\"
 	list-prunable-branches = !git branch -vv | grep ': gone]' | awk '{print $1}'
 	prune-and-list-prunable-local-branches = !git fetch --prune && git list-prunable-branches
 	prune-remote-and-local-branches = !git list-prunable-branches | xargs git branch -D
@@ -51,6 +52,7 @@
 	ldate = log-message-iso-dates
 	lb = log-message-text
 	lp = log-message-diff
+	lpb = log-message-diff-and-text
 	log-since-last-pull = log-message-default @{1}..
 	ll = log-since-last-pull
 	dl = standard-diff-format @{1}.. --relative
