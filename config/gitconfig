@@ -53,6 +53,7 @@
 	lb = log-message-text
 	lp = log-message-diff
 	lpb = log-message-diff-and-text
+	lbp = lpb
 	log-since-last-pull = log-message-default @{1}..
 	ll = log-since-last-pull
 	dl = standard-diff-format @{1}.. --relative
