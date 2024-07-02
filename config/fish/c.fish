@@ -65,7 +65,32 @@ if status is-interactive
     function git-to-vi --description 'I can use git to create a list of the files I want to look at, and open them all with this'
         awk '{print$2}' | tr "\n" " " | xargs nvim -p
     end
-
+    # remindme in 5mins, or so
+    # currently, this cannot be send in the background normally, because fish
+    # functions cannot be managed that way.
+    # https://fishshell.com/docs/current/language.html#job-control
+    function wait-and-remind-me --description 'this will sleep for argv[1] and will use notify-send with argv[2]'
+        if set -q $argv[1]
+            echo "wait-and-remind-me requires argv[1] to be the time to wait for"
+            return
+        end
+        if set -q $argv[2]
+            echo "wait-and-remind-me requires argv[2] to be the notification message"
+            return
+        end
+        sleep $argv[1]
+        set code (notify-send $argv[2] --action 'done' --action '+1min' --action 'repeat' --app-name "timer $time" --wait --expire-time 300000)
+        if test "$code" -eq 1
+            wait-and-remind-me "1m" $argv[2]
+        else if test "$code" -eq 2
+            wait-and-remind-me $argv[1] $argv[2]
+        else
+            echo "done"
+        end
+    end
+    function notify-me-later --description 'this does not currently work as intended, see above'
+        wait-and-remind-me $argv &>/dev/null &
+    end
 
     # --------------------- #
     # --- abbreviations --- #
@@ -99,5 +124,6 @@ if status is-interactive
     abbr -a -- klogd 'kubernetes-app-log-template'
     abbr -a -- klogp 'kubernetes-pod-log-template'
     abbr -a -- gvi 'git-to-vi'
+    abbr -a -- remindme 'notify-me-later'
 
 end
