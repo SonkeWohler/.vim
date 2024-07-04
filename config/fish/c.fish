@@ -91,6 +91,31 @@ if status is-interactive
     function notify-me-later --description 'this does not currently work as intended, see above'
         wait-and-remind-me $argv &>/dev/null &
     end
+    # --- being time blind sucks
+    function work-timer --description 'try to schedule a 3-ish hour focus window, without getting stuck in focus'
+        if set -q argv[1]
+            set duration $argv[1]
+        else
+            set duration '3h'
+        end
+        set start_time (date -Iminutes)
+        echo start, $start_time >> ~/Documents/time_tracking.txt
+        # TODO allow interrupt in this time, which should record that as the end
+        # of duration to time_tracking.txt, instead of the predicted time
+        echo trying to notifying you in $duration
+        sleep $duration || notify-send "your work tracker did not sleep very well"
+        # TODO I should make this more interactive, allowing me to add 10mins or
+        # something
+        set response (notify-send "you have worked for $duration, it is time to stop" --action "no I didn't!" --action "ok, I'm done" --action "one more minute" --action "10 more minutes" --action "30 more minutes" --wait --expire-time 300000)
+        if test $response -eq 0
+            # remove that last line
+            sed -i '$ d' ~/Documents/time_tracking.txt
+            notify-send "I removed that last line then, it marked $start_time" --wait
+        else if not test $response -eq 0
+            notify-send "then you should implement a reply loop, you lazy P!" --action "yeah yeah, I got it" --action "soon" --wait --expire-time 300000
+        end
+        echo end, (date -Iminutes) >> ~/Documents/time_tracking.txt
+    end
 
     # --------------------- #
     # --- abbreviations --- #
