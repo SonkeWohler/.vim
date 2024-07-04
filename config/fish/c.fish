@@ -70,11 +70,11 @@ if status is-interactive
     # functions cannot be managed that way.
     # https://fishshell.com/docs/current/language.html#job-control
     function wait-and-remind-me --description 'this will sleep for argv[1] and will use notify-send with argv[2]'
-        if set -q $argv[1]
+        if not set -q argv[1]
             echo "wait-and-remind-me requires argv[1] to be the time to wait for"
             return
         end
-        if set -q $argv[2]
+        if not set -q argv[2]
             echo "wait-and-remind-me requires argv[2] to be the notification message"
             return
         end
