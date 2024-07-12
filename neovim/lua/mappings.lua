@@ -50,8 +50,6 @@ nmap('<c-w>>', ':lua require("smart-splits").resize_right(3)<CR>')
 nmap('<c-w>=', ':lua require("smart-splits").resize_up(3)<CR>')
 nmap('<c-w>-', ':lua require("smart-splits").resize_down(3)<CR>')
 nmap('<c-w>+', '<c-W>=')
--- fuzzy find files, since I do this all the time
-nmap('<c-w>f', ':lua require("telescope.builtin").find_files()<CR>')
 -- more window controls are defined in the hydra-<C-W>
 
 ---- intra-buffer navigation or motion ----
@@ -176,6 +174,7 @@ vmap('gl', ':Gitsigns')
 
 ----- Telescope -----
 -- find files
+nmap('<c-w>f', ':lua require("telescope.builtin").find_files()<CR>')
 nmap('<space>f', require("telescope.builtin").find_files)
 -- undo tree
 nmap('<space>u', ':lua require("telescope").extensions.undo.undo()<cr>')
