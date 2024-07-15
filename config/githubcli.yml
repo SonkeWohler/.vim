@@ -16,8 +16,10 @@ aliases:
     review: '!gh pr checkout $1 && make rebuild-dev-most && gh pr view'
     watch: pr checks --watch --fail-fast
     watch-deployment: run watch --exit-status
-    create-pr: '!gh pr create && gh pr view --web'
+    create-pr: '!gh pr create && gh pr edit --add-assignee SonkeWohler && gh pr view --web'
+    pr-review-ready: '!gh pr ready && gh pr edit --add-assignee SonkeWohler && gh pr edit --add-reviewer remusmp && gh pr edit --add-reviewer aliabudal'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
 browser: vivaldi-stable
+version: "1"
