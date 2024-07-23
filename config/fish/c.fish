@@ -62,6 +62,21 @@ if status is-interactive
     function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
         tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
     end
+    function update-all --description 'well, not necessarily all, but regular maintenance stuff'
+        # I haven't been able to set up docker garbage collect yet...
+        # so I do this instead
+        docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
+        cd $work_main_PATH && git sw development && git pull && make rebuild-dev
+        # these can run without supervision
+        flatpak update  --assumeyes
+        nvim --headless -c "lua require('lazy').sync({wait = true})" -c 'TSUpdateSync' -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
+        nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'autocmd User VeryLazy MasonUpdateAll'
+        # now we need user input.  Well, if we don't want to accidentally break
+        # anything.
+        sudo pacman -Syu && yay
+    end
+    # e.g.
+    # git diff --name-status development...HEAD -- 'rest-api/*' | git-to-vi
     function git-to-vi --description 'I can use git to create a list of the files I want to look at, and open them all with this'
         awk '{print$2}' | tr "\n" " " | xargs nvim -p
     end
