@@ -32,7 +32,6 @@
 	enabled = true
 [alias]
 	ls = !git ls-files $@ | delta
-	p = !git pull && git log-since-last-pull
 	checkoub = checkout -b
 	standard-diff-format = diff --irreversible-delete --find-renames --find-copies
 	log-message-default = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset\"
@@ -55,6 +54,8 @@
 	lpb = log-message-diff-and-text
 	lbp = lpb
 	log-since-last-pull = log-message-default @{1}..
+	full-log-since-last-pull = log-message-diff-and-text @{1}..
+	p = !git pull && git full-log-since-last-pull
 	ll = log-since-last-pull
 	dl = standard-diff-format @{1}.. --relative
 	sl = dl --name-status
