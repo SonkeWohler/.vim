@@ -39,8 +39,8 @@ plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
 PreloadWeight=100
-popupHeight=1050
-popupWidth=1890
+popupHeight=720
+popupWidth=1440
 
 [Containments][2][Applets][17][Configuration][Appearance]
 enabledCalendarPlugins=holidaysevents
@@ -48,12 +48,11 @@ firstDayOfWeek=1
 fontWeight=400
 selectedTimeZones=America/New_York,Europe/London,Local
 showSeconds=2
-showWeekNumbers=true
 use24hFormat=2
 
 [Containments][2][Applets][17][Configuration][ConfigDialog]
-DialogHeight=2036
-DialogWidth=3840
+DialogHeight=990
+DialogWidth=1320
 
 [Containments][2][Applets][21]
 immutability=1
@@ -70,7 +69,7 @@ plugin=org.kde.plasma.clipboard
 
 [Containments][2][Applets][22][Configuration]
 PreloadWeight=100
-popupHeight=1008
+popupHeight=720
 popupWidth=1008
 
 [Containments][2][Applets][24]
@@ -79,7 +78,7 @@ plugin=org.kde.plasma.notifications
 
 [Containments][2][Applets][24][Configuration]
 PreloadWeight=100
-popupHeight=912
+popupHeight=720
 popupWidth=684
 
 [Containments][2][Applets][25]
@@ -162,14 +161,6 @@ network/all/upload=130,102,71
 [Containments][2][Applets][27][Configuration][Sensors]
 highPrioritySensorIds=["network/all/download","network/all/upload"]
 
-[Containments][2][Applets][29]
-immutability=1
-plugin=org.kde.plasma.marginsseparator
-
-[Containments][2][Applets][29][Configuration][ConfigDialog]
-DialogHeight=1110
-DialogWidth=1480
-
 [Containments][2][Applets][3]
 immutability=1
 plugin=org.kde.plasma.kickoff
@@ -198,6 +189,10 @@ global=Meta+Space
 immutability=1
 plugin=org.kde.plasma.marginsseparator
 
+[Containments][2][Applets][30][Configuration][ConfigDialog]
+DialogHeight=990
+DialogWidth=1320
+
 [Containments][2][Applets][32]
 immutability=1
 plugin=org.kde.plasma.systemmonitor
@@ -205,6 +200,8 @@ plugin=org.kde.plasma.systemmonitor
 [Containments][2][Applets][32][Configuration]
 CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
+popupHeight=368
+popupWidth=276
 
 [Containments][2][Applets][32][Configuration][Appearance]
 chartFace=org.kde.ksysguard.linechart
@@ -272,8 +269,8 @@ chartFace=org.kde.ksysguard.linechart
 title=Memory
 
 [Containments][2][Applets][36][Configuration][ConfigDialog]
-DialogHeight=1110
-DialogWidth=1480
+DialogHeight=990
+DialogWidth=1320
 
 [Containments][2][Applets][36][Configuration][SensorColors]
 memory/physical/usedPercent=115,169,186
@@ -296,6 +293,24 @@ plugin=org.kde.plasma.pager
 immutability=1
 plugin=org.kde.plasma.panelspacer
 
+[Containments][2][Applets][44]
+immutability=1
+plugin=org.kde.plasma.brightness
+
+[Containments][2][Applets][44][Configuration]
+PreloadWeight=80
+popupHeight=330
+popupWidth=660
+
+[Containments][2][Applets][45]
+immutability=1
+plugin=d4rkwzd.colorpicker-tray
+
+[Containments][2][Applets][45][Configuration]
+PreloadWeight=60
+popupHeight=432
+popupWidth=432
+
 [Containments][2][Applets][5]
 immutability=1
 plugin=org.kde.plasma.icontasks
@@ -308,7 +323,7 @@ DialogWidth=1320
 fill=false
 forceStripes=true
 iconSpacing=0
-launchers=applications:systemsettings.desktop,applications:org.kde.systemmonitor.desktop,preferred://filemanager,applications:org.kde.kcalc.desktop
+launchers=applications:systemsettings.desktop,applications:org.kde.systemmonitor.desktop,preferred://filemanager,applications:org.kde.kcalc.desktop,applications:vivaldi-stable.desktop,applications:signal-desktop.desktop,applications:obsidian.desktop,applications:com.brave.Browser.desktop
 maxStripes=2
 
 [Containments][2][Applets][6]
@@ -332,7 +347,7 @@ DialogHeight=140
 DialogWidth=3840
 
 [Containments][2][General]
-AppletOrder=3;5;29;33;27;36;25;26;32;30;4;6;43;7;22;21;24;17
+AppletOrder=3;5;43;33;27;36;25;26;32;30;4;6;7;22;21;24;44;45;17
 
 [Containments][40]
 ItemGeometries-3072x1728=
@@ -427,7 +442,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=75
+PreloadWeight=90
 
 [Containments][8][Applets][20]
 immutability=1
@@ -448,7 +463,7 @@ immutability=1
 plugin=org.kde.kscreen
 
 [Containments][8][Applets][37][Configuration]
-PreloadWeight=55
+PreloadWeight=70
 
 [Containments][8][Applets][41]
 immutability=1
@@ -458,13 +473,16 @@ plugin=org.kde.plasma.cameraindicator
 immutability=1
 plugin=org.kde.plasma.brightness
 
+[Containments][8][Applets][42][Configuration]
+PreloadWeight=55
+
 [Containments][8][Applets][9]
 immutability=1
 plugin=org.kde.plasma.manage-inputmethod
 
 [Containments][8][ConfigDialog]
-DialogHeight=882
-DialogWidth=2074
+DialogHeight=540
+DialogWidth=720
 
 [Containments][8][General]
 extraItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.kscreen,org.kde.plasma.brightness,org.kde.plasma.cameraindicator
@@ -472,4 +490,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce

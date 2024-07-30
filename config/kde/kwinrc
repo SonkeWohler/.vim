@@ -29,12 +29,30 @@ Rows=1
 [Effect-kwin4_effect_translucency]
 Inactive=83
 
+[Effect-mouseclick]
+Color1=255,128,255
+Color2=128,128,255
+Color3=255,128,0
+
+[Effect-mousemark]
+Color=255,128,255
+Freedrawalt=true
+Freedrawcontrol=true
+
 [Effect-showfps]
 ShowNoBenchmark=false
 TextPosition=1
 
+[Effect-slide]
+HorizontalGap=5
+SlideBackground=false
+VerticalGap=5
+
 [Effect-windowview]
 BorderActivateAll=9
+
+[Effect-zoom]
+ZoomFactor=1.7000000000000004
 
 [ModifierOnlyShortcuts]
 Meta=
@@ -45,13 +63,17 @@ EveningBeginFixed=2000
 LatitudeAuto=47.05
 LongitudeAuto=21.92
 Mode=Times
-NightTemperature=4000
+NightTemperature=3500
 TransitionTime=60
 
 [Plugins]
+diminactiveEnabled=true
 kwin4_effect_fadedesktopEnabled=true
 kwin4_effect_translucencyEnabled=true
-slideEnabled=false
+loginEnabled=false
+morphingpopupsEnabled=false
+overviewEnabled=false
+windowviewEnabled=false
 
 [Tiling]
 padding=4
@@ -66,6 +88,9 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][544a35cd-967a-58c1-9624-73bddfbb886c]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][58ca410b-ce44-58d6-82b9-fefe44aba0e3]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][ce358b10-6568-5dd6-bb59-c5bbd0c0747b]

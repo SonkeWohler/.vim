@@ -158,6 +158,7 @@ Dialog Size=3072,1629
 [Shortcuts]
 Activate Next Tab=Ctrl+]
 Activate Previous Tab=Ctrl+[
+Close=Ctrl+Esc
 New=
 
 [Sounds]
