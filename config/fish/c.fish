@@ -140,6 +140,7 @@ if status is-interactive
     # the rest is usually just a copy of `abbr --show`
     abbr -a -- cd- 'cd -'
     abbr -a -- cd. 'cd ..'
+    abbr -a -- .. 'cd ..'
     abbr -a -- mkd 'mkdir -vp'
     abbr -a -- mkcd 'make-and-change-into-directory'
     abbr -a -- rmv 'rm -rvi'
