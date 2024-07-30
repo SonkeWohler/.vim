@@ -178,8 +178,7 @@ gitlogb() { gitlogmb --color=always "$@" | dlt ; }
 gitHubBaseBranchNoError() {
     gitHubBaseBranch=$(gh pr view --json baseRefName | jq '.baseRefName' -r)
     if test -z $gitHubBaseBranch; then
-        if git branch | grep development; then
-            gitHubBaseBranch='development'
+        if git branch | grep development; then gitHubBaseBranch='development'
         else
             gitHubBaseBranch='master'
         fi
