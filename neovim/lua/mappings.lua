@@ -21,8 +21,16 @@ nmap('<c-k>', '<c-w>w')
 nmap('<c-s>', ':wa<CR>')
 imap('<c-s>', '<esc>:wa<CR>')
 nmap('<c-w>e', ':e<CR>')
+-- most <M- mappings are on tmux, but not this one, or I would close my vim tab
+-- way too often
+-- close tab, like I have it in browser
+nmap('<m-x>', '<Cmd>tabclose<CR>')
+-- arrange tabs left or right
+nmap('<m-.>', '<Cmd>tabmove +1<CR>')
+nmap('<m-,>', '<Cmd>tabmove -1<CR>')
 -- splilt current buffer into new tab, I use it similar to tmux zoom
 nmap('<c-w>t', '<Cmd>tab split<CR>')
+nmap('<m-t>', '<Cmd>tab split<CR>')
 -- more like tmux new "tab"
 nmap('<c-w>c', '<Cmd>tab split<CR>')
 -- next/prev tab
@@ -310,7 +318,7 @@ nmap('vv', '0v$h')
 nmap('o', 'ox<BS>')
 nmap('O', 'Ox<BS>')
 -- move current line down by one
--- i.e. insert newline above the curose, cursor stays on current line
+-- i.e. insert newline above the cursor, cursor stays on current line
 nmap('<C-j>', 'Ox<BS><Esc>0"_d$j')
 -- insert new line below the cursor and move cursor to new line
 nmap('<C-m>', 'ox<BS><Esc>0"_d$')
@@ -325,6 +333,10 @@ nmap('<M-j>', 'F<Space>i<Enter><Esc>k$')
 -- join this line with the next while maintaining cursor position
 -- breaks use of [count]J, but I don't usually use that anyway
 nmap('J', 'mJJ`J')
+-- move this line up/down, one at a time
+-- will behave weird when used with count
+nmap('<m-p>', 'VdkP')
+nmap('<m-n>', 'Vdp')
 
 ---- spelling ----
 -- choose the first suggestion for the word under the cursor
