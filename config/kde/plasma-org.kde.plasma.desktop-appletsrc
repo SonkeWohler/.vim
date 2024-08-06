@@ -225,6 +225,8 @@ plugin=org.kde.plasma.systemmonitor
 [Containments][2][Applets][33][Configuration]
 CurrentPreset=org.kde.plasma.systemmonitor
 PreloadWeight=100
+popupHeight=1070
+popupWidth=201
 
 [Containments][2][Applets][33][Configuration][Appearance]
 chartFace=org.kde.ksysguard.linechart
@@ -490,4 +492,4 @@ knownItems=org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,or
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
+screenMapping=desktop:/steam.desktop,0,991c96b7-ef81-4ee0-aa76-c107e1dfe334,desktop:/notes-for-professionals,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Steam.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/net.lutris.epic-games-store-1.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce,desktop:/Epic Games.desktop,0,cfb83869-1c76-493d-9c24-d10a158fa3ce
