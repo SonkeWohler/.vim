@@ -63,14 +63,15 @@ if status is-interactive
         tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
     end
     function update-all --description 'well, not necessarily all, but regular maintenance stuff'
-        # I haven't been able to set up docker garbage collect yet...
-        # so I do this instead
-        docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
-        cd $work_main_PATH && git sw development && git pull && make rebuild-dev
         # these can run without supervision
         flatpak update  --assumeyes
         nvim --headless -c "lua require('lazy').sync({wait = true})" -c 'TSUpdateSync' -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
         nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'autocmd User VeryLazy MasonUpdateAll'
+        rustup update
+        # I haven't been able to set up docker garbage collect yet...
+        # so I do this instead
+        docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
+        cd $work_main_PATH && git sw development && git pull && make rebuild-dev
         # now we need user input.  Well, if we don't want to accidentally break
         # anything.
         sudo pacman -Syu && yay
