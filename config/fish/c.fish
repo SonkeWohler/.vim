@@ -62,19 +62,28 @@ if status is-interactive
     function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
         tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
     end
-    function update-all --description 'well, not necessarily all, but regular maintenance stuff'
+    function update-side-note --description 'update stuff that does not require docker or restart'
         # these can run without supervision
         flatpak update  --assumeyes
         nvim --headless -c "lua require('lazy').sync({wait = true})" -c 'TSUpdateSync' -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
         nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'autocmd User VeryLazy MasonUpdateAll'
         rustup update
+    end
+    function clean-docker-storage --description 'prune docker images and rebuild main work'
         # I haven't been able to set up docker garbage collect yet...
         # so I do this instead
         docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
-        cd $work_main_PATH && git sw development && git pull && make rebuild-dev
+        cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make rebuild-dev && git sw -
+    end
+    function update-core --description 'possibly requires restart'
         # now we need user input.  Well, if we don't want to accidentally break
         # anything.
         sudo pacman -Syu && yay
+    end
+    function update-all --description 'well, not necessarily all, but regular maintenance stuff'
+        update-side-note
+        clean-docker-storage
+        update-core
     end
     # e.g.
     # git diff --name-status development...HEAD -- 'rest-api/*' | git-to-vi
