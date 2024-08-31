@@ -65,9 +65,12 @@ if status is-interactive
     function update-side-note --description 'update stuff that does not require docker or restart'
         # these can run without supervision
         flatpak update  --assumeyes
-        nvim --headless -c "lua require('lazy').sync({wait = true})" -c 'TSUpdateSync' -c 'autocmd User MasonUpdateAllComplete quitall' -c 'MasonUpdateAll'
-        nvim -c 'autocmd User MasonUpdateAllComplete quitall' -c 'autocmd User VeryLazy MasonUpdateAll'
         rustup update
+        # nvim will open interactive, because anything else seems to struggle
+        # with either Mason, Treesitter, or the combination of the two
+        # Treesitter is tied into lazy, though i don't think that is the source
+        # of my problems
+        nvim -c "lua require('lazy').sync({wait = true})" -c 'autocmd User VeryLazy MasonUpdateAll'
     end
     function clean-docker-storage --description 'prune docker images and rebuild main work'
         # I haven't been able to set up docker garbage collect yet...
