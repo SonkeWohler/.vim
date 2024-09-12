@@ -35,7 +35,7 @@ require('mason-lspconfig').setup({
     "rust_analyzer",
     "sqlls",
     "texlab",
-    "tsserver",
+    "ts_ls",
     "yamlls",
     "pylsp",
     -- "docformatter",
