@@ -77,8 +77,12 @@ if status is-interactive
         # so I do this instead
         docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
         cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make rebuild-dev && git sw -
+        sleep 1m  # just to be sure nothing breaks with the above restart
     end
     function update-core --description 'possibly requires restart'
+        # sometimes we update docker-desktop.  And even when not, we usually do
+        # a restart, and it is nice not to have this running at that point
+        systemctl --user stop docker-desktop
         # now we need user input.  Well, if we don't want to accidentally break
         # anything.
         sudo pacman -Syu && yay
