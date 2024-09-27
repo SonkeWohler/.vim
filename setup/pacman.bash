@@ -87,11 +87,10 @@ sudo npm install --global @angular/cli
 # pretty print json from kubernetes logs
 sudo npm install --global pino-pretty
 
-# just to make sure in all this time we didn't add partial upgrades by accident
-# this is unlikely, but since each pacman and yay command is separate and takes
-# a moment it is theoretically possible
-sudo pacman -Syu --noconfirm
-
 # rustup
 
 rustup toolchain install stable
+
+# we started using `uv`
+# this trusts the curl output, so not exactly best practice
+curl -LsSf https://astral.sh/uv/install.sh | sh

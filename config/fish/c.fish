@@ -14,6 +14,8 @@ if status is-interactive
     set fish_greeting "Asta e Pestisorul meu"
     starship init fish | source
     fzf_configure_bindings --directory=\ct --git_status=\cs --git_log=\cg --history=\cr --variables=\cv --processes=\e\cp
+    uv generate-shell-completion fish | source
+    uvx --generate-shell-completion fish | source
 
     # ----------------- #
     # --- functions --- #
@@ -66,6 +68,7 @@ if status is-interactive
         # these can run without supervision
         flatpak update  --assumeyes
         rustup update
+        uv self update
         # nvim will open interactive, because anything else seems to struggle
         # with either Mason, Treesitter, or the combination of the two
         # Treesitter is tied into lazy, though i don't think that is the source
