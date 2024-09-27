@@ -317,8 +317,7 @@ nmap('vv', '0v$h')
 -- start insert mode with a new line above or below while maintaining indent
 nmap('o', 'ox<BS>')
 nmap('O', 'Ox<BS>')
--- move current line down by one
--- i.e. insert newline above the cursor, cursor stays on current line
+-- insert newline above the cursor, cursor stays on current line
 nmap('<C-j>', 'Ox<BS><Esc>0"_d$j')
 -- insert new line below the cursor and move cursor to new line
 nmap('<C-m>', 'ox<BS><Esc>0"_d$')
@@ -335,8 +334,8 @@ nmap('<M-j>', 'F<Space>i<Enter><Esc>k$')
 nmap('J', 'mJJ`J')
 -- move this line up/down, one at a time
 -- will behave weird when used with count
-nmap('<m-p>', 'VdkP')
-nmap('<m-n>', 'Vdp')
+nmap('<m-p>', 'V"pdk"pP')
+nmap('<m-n>', 'V"pd"pp')
 
 ---- spelling ----
 -- choose the first suggestion for the word under the cursor
