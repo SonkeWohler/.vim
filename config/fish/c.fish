@@ -76,6 +76,11 @@ if status is-interactive
         nvim -c "lua require('lazy').sync({wait = true})" -c 'autocmd User VeryLazy MasonUpdateAll'
     end
     function clean-docker-storage --description 'prune docker images and rebuild main work'
+        if ! docker info ;
+            echo 'docker is not currently running'
+            echo 'skipping clean-docker-storage'
+            return 1
+        end
         # I haven't been able to set up docker garbage collect yet...
         # so I do this instead
         docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
@@ -91,9 +96,9 @@ if status is-interactive
         sudo pacman -Syu && yay
     end
     function update-all --description 'well, not necessarily all, but regular maintenance stuff'
-        update-side-note
-        clean-docker-storage
-        update-core
+        update-side-note && echo 'side notes have been updated'
+        clean-docker-storage && echo 'docker has been pruned'
+        update-core && echo 'system update done, consider restarting...'
     end
     # e.g.
     # git diff --name-status development...HEAD -- 'rest-api/*' | git-to-vi
