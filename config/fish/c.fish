@@ -69,6 +69,10 @@ if status is-interactive
         flatpak update  --assumeyes
         rustup update
         uv self update
+        sudo npm update --global
+        # it is nice to make sure work is up to date as well.  There are some
+        # linters etc installed locally
+        cd $work_main_PATH && make local-update-helpers || echo 'skipping work linter update'
         # nvim will open interactive, because anything else seems to struggle
         # with either Mason, Treesitter, or the combination of the two
         # Treesitter is tied into lazy, though i don't think that is the source
