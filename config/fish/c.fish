@@ -65,6 +65,9 @@ if status is-interactive
         tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
     end
     function update-side-note --description 'update stuff that does not require docker or restart'
+        echo "--------------------------------"
+        echo "--- performing small updates ---"
+        echo "--------------------------------"
         # these can run without supervision
         flatpak update  --assumeyes
         rustup update
@@ -80,6 +83,9 @@ if status is-interactive
         nvim -c "lua require('lazy').sync({wait = true})" -c 'autocmd User VeryLazy MasonUpdateAll'
     end
     function clean-docker-storage --description 'prune docker images and rebuild main work'
+        echo "-------------------------------"
+        echo "--- cleaning docker storage ---"
+        echo "-------------------------------"
         if ! docker info ;
             echo 'docker is not currently running'
             echo 'skipping clean-docker-storage'
@@ -92,9 +98,12 @@ if status is-interactive
         sleep 1m  # just to be sure nothing breaks with the above restart
     end
     function update-core --description 'possibly requires restart'
+        echo "-------------------------------"
+        echo "--- updating pacman and yay ---"
+        echo "-------------------------------"
         # sometimes we update docker-desktop.  And even when not, we usually do
         # a restart, and it is nice not to have this running at that point
-        systemctl --user stop docker-desktop
+        systemctl --user stop docker-desktop && sleep 30s
         # now we need user input.  Well, if we don't want to accidentally break
         # anything.
         sudo pacman -Syu && yay
