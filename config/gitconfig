@@ -69,6 +69,7 @@
 	qqqqa = !git clean -df && git qqq :/
 	s- = switch -
 	sw = switch
+	sw- = switch -
 	dn = standard-diff-format development..HEAD
 	sn = dn --name-status
 	ln = log-message-default development..HEAD
@@ -89,3 +90,4 @@
 	lmm = log-message-default HEAD...development
 	lbmm = log-message-text HEAD...development
 	lpmm = log-message-diff HEAD...development
+	sd = sw development
