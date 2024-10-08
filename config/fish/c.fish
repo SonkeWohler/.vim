@@ -64,15 +64,20 @@ if status is-interactive
     function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
         tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
     end
+    function update-inconvenient --description "anything that I want to be in update-side-note but is less convenient/requires interactive"
+        echo "-----------------------------"
+        echo "--- updating inconvenient ---"
+        echo "-----------------------------"
+        sudo npm update --global
+    end
     function update-side-note --description 'update stuff that does not require docker or restart'
         echo "--------------------------------"
         echo "--- performing small updates ---"
         echo "--------------------------------"
-        # these can run without supervision
+        # these can run without supervision once I have sudo
         flatpak update  --assumeyes
         rustup update
         uv self update
-        sudo npm update --global
         # it is nice to make sure work is up to date as well.  There are some
         # linters etc installed locally
         cd $work_main_PATH && make local-update-helpers || echo 'skipping work linter update'
@@ -107,10 +112,15 @@ if status is-interactive
         # now we need user input.  Well, if we don't want to accidentally break
         # anything.
         sudo pacman -Syu && yay
+        # remove orphans after last update
+        pacman -Qdtq | sudo pacman -Rs -
+        # clean cache, keep last 2
+        paccache -rk2
     end
     function update-all --description 'well, not necessarily all, but regular maintenance stuff'
-        update-side-note && echo 'side notes have been updated'
         clean-docker-storage && echo 'docker has been pruned'
+        update-side-note && echo 'side notes have been updated'
+        update-inconvenient && echo 'inconvenients have been updated'
         update-core && echo 'system update done, consider restarting...'
     end
     # e.g.
