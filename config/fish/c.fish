@@ -68,7 +68,10 @@ if status is-interactive
         echo "-----------------------------"
         echo "--- updating inconvenient ---"
         echo "-----------------------------"
-        sudo npm update --global
+        # npm itself and some of the dependencies have to be handled by pacman
+        # unlike pip npm does not take any precautions, so updating all blindly
+        # frequently leads to conflicts
+        sudo npm update --global @angular/cli pino-pretty
     end
     function update-side-note --description 'update stuff that does not require docker or restart'
         echo "--------------------------------"
