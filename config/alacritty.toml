@@ -51,7 +51,7 @@ hide_when_typing = true
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
-[shell]
+[terminal.shell]
 args = ["--login"]
 program = "/bin/bash"
 
@@ -60,3 +60,5 @@ decorations = "none"
 opacity = 0.6
 startup_mode = "Maximized"
 title = "Home Sweet Home"
+
+[terminal]
