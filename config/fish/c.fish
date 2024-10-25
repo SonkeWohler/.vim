@@ -99,7 +99,7 @@ if status is-interactive
         # I haven't been able to set up docker garbage collect yet...
         # so I do this instead
         docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
-        cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make rebuild-dev && git sw -
+        cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make all-dev && git sw -
         sleep 1m  # just to be sure nothing breaks with the above restart
     end
     function update-core --description 'possibly requires restart'
