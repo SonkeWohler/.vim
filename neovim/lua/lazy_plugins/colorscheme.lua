@@ -4,6 +4,27 @@
 
 return {
 
+  --- less muted but hopefully still good and fun
+
+  {
+    'xero/evangelion.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+
+  {
+    'b0o/lavi.nvim',
+    dependencies = { 'rktjmp/lush.nvim' },
+    lazy = false,
+    priority = 1000,
+  },
+
+  {
+    'nyoom-engineering/oxocarbon.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+
   --- muted (not too hight contrast) color schemes
 
   --bamboo
@@ -15,6 +36,12 @@ return {
       require('bamboo').setup {}
       -- require('bamboo').load {}
     end
+  },
+
+  {
+    'pauchiner/pastelnight.nvim',
+    lazy = false,
+    priority = 1000,
   },
 
   -- nord
@@ -98,6 +125,18 @@ return {
         elseif colorscheme == "peachpuff" then
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#ffdab9" })
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#f5c195" })
+        elseif colorscheme == "oxocarbon" then
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#161616" })
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#131313" })
+        elseif colorscheme == "evangelion" then
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#201430" })
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#39274d" })
+        elseif colorscheme == "pastelnight" then
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#2a2a3b" })
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#3b3d4d" })
+        elseif colorscheme == "lavi" then
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#211b3d" })
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#2c254f" })
         else
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#000000" })
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#666666" })
