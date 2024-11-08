@@ -43,7 +43,7 @@ require('plugins')
 -- colorscheme is kind of important
 -- this does not load properly (with the schemes I am using) when defined via
 -- lazy, but this does work
-vim.cmd [[colorscheme bamboo]]
+vim.cmd [[colorscheme lavi]]
 
 -- other customization stuff
 -- grouped, roughly, by how I think of them, so if I have an idea and I go and
