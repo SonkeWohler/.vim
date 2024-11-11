@@ -111,7 +111,7 @@ if status is-interactive
         echo "-------------------------------"
         # sometimes we update docker-desktop.  And even when not, we usually do
         # a restart, and it is nice not to have this running at that point
-        systemctl --user stop docker-desktop && sleep 30s
+        systemctl --user stop docker-desktop && echo 'waiting for docker to stop...' && sleep 30s
         # now we need user input.  Well, if we don't want to accidentally break
         # anything.
         sudo pacman -Syu && yay
@@ -123,8 +123,8 @@ if status is-interactive
     function update-all --description 'well, not necessarily all, but regular maintenance stuff'
         clean-docker-storage && echo 'docker has been pruned'
         update-side-note && echo 'side notes have been updated'
-        update-inconvenient && echo 'inconvenients have been updated'
         update-core && echo 'system update done, consider restarting...'
+        update-inconvenient && echo 'inconvenients have been updated'
     end
     # e.g.
     # git diff --name-status development...HEAD -- 'rest-api/*' | git-to-vi
