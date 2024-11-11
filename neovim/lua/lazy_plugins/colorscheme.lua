@@ -135,7 +135,7 @@ return {
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#2a2a3b" })
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#3b3d4d" })
         elseif colorscheme == "lavi" then
-          vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#211b3d" })
+          vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#25213b" })
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#2c254f" })
         else
           vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#000000" })
