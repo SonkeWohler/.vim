@@ -23,7 +23,7 @@ return {
     config = function()
       -- I only use subword from here so far, so I use manual mappings
       -- consider markdown links and html attributes for the future
-      require("various-textobjs").setup({ useDefaultKeymaps = false })
+      require("various-textobjs").setup({ keymaps = { useDefaults = false } })
     end,
   },
   -- I use this in mappings.lua, to keep all the mapping related stuff in one
@@ -36,8 +36,8 @@ return {
     event = "VeryLazy",
     config = function()
       require 'eyeliner'.setup {
-        highlight_on_key = false,   -- show highlights only after keypress
-        dim = false,                -- dim all other characters if set to true
+        highlight_on_key = false, -- show highlights only after keypress
+        dim = false,              -- dim all other characters if set to true
       }
     end
   },
