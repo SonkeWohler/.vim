@@ -45,7 +45,9 @@
 	prune-remote-and-local-branches = !git list-prunable-branches | xargs git branch -D
 	prunewell = !git prune-and-list-prunable-local-branches && git prune-remote-and-local-branches
 	list-local-only-branches = !git branch -vv | grep -v ']' | awk '{print $1}'
-	# common commands
+	# various common commands
+	sw = switch  # better checkout, only for branches
+	sw- = switch -  # in case of typo
 	s = status
 	d = standard-diff-format
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
@@ -66,11 +68,9 @@
 	sln = dln --name-status
 	q = restore --staged  # expects files to be unstaged
 	qa = restore --staged :/  # unstages all files
-	r = reset --soft HEAD~
 	qqq = restore --source=HEAD --staged --worktree  # throw away changes to specified files
 	qqqqa = !git clean -df && git qqq :/  # throw away all changes in the worktree
-	sw = switch  # better checkout, only for branches
-	sw- = switch -  # in case of typo
+	cam = commit --amend --no-edit
 	# what is new on this branch (often a PR) compared to development
 	dn = standard-diff-format development..HEAD
 	dnn = standard-diff-format development...HEAD
