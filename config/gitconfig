@@ -31,28 +31,30 @@
 [rerere]
 	enabled = true
 [alias]
-	ls = !git ls-files $@ | delta
-	checkoub = checkout -b
+	# define how I like logs and the like formatted, used in other aliases
 	standard-diff-format = diff --irreversible-delete --find-renames --find-copies
 	log-message-default = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-iso-dates = log --pretty=format:\"%Creset%cd, %Cblue%an :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-diff = log -p --pretty=format:\"%n%n%n%n%n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
 	log-message-diff-and-text = log -p --pretty=format:\"%n%n%n%n%n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================%n%b%n%n\"
+	ls = !git ls-files $@ | delta
+	# clean local branches
 	list-prunable-branches = !git branch -vv | grep ': gone]' | awk '{print $1}'
 	prune-and-list-prunable-local-branches = !git fetch --prune && git list-prunable-branches
 	prune-remote-and-local-branches = !git list-prunable-branches | xargs git branch -D
 	prunewell = !git prune-and-list-prunable-local-branches && git prune-remote-and-local-branches
 	list-local-only-branches = !git branch -vv | grep -v ']' | awk '{print $1}'
+	# common commands
 	s = status
 	d = standard-diff-format
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
 	l = log-message-default
+	lpb = log-message-diff-and-text
+	lbp = lpb
 	ldate = log-message-iso-dates
 	lb = log-message-text
 	lp = log-message-diff
-	lpb = log-message-diff-and-text
-	lbp = lpb
 	log-since-last-pull = log-message-default @{1}..
 	full-log-since-last-pull = log-message-diff-and-text @{1}..
 	p = !git pull && git full-log-since-last-pull
@@ -62,24 +64,29 @@
 	ln = log-message-default @{u}..
 	dln = standard-diff-format @{u}..
 	sln = dln --name-status
-	q = restore --staged
-	qa = restore --staged :/
+	q = restore --staged  # expects files to be unstaged
+	qa = restore --staged :/  # unstages all files
 	r = reset --soft HEAD~
-	qqq = restore --source=HEAD --staged --worktree
-	qqqqa = !git clean -df && git qqq :/
-	s- = switch -
-	sw = switch
-	sw- = switch -
+	qqq = restore --source=HEAD --staged --worktree  # throw away changes to specified files
+	qqqqa = !git clean -df && git qqq :/  # throw away all changes in the worktree
+	sw = switch  # better checkout, only for branches
+	sw- = switch -  # in case of typo
+	# what is new on this branch (often a PR) compared to development
 	dn = standard-diff-format development..HEAD
+	dnn = standard-diff-format development...HEAD
 	sn = dn --name-status
+	snn = dnn --name-status
 	ln = log-message-default development..HEAD
+	lnn = log-message-default development...HEAD
 	lbn = log-message-text development..HEAD
 	lpn = log-message-diff development..HEAD
-	dnn = standard-diff-format development...HEAD
-	snn = dnn --name-status
-	lnn = log-message-default development...HEAD
 	lbnn = log-message-text development...HEAD
 	lpnn = log-message-diff development...HEAD
+	lbpn = log-message-diff-and-text development..HEAD
+	lpbn = lbpn
+	lbpnn = log-message-diff-and-text development...HEAD
+	lpbnn = lbpnn
+	# what is missing on this branch (often a PR) compared to development
 	dm = standard-diff-format HEAD..development
 	sm = dm --name-status
 	lm = log-message-default HEAD..development
