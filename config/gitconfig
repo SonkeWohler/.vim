@@ -101,3 +101,4 @@
 	# https://superuser.com/a/435912
 	rb = !bash -c 'git switch "$1" && git pull && git switch - && git rebase "$1"' -
 	rbd = !bash -c 'git switch development && git pull && git switch - && git rebase development' -
+	rdb = rbd  # typos
