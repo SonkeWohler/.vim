@@ -182,6 +182,41 @@ if status is-interactive
         end
         echo end, (date -Iminutes) >> ~/Documents/time_tracking.txt
     end
+    function github-pr-watch-for-checks --description "when I am done with a review, but GitHub checks aren't yet"
+        set current_branch $(git branch | grep '*' | awk '{print $2}')
+        if not set -q current_branch
+            return 1
+        end
+        gh run list | awk -F \t "{if (\$5 == '$current_branch' && \$1 != 'completed') {print \$7}}" | head -n 1 | xargs -I {} gh run watch {} --exit-status --interval 30
+    end
+    # # before starting this one I should cherry-pick any other commits needed for
+    # # that release, so that is worth thinking about
+    # function git-wait-for-pr-and-start-release --description 'automatically trigger release workflow if and when my PR merges'
+    #     set tag_branch $argv[1]
+    #     set release_tag $argv[2]
+    #     set pr_number $argv[3]
+    #     set release_message $argv[4]
+    #     echo "tag branch: $tag_branch"
+    #     echo "tag: $tag"
+    #     echo "pr: $pr_number"
+    #     echo "message: $release_message"
+    #     # TODO are you ready?
+    #     # print some instructions and context expectations and confirm user has
+    #     # read them, checked the arguments and is ready to go
+    #     git switch $tag_branch && git pull && git switch development && git pull || return 1
+    #     # wait for a new commit on development, which should be from my pr
+    #     watch -g -n 120 git pull || return 1
+    #     # check if the pr is gone i.e. merged, verifying that the above commit
+    #     # is from this pr
+    #     set pr_status (gh pr view $pr_number --json closed --jq '.closed') || return 1
+    #     if $pr_status = false
+    #         echo 'error: the PR is not closed, please check it and retry'
+    #         return 1
+    #     end
+    #     # cherry-pick that commit to the release branch, tag it and push the tag
+    #     # TODO I commented out pushing until I tested it a couple of times
+    #     git pull && git switch $tag_branch && git cherry-pick $(git log -n 1 --pretty=format:"%H" development) && git tag -a $release_tag -m $release_message # && git push && git push --tags || return 1
+    # end
 
     # --------------------- #
     # --- abbreviations --- #
@@ -205,6 +240,7 @@ if status is-interactive
     abbr -a --position anywhere -- cdv 'cd $dotfiles_PATH'
     abbr -a --position anywhere -- cdw 'cd $work_main_PATH'
     abbr -a --position anywhere -- cdp 'cd $work_platform_PATH'
+    abbr -a --position anywhere -- cdpc 'cd $work_platform_PATH/cli'
     abbr -a --position anywhere -- cdn 'cd $nextcloud_synch_PATH'
     abbr -a --position anywhere -- cdNXT 'cd $nextcloud_synch_PATH'
     abbr -a --position anywhere -- sshNXT 'ssh $nextcloud_server_ip'
