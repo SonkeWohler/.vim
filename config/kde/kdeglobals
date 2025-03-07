@@ -24,13 +24,13 @@ IntensityAmount=
 IntensityEffect=
 
 [Colors:Button]
-BackgroundAlternate=108,83,169
+BackgroundAlternate=169,49,71
 BackgroundNormal=20,22,34
-DecorationFocus=146,110,228
-DecorationHover=146,110,228
-ForegroundActive=146,110,228
+DecorationFocus=233,61,88
+DecorationHover=233,61,88
+ForegroundActive=233,61,88
 ForegroundInactive=163,178,180
-ForegroundLink=146,110,228
+ForegroundLink=246,189,194
 ForegroundNegative=253,84,126
 ForegroundNeutral=0,102,75
 ForegroundNormal=190,207,210
@@ -40,11 +40,11 @@ ForegroundVisited=186,216,220
 [Colors:Complementary]
 BackgroundAlternate=30,32,50
 BackgroundNormal=30,32,50
-DecorationFocus=146,110,228
-DecorationHover=146,110,228
-ForegroundActive=146,110,228
+DecorationFocus=233,61,88
+DecorationHover=233,61,88
+ForegroundActive=233,61,88
 ForegroundInactive=168,184,186
-ForegroundLink=146,110,228
+ForegroundLink=246,189,194
 ForegroundNegative=255,85,127
 ForegroundNeutral=255,170,127
 ForegroundNormal[$d]
@@ -52,13 +52,13 @@ ForegroundPositive[$d]
 ForegroundVisited=0,184,184
 
 [Colors:Selection]
-BackgroundAlternate=108,83,169
-BackgroundNormal=108,83,169
-DecorationFocus=146,110,228
-DecorationHover=146,110,228
-ForegroundActive=146,110,228
+BackgroundAlternate=169,49,71
+BackgroundNormal=169,49,71
+DecorationFocus=233,61,88
+DecorationHover=233,61,88
+ForegroundActive=233,61,88
 ForegroundInactive=255,255,255
-ForegroundLink=146,110,228
+ForegroundLink=170,45,64
 ForegroundNegative=253,84,126
 ForegroundNeutral=0,102,75
 ForegroundNormal=255,255,255
@@ -68,11 +68,11 @@ ForegroundVisited=17,20,21
 [Colors:Tooltip]
 BackgroundAlternate=18,19,31
 BackgroundNormal=20,22,34
-DecorationFocus=146,110,228
-DecorationHover=146,110,228
-ForegroundActive=146,110,228
+DecorationFocus=233,61,88
+DecorationHover=233,61,88
+ForegroundActive=233,61,88
 ForegroundInactive=168,198,207
-ForegroundLink=146,110,228
+ForegroundLink=246,189,194
 ForegroundNegative=253,84,126
 ForegroundNeutral=0,102,75
 ForegroundNormal=190,207,210
@@ -82,11 +82,11 @@ ForegroundVisited=100,58,197
 [Colors:View]
 BackgroundAlternate=30,32,50
 BackgroundNormal=20,22,34
-DecorationFocus=146,110,228
-DecorationHover=146,110,228
-ForegroundActive=146,110,228
+DecorationFocus=233,61,88
+DecorationHover=233,61,88
+ForegroundActive=233,61,88
 ForegroundInactive=189,206,207
-ForegroundLink=146,110,228
+ForegroundLink=246,189,194
 ForegroundNegative=253,84,126
 ForegroundNeutral=0,102,75
 ForegroundNormal=212,231,234
@@ -96,11 +96,11 @@ ForegroundVisited=178,193,195
 [Colors:Window]
 BackgroundAlternate=18,19,31
 BackgroundNormal=20,22,34
-DecorationFocus=146,110,228
-DecorationHover=146,110,228
-ForegroundActive=146,110,228
+DecorationFocus=233,61,88
+DecorationHover=233,61,88
+ForegroundActive=233,61,88
 ForegroundInactive=139,151,153
-ForegroundLink=146,110,228
+ForegroundLink=246,189,194
 ForegroundNegative=253,84,126
 ForegroundNeutral=0,102,75
 ForegroundNormal=190,207,210
@@ -108,12 +108,14 @@ ForegroundPositive=0,110,40
 ForegroundVisited=88,51,173
 
 [DirSelect Dialog]
-DirSelectDialog Size=943,630
-History Items[$e]=file:$HOME/nextcloud/sync,file:$HOME/nextcloud/,file:$HOME,file:$HOME/libraries/work/app
+DirSelectDialog Size=927,616
+History Items[$e]=file:$HOME/nextcloud,file:$HOME/nextcloud/sync,file:$HOME/nextcloud/,file:$HOME,file:$HOME/libraries/work/app
 
 [General]
+AccentColor=233,61,88
 BrowserApplication=vivaldi-stable.desktop
 ColorSchemeHash=db1e6ae6731d640efa4c5cce54e2c036de000bfc
+LastUsedCustomAccentColor=233,61,88
 TerminalApplication=alacritty
 TerminalService=Alacritty.desktop
 XftHintStyle=hintslight
@@ -127,6 +129,7 @@ toolBarFont=Noto Sans,18,-1,5,50,0,0,0,0,0
 [KDE]
 AnimationDurationFactor=0.7071067811865475
 LookAndFeelPackage=KDE-Story-Dark-Global-6
+widgetStyle=Fusion
 
 [KFileDialog Settings]
 Allow Expansion=false
@@ -154,6 +157,10 @@ ScreenScaleFactors=DVI-D-0=1.25;HDMI-0=1.25;DP-0=1.25;DP-1=1.25;DP-2=1.25;DP-3=1
 
 [KShortcutsDialog Settings]
 Dialog Size=3072,1629
+
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0
 
 [Shortcuts]
 Activate Next Tab=Ctrl+]
