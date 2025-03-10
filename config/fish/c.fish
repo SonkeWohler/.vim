@@ -210,13 +210,6 @@ if status is-interactive
         end
         echo end, (date -Iminutes) >> ~/Documents/time_tracking.txt
     end
-    function github-pr-watch-for-checks --description "when I am done with a review, but GitHub checks aren't yet"
-        set current_branch $(git branch | grep '*' | awk '{print $2}')
-        if not set -q current_branch
-            return 1
-        end
-        gh run list | awk -F \t "{if (\$5 == \"$current_branch\" && \$1 != \"completed\") {print \$7}}" | head -n 1 | xargs -I {} gh run watch {} --exit-status --interval 30
-    end
     # # before starting this one I should cherry-pick any other commits needed for
     # # that release, so that is worth thinking about
     # function git-wait-for-pr-and-start-release --description 'automatically trigger release workflow if and when my PR merges'
