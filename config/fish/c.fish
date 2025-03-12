@@ -11,7 +11,7 @@ set -gx SUDO_EDITOR 'nvim'
 set -gx LESS 'RS'
 
 if status is-interactive
-    set fish_greeting "Asta e Pestisorul meu"
+    set fish_greeting "Pestii sub apa nu pod!"
     starship init fish | source
     fzf_configure_bindings --directory=\ct --git_status=\cs --git_log=\cg --history=\cr --variables=\cv --processes=\e\cp
     uv generate-shell-completion fish | source
@@ -273,6 +273,7 @@ if status is-interactive
     abbr -a --position anywhere -- klogp 'kubernetes-pod-log-template'
     abbr -a --position anywhere -- gvi 'git-to-vi'
     abbr -a --position anywhere --set-cursor -- rp "rg --json '%'"
+    abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
 
 end
