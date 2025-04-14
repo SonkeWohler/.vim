@@ -17,7 +17,7 @@ plugins:
     args:
       - "-i"
       - "-c"
-      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize"
+      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize -t 'yyyy-mm-dd HH:MM:ss'"
   pinologs-dep:
     shortCut: Ctrl-L
     description: "attach (pretty)"
@@ -27,7 +27,7 @@ plugins:
     args:
       - "-i"
       - "-c"
-      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f -l app=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize"
+      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f -l app=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize -t 'yyyy-mm-dd HH:MM:ss'"
   pinologs-job:
     shortCut: Ctrl-L
     description: "attach (pretty)"
@@ -37,4 +37,4 @@ plugins:
     args:
       - "-i"
       - "-c"
-      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f -l job-name=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize"
+      - "printf '\n=====================================\n-------------------------------------\n=====================================\n\n' && kubectl logs -f -l job-name=$NAME -n $NAMESPACE --context $CONTEXT | pino-pretty --colorize -t 'yyyy-mm-dd HH:MM:ss'"
