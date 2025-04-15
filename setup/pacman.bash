@@ -51,8 +51,7 @@ sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-iosevka-nerd --noconfirm
 sudo pacman -S otf-droid-nerd --noconfirm
 # other editors
-sudo pacman -S code --noconfirm
-flatpak install flathub com.vscodium.codium
+flatpak install flathub com.vscodium.codium  # TODO add drawio pluin
 # tools from cargo
 sudo pacman -S postgresql --noconfirm
 cargo install cargo-update
