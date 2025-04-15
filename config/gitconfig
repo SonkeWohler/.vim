@@ -59,7 +59,11 @@
 	lp = log-message-diff
 	log-since-last-pull = log-message-default @{1}..
 	full-log-since-last-pull = log-message-diff-and-text @{1}..
-	p = !git pull && git full-log-since-last-pull
+	pu = !git pull --rebase && git push  # convenient for dotfiles
+	puf = pu
+	puff = pu
+	pam = push --force-with-lease  # commonly combined with rbd
+	pama = pam
 	ll = log-since-last-pull
 	dl = standard-diff-format @{1}.. --relative
 	sl = dl --name-status
