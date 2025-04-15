@@ -1,6 +1,6 @@
 status is-interactive || exit
 
-function github-pr-watch-for-checks --description "when I am done with a review, but GitHub checks aren't yet"
+function github-pr-watch-for-checks --description "wait for checks on the current PR"
     set current_branch $(git branch | grep '*' | awk '{print $2}')
     if not set -q current_branch
         return 1
