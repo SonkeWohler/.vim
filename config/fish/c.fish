@@ -11,7 +11,7 @@ set -gx SUDO_EDITOR 'nvim'
 set -gx LESS 'RS'
 
 if status is-interactive
-    set fish_greeting "Pestii sub apa nu pod!"
+    set fish_greeting "Frische Fische fischt Fischer Fritz"
     starship init fish | source
     fzf_configure_bindings --directory=\ct --git_status=\cs --git_log=\cg --history=\cr --variables=\cv --processes=\e\cp
     uv generate-shell-completion fish | source
@@ -80,7 +80,7 @@ if status is-interactive
         end
         # I haven't been able to set up docker garbage collect yet...
         # so I do this instead
-        docker buildx prune --force  # I haven't been able to set up docker garbage collect right yet...
+        docker system prune --all --force --volumes  # I haven't been able to set up docker garbage collect right yet...
         cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make all-dev && git sw -
         sleep 1m  # just to be sure nothing breaks with the above restart
     end
