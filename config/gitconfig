@@ -71,6 +71,9 @@
 	qqq = restore --source=HEAD --staged --worktree  # throw away changes to specified files
 	qqqqa = !git clean -df && git qqq :/  # throw away all changes in the worktree
 	cam = commit --amend --no-edit
+	cama = cam -a
+	camaa = cama
+	camaaa = cama  # typos happen
 	# what is new on this branch (often a PR) compared to development
 	dn = standard-diff-format development..HEAD
 	dnn = standard-diff-format development...HEAD
