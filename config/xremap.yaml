@@ -7,25 +7,26 @@ shared:
 modmap:
   - name: sensible caps
     remap:
-      Capslock: Control
-      Control_L: Esc
+      CAPSLOCK: CONTROL_L
+      CONTROL_L: ESC
+
 keymap:
   - name: readline for everything
     application:
       not: *terminals
     remap:
       C-h: Backspace
-      C-w: C-Backspace
-      C-b: left
-      M-b: C-left
-      C-f: right
-      C-l: right
-      M-f: C-right
-      C-n: down
-      C-p: up
-      C-m: Enter
-      C-u: [SHIFT-HOME, Backspace]
-      C-k: [HOME, SHIFT-END, Backspace]
-      C-a: HOME
-      C-e: END
-      C-/: C-f
+      # C-w: C-Backspace
+      # C-b: left
+      # M-b: C-left
+      # C-f: right
+      # C-l: right
+      # M-f: C-right
+      # C-n: down
+      # C-p: up
+      # C-m: Enter
+      # C-u: [SHIFT-HOME, Backspace]
+      # C-k: [HOME, SHIFT-END, Backspace]
+      # C-a: HOME
+      # C-e: END
+      # C-/: C-f
