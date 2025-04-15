@@ -5,25 +5,25 @@
 
 return {
 
-  -- use nvim inside your browser
-  {
-    'glacambre/firenvim',
-    event = "VeryLazy",
-    build = function() vim.fn['firenvim#install'](0) end,
-    config = function()
-      vim.g.firenvim_config = {
-        globalSettings = { alt = "all" },
-        localSettings = {
-          [".*"] = {
-            cmdline  = "firenvim",
-            content  = "text",
-            priority = 0,
-            takeover = "never",
-          }
-        }
-      }
-    end,
-  },
+  -- -- use nvim inside your browser
+  -- {
+  --   'glacambre/firenvim',
+  --   event = "VeryLazy",
+  --   build = function() vim.fn['firenvim#install'](0) end,
+  --   config = function()
+  --     vim.g.firenvim_config = {
+  --       globalSettings = { alt = "all" },
+  --       localSettings = {
+  --         [".*"] = {
+  --           cmdline  = "firenvim",
+  --           content  = "text",
+  --           priority = 0,
+  --           takeover = "never",
+  --         }
+  --       }
+  --     }
+  --   end,
+  -- },
 
   -- interacting with obsidian
   -- I don't really use it yet, but I use obsidian, so this stays for now
