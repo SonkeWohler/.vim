@@ -217,7 +217,7 @@ if status is-interactive
     abbr -a --position anywhere -- cdNXT 'cd $nextcloud_synch_PATH'
     abbr -a --position anywhere -- sshNXT 'ssh $nextcloud_server_ip'
     abbr -a --position anywhere -- tre 'tree-without-symlinks-etc'
-    abbr -a --position anywhere -- viNXT 'cd $nextcloud_synch_PATH/vault && vi Index.md'
+    abbr -a --position anywhere -- viNXT 'cd $nextcloud_synch_PATH/vault && nvim Index.md'
     abbr -a --position anywhere -- kk 'k9s'
     abbr -a --position anywhere -- klogj 'kubernetes-job-log-template'
     abbr -a --position anywhere -- klogd 'kubernetes-app-log-template'
