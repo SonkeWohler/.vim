@@ -6,6 +6,8 @@ sudo pacman -S python-pip --noconfirm
 sudo pacman -S yay --noconfirm
 sudo pacman -S npm --noconfirm
 sudo pacman -S flatpak --noconfirm
+# keyboard stuff
+sudo pacman -S keyd --noconfirm
 # languages
 # sudo pacman -S python --noconfirm  # already installed by python-pip
 sudo pacman -S rustup --noconfirm
@@ -53,11 +55,11 @@ sudo pacman -S otf-droid-nerd --noconfirm
 # other editors
 flatpak install flathub com.vscodium.codium  # TODO add drawio pluin
 # tools from cargo
-sudo pacman -S postgresql --noconfirm
-cargo install cargo-update
-cargo install diesel_cli --no-default-features --features postgres
-cargo install diesel_cli_ext
-diesel completions bash | sudo tee /etc/bash_completion.d/diesel
+# sudo pacman -S postgresql --noconfirm
+# cargo install cargo-update
+# cargo install diesel_cli --no-default-features --features postgres
+# cargo install diesel_cli_ext
+# diesel completions bash | sudo tee /etc/bash_completion.d/diesel
 # communication and similar stuff
 sudo pacman -S vivaldi --noconfirm
 flatpak install flathub com.brave.Browser

@@ -137,3 +137,10 @@ nvim -c 'TSInstallSync all' -c 'quitall' && \
 nvim -c 'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope' && \
 # https://github.com/glacambre/firenvim/blob/master/TROUBLESHOOTING.md
 nvim -c 'call firenvim#install(0)'
+
+#-- keyboard
+
+sudo mkdir /etc/keyd
+sudo ln --symbolic --verbose $vimCD/config/keyd.conf /etc/keyd/ && \
+sudo systemctl enable keyd --now && \
+sudo keyd reload
