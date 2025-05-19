@@ -62,3 +62,24 @@ startup_mode = "Maximized"
 title = "Home Sweet Home"
 
 [terminal]
+
+[keyboard]
+bindings= [
+    # by default C-backspace is the same as C-h, used as backspace
+    # not all shells can get C-backspace for legacy reasons
+    # but we can remap it in alacritty to C-w, which is exactly what I want it to be
+    {key="Back", mods="Control", chars="\u0017"},
+    {key="Delete", mods="Control", chars="\u001b\u0064"},
+    {key="ArrowRight", mods="Control", chars="\u001b\u0066"},
+    {key="ArrowLeft", mods="Control", chars="\u001b\u0062"},
+    {key="Enter", chars="\u000d"},
+    {key="Enter", mods="Shift", chars="\u000a"},
+    {key="Delete", chars="\u0004"},
+    {key="ArrowRight", chars="\u0006"},
+    {key="ArrowLeft", chars="\u0002"},
+    {key="ArrowDown", chars="\u000e"},
+    {key="ArrowUp", chars="\u0010"},
+    {key="Back", chars="\u0008"},
+    {key="Home", chars="\u0001"},
+    {key="End", chars="\u0005"},
+]

@@ -18,6 +18,7 @@ set output-meta on
 #-- mine
 # make bash not case sensitive
 set completion-ignore-case On
+set colored-stats On
 
 ### --- emacs mode
 $if mode=emacs
@@ -36,6 +37,7 @@ $if mode=emacs
 "\e\e[D": backward-word
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+"\C-h": backward-kill-word
 
 #-- for rxvt
 "\e[8~": end-of-line
@@ -48,4 +50,3 @@ $if mode=emacs
 "\e[H": beginning-of-line
 "\e[F": end-of-line
 $endif
-
