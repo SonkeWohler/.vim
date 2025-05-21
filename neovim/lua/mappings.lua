@@ -269,8 +269,8 @@ nmap('zl', 'zr')
 ---- registers ----
 -- yank into system register
 -- keep in mind "+ and "* are different system registers
-vmap('""', '"+ygv"*y')
-nmap('""', '"+yygv"*y')
+vmap('""', 'y:CopyMainYankToSystemClipboard<CR>')
+nmap('""', 'yy:CopyMainYankToSystemClipboard<CR>')
 nmap('++', '"+p')
 vmap('++', 'x"+P')
 imap('"++', '<C-R>+')

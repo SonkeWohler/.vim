@@ -1,9 +1,12 @@
 -- ## commands
 
+----- Registers -----
+cmd('CopyMainYankToSystemClipboard', 'let @+ = @" | let @* = @" | call system("wl-copy", @")', { desc = 'copy main register to system clipboard' })
+cmd('Y', 'CopyMainYankToSystemClipboard', {})
+
 ----- Buffer -----
 cmd('Qa', 'cq 77', { desc = 'force quit all buffers, exit with code 77' })
-cmd('YankFilePath', 'let @+ = expand("%") | let @* = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
-cmd('YY', 'let @+ = expand("%") | let @* = expand("%")', { desc = 'yank relative path to current file to system clipboard' })
+cmd('YY', 'let @" = expand("%") | Y', {})
 
 ----- Tabs -----
 cmap('RT<tab>', 'TablineTabRename ')
