@@ -7,6 +7,10 @@ imap('<c-u>', '<c-u>')
 -- pair has been autoclosed.  This is more of a universial move-right
 -- it looks useless but helps me a lot
 imap('<C-l>', '<Right>')
+-- move cursor right, just as in GNU readline
+-- especially useful when autopairs are active, because by the time I get to
+-- close the pair I forgot what kind of pair it is
+imap('<C-f>', '<Right>')
 
 ----- inter-buffer navigation -----
 -- alt-file, go back and forth by one file
