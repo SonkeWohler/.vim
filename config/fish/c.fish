@@ -90,19 +90,19 @@ if status is-interactive
         echo "-------------------------------"
         # sometimes we update docker-desktop.  And even when not, we usually do
         # a restart, and it is nice not to have this running at that point
-        systemctl --user stop docker-desktop && echo 'waiting for docker to stop...' && sleep 30s
+        systemctl --user stop docker-desktop && echo 'waiting for docker to stop...' && sleep 5s && \
         # now we need user input.  Well, if we don't want to accidentally break
         # anything.
-        sudo pacman -Syu && yay
+        sudo pacman -Syu && yay && \
         # remove orphans after last update
-        pacman -Qdtq | sudo pacman -Rs -
+        pacman -Qdtq | sudo pacman -Rs - && \
         # clean cache, keep last 2
         paccache -rk2
     end
     function update-all --description 'well, not necessarily all, but regular maintenance stuff'
-        clean-docker-storage && echo 'docker has been pruned'
-        update-side-note && echo 'side notes have been updated'
-        update-core && echo 'system update done, consider restarting...'
+        clean-docker-storage && echo 'docker has been pruned' && \
+        update-side-note && echo 'side notes have been updated' && \
+        update-core && echo 'system update done, consider restarting...' && \
         update-inconvenient && echo 'inconvenients have been updated'
     end
     # e.g.
@@ -224,6 +224,7 @@ if status is-interactive
     abbr -a --position anywhere -- klogp 'kubernetes-pod-log-template'
     abbr -a --position anywhere -- gvi 'git-to-vi'
     abbr -a --position anywhere --set-cursor -- rp "rg --json '%'"
+    abbr -a --position anywhere --set-cursor -- klog "kubectl logs --tail=-1 -f % | pino-pretty --colorize"
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
 
