@@ -72,8 +72,9 @@
 	sln = dln --name-status
 	q = restore --staged  # expects files to be unstaged
 	qa = restore --staged :/  # unstages all files
-	qqq = restore --source=HEAD --staged --worktree  # throw away changes to specified files
-	qqqqa = !git clean -df && git qqq :/  # throw away all changes in the worktree
+	c = git clean -i
+	qqq = !git restore --source=HEAD --staged --worktree $@ || git clean -df $@  # throw away changes to specified files
+	qqqqa = !git clean -df && git restore --source=HEAD --staged --worktree :/  # throw away all changes in the worktree
 	cam = commit --amend --no-edit
 	cama = cam -a
 	camaa = cama
