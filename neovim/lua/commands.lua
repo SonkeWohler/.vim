@@ -21,6 +21,7 @@ cmd('LSX', 'NvimTreeClose', { desc = 'close NvimTree' })
 ----- mostly telescope now
 -- files
 cmd('FF', function() require("telescope.builtin").find_files() end, { desc = 'find file' })
+cmd('BB', function() require("telescope.builtin").buffers() end, { desc = 'open buffers' })
 -- grep
 cmd('RG', function() require("telescope.builtin").live_grep() end, { desc = 'rg - live grep in workspace' })
 cmd('FS', function() require("telescope.builtin").live_grep() end, { desc = 'rg - live grep in workspace' })

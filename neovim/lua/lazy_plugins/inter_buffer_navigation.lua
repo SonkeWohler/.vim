@@ -40,11 +40,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("early-retirement").setup {
-        -- close as early as possible
-        -- since I have a tendency to use tabs if there is any way I will still
-        -- use them
-        -- that's why I need this plugin
-        retirementAgeMins = 1,
+        retirementAgeMins = 30,
         -- can be nice when checking it works well, but usually don't need (default)
         notificationOnAutoClose = false,
         -- I may change this in the future, but lets not autosave (default)
