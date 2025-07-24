@@ -14,8 +14,9 @@ aliases:
     approvem: pr review --approve --body
     merge: pr merge --squash --delete-branch
     review: '!gh pr checkout $1 && make rebuild-dev-most && gh pr view'
-    watch: pr checks --watch --fail-fast
-    watch-deployment: run watch --exit-status
+    watch: pr checks --watch --fail-fast --interval 60
+    watch-deployment: run watch --exit-status --interval 60
+    rwatch: watch-deployment
     create-pr: '!gh pr create && gh pr edit --add-assignee @me && gh pr view --web'
     pr-review-ready: '!gh pr ready && gh pr edit --add-assignee @me && gh pr edit --add-reviewer knosc/core-developers'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
