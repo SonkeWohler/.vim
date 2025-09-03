@@ -29,9 +29,6 @@ if status is-interactive
     # --- it, so I can't just throw them into the config file
     # a pager with syntax and git highlighting
     function delta-template --description 'delta with standard-options' ; delta --paging=always ; end
-    function rgg --description 'rg with auto-page into my standard delta'
-        rg --json $argv | delta-template
-    end
     # view kubernetes pod logs
     # --- utillity
     # change into directory after creating
@@ -227,5 +224,6 @@ if status is-interactive
     abbr -a --position anywhere --set-cursor -- klog "kubectl logs --tail=-1 -f % | pino-pretty --colorize"
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
+    abbr -a --position anywhere --set-cursor -- rgg "rg --json '%' | delta-template"
 
 end
