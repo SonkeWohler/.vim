@@ -5,8 +5,10 @@ cmd('CopyMainYankToSystemClipboard', 'let @+ = @" | let @* = @" | call system("w
 cmd('Y', 'CopyMainYankToSystemClipboard', {})
 
 ----- Buffer -----
-cmd('Qa', 'cq 77', { desc = 'force quit all buffers, exit with code 77' })
+cmd('Qa', 'cq 77', { desc = 'quit all buffers, exit with code 77' })
+cmd('QQQ', 'Qa', { desc = 'wrapper for Qa' })
 cmd('YY', 'let @" = expand("%") | Y', {})
+cmd('WW', 'wqa', { desc = 'save and quit all buffers' })
 
 ----- Tabs -----
 cmap('RT<tab>', 'TablineTabRename ')
@@ -14,6 +16,9 @@ cmap('RT ', 'TablineTabRename ')
 
 ----- Filetree -----
 cmd('LSA', 'NvimTreeFindFile', { desc = 'open NvimTree here' })
+cmd('Lsa', 'LSA', { desc = 'wrapper around LSA'})
+cmd('LSa', 'LSA', { desc = 'wrapper around LSA'})
+cmd('LsA', 'LSA', { desc = 'wrapper around LSA'})
 cmd('LSC', 'NvimTreeClose', { desc = 'close NvimTree' })
 cmd('LSX', 'NvimTreeClose', { desc = 'close NvimTree' })
 
