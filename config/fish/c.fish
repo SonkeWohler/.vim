@@ -64,7 +64,7 @@ if status is-interactive
         and git qa
         and git stash
         and fisher update
-        and git commit -a -m 'chore(config/fish): fisher update (part of update-side-note automation)' --no-edit
+        and git commit -a -m 'chore(config/fish): fisher update (part of update-side-note automation)' --no-edit --allow-empty
         and git stash pop
         and git push
         and echo '--- there is a new commit in your dotfiles now'
