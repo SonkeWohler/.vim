@@ -237,6 +237,7 @@ if status is-interactive
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
     abbr -a --position anywhere --set-cursor -- rgg "rg --json '%' | delta-template"
+    abbr -a --position anywhere -- nogit "not test (git status --porcelain)"
     # wait for pid to complete, then do other stuff
     # useful with <C-M-p> from fzf.fish
     abbr -a --position anywhere --set-cursor -- ww "tail --pid % -f /dev/null && "
