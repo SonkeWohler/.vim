@@ -59,19 +59,19 @@ if status is-interactive
         uv self update
         # fish plugins, which should go into dotfiles
         echo "--- updating fish plugins and committing them to dotfiles!!!"
-        cd $dotfiles_PATH
-        and git pull --rebase
-        and git qa
-        and git stash
-        and fisher update
-        and git commit -a -m 'chore(config/fish): fisher update (part of update-side-note automation)' --no-edit --allow-empty
-        and git stash pop
-        and git push
-        and echo '--- there is a new commit in your dotfiles now'
-        or echo '--- failed to update fisher, please check your dotfiles'
+        # cd $dotfiles_PATH
+        # and git pull --rebase
+        # and git qa
+        # and git stash
+        # and fisher update
+        # and git commit -a -m 'chore(config/fish): fisher update (part of update-side-note automation)' --no-edit --allow-empty
+        # and git stash pop
+        # and git push
+        # and echo '--- there is a new commit in your dotfiles now'
+        # or echo '--- failed to update fisher, please check your dotfiles'
         # it is nice to make sure work is up to date as well.  There are some
         # linters etc installed locally
-        cd $work_main_PATH && make local-update-helpers || echo 'skipping work linter update'
+        # cd $work_main_PATH && make local-update-helpers || echo 'skipping work linter update'
         # nvim will open interactive, because anything else seems to struggle
         # with either Mason, Treesitter, or the combination of the two
         # Treesitter is tied into lazy, though i don't think that is the source
