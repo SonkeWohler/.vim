@@ -11,6 +11,16 @@ imap('<C-l>', '<Right>')
 -- especially useful when autopairs are active, because by the time I get to
 -- close the pair I forgot what kind of pair it is
 imap('<C-f>', '<Right>')
+cmap('<C-f>', '<Right>')
+imap('<C-b>', '<Left>')
+cmap('<C-b>', '<Left>')
+
+imap('<C-a>', '<C-o>^')
+cmap('<C-a>', '<C-o>^')
+imap('<C-e>', '<C-o>$')
+cmap('<C-e>', '<C-o>$')
+-- imap('<M-b>', '<C-o>b')
+-- imap('<M-f>', '<C-o>w')
 
 ----- inter-buffer navigation -----
 -- alt-file, go back and forth by one file
