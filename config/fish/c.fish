@@ -228,12 +228,13 @@ if status is-interactive
     abbr -a --position anywhere -- tre 'tree-without-symlinks-etc'
     abbr -a --position anywhere -- viNXT 'cd $nextcloud_synch_PATH/vault && nvim Index.md'
     abbr -a --position anywhere -- kk 'k9s'
-    abbr -a --position anywhere -- klogj 'kubernetes-job-log-template'
-    abbr -a --position anywhere -- klogd 'kubernetes-app-log-template'
-    abbr -a --position anywhere -- klogp 'kubernetes-pod-log-template'
+    abbr -a --position anywhere -- klog 'kubernetes-log-template'
+    abbr -a --position anywhere -- klogj 'kubernetes-log-template --job'
+    abbr -a --position anywhere -- klogp 'kubernetes-log-template --pod'
+    abbr -a --position anywhere -- kloga 'kubernetes-log-template --app'
     abbr -a --position anywhere -- gvi 'git-to-vi'
     abbr -a --position anywhere --set-cursor -- rp "rg --json '%'"
-    abbr -a --position anywhere --set-cursor -- klog "kubectl logs --tail=-1 -f % | pino-pretty --colorize"
+    # abbr -a --position anywhere --set-cursor -- klog "kubectl logs --tail=-1 -f % | pino-pretty --colorize"
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
     abbr -a --position anywhere --set-cursor -- rgg "rg --json '%' | delta-template"
