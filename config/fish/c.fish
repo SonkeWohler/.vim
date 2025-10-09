@@ -233,6 +233,7 @@ if status is-interactive
     abbr -a --position anywhere -- klogp 'kubernetes-log-template --pod'
     abbr -a --position anywhere -- kloga 'kubernetes-log-template --app'
     abbr -a --position anywhere -- gvi 'git-to-vi'
+    abbr -a --position anywhere -- gg gitui
     abbr -a --position anywhere --set-cursor -- rp "rg --json '%'"
     # abbr -a --position anywhere --set-cursor -- klog "kubectl logs --tail=-1 -f % | pino-pretty --colorize"
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"

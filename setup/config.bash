@@ -144,3 +144,8 @@ sudo mkdir /etc/keyd
 sudo ln --symbolic --verbose $vimCD/config/keyd.conf /etc/keyd/ && \
 sudo systemctl enable keyd --now && \
 sudo keyd reload
+
+#-- gitui
+
+mkdir --parents --verbose ~/.config/gitui
+ln --symbolic --verbose $vimCD/config/gitui/key_bindings.ron ~/.config/gitui/key_bindings.ron
