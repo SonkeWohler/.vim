@@ -110,3 +110,7 @@
 	rb = !bash -c 'git switch "$1" && git pull && git switch - && git rebase "$1"' -
 	rbd = rb development
 	rdb = rbd  # typos
+    rbd-stash = !git stash && git rbd && git stash pop
+    rdb-stash = rbd-stash
+    srbd = rbd-stash
+    srdb = rbd-stash
