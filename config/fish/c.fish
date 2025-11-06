@@ -211,7 +211,7 @@ if status is-interactive
     abbr -a --position anywhere -- rmv 'rm -rvI'
     abbr -a --position anywhere -- rmvi 'rm -rvi'
     abbr -a --position anywhere -- rmd 'rm -dv'
-    abbr -a --position anywhere -- mvv 'mv -v'
+    abbr -a --position anywhere -- mvv 'mv -vi'
     abbr -a --position anywhere -- cpv 'cp -rv'
     abbr -a --position anywhere -- vi 'nvim -p'
     abbr -a --position anywhere -- vimu 'vim -u NONE'
