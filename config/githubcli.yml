@@ -9,6 +9,7 @@ prompt: enabled
 pager: delta
 # Aliases allow you to create nicknames for gh commands
 aliases:
+    vw: pr view --web
     co: pr checkout
     approve: pr review --approve
     approvem: pr review --approve --body
