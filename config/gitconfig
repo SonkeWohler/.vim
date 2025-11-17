@@ -62,7 +62,11 @@
 	pu = !git pull --rebase && git push  # convenient for dotfiles
 	puf = pu
 	puff = pu
-	pam = push --force-with-lease  # commonly combined with rbd
+	cam = commit --amend --no-edit
+	cama = cam -a
+	camaa = cama
+	camaaa = cama  # typos happen
+	pam = push --force-with-lease  # commonly combined with rbd or cam
 	pama = pam
 	ll = log-since-last-pull
 	dl = standard-diff-format @{1}.. --relative
@@ -75,10 +79,6 @@
 	c = git clean -i
 	qqq = !git restore --source=HEAD --staged --worktree $@ || git clean -df $@  # throw away changes to specified files
 	qqqqa = !git clean -df && git restore --source=HEAD --staged --worktree :/  # throw away all changes in the worktree
-	cam = commit --amend --no-edit
-	cama = cam -a
-	camaa = cama
-	camaaa = cama  # typos happen
 	# what is new on this branch (often a PR) compared to development
 	dn = standard-diff-format development..HEAD
 	dnn = standard-diff-format development...HEAD
