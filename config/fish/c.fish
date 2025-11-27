@@ -38,7 +38,7 @@ if status is-interactive
     end
     # tree with ignored files
     function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
-        tree --gitfile="$dotfiles_PATH/config/gitignore" $argv[1] | grep -v "\->"
+        tree -aC -I '.git' --gitignore --gitfile="$dotfiles_PATH/config/gitignore" $argv | grep -v "\->"
     end
     function update-inconvenient --description "anything that I want to be in update-side-note but is less convenient/requires interactive"
         echo "-----------------------------"
