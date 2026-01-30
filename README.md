@@ -1,8 +1,8 @@
 # My command Line Configuration
 
-This is my command line configuration. Everything necessary to setup the
-command line tools and anything related the way I like it is either backed up
-or described here.
+This is my command line configuration. Everything necessary to setup the command
+line tools and anything related the way I like it is either backed up or
+described here.
 
 This is tailored to an Arch-based install (EndeavourOS, currently), so will need
 some tweaks for any other distro.
@@ -20,11 +20,9 @@ take care of everything else.
 
 [@authentication requires GitHub Username, Password and 2FA]
 
-```
-cd /tmp
-wget https://raw.githubusercontent.com/SonkeWohler/.vim/master/git-setup.bash
-chmod +x git-setup.bash
-./git-setup.bash
+```bash
+cd /tmp wget https://raw.githubusercontent.com/SonkeWohler/.vim/master/git-setup.bash
+chmod +x git-setup.bash ./git-setup.bash
 ```
 
 This should drop you inside the `setup/` folder containing the remaining
@@ -32,14 +30,14 @@ scripts.  First you should run `pacman.bash` and make sure everything installs
 fine.  Sometimes package-names change and packages move.  Last time I had my
 nerd-fonts fail to install for this reason.
 
-```
+```bash
 ./pacman.bash
 ```
 
 Now the configuration related scripts, as you should be able to test these
 without restarting first.
 
-```
+```bash
 ./config.bash
 ./script.bash
 ```
@@ -53,7 +51,7 @@ without it the settings revert and you have to change them back manually.
 
 When testing whether docker works, there are some notes below on common issues.
 
-```
+```bash
 ./kde.bash
 ./docker.bash
 ./desktop.bash
@@ -64,21 +62,21 @@ These scripts take care of, in the above order:
 * software, like nvim, kubernetes etc.
     - note: Docker Desktop might not work quite right, see below.
     - this doesn't just cover pacman, but also yay, pip and npm, but it is
-      Arch-specific
+    Arch-specific
 * dotfiles like ~/.bashrc
     - this also runs installs for anything that requires this config to be in
-      place for the installation to work properly, like tmux and neovim.
+    place for the installation to work properly, like tmux and neovim.
 * useful scripts for keyboard remaps and terminal autostarts
 * kde files
     - the most important things this takes care of are:
         - keyboard shortcuts
         - plasma widgets
     - this is still somewhat experimental, so a few things don't work quite the
-      way you might expect.  Stuff like the search preferences in Dolphin, which
-      change somewhat regularly.
+    way you might expect.  Stuff like the search preferences in Dolphin, which
+    change somewhat regularly.
 * setting up docker-desktop to run
     - After restart you can test with `docker info`.  Consult [the arch
-      wiki](https://wiki.archlinux.org/title/Docker) on common problems like:
+    wiki](https://wiki.archlinux.org/title/Docker) on common problems like:
         - Bios not allowing hardware virtualisation
         - rootless docker working correctly
         - is `docker.socket` running (`systemctl enable --now docker.socket`)
@@ -91,42 +89,43 @@ Make sure everything works as intended before moving on to:
 There are some things that you still have to setup manually:
 
 * For any Nvidia cards you have to install drivers.  [EndeavourOS has
-  `nvidia-inst`](https://discovery.endeavouros.com/nvidia/new-nvidia-driver-installer-nvidia-inst/2022/03/)
-  for that which works well in my experience to cover steps 1.* in [the Arch Wiki
-  instructions](https://wiki.archlinux.org/title/NVIDIA) fully automated.
+`nvidia-inst`](https://discovery.endeavouros.com/nvidia/new-nvidia-driver-installer-nvidia-inst/2022/03/)
+for that which works well in my experience to cover steps 1.* in [the Arch Wiki
+instructions](https://wiki.archlinux.org/title/NVIDIA) fully automated.
 * Start and setup Vivaldi
     - Log into my Vivaldi Account to get extensions and their settings
-      [@authentication requires Vivaldi Password and Username]
+    [@authentication requires Vivaldi Password and Username]
     - You can skip the passwords, as these are managed by KeePassXC, see
-      Nextcloud below
+    Nextcloud below
     - this step is kind of annoying.  Even after logging into my account two
-      things are not set up:
-        - keyboard shortcuts are the most annoying.  They need to be set up manually
-          until I figure out where the damn file is to copy/sync
+    things are not set up:
+        - keyboard shortcuts are the most annoying.  They need to be set up
+        manually until I figure out where the damn file is to copy/sync
         - theming and other appearance settings also don't seem to sync.  They
-          are less problematic.
+        are less problematic.
 * Nextcloud
     - go to [cloud.sonki.codes](cloud.sonki.codes) and log in as `sonki`
-      [@authentication requires Nextcloud Password and Username]
+    [@authentication requires Nextcloud Password and Username]
     - open your local nextcloud and use your browser to authenticate it
     - sync files to `~/nextcloud`
     - decrypt the password database in `~/nextcloud/sync/passwords.kdbx`
-      [@authentication requires keepass-phrase etc]
+    [@authentication requires keepass-phrase etc]
     - connect the KeePassXC browser extension to the database
-        - In KeePassXC go to *Tools > Settings > Browser* and *Enable* for Vivaldi
+        - In KeePassXC go to *Tools > Settings > Browser* and *Enable* for
+        Vivaldi
         - In the Browser Extension connect to the database
         - In KeePassXC name the connection and allow it
     - optionally, use another machine to add the public ssh key for this new
-      machine to the trusted keys on the server
-      [@authentication requires ssh access to nextcloud server]
+    machine to the trusted keys on the server
+    [@authentication requires ssh access to nextcloud server]
 * Obsidian
     - open the obsidian vault under `~/nextcloud/sync/vault/`.  You can trust
-      the author, since it's me, and install any plugins.
+    the author, since it's me, and install any plugins.
     - this is somewhat experimental right now, but looks very promising.  I
-      intuitively enjoy this better than other systems/software I have tried -
-      which begs the question why that is and I will eventually figure that out.
+    intuitively enjoy this better than other systems/software I have tried -
+    which begs the question why that is and I will eventually figure that out.
 * Docker Desktop settings.  You have to wait for it to start up and then restart
-  after you adjust the settings:
+after you adjust the settings:
     - Enable the Kubernetes extension
     - CPU and RAM below 4 sometimes causes problems, but you can experiment with
     that.  On my current I have 4 and 3.8 respectively.
@@ -142,21 +141,21 @@ There are some things that you still have to setup manually:
         [@authentication requires kubernetes access keys]
     - consider running `systemctl --user enable docker-desktop`
 * Anything work related:
-  [@authentication requires KeePassXC running and GitHub login]
+[@authentication requires KeePassXC running and GitHub login]
     - clone repos and follow setup instructions there
     - add work directories to `~/locationsForCD.bash`
     - change `/bin/start_alacritty.bash` to open the work directory
     - consider adding `git -C $workCD pull` to `/bin/sonke_system_startup.bash`
 * KDE has a tendency to make changes to the version controlled files after
-  restarts, not just the first time you set this up.  Often they are not really
-  functionally different, so you can often just commit those changes.
+restarts, not just the first time you set this up.  Often they are not really
+functionally different, so you can often just commit those changes.
 * Some of the time you may wish to setup conflicting KDE settings on different
-  computers, while still sharing the remaining configuration.  This is currently
-  annoying, you can play with `~/.gitignore` and that's the end of my ideas so
-  far.  I will work on this, at some point.
+computers, while still sharing the remaining configuration.  This is currently
+annoying, you can play with `~/.gitignore` and that's the end of my ideas so
+far.  I will work on this, at some point.
   - KDE seems to be working on making their dotfiles more dotfile friendly.  I
-    noticed Dolphin history not being saved to the same files anymore, and
-    hence not being synch-ed across devices.
+  noticed Dolphin history not being saved to the same files anymore, and hence
+  not being synch-ed across devices.
 
 Depending on the machine this is set up on you may want to adjust some things,
 perhaps specific to this machine only.  A common example is to adjust
@@ -188,21 +187,21 @@ tell).  But I still commit them just in case and so they are out of the way.
 
 Beyond this the scope of the conventional commit message can be:
 * `bash`, which is anything under `./bash/*`.  This is stuff that gets loaded
-  via the `~/.bashrc`, I just have it split up into multiple files for
-  cleanliness.
+via the `~/.bashrc`, I just have it split up into multiple files for
+cleanliness.
 * `setup`, scripts used in the above installation instructions.
 * `config`, most things not included in neovim or the above go in here.  Mostly
-  these are dotfiles that go under `~/.config/*`, but not exclusively.
+these are dotfiles that go under `~/.config/*`, but not exclusively.
 * stuff related to neovim I split up, since I commit to this quite often:
-    - `map`, is `./neovim/lua/mappings.lua`.  As you can imagine, this is
-      any remaps, which in vimscript would be `nnoremap` and stuff.
+    - `map`, is `./neovim/lua/mappings.lua`.  As you can imagine, this is any
+    remaps, which in vimscript would be `nnoremap` and stuff.
     - `plug`, `./neovim/lua/plugin.lua`, all the plugins that I have collected
-      in this time, plus configuration that doesn't belong in the other files.
+    in this time, plus configuration that doesn't belong in the other files.
     - `cmd`, `./neovim/lua/commands.lua`, anything I call with `:`.
 * `readme`, this file
 * anything not listed above I don't commit often enough, so there is not
-  standard that I try to keep myself to.  For example, tmux stuff you may see
-  under `tmux` or you may see under `config`.
+standard that I try to keep myself to.  For example, tmux stuff you may see
+under `tmux` or you may see under `config`.
 
 The action is usually `fix` and `feat` - which are obvious - `new` when I add
 something new, like a new neovim plugin `new(plug)` or a new file to my bashrc
@@ -224,4 +223,5 @@ but outside of that it is just so much easier to just use a package manager.
 
 ## License
 
-[General Public License v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[General Public License
+v2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
