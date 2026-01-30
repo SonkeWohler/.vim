@@ -82,12 +82,14 @@ sudo pacman -S nextcloud-client keepassxc --noconfirm
 # yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 
 # from node
-# sometimes specific node versions are required for stuff
-# sudo npm install --global n  # haven't used in a while
+# these are annoying to update regularly, because it can interfere with the
+# system packages.  Only update right after system update, never before.
 # creating/editing/managing angular components
 sudo npm install --global @angular/cli
 # pretty print json from kubernetes logs
 sudo npm install --global pino-pretty
+# github copilot, we use it at work, I wouldn't for personal use
+sudo npm install --global @github/copilot
 
 # rustup
 
