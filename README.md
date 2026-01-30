@@ -129,7 +129,14 @@ There are some things that you still have to setup manually:
   after you adjust the settings:
     - Enable the Kubernetes extension
     - CPU and RAM below 4 sometimes causes problems, but you can experiment with
-      that.  On my current I have 4 and 3.8 respectively.
+    that.  On my current I have 4 and 3.8 respectively.
+    - you may need to [setup dns in the
+    config](https://stackoverflow.com/a/49627674/11151695) file as well, e.g. if
+    `pip install` fails on some (but not necessarily all) build attempts.
+      - run `nmcli dev show | grep 'IP4.DNS'` and copy the first IP
+      - go to docker-desktop > settings > Docker Engine
+      - add `"dns": ["IP", "8.8.8.8"]` to this, where `IP` is the IP you copied
+      above
     - you will want to copy over any k8s config to `~/.kube/config`
         - this may contain access keys and stuff, similar to `~/.ssh`
         [@authentication requires kubernetes access keys]
