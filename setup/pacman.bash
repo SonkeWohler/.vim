@@ -66,20 +66,20 @@ sudo pacman -S vivaldi --noconfirm
 flatpak install flathub com.brave.Browser
 sudo pacman -S signal-desktop --noconfirm
 sudo pacman -S obsidian
-yay -S whatsdesk-bin
 # office stuff
 sudo pacman -S pandoc --noconfirm
 sudo pacman -S texlive --noconfirm
 sudo pacman -S mupdf --noconfirm
 sudo pacman -S skanlite --noconfirm
 sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
+# keys, passwords, file-synch, etc
 sudo pacman -S nextcloud-client keepassxc --noconfirm
 # recording, debugging, etc
-sudo pacman -S obs-studio --noconfirm
+# sudo pacman -S obs-studio --noconfirm
 
 # from AUR
 # misc
-yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
+# yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 
 # from node
 # sometimes specific node versions are required for stuff
@@ -96,3 +96,8 @@ rustup toolchain install stable
 # we started using `uv`
 # this trusts the curl output, so not exactly best practice
 curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# various, e.g. rmatrix
+yay -S rmatrix
+cargo install rusty-rain
+cargo install --git https://github.com/lhvy/pipes-rs
