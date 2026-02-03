@@ -36,8 +36,13 @@
 	log-message-default = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-iso-dates = log --pretty=format:\"%Creset%cd, %Cblue%an :: %Cred%h%Creset :: %Cblue%s%Creset\"
 	log-message-diff = log -p --pretty=format:\"%n%n%n%n%n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
+	log-message-diff-iso-dates = log -p --pretty=format:\"%n%n%n%n%n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%n === %Cblue%an, %Creset%cd :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================\"
 	log-message-text = log --pretty=format:\"%Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
+	log-message-text-iso-dates = log --pretty=format:\"%Cblue%an, %Creset%cd :: %Cred%h%Creset :: %Cblue%s%Creset%n---------------------%n%b%n%n\"
 	log-message-diff-and-text = log -p --pretty=format:\"%n%n%n%n%n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%n === %Cblue%an, %Creset%cr :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================%n%b%n%n\"
+	log-message-diff-and-text-iso-dates = log -p --pretty=format:\"%n%n%n%n%n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%n === %Cblue%an, %Creset%cd :: %Cred%h%Creset :: %Cblue%s%Creset ===%n==================================================================================================================%n%b%n%n\"
+	log-since-last-pull = log-message-default @{1}..
+	full-log-since-last-pull = log-message-diff-and-text @{1}..
 	ls = !git ls-files $@ | delta
 	# clean local branches
 	list-prunable-branches = !git branch -vv | grep ': gone]' | awk '{print $1}'
@@ -51,13 +56,15 @@
 	d = standard-diff-format
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
 	l = log-message-default
-	lpb = log-message-diff-and-text
-	lbp = lpb
-	ldate = log-message-iso-dates
 	lb = log-message-text
 	lp = log-message-diff
-	log-since-last-pull = log-message-default @{1}..
-	full-log-since-last-pull = log-message-diff-and-text @{1}..
+	ldate = log-message-iso-dates
+	lbdate = log-message-text-iso-dates
+	lpdate = log-message-diff-iso-dates
+	lpb = log-message-diff-and-text
+	lbp = lpb
+	lpbdate = log-message-diff-and-text-iso-dates
+	lbpdate = lpbdate
 	pu = !git pull --rebase && git push  # convenient for dotfiles
 	puf = pu
 	puff = pu
@@ -84,26 +91,42 @@
 	sn = dn --name-status
 	snn = dnn --name-status
 	ln = log-message-default development..HEAD
+	lndate = log-message-iso-dates development..HEAD
 	lnn = log-message-default development...HEAD
+	lnndate = log-message-iso-dates development...HEAD
 	lbn = log-message-text development..HEAD
 	lpn = log-message-diff development..HEAD
 	lbnn = log-message-text development...HEAD
 	lpnn = log-message-diff development...HEAD
 	lbpn = log-message-diff-and-text development..HEAD
 	lpbn = lbpn
+	lbpndate = log-message-diff-and-text-iso-dates development..HEAD
+	lpbndate = lbpndate
 	lbpnn = log-message-diff-and-text development...HEAD
 	lpbnn = lbpnn
+	lbpnndate = log-message-diff-and-text-iso-dates development...HEAD
+	lpbnndate = lbpnndate
 	# what is missing on this branch (often a PR) compared to development
 	dm = standard-diff-format HEAD..development
-	sm = dm --name-status
-	lm = log-message-default HEAD..development
-	lbm = log-message-text HEAD...development
-	lpm = log-message-diff HEAD...development
 	dmm = standard-diff-format HEAD...development
+	sm = dm --name-status
 	smm = dmm --name-status
+	lm = log-message-default HEAD..development
+	lmdate = log-message-iso-dates HEAD..development
 	lmm = log-message-default HEAD...development
+	lmmdate = log-message-iso-dates HEAD...development
+	lbm = log-message-text HEAD..development
+	lpm = log-message-diff HEAD..development
 	lbmm = log-message-text HEAD...development
 	lpmm = log-message-diff HEAD...development
+	lbpm = log-message-diff-and-text HEAD..development
+	lpbm = lbpn
+	lbpmdate = log-message-diff-and-text-iso-dates HEAD..development
+	lpbmdate = lbpndate
+	lbpmm = log-message-diff-and-text HEAD...development
+	lpbmm = lbpmm
+	lbpmmdate = log-message-diff-and-text-iso-dates HEAD...development
+	lpbmmdate = lbpmmdate
 	# rebase current branch on another
 	# https://superuser.com/a/435912
 	rb = !bash -c 'git switch "$1" && git pull && git switch - && git rebase "$1"' -
