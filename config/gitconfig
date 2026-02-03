@@ -47,7 +47,6 @@
 	list-local-only-branches = !git branch -vv | grep -v ']' | awk '{print $1}'
 	# various common commands
 	sw = switch  # better checkout, only for branches
-	sw- = switch -  # in case of typo
 	s = status
 	d = standard-diff-format
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
@@ -66,7 +65,7 @@
 	cama = cam -a
 	camaa = cama
 	camaaa = cama  # typos happen
-	pam = push --force-with-lease  # commonly combined with rbd or cam
+	pam = push --force-with-lease  # never force without fetching or pulling first
 	pama = pam
 	ll = log-since-last-pull
 	dl = standard-diff-format @{1}.. --relative
@@ -110,7 +109,3 @@
 	rb = !bash -c 'git switch "$1" && git pull && git switch - && git rebase "$1"' -
 	rbd = rb development
 	rdb = rbd  # typos
-    rbd-stash = !git stash && git rbd && git stash pop
-    rdb-stash = rbd-stash
-    srbd = rbd-stash
-    srdb = rbd-stash
