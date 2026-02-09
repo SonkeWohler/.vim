@@ -65,7 +65,7 @@ flatpak install flathub com.vscodium.codium  # TODO add drawio pluin
 sudo pacman -S vivaldi --noconfirm
 flatpak install flathub com.brave.Browser
 sudo pacman -S signal-desktop --noconfirm
-sudo pacman -S obsidian
+sudo pacman -S obsidian --noconfirm
 # office stuff
 sudo pacman -S pandoc --noconfirm
 sudo pacman -S texlive --noconfirm
@@ -74,6 +74,7 @@ sudo pacman -S skanlite --noconfirm
 sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
 # keys, passwords, file-synch, etc
 sudo pacman -S nextcloud-client keepassxc --noconfirm
+sudo pacman -S tailscale --noconfirm
 # recording, debugging, etc
 # sudo pacman -S obs-studio --noconfirm
 
@@ -95,11 +96,10 @@ sudo npm install --global @github/copilot
 
 rustup toolchain install stable
 
-# we started using `uv`
-# this trusts the curl output, so not exactly best practice
-curl -LsSf https://astral.sh/uv/install.sh | sh
+# we started using `uv` at work
+cargo install --locked uv
 
 # various, e.g. rmatrix
-yay -S rmatrix
+yay -S rmatrix --noconfirm
 cargo install rusty-rain
 cargo install --git https://github.com/lhvy/pipes-rs
