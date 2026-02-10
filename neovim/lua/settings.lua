@@ -4,8 +4,13 @@
 ---------------------------------------------------------------
 -- used with obsidian and some other things, but I really don't like it
 vim.opt.conceallevel = 0
--- spell, since treesitter now sorts out comments vs code
+-- spell, since treesitter now sorts out comments vs code rather well
 vim.opt.spell = true
+-- highlight spell in a way that blends well *enough* with any colorscheme I tested, while still standing out
+vim.api.nvim_set_hl(0, 'SpellBad', { fg = 'fg', bg = '#3a0000', underline = true, sp = '#ff0000' })
+vim.api.nvim_set_hl(0, 'SpellCap', { fg = 'fg', bg = '#3a2200', underline = true, sp = '#ffaa00' })
+vim.api.nvim_set_hl(0, 'SpellLocal', { fg = 'fg', bg = '#3a2244', underline = true, sp = '#00aaff' })
+vim.api.nvim_set_hl(0, 'SpellRare', { fg = 'fg', bg = '#3a2288', underline = true, sp = '#ff00ff' })
 -- case-sensitivity when searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
