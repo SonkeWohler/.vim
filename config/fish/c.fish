@@ -243,5 +243,8 @@ if status is-interactive
     # wait for pid to complete, then do other stuff
     # useful with <C-M-p> from fzf.fish
     abbr -a --position anywhere --set-cursor -- ww "tail --pid % -f /dev/null && "
+    # work vpn
+    abbr -a --position command -- tailup "sudo systemctl start tailscaled && sudo tailscale up"
+    abbr -a --position command -- taildown "sudo tailscale down && sudo systemctl stop tailscaled"
 
 end
