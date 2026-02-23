@@ -57,6 +57,7 @@
 	dd = diff --staged --irreversible-delete --find-renames --find-copies
 	l = log-message-default
 	lb = log-message-text
+	lbb = log-message-text --grep='.*)!:.*'
 	lp = log-message-diff
 	ldate = log-message-iso-dates
 	lbdate = log-message-text-iso-dates
