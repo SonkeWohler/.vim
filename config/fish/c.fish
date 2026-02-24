@@ -247,5 +247,7 @@ if status is-interactive
     # work vpn
     abbr -a --position command -- tailup "sudo systemctl start tailscaled && sudo tailscale up"
     abbr -a --position command -- taildown "sudo tailscale down && sudo systemctl stop tailscaled"
+    # start plasma when in terminal
+    abbr -a --position command -- plasmaup "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
 
 end
