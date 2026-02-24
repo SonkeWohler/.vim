@@ -52,12 +52,12 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [terminal.shell]
-args = ["--login"]
-program = "/bin/bash"
+args = []
+program = "/usr/bin/tmux"
 
 [window]
 decorations = "none"
-opacity = 0.6
+opacity = 0.8
 startup_mode = "Maximized"
 title = "Home Sweet Home"
 
