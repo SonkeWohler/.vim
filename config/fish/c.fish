@@ -1,3 +1,5 @@
+# cargo bin path
+fish_add_path ~/.cargo/bin
 # I used to store these in a machine-local file, but they never changed across
 # machines, so I can just put them here
 if test -d ~/libraries/.vim
