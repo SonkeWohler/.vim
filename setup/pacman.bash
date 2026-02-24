@@ -3,7 +3,6 @@
 sudo pacman -Syyu --noconfirm
 # system package managers
 sudo pacman -S python-pip --noconfirm
-sudo pacman -S yay --noconfirm
 sudo pacman -S npm --noconfirm
 sudo pacman -S flatpak --noconfirm
 # keyboard stuff
@@ -78,10 +77,6 @@ sudo pacman -S tailscale --noconfirm
 # recording, debugging, etc
 # sudo pacman -S obs-studio --noconfirm
 
-# from AUR
-# misc
-# yay -S whatsdesk-bin --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
-
 # from node
 # these are annoying to update regularly, because it can interfere with the
 # system packages.  Only update right after system update, never before.
@@ -100,6 +95,6 @@ rustup toolchain install stable
 cargo install --locked uv
 
 # various, e.g. rmatrix
-yay -S rmatrix --noconfirm
+cargo install r-matrix
 cargo install rusty-rain
 cargo install --git https://github.com/lhvy/pipes-rs
