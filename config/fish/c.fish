@@ -77,6 +77,7 @@ if status is-interactive
         # Treesitter is tied into lazy, though i don't think that is the source
         # of my problems
         nvim -c "lua require('lazy').sync({wait = true})" -c 'autocmd User VeryLazy MasonUpdateAll'
+        ~/.tmux/plugins/tpm/bin/update_plugins all
     end
     function clean-docker-storage --description 'prune docker images and rebuild main work'
         echo "-------------------------------"
