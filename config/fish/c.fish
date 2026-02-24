@@ -1,6 +1,12 @@
 # I used to store these in a machine-local file, but they never changed across
 # machines, so I can just put them here
-set -g dotfiles_PATH ~/libraries/.vim
+if test -d ~/libraries/.vim
+    set -g dotfiles_PATH ~/libraries/.vim
+else if test -d ~/Documents/.vim
+    set -g dotfiles_PATH ~/Documents/.vim
+else
+    set -g dotfiles_PATH ~
+end
 set -g work_main_PATH ~/libraries/work/app
 set -g work_platform_PATH ~/libraries/work/platform
 set -g nextcloud_synch_PATH ~/nextcloud/sync
