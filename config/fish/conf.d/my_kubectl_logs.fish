@@ -35,3 +35,8 @@ function kubernetes-log-template --description 'view logs for a job'
         kubectl logs --tail=-1 -n $namespace --context $context -f $pod | pino-pretty --colorize
     end
 end
+
+# load locally built docker images into kind cluster
+# non-standard, but this might be nicer than docker desktop, which kept creating
+# problems for me
+abbr -a --position anywhere -- kindly 'docker images | grep knosc | awk '{print $1}' | xargs -I {} kind load docker-image {} --name docker-desktop'
