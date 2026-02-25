@@ -25,6 +25,17 @@ set -gx SUDO_EDITOR 'nvim'
 set -gx LESS 'RS'
 
 if status is-interactive
+    if test $PWD -ef ~
+        if set -q work_main_PATH && test -d $work_main_PATH
+            cd $work_main_PATH
+        else if set -q nextcloud_synch_PATH && test -d $nextcloud_synch_PATH
+            cd $nextcloud_synch_PATH
+        else if test -d $dotfiles_PATH
+            cd $dotfiles_PATH
+        else
+            cd
+        end
+    end
     set fish_greeting "Frische Fische fischt Fischer Fritz"
     starship init fish | source
     fzf_configure_bindings --directory=\ct --git_status=\cs --git_log=\cg --history=\cr --variables=\cv --processes=\e\cp
