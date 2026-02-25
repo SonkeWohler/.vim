@@ -35,6 +35,8 @@ _k_friendly_name=Session Management
 
 [kwin]
 Activate Window Demanding Attention=none,Meta+Ctrl+A,Activate Window Demanding Attention
+ClearLastMouseMark=Meta+F10,Meta+Shift+F12,Clear Last Mouse Mark
+ClearMouseMarks=Meta+F9,Meta+Shift+F11,Clear Mouse Marks
 Cycle Overview=none,none,Cycle through Overview and Grid View
 Cycle Overview Opposite=none,none,Cycle through Grid View and Overview
 Decrease Opacity=,,Decrease Opacity of Active Window by 5%
@@ -247,6 +249,8 @@ activate task manager entry 6=none,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=none,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=none,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=none,Meta+9,Activate Task Manager Entry 9
+activate widget 21=,none,Activate Digital Clock Widget
+activate widget 28=,none,Activate Pager Widget
 clear-history=,,Clear Clipboard History
 clipboard_action=none,Meta+Ctrl+X,Automatic Action Popup Menu
 cycle-panels=none,Meta+Alt+P,Move keyboard focus between panels
@@ -272,6 +276,18 @@ _launch=Meta+Shift+B
 
 [services][org.kde.kscreen.desktop]
 ShowOSD=none
+
+[services][org.kde.spectacle.desktop]
+ActiveWindowScreenShot=
+CurrentMonitorScreenShot=
+FullScreenScreenShot=Meta+Alt+Print
+OpenWithoutScreenshot=
+RecordRegion=none
+RecordScreen=none
+RecordWindow=none
+RectangularRegionScreenShot=Meta+Print
+WindowUnderCursorScreenShot=none
+_launch=Print
 
 [services][systemsettings.desktop]
 _launch=none
