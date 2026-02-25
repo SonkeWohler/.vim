@@ -4,14 +4,20 @@ fish_add_path ~/.cargo/bin
 # machines, so I can just put them here
 if test -d ~/libraries/.vim
     set -g dotfiles_PATH ~/libraries/.vim
+    set -g work_main_PATH ~/libraries/work/app
+    set -g work_platform_PATH ~/libraries/work/platform
 else if test -d ~/Documents/.vim
     set -g dotfiles_PATH ~/Documents/.vim
+    set -g work_main_PATH ~/Documents/work/app
+    set -g work_platform_PATH ~/Documents/work/platform
 else
     set -g dotfiles_PATH ~
 end
-set -g work_main_PATH ~/libraries/work/app
-set -g work_platform_PATH ~/libraries/work/platform
-set -g nextcloud_synch_PATH ~/nextcloud/sync
+if test -d ~/nextcloud
+    set -g nextcloud_synch_PATH ~/nextcloud/sync
+else if test -d ~/Nextcloud
+    set -g nextcloud_synch_PATH ~/Nextcloud/sync
+end
 set -g nextcloud_server_ip 'root@2a01:4f8:c0c:59f8::1'
 # and any other global variables
 set -gx EDITOR 'nvim'
