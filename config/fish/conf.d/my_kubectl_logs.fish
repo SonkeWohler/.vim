@@ -39,4 +39,4 @@ end
 # load locally built docker images into kind cluster
 # non-standard, but this might be nicer than docker desktop, which kept creating
 # problems for me
-abbr -a --position anywhere -- kindly 'docker images | grep knosc | awk '{print $1}' | xargs -I {} kind load docker-image {} --name docker-desktop'
+abbr -a --position anywhere -- kindly "docker images | grep knosc | awk '{print \$1}' | xargs -I {} kind load docker-image {} --name docker-desktop"
