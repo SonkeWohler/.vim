@@ -38,6 +38,8 @@ require("lazy").setup(
     change_detection = {
       notify = true,
     },
+    -- sometimes (especially inside tailnet) too many concurrent requests get rate-limited
+    concurrency = 3,
   }
 )
 return
