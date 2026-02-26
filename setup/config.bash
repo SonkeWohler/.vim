@@ -11,6 +11,11 @@ print() {
 print "this is a config file setup for my dotfiles"
 print "Sonke (sonki) Wohler --- https://github.com/SonkeWohler/.vim"
 print "======================="
+print ""
+print "Run this from the terminal before starting your graphical environment"
+print "If you want to run inside graphical, consider skipping the kde related lines"
+print "======================="
+print ""
 
 ### --- basic cli setup
 
@@ -146,3 +151,7 @@ sudo keyd reload
 
 mkdir --parents --verbose ~/.config/gitui
 ln --symbolic --verbose $vimCD/config/gitui/key_bindings.ron ~/.config/gitui/key_bindings.ron --interactive
+
+print "setting up kde files"
+print "skip these if you don't want to apply the graphical-related config"
+ln --symbolic --verbose --interactive $vimCD/config/kde/* ~/.config/

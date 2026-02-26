@@ -48,12 +48,16 @@ sudo pacman -S glow --noconfirm
 sudo pacman -S aspell aspell-en --noconfirm
 sudo pacman -S just --noconfirm
 sudo pacman -S github-cli --noconfirm
+# kubernetes
+sudo pacman -S k9s --noconfirm
+sudo pacman -S kubectl --noconfirm
+sudo pacman -S kubectx --noconfirm
 # tui related stuff
 sudo pacman -S starship --noconfirm
 sudo pacman -S ttf-iosevka-nerd --noconfirm
 sudo pacman -S otf-droid-nerd --noconfirm
 # other editors
-flatpak install flathub com.vscodium.codium  # TODO add drawio pluin
+flatpak install flathub com.vscodium.codium
 # tools from cargo
 # sudo pacman -S postgresql --noconfirm
 # cargo install cargo-update
@@ -66,6 +70,7 @@ flatpak install flathub com.brave.Browser
 sudo pacman -S signal-desktop --noconfirm
 sudo pacman -S obsidian --noconfirm
 # office stuff
+sudo pacman -S 7zip --noconfirm
 sudo pacman -S pandoc --noconfirm
 sudo pacman -S texlive --noconfirm
 sudo pacman -S mupdf --noconfirm
@@ -74,8 +79,8 @@ sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noc
 # keys, passwords, file-synch, etc
 sudo pacman -S nextcloud-client keepassxc --noconfirm
 sudo pacman -S tailscale --noconfirm
-# recording, debugging, etc
-# sudo pacman -S obs-studio --noconfirm
+# games and other
+flatpak install com.valvesoftware.Steam com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 
 # from node
 # these are annoying to update regularly, because it can interfere with the

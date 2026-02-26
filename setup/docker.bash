@@ -1,10 +1,10 @@
-# I have to have docker-desktop for work, but on non-work machines this is not
-# that necessary.
+# We use docker-desktop at work, and this will likely remain the default for
+# most.  I started to switch to kind, which is experimentally working much
+# better, but not yet fully stable.
+# https://kind.sigs.k8s.io/
 
-# Either way, it is a bit of a hassle and I am not 100% sure this script works
-# without issues yet.  I'll keep it here and if it turns out to work fine I
-# might add it back to the end of pacman.bash
-
+# this script should work without issue at setting up docker-desktop, mostly
+# following the wiki
 # https://wiki.archlinux.org/title/Docker
 
 # install docker
@@ -16,9 +16,20 @@ yay -S docker-rootless-extras --nocleanmenu --nodiffmenu --noeditmenu --noupgrad
 echo "$(whoami):165536:65536" | sudo tee /etc/subuid
 echo "$(whoami):165536:65536" | sudo tee /etc/subgid
 gpasswd -a "${whoami}" docker
-# at this point it might be nice to run some tests to see if docker runs as
-# intended.  It is easier to sort out with basic docker, than if you constantly
-# have to wait for docker-desktop>
+
+# I sometimes have trouble with the internet part here
+echo 'At this point you should be able to run docker with sudo and ping the internet'
+echo 'After a restart you should be able to do the same without sudo'
+sudo docker run -it --rm archlinux bash -c "ping ping.archlinux.org"
+
+# install kubernetes tools, if you haven't yet
+sudo pacman -S k9s --noconfirm
+sudo pacman -S kubectl --noconfirm
+sudo pacman -S kubectx --noconfirm
+
+# if you want to use kind, just install that instead
+# and skip the everything else below
+# yay -S kind --nocleanmenu --nodiffmenu --noeditmenu --noupgrademenu
 
 # install prerequesites for docker-desktop
 sudo pacman -S gnome-terminal --noconfirm
@@ -30,16 +41,7 @@ sudo pacman -S qemu-full --noconfirm
 # so it's not all bad.
 yay -S docker-desktop
 
-# install kubernetes tools
-sudo pacman -S k9s --noconfirm
-sudo pacman -S kubectl --noconfirm
-sudo pacman -S kubectx --noconfirm
-
 # reboot and starting instructions
-echo 'You will have to restart the system to run docker-desktop as non-root user.'
-echo 'Afterwards, try running the following to test your docker works as intended.'
-echo 'docker info'
-echo 'docker run -it --rm archlinux bash -c "echo hello world"'
-echo ' '
-echo 'and when that works you can start docker-desktop:'
-echo 'Run ` systemctl start docker-desktop ` when you are done.'
+echo 'After a system restart, you should be able to start docker desktop and set it up'
+echo 'Use "sudo systemctl start docker-desktop", or enable it if you prefer'
+echo 'Adjust its resources and install the k8s extension, then you should be able to run k8s fine'
