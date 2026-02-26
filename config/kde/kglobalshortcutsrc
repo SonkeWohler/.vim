@@ -109,6 +109,7 @@ Switch to Screen to the Left=,,Switch to Screen to the Left
 Switch to Screen to the Right=,,Switch to Screen to the Right
 Toggle Night Color=none,none,Suspend/Resume Night Light
 Toggle Window Raise/Lower=,,Toggle Window Raise/Lower
+ToggleMouseClick=,Meta+*,Toggle Mouse Click Animation
 Walk Through Windows=Alt+Tab,Meta+Tab\tAlt+Tab,Walk Through Windows
 Walk Through Windows (Reverse)=Alt+Shift+Tab,Meta+Shift+Tab\tAlt+Shift+Tab,Walk Through Windows (Reverse)
 Walk Through Windows Alternative=none,none,Walk Through Windows Alternative
@@ -220,20 +221,20 @@ seekforwardmedialong=,,Media playback seek forward 30s
 stopmedia=Media Stop,Media Stop,Stop media playback
 
 [org_kde_powerdevil]
-Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
-Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Decrease Screen Brightness
-Decrease Screen Brightness Small=Shift+Monitor Brightness Down,Shift+Monitor Brightness Down,Decrease Screen Brightness by 1%
-Hibernate=Hibernate,Hibernate,Hibernate
-Increase Keyboard Brightness=Keyboard Brightness Up,Keyboard Brightness Up,Increase Keyboard Brightness
-Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,Increase Screen Brightness
-Increase Screen Brightness Small=Shift+Monitor Brightness Up,Shift+Monitor Brightness Up,Increase Screen Brightness by 1%
-PowerDown=Power Down,Power Down,Power Down
-PowerOff=Power Off,Power Off,Power Off
-Sleep=Sleep,Sleep,Suspend
-Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
+Decrease Keyboard Brightness=none,Keyboard Brightness Down,Decrease Keyboard Brightness
+Decrease Screen Brightness=none,Monitor Brightness Down,Decrease Screen Brightness
+Decrease Screen Brightness Small=none,Shift+Monitor Brightness Down,Decrease Screen Brightness by 1%
+Hibernate=none,Hibernate,Hibernate
+Increase Keyboard Brightness=none,Keyboard Brightness Up,Increase Keyboard Brightness
+Increase Screen Brightness=none,Monitor Brightness Up,Increase Screen Brightness
+Increase Screen Brightness Small=none,Shift+Monitor Brightness Up,Increase Screen Brightness by 1%
+PowerDown=none,Power Down,Power Down
+PowerOff=none,Power Off,Power Off
+Sleep=none,Sleep,Suspend
+Toggle Keyboard Backlight=none,Keyboard Light On/Off,Toggle Keyboard Backlight
 Turn Off Screen=none,none,Turn Off Screen
 _k_friendly_name=Power Management
-powerProfile=Battery\tMeta+B,Battery\tMeta+B,Switch Power Profile
+powerProfile=none,Battery\tMeta+B,Switch Power Profile
 
 [plasmashell]
 Slideshow Wallpaper Next Image=,,Next Wallpaper Image
@@ -274,14 +275,15 @@ New=Meta+Z
 [services][com.brave.Browser.desktop]
 _launch=Meta+Shift+B
 
+[services][obsidian.desktop]
+_launch=Meta+Shift+D
+
 [services][org.kde.kscreen.desktop]
 ShowOSD=none
 
 [services][org.kde.spectacle.desktop]
 ActiveWindowScreenShot=
-CurrentMonitorScreenShot=
 FullScreenScreenShot=Meta+Alt+Print
-OpenWithoutScreenshot=
 RecordRegion=none
 RecordScreen=none
 RecordWindow=none
@@ -289,5 +291,11 @@ RectangularRegionScreenShot=Meta+Print
 WindowUnderCursorScreenShot=none
 _launch=Print
 
+[services][signal-desktop.desktop]
+_launch=Meta+Shift+S
+
 [services][systemsettings.desktop]
 _launch=none
+
+[services][vivaldi-stable.desktop]
+new-window=Meta+Shift+W

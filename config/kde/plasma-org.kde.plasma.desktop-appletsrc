@@ -16,6 +16,14 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][1][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][1][Wallpaper][org.kde.image][General]
+Image=file:///home/sonki/Nextcloud/sync/pictures/groapa_ruginoasa.jpeg
+SlidePaths=/usr/share/wallpapers/
+
 [Containments][2]
 activityId=
 formfactor=2
@@ -38,7 +46,7 @@ dateDisplayFormat=BelowTime
 enabledCalendarPlugins=astronomicalevents,holidaysevents
 firstDayOfWeek=1
 fontWeight=400
-selectedTimeZones=Pacific/Honolulu,America/New_York,Local,Europe/London,Asia/Singapore
+selectedTimeZones=Pacific/Honolulu,America/New_York,Europe/London,Local,Asia/Singapore
 showSeconds=Always
 showWeekNumbers=true
 
@@ -163,6 +171,10 @@ plugin=org.kde.kscreen
 immutability=1
 plugin=org.kde.plasma.keyboardlayout
 
+[Containments][2][Applets][7][Applets][17][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][2][Applets][7][Applets][18]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
@@ -186,6 +198,10 @@ plugin=org.kde.plasma.battery
 immutability=1
 plugin=org.kde.plasma.brightness
 
+[Containments][2][Applets][7][Applets][35]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
 [Containments][2][Applets][7][Applets][8]
 immutability=1
 plugin=org.kde.plasma.vault
@@ -200,8 +216,9 @@ DialogWidth=810
 
 [Containments][2][Applets][7][General]
 extraItems=org.kde.plasma.vault,org.kde.plasma.bluetooth,org.kde.plasma.cameraindicator,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.keyboardindicator,org.kde.plasma.weather,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.printmanager,org.kde.plasma.keyboardlayout,org.kde.plasma.volume,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.notifications
+iconSpacing=6
 knownItems=org.kde.plasma.vault,org.kde.plasma.bluetooth,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.plasma.keyboardindicator,org.kde.plasma.weather,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.printmanager
-shownItems=org.kde.plasma.keyboardlayout,org.kde.plasma.volume,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.notifications
+shownItems=org.kde.plasma.keyboardlayout,org.kde.plasma.volume,org.kde.plasma.brightness,org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,Nextcloud
 
 [Containments][2][General]
 AppletOrder=3;5;32;28;31;26;27;6;7;33;21;22

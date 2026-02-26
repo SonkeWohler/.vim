@@ -5,5 +5,16 @@ loginMode=restoreSavedSession
 [LegacySession: saved at previous logout]
 count=0
 
+[LegacySession: saved by user]
+count=0
+
 [Session: saved at previous logout]
 count=0
+
+[Session: saved by user]
+clientId1=10dc92cf6c000177209943800000044130000
+count=1
+program1=/usr/bin/keepassxc
+restartCommand1=/usr/bin/keepassxc,-session,10dc92cf6c000177209943800000044130000_1772099524_51011
+restartStyleHint1=0
+userId1=sonki

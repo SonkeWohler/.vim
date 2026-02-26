@@ -136,6 +136,7 @@ ForegroundVisited=155,89,182
 AccentColor=146,110,228
 ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
 LastUsedCustomAccentColor=146,110,228
+UseSystemBell=true
 
 [KDE]
 AnimationDurationFactor=0.35355339059327373
