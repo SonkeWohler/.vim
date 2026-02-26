@@ -51,6 +51,5 @@ vim.cmd [[colorscheme lavi]]
 require('mappings')
 require('commands')
 require('settings')
-require('hydras')
 require('autocmds')
 require('lsp_setup')
