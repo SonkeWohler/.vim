@@ -1,0 +1,58 @@
+[General]
+count=4
+rules=f0362fc5-a5f1-43f5-9f1e-3aafab3298df,c40ecfa5-a6ad-4389-a9f8-7ed52eca9323,ec402fc5-6091-4307-9659-9ed1e637ed1c,c97141f7-e7af-4bd1-a703-477c5e9d2750
+
+[c40ecfa5-a6ad-4389-a9f8-7ed52eca9323]
+Description=Application settings for brave-browser
+desktops=1ae141d5-5317-43a7-9871-b718290bba62
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+shortcut=Meta+B
+shortcutrule=3
+wmclass=\sbrave-browser
+wmclasscomplete=true
+wmclassmatch=1
+
+[c97141f7-e7af-4bd1-a703-477c5e9d2750]
+Description=Application settings for KeePassXC
+clientmachine=localhost
+desktops=379ac608-bb01-4c92-9f17-590f27a761af
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+wmclass=keepassxc KeePassXC
+wmclasscomplete=true
+wmclassmatch=1
+
+[ec402fc5-6091-4307-9659-9ed1e637ed1c]
+Description=Application settings for vivaldi-stable
+desktops=b64d93fe-f335-4d66-89b8-a23383c5b03f
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+shortcut=Meta+W
+shortcutrule=3
+wmclass=vivaldi-bin vivaldi-stable
+wmclasscomplete=true
+wmclassmatch=1
+
+[f0362fc5-a5f1-43f5-9f1e-3aafab3298df]
+Description=Application settings for signal
+desktops=c2e9d364-537d-4dad-89dc-68736c702a1d
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+shortcut=Meta+S
+shortcutrule=3
+wmclass=signal-desktop signal
+wmclasscomplete=true
+wmclassmatch=1
