@@ -4,6 +4,12 @@
 
 return {
 
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    event = "VeryLazy",
+    branch="master",
+  },
+
   -- the main treesitter config
   -- those listed here under dependencies are interconnected in their config, so
   -- they are to me part of the main treesitter installation, not just an extension
@@ -11,6 +17,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
     event = "VeryLazy",
+    branch="master",
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'drybalka/tree-climber.nvim',
@@ -102,6 +109,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-context',
     event = "VeryLazy",
+    branch="master",
     config = function()
       -- jump to context, often handled by treesitter parent node, depending on
       -- the mode setting below
