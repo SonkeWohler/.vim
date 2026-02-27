@@ -106,9 +106,12 @@ function clean_nvim_swap --description 'delete nvim swap files from ~/.local/sta
     echo "-----------------------------------"
     echo "--- cleaning up nvim swap files ---"
     echo "-----------------------------------"
-    if (ps aux | grep nvim | grep -v grep)
-        echo "nvim is still running"
-        echo "keeping swap files untouched"
+    set nvim_running (ps aux | grep nvim | grep -v grep)
+    if test -n "$nvim_running"
+        echo "nvim is still running!"
+        echo "keeping swap files untouched!"
+        echo ""
+        return
     else
         rm --verbose ~/.local/state/nvim/swap/*
     end
