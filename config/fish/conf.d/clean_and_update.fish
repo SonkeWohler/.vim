@@ -8,6 +8,8 @@ function update-inconvenient --description "anything that I want to be in update
     # unlike pip npm does not take any precautions, so updating all blindly
     # frequently leads to conflicts
     sudo npm update --global @angular/cli pino-pretty
+    echo ""
+    echo "--- inconvenient packages have been updated ---"
 end
 
 function update-side-note --description 'update stuff that does not require docker or restart'
@@ -39,6 +41,8 @@ function update-side-note --description 'update stuff that does not require dock
     # of my problems
     nvim -c "lua require('lazy').sync({wait = true})" -c 'autocmd User VeryLazy MasonUpdateAll'
     ~/.tmux/plugins/tpm/bin/update_plugins all
+    echo ""
+    echo "--- small updates done ---"
 end
 
 function clean-docker-storage --description 'prune docker images and rebuild main work'
@@ -55,9 +59,11 @@ function clean-docker-storage --description 'prune docker images and rebuild mai
     docker system prune --all --force --volumes  # I haven't been able to set up docker garbage collect right yet...
     cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make all-dev && git sw -
     sleep 1m  # just to be sure nothing breaks with the above restart
+    echo ""
+    echo "--- docker has been pruned ---"
 end
 
-function update_aur
+function update_aur --description 'update AUR packages'
     echo "--------------------"
     echo "--- updating AUR ---"
     echo "--------------------"
@@ -77,6 +83,8 @@ function update_aur
     else
         echo "Error, no aur files defined and no yay installed"
     end
+    echo ""
+    echo "--- AUR has been updated ---"
 end
 
 function update-core --description 'possibly requires restart'
@@ -90,11 +98,35 @@ function update-core --description 'possibly requires restart'
     pacman -Qdtq | sudo pacman -Rs - && \
     # clean cache, keep last 4
     paccache -rk4
+    echo ""
+    echo "--- pacman has been updated ---"
+end
+
+function clean_nvim_swap --description 'delete nvim swap files from ~/.local/state/nvim/swap/*'
+    echo "-----------------------------------"
+    echo "--- cleaning up nvim swap files ---"
+    echo "-----------------------------------"
+    if (ps aux | grep nvim | grep -v grep)
+        echo "nvim is still running"
+        echo "keeping swap files untouched"
+    else
+        rm --verbose ~/.local/state/nvim/swap/*
+    end
+    echo ""
+    echo "--- nvim swap has been cleared ---"
 end
 
 function update-all --description 'well, not necessarily all, but regular maintenance stuff'
-    clean-docker-storage && echo 'docker has been pruned' && \
-    update-side-note && echo 'side notes have been updated' && \
-    update-core && echo 'system update done, consider restarting...' && \
-    update-inconvenient && echo 'inconvenients have been updated'
+    echo "=================================================="
+    echo "================= System Updates ================="
+    echo "=================================================="
+    clean-docker-storage
+    and update-side-note
+    and clean_nvim_swap
+    and update-core
+    and update-inconvenient
+    and echo ""
+    and echo "===================================================="
+    and echo "================= Updates Complete ================="
+    and echo "===================================================="
 end
