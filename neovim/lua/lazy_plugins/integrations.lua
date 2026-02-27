@@ -40,7 +40,7 @@ return {
         ui = {
           enable = false,
         },
-        dir = "~/nextcloud/sync/vault",
+        dir = "./",
         mappings = {},
         -- Whether to add the output of the node_id_func to new notes in autocompletion.
         -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
