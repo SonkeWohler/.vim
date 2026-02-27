@@ -23,7 +23,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     "angularls",
     "bashls",
-    "cmake",
+    -- "mbake",
     "dockerls",
     "gopls",
     "html",
