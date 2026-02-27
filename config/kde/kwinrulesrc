@@ -1,6 +1,20 @@
+[2a92bdec-21f8-4e85-967e-e360430b3507]
+Description=Application settings for obsidian
+desktops=ae31288b-b503-4b68-8cd6-cb74ecc5c3a2,4a409141-5d59-4112-b585-4d2bca2cf423
+desktopsrule=3
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+shortcut=Meta+D
+shortcutrule=3
+wmclass=electron obsidian
+wmclasscomplete=true
+wmclassmatch=1
+
 [General]
-count=4
-rules=f0362fc5-a5f1-43f5-9f1e-3aafab3298df,c40ecfa5-a6ad-4389-a9f8-7ed52eca9323,ec402fc5-6091-4307-9659-9ed1e637ed1c,c97141f7-e7af-4bd1-a703-477c5e9d2750
+count=5
+rules=2a92bdec-21f8-4e85-967e-e360430b3507,f0362fc5-a5f1-43f5-9f1e-3aafab3298df,c40ecfa5-a6ad-4389-a9f8-7ed52eca9323,ec402fc5-6091-4307-9659-9ed1e637ed1c,c97141f7-e7af-4bd1-a703-477c5e9d2750
 
 [c40ecfa5-a6ad-4389-a9f8-7ed52eca9323]
 Description=Application settings for brave-browser

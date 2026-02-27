@@ -283,11 +283,13 @@ ShowOSD=none
 
 [services][org.kde.spectacle.desktop]
 ActiveWindowScreenShot=
-FullScreenScreenShot=Meta+Alt+Print
+CurrentMonitorScreenShot=Meta+Shift+Print
+FullScreenScreenShot=none
+OpenWithoutScreenshot=
 RecordRegion=none
 RecordScreen=none
 RecordWindow=none
-RectangularRegionScreenShot=Meta+Print
+RectangularRegionScreenShot=Shift+Print
 WindowUnderCursorScreenShot=none
 _launch=Print
 

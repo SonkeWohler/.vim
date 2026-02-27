@@ -19,11 +19,14 @@ CommandActiveTitlebar2=Lower
 CommandInactiveTitlebar2=Minimize
 
 [Plugins]
-glideEnabled=true
+fadeEnabled=true
+fadedesktopEnabled=true
 hidecursorEnabled=true
 mouseclickEnabled=true
+overviewEnabled=false
 scaleEnabled=false
 shakecursorEnabled=false
+slideEnabled=false
 
 [Tiling][14fe667e-39f5-474c-9edc-31e3744e345e][33c7aa4e-7623-439f-b72a-2abe5d0da468]
 padding=4
