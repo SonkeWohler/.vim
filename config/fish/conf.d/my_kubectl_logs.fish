@@ -36,6 +36,81 @@ function kubernetes-log-template --description 'view logs for a job'
     end
 end
 
+function log_into_production_kubernetes --description "I keep production and staging kubeconfig separate"
+    argparse 'f/force' 'n/no-move' -- $argv
+    or return
+    set -ql _flag_h
+    and set force 1
+    or set force 0
+    set -ql _flag_n
+    and set no_move 1
+    or set no_move 0
+
+    echo 'INFO switching ~/.kube/config to the production config'
+    echo 'INFO this may overwrite ~/.kube/*.bak files'
+
+    if not test -f ~/.kube/production.config
+        echo 'ERROR could not find production config, aborting!'
+    end
+
+    if not test -f ~/.kube/config
+        if not test $force -eq 1
+            echo 'WARNING ~/.kube/config is not a file!  Use --force if you want to overwrite anyway'
+            return
+        else
+            echo 'WARNING ~/.kube/config is not a file, but --force supplied, overwriting anyway!'
+        end
+    end
+
+    echo 'INFO last chance to abort (Ctrl-C)'
+    echo '3...'
+    sleep 1s
+    echo '2...'
+    sleep 1s
+    echo '1...'
+    sleep 1s
+
+    if test $no_move -eq 1
+        cv -v ~/.kube/config ~/.kube/config.bak
+        cv -v ~/.kube/production.config ~/.kube/config
+    else
+        mv -v ~/.kube/config ~/.kube/config.bak
+        cp -v ~/.kube/production.config ~/.kube/production.config.bak
+        mv -v ~/.kube/production.config ~/.kube/config
+    end
+
+    notify-send --urgency critical 'K8s config switched to Production!  Be careful!'
+end
+
+function log_out_of_production_kubernetes
+    argparse 'f/force' -- $argv
+    or return
+    set -ql _flag_h
+    and set force 1
+    or set force 0
+
+    echo 'INFO switching ~/.kube/config back from production'
+    echo 'INFO this may remove ~/.kube/*.bak files'
+
+    if not test -f ~/.kube/config.bak
+        echo 'ERROR could not find ~/.kube/config.bak, maybe you are already logged out'
+    end
+    if test -f ~/.kube/production.config
+        if not test $force -eq 1
+            echo 'WARNING could not find ~/.kube/production.config!  Use --force if you think this is expected'
+            return
+        else
+            echo 'WARNING could not find ~/.kube/production.config, but --force supplied'
+        end
+    end
+
+    mv -v ~/.kube/config ~/.kube/production.config
+    mv -v ~/.kube/config.bak ~/.kube/config
+    rm -v ~/.kube/production.config.bak
+
+    notify-send --urgency critical 'Switched k8s back from production'
+end
+
 # load locally built docker images into kind cluster
 # non-standard, but this might be nicer than docker desktop, which kept creating
 # problems for me
