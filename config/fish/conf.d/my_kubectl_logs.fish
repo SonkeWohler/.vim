@@ -111,7 +111,26 @@ function log_out_of_production_kubernetes
     notify-send --urgency critical 'Switched k8s back from production'
 end
 
-# load locally built docker images into kind cluster
-# non-standard, but this might be nicer than docker desktop, which kept creating
-# problems for me
-abbr -a --position anywhere -- kindly "docker images | grep knosc | awk '{print \$1}' | xargs -I {} kind load docker-image {} --name docker-desktop"
+# non-standard at work,
+# but this might be nicer than docker desktop, which kept creating problems for me
+function kindly --description 'load docker images into the kindly cluster'
+    argparse 'i/images=+' 'n/name' -- $argv
+    set -ql _flag_i[1]
+    and set images $_flag_i
+    or set images (docker images | grep knosc | awk '{print $1}')
+    set -ql _flag_n[1]
+    and set name $_flag_n[-1]
+    or set name 'docker-desktop'
+
+    for image in $images
+        if not string match --quiet -- '*/*' $image
+            set image "knosc/$image"
+        end
+        if not string match --quiet -- '*:*' $image
+            set image "$image:latest"
+        end
+        echo $image
+    end
+
+    kind load docker-image $images --name docker-desktop
+end
