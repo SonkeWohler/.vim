@@ -2,7 +2,7 @@ status is-interactive || exit
 
 
 function kubernetes-log-template --description 'view logs for a job'
-    argparse -x 'j,p,a' 'n/namespace=' 'c/context=' 'j/job=' 'p/pod=' 'a/app=' -- $argv
+    argparse -x 'j,p,a' 'n/namespace=' 'c/cluster=' 'j/job=' 'p/pod=' 'a/app=' -- $argv
     or return
     set -ql _flag_n[1]
     and set namespace $_flag_n[-1]

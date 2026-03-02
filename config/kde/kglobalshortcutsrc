@@ -285,7 +285,6 @@ ShowOSD=none
 ActiveWindowScreenShot=
 CurrentMonitorScreenShot=Meta+Shift+Print
 FullScreenScreenShot=none
-OpenWithoutScreenshot=
 RecordRegion=none
 RecordScreen=none
 RecordWindow=none

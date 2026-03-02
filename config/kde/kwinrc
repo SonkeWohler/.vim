@@ -69,7 +69,7 @@ padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Windows]
-FocusStealingPreventionLevel=3
+FocusStealingPreventionLevel=2
 Placement=Smart
 
 [Xwayland]
