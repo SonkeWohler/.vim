@@ -1,6 +1,20 @@
 # --- basics
 # update system
 sudo pacman -Syyu --noconfirm
+# packages not present in a basic arch install, but normally assumed to be
+# present on any system
+sudo pacman -S curl --noconfirm
+sudo pacman -S curl --noconfirm
+sudo pacman -S wget --noconfirm
+sudo pacman -S git --noconfirm
+sudo pacman -S vi --noconfirm
+sudo pacman -S vim --noconfirm
+sudo pacman -S less --noconfirm
+sudo pacman -S man-db --noconfirm
+sudo pacman -S man-pages --noconfirm
+sudo pacman -S texinfo --noconfirm
+sudo pacman -S openssh --noconfirm
+sudo pacman -S openssl --noconfirm
 # system package managers
 sudo pacman -S python-pip --noconfirm
 sudo pacman -S npm --noconfirm
@@ -27,6 +41,7 @@ sudo pacman -S ripgrep-all --noconfirm
 sudo pacman -S repgrep --noconfirm
 sudo pacman -S jq --noconfirm
 sudo pacman -S gitui --noconfirm
+sudo pacman -S tree --noconfirm
 # cli paging and formatting
 sudo pacman -S bat  --noconfirm
 sudo pacman -S bat-extras  --noconfirm
@@ -43,7 +58,6 @@ sudo pacman -S newsboat --noconfirm
 sudo pacman -S xclip --noconfirm
 sudo pacman -S zip --noconfirm
 sudo pacman -S unzip --noconfirm
-sudo pacman -S wget --noconfirm
 sudo pacman -S glow --noconfirm
 sudo pacman -S aspell aspell-en --noconfirm
 sudo pacman -S just --noconfirm
