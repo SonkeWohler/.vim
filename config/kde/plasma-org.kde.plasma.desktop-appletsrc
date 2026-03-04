@@ -207,7 +207,7 @@ gpu/gpu1/usage=166,96,83
 gpu/gpu2/usage=116,83,166
 
 [Containments][2][Applets][36][Configuration][Sensors]
-highPrioritySensorIds=["gpu/all/usage","gpu/all/usedVram"]
+highPrioritySensorIds=["gpu/all/usage"]
 lowPrioritySensorIds=["gpu/all/usedVram","gpu/all/totalVram","gpu/all/usage"]
 totalSensors=["cpu/all/usage"]
 
@@ -267,7 +267,7 @@ plugin=org.kde.plasma.systemmonitor.cpucore
 
 [Containments][2][Applets][39][Configuration]
 CurrentPreset=org.kde.plasma.systemmonitor
-popupHeight=245
+popupHeight=298
 popupWidth=291
 
 [Containments][2][Applets][39][Configuration][Appearance]
