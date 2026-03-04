@@ -3,73 +3,81 @@
 sudo pacman -Syyu --noconfirm
 # packages not present in a basic arch install, but normally assumed to be
 # present on any system
-sudo pacman -S curl --noconfirm
-sudo pacman -S curl --noconfirm
-sudo pacman -S wget --noconfirm
-sudo pacman -S git --noconfirm
-sudo pacman -S vi --noconfirm
-sudo pacman -S vim --noconfirm
-sudo pacman -S less --noconfirm
-sudo pacman -S man-db --noconfirm
-sudo pacman -S man-pages --noconfirm
-sudo pacman -S texinfo --noconfirm
-sudo pacman -S openssh --noconfirm
-sudo pacman -S openssl --noconfirm
+sudo pacman --noconfirm -S \
+curl \
+curl \
+wget \
+git \
+vi \
+vim \
+less \
+man-db \
+man-pages \
+texinfo \
+openssh \
+openssl
 # system package managers
-sudo pacman -S python-pip --noconfirm
-sudo pacman -S npm --noconfirm
-sudo pacman -S flatpak --noconfirm
+sudo pacman --noconfirm -S \
+python-pip \
+npm \
+flatpak
 # keyboard stuff
 sudo pacman -S keyd --noconfirm
 # languages
 # sudo pacman -S python --noconfirm  # already installed by python-pip
-sudo pacman -S rustup --noconfirm
-sudo pacman -S rust-analyzer --noconfirm
-sudo pacman -S go --noconfirm
-sudo pacman -S ts-node --noconfirm  # typescript
-sudo pacman -S luarocks --noconfirm
+sudo pacman --noconfirm -S \
+rustup \
+rust-analyzer \
+go \
+ts-node \
+luarocks
 # other language-like dependencies
 sudo pacman -S cmake --noconfirm
 # command line emulator
-sudo pacman -S alacritty --noconfirm
-sudo pacman -S tmux --noconfirm
+sudo pacman --noconfirm -S \
+alacritty \
+tmux
 # cli search
-sudo pacman -S fd --noconfirm
-sudo pacman -S fzf --noconfirm
-sudo pacman -S ripgrep --noconfirm
-sudo pacman -S ripgrep-all --noconfirm
-sudo pacman -S repgrep --noconfirm
-sudo pacman -S jq --noconfirm
-sudo pacman -S gitui --noconfirm
-sudo pacman -S tree --noconfirm
+sudo pacman --noconfirm -S \
+fd \
+fzf \
+ripgrep \
+ripgrep-all \
+repgrep \
+jq \
+gitui \
+tree
 # cli paging and formatting
-sudo pacman -S bat  --noconfirm
-sudo pacman -S bat-extras  --noconfirm
-sudo pacman -S git-delta  --noconfirm
-sudo pacman -S prettier  --noconfirm
-sudo pacman -S shfmt  --noconfirm
-sudo pacman -S python-black  --noconfirm
-sudo pacman -S ruff --noconfirm
+sudo pacman --noconfirm -S \
+bat \
+bat-extras \
+git-delta \
+prettier \
+shfmt \
+python-black \
+ruff
 # cli editors
-sudo pacman -S vim --noconfirm
 sudo pacman -S neovim --noconfirm
 # other cli
-sudo pacman -S newsboat --noconfirm
-sudo pacman -S xclip --noconfirm
-sudo pacman -S zip --noconfirm
-sudo pacman -S unzip --noconfirm
-sudo pacman -S glow --noconfirm
-sudo pacman -S aspell aspell-en --noconfirm
-sudo pacman -S just --noconfirm
-sudo pacman -S github-cli --noconfirm
+sudo pacman --noconfirm -S \
+newsboat \
+xclip \
+zip \
+unzip \
+glow \
+aspell aspell-en \
+just \
+github-cli
 # kubernetes
-sudo pacman -S k9s --noconfirm
-sudo pacman -S kubectl --noconfirm
-sudo pacman -S kubectx --noconfirm
+sudo pacman --noconfirm -S \
+k9s \
+kubectl \
+kubectx
 # tui related stuff
-sudo pacman -S starship --noconfirm
-sudo pacman -S ttf-iosevka-nerd --noconfirm
-sudo pacman -S otf-droid-nerd --noconfirm
+sudo pacman --noconfirm -S \
+starship \
+ttf-iosevka-nerd \
+otf-droid-nerd
 # other editors
 flatpak install flathub com.vscodium.codium
 # tools from cargo
@@ -79,20 +87,26 @@ flatpak install flathub com.vscodium.codium
 # cargo install diesel_cli_ext
 # diesel completions bash | sudo tee /etc/bash_completion.d/diesel
 # communication and similar stuff
-sudo pacman -S vivaldi --noconfirm
 flatpak install flathub com.brave.Browser
-sudo pacman -S signal-desktop --noconfirm
-sudo pacman -S obsidian --noconfirm
+sudo pacman --noconfirm -S \
+vivaldi \
+signal-desktop \
+obsidian
 # office stuff
-sudo pacman -S 7zip --noconfirm
-sudo pacman -S pandoc --noconfirm
-sudo pacman -S texlive --noconfirm
-sudo pacman -S mupdf --noconfirm
-sudo pacman -S skanlite --noconfirm
-sudo pacman -S libreoffice-still libreoffice-still-ro libreoffice-still-de --noconfirm
+sudo pacman --noconfirm -S \
+7zip \
+pandoc \
+texlive \
+mupdf \
+skanlite \
+libreoffice-still \
+libreoffice-still-ro \
+libreoffice-still-de
 # keys, passwords, file-synch, etc
-sudo pacman -S nextcloud-client keepassxc --noconfirm
-sudo pacman -S tailscale --noconfirm
+sudo pacman --noconfirm -S \
+nextcloud-client \
+keepassxc \
+tailscale
 # games and other
 flatpak install com.valvesoftware.Steam com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 
