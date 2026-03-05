@@ -40,6 +40,7 @@ return {
         ui = {
           enable = false,
         },
+        disable_frontmatter = true,
         dir = "./",
         mappings = {},
         -- Whether to add the output of the node_id_func to new notes in autocompletion.
