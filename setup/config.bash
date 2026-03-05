@@ -155,3 +155,20 @@ ln --symbolic --verbose $vimCD/config/gitui/key_bindings.ron ~/.config/gitui/key
 print "setting up kde files"
 print "skip these if you don't want to apply the graphical-related config"
 ln --symbolic --verbose --interactive $vimCD/config/kde/* ~/.config/
+
+#-- track further .config for reference
+# I like to keep ~/.config as a local-only git-repo, so I can diff changes to it
+# and consider whether they are something I might want to add to my dotfiles.
+# Of course, this repo won't be uploaded anywhere, since there are lots of
+# sensitive files there e.g. from browsers, log and cache files, etc.  That's
+# not what .config is for, but that is what lots of applications use it for.
+
+# gitignore cannot be symlink
+ln --verbose $vimCD/setup/config_gitignore ~/.config/.gitignore && \
+    cd ~/.config && \
+    git init && \
+    git add .gitignore && \
+    git commit -m 'feat(gitignore): properly ignore lots of stuff' --no-edit && \
+    git add -A && \
+    git commit -m 'init(*): the setup script just finished' --no-edit && \
+    cd -

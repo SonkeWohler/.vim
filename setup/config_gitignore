@@ -1,0 +1,17 @@
+**/*cache*/
+**/*Cache*/
+**/*logs*/
+**/local/
+**/assets/
+
+obsidian/
+Cypress/
+libreoffice/
+Nextcloud/
+nextcloud/
+Signal/
+
+*.svg
+*.jpeg
+*.png
+*.pdf
