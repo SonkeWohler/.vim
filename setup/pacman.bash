@@ -45,6 +45,7 @@ ripgrep \
 ripgrep-all \
 repgrep \
 jq \
+yq \
 gitui \
 tree
 # cli paging and formatting
