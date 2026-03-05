@@ -46,7 +46,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.diffopt = vim.opt.diffopt + 'vertical'
 -- use the mouse, sometimes
-vim.opt.mouse = 'a'
+vim.opt.mouse = 'nv'
 vim.opt.mousefocus = false
 vim.opt.mousehide = true
 vim.opt.mousetime = 300

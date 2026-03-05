@@ -25,7 +25,7 @@ set -g nextcloud_server_ip 'root@2a01:4f8:c0c:59f8::1'
 # and any other global variables
 set -gx EDITOR 'nvim'
 set -gx SUDO_EDITOR 'nvim'
-set -gx LESS 'RS'
+set -gx LESS '-RS --mouse'
 
 if status is-interactive
     if test $PWD -ef ~
