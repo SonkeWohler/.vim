@@ -102,7 +102,9 @@ mupdf \
 skanlite \
 libreoffice-still \
 libreoffice-still-ro \
-libreoffice-still-de
+libreoffice-still-de \
+kate \
+okular
 # keys, passwords, file-synch, etc
 sudo pacman --noconfirm -S \
 nextcloud-client \
