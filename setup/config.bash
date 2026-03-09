@@ -152,9 +152,16 @@ sudo keyd reload
 mkdir --parents --verbose ~/.config/gitui
 ln --symbolic --verbose $vimCD/config/gitui/key_bindings.ron ~/.config/gitui/key_bindings.ron --interactive
 
+#-- KDE
+
 print "setting up kde files"
 print "skip these if you don't want to apply the graphical-related config"
 ln --symbolic --verbose --interactive $vimCD/config/kde/* ~/.config/
+
+#-- claude
+
+mkdir --parents --verbose ~/.claude
+ln --symbolic --verbose --interactive $vimCD/config/claude_settings.json ~/.claude/settings.json
 
 #-- track further .config for reference
 # I like to keep ~/.config as a local-only git-repo, so I can diff changes to it
