@@ -132,5 +132,5 @@ function kindly --description 'load docker images into the kindly cluster'
         echo $image
     end
 
-    kind load docker-image $images --name docker-desktop
+    kind load docker-image $images --name $name
 end
