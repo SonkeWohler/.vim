@@ -1,6 +1,11 @@
+# --- enable multilib
+echo '' | sudo tee -a /etc/pacman.conf
+echo '# enable multilib' | sudo tee -a /etc/pacman.conf
+echo '[multilib]' | sudo tee -a /etc/pacman.conf
+echo 'Include = /etc/pacman.d/mirrorlist' | sudo tee -a /etc/pacman.conf
 # --- basics
 # update system
-sudo pacman -Syyu --noconfirm
+sudo pacman -Syu --noconfirm
 # packages not present in a basic arch install, but normally assumed to be
 # present on any system
 sudo pacman --noconfirm -S \
@@ -111,7 +116,9 @@ nextcloud-client \
 keepassxc \
 tailscale
 # games and other
-flatpak install com.valvesoftware.Steam com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
+sudo pacman --noconfirm -S \
+steam
+flatpak install com.github.tchx84.Flatseal com.heroicgameslauncher.hgl
 
 # from node
 # these are annoying to update regularly, because it can interfere with the
