@@ -15,6 +15,8 @@ else
 end
 if test -d /a/aur/pkg_builds/
     set -g aur_files /a/aur/pkg_builds/
+else if test -d ~/Documents/AUR_git
+    set -g aur_files ~/Documents/AUR_git
 end
 if test -d ~/nextcloud
     set -g nextcloud_synch_PATH ~/nextcloud/sync
