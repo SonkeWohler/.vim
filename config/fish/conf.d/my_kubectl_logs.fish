@@ -46,11 +46,17 @@ function log_into_production_kubernetes --description "I keep production and sta
     and set no_move 1
     or set no_move 0
 
+    if test $force -eq 1
+        echo 'INFO --force was supplied, this may overwrite ~/.kube/*.bak files!'
+        sleep 1s
+        echo '...'
+        sleep 1s
+    end
     echo 'INFO switching ~/.kube/config to the production config'
-    echo 'INFO this may overwrite ~/.kube/*.bak files'
 
     if not test -f ~/.kube/production.config
         echo 'ERROR could not find production config, aborting!'
+        return
     end
 
     if not test -f ~/.kube/config
@@ -85,22 +91,34 @@ end
 function log_out_of_production_kubernetes
     argparse 'f/force' -- $argv
     or return
-    set -ql _flag_h
+    set -ql _flag_f
     and set force 1
     or set force 0
 
+    if test $force -eq 1
+        echo 'INFO --force was supplied, this may overwrite ~/.kube/*.bak files!'
+        sleep 1s
+        echo '...'
+        sleep 1s
+    end
     echo 'INFO switching ~/.kube/config back from production'
-    echo 'INFO this may remove ~/.kube/*.bak files'
 
     if not test -f ~/.kube/config.bak
-        echo 'ERROR could not find ~/.kube/config.bak, maybe you are already logged out'
+        if not test $force -eq 1
+            echo 'ERROR could not find ~/.kube/config.bak, maybe you are already logged out?  Use --force if you think this is expected'
+            echo 'ERROR Aborting'
+            return
+        else
+            echo 'WARNING could not find ~/.kube/config.bak, but --force was supplied!'
+        end
     end
     if test -f ~/.kube/production.config
         if not test $force -eq 1
-            echo 'WARNING could not find ~/.kube/production.config!  Use --force if you think this is expected'
+            echo 'ERROR could not find ~/.kube/production.config!  Use --force if you think this is expected'
+            echo 'ERROR Aborting'
             return
         else
-            echo 'WARNING could not find ~/.kube/production.config, but --force supplied'
+            echo 'WARNING could not find ~/.kube/production.config, but --force was supplied!'
         end
     end
 
@@ -114,24 +132,36 @@ end
 # non-standard at work,
 # but this might be nicer than docker desktop, which kept creating problems for me
 function kindly --description 'load docker images into the kindly cluster'
-    argparse 'i/images=+' 'n/name' -- $argv
+    argparse -x 'i,p' 'i/images=+' 'n/name=' 'p/pattern=' 'v/verbose' -- $argv
     or return
     set -ql _flag_i[1]
     and set images $_flag_i
     or set images (docker images | grep knosc | awk '{print $1}')
+    set -ql _flag_p[1]
+    and set pattern $_flag_p
+    or set pattern '*'
     set -ql _flag_n[1]
     and set name $_flag_n[-1]
     or set name 'docker-desktop'
+    set -ql _flag_v[1]
+    and set verbose 1
+    or set verbose 0
 
-    for image in $images
+    set indexes_to_use
+    for i in (seq (count $images))
+        set image $images[$i]
         if not string match --quiet -- '*/*' $image
             set image "knosc/$image"
         end
         if not string match --quiet -- '*:*' $image
             set image "$image:latest"
         end
-        echo $image
+        if string match --quiet -- $pattern $image
+            set indexes_to_use $indexes_to_use $i
+        else if test $verbose -eq 1
+                echo "skipping '$image' because it doesn't match pattern '$pattern"
+        end
     end
 
-    kind load docker-image $images --name $name
+    kind load docker-image $images[$indexes_to_use] --name $name
 end
