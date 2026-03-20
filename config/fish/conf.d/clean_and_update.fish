@@ -68,10 +68,6 @@ function update_aur_repo
     or return
 
     echo "Checking AUR repository at $PWD"
-    echo '...'
-    sleep 1s
-    echo '...'
-    sleep 1s
     if not git fetch
         echo "ERROR failed to fetch $PWD"
         sleep 1s
@@ -89,6 +85,10 @@ function update_aur_repo
         cd ..
         return
     end
+    echo '...'
+    sleep 1s
+    echo '...'
+    sleep 1s
 
     git diff origin/$current_branch
     echo 'are you comfortable going ahead (y/n)?'
