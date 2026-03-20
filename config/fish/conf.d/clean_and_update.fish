@@ -63,28 +63,79 @@ function clean-docker-storage --description 'prune docker images and rebuild mai
     echo "--- docker has been pruned ---"
 end
 
-function update_aur --description 'update AUR packages'
+function update_aur_repo
+    cd $argv[1]
+    or return
+
+    echo "Checking AUR repository at $PWD"
+    echo '...'
+    sleep 1s
+    echo '...'
+    sleep 1s
+    if not git fetch
+        echo "ERROR failed to fetch $PWD"
+        sleep 1s
+        echo "Moving on..."
+        sleep 1s
+        cd ..
+        return
+    end
+    set current_branch (git branch --show-current)
+    if git diff --exit-code --quiet origin/$current_branch
+        echo "INFO There are no updates to install in $PWD"
+        sleep 1s
+        echo "Moving on..."
+        sleep 1s
+        cd ..
+        return
+    end
+
+    git diff origin/$current_branch
+    echo 'are you comfortable going ahead (y/n)?'
+    read --nchars 1 --function yesno
+    set yesno (string lower $yesno)
+    if test -z $yesno; or test $yesno != 'y'
+        echo "WARNING Aborting AUR upgrade of $PWD"
+        echo "WARNING this can leave the software broken, if its dependencies have been upgraded"
+        cd ..
+        return
+    end
+
+    git merge
+    and makepkg --syncdeps
+    and sudo pacman -U *.pkg.tar.zst
+    and rm -v *.pkg.tar.zst  # sometimes these don't overwrite previous versions
+    and cd ..
+    and return
+    or echo "ERROR Failed to install $PWD, please revisit this repo"
+    echo 'Press any key to move on...'
+    read --nchars 1 --function yesno
+    echo "Moving on..."
+    sleep 1s
+    cd ..
+    return
+end
+
+function update_all_aur --description 'update AUR packages'
     echo "--------------------"
     echo "--- updating AUR ---"
     echo "--------------------"
+    set current_path $PWD
+    sleep 1s
     if whatis yay
         yay
     else if set -q aur_files
         cd $aur_files
-        for file in ls
-            cd $file
-            and git fetch
-            and git full-log-since-last-pull
-            and git pull
-            and makepkg --syncdeps
-            and sudo pacman -U *.pkg.tar.zst
-            or echo "skipping AUR package at $PWD"
+        for file in *
+            update_aur_repo $file
         end
     else
         echo "Error, no aur files defined and no yay installed"
     end
+    sleep 1s
     echo ""
     echo "--- AUR has been updated ---"
+    cd $current_path
 end
 
 function update-core --description 'possibly requires restart'
@@ -93,7 +144,7 @@ function update-core --description 'possibly requires restart'
     echo "-----------------------"
     # now we need user input.  Well, if we don't want to accidentally break
     # anything.
-    sudo pacman -Syu && update_aur && \
+    sudo pacman -Syu && update_all_aur && \
     # remove orphans after last update
     pacman -Qdtq | sudo pacman -Rs - && \
     # clean cache, keep last 4
