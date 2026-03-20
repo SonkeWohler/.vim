@@ -6,6 +6,7 @@ echo 'Include = /etc/pacman.d/mirrorlist' | sudo tee -a /etc/pacman.conf
 # --- basics
 # update system
 sudo pacman -Syu --noconfirm
+sudo pacman -S pacman-contrib --noconfirm
 # packages not present in a basic arch install, but normally assumed to be
 # present on any system
 sudo pacman --noconfirm -S \
