@@ -53,7 +53,8 @@ repgrep \
 jq \
 yq \
 gitui \
-tree
+tree \
+pv
 # cli paging and formatting
 sudo pacman --noconfirm -S \
 bat \
