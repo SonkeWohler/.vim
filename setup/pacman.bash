@@ -21,7 +21,10 @@ man-db \
 man-pages \
 texinfo \
 openssh \
-openssl
+openssl \
+bluetui \
+bluez-util \
+bluez
 # system package managers
 sudo pacman --noconfirm -S \
 python-pip \
