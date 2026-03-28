@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 cd ../config
 configs=$(pwd)
 

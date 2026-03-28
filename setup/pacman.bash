@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 # --- enable multilib
 echo '' | sudo tee -a /etc/pacman.conf
 echo '# enable multilib' | sudo tee -a /etc/pacman.conf
@@ -32,16 +34,15 @@ npm \
 flatpak
 # keyboard stuff
 sudo pacman -S keyd --noconfirm
-# languages
+# languages and other build/compile/etc
 # sudo pacman -S python --noconfirm  # already installed by python-pip
 sudo pacman --noconfirm -S \
 rustup \
 rust-analyzer \
 go \
 ts-node \
-luarocks
-# other language-like dependencies
-sudo pacman -S cmake --noconfirm
+luarocks \
+cmake
 # command line emulator
 sudo pacman --noconfirm -S \
 alacritty \
@@ -67,8 +68,11 @@ prettier \
 shfmt \
 python-black \
 ruff
-# cli editors
-sudo pacman -S neovim --noconfirm
+# cli nice things
+sudo pacman -S neovim --noconfirm \
+starship \
+ttf-iosevka-nerd \
+otf-droid-nerd
 # other cli
 sudo pacman --noconfirm -S \
 newsboat \
@@ -79,16 +83,13 @@ glow \
 aspell aspell-en \
 just \
 github-cli
-# kubernetes
+# docker, kubernetes, etc
 sudo pacman --noconfirm -S \
+docker \
+docker-buildx \
 k9s \
 kubectl \
 kubectx
-# tui related stuff
-sudo pacman --noconfirm -S \
-starship \
-ttf-iosevka-nerd \
-otf-droid-nerd
 # other editors
 flatpak install flathub com.vscodium.codium
 # tools from cargo
