@@ -71,11 +71,6 @@ if status is-interactive
     function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
         tree -aC -I '.git' --gitignore --gitfile="$dotfiles_PATH/config/gitignore" $argv | grep -v "\->"
     end
-    # e.g.
-    # git diff --name-status development...HEAD -- 'rest-api/*' | git-to-vi
-    function git-to-vi --description 'I can use git to create a list of the files I want to look at, and open them all with this'
-        awk '{print$2}' | tr "\n" " " | xargs nvim -p
-    end
     # remindme in 5mins, or so
     # currently, this cannot be send in the background normally, because fish
     # functions cannot be managed that way.
@@ -190,10 +185,7 @@ if status is-interactive
     abbr -a --position anywhere -- klogj 'kubernetes-log-template --job'
     abbr -a --position anywhere -- klogp 'kubernetes-log-template --pod'
     abbr -a --position anywhere -- kloga 'kubernetes-log-template --app'
-    abbr -a --position anywhere -- gvi 'git-to-vi'
     abbr -a --position anywhere -- gg gitui
-    abbr -a --position anywhere --set-cursor -- rp "rg --json '%'"
-    # abbr -a --position anywhere --set-cursor -- klog "kubectl logs --tail=-1 -f % | pino-pretty --colorize"
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
     abbr -a --position anywhere --set-cursor -- rgg "rg --json '%' | delta-template"
@@ -206,5 +198,7 @@ if status is-interactive
     abbr -a --position command -- taildown "sudo tailscale down && sudo systemctl stop tailscaled"
     # start plasma when in terminal
     abbr -a --position command -- plasmaup "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
+    # AUR
+    abbr -a --position command -- makeaur 'makepkg --syncdeps && sudo pacman -U *.pkg.tar.zst && rm -rvI *.pkg.tar.zst'
 
 end
