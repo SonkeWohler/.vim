@@ -134,6 +134,7 @@ ForegroundVisited=155,89,182
 
 [General]
 AccentColor=146,110,228
+BrowserApplication=vivaldi-stable.desktop
 ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
 LastUsedCustomAccentColor=146,110,228
 UseSystemBell=true
@@ -154,7 +155,7 @@ Show Full Path=false
 Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
-Show hidden files=false
+Show hidden files=true
 Sort by=Name
 Sort directories first=true
 Sort hidden files last=false
