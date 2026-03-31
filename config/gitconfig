@@ -51,6 +51,7 @@
 	prunewell = !git prune-and-list-prunable-local-branches && git prune-remote-and-local-branches
 	list-local-only-branches = !git branch -vv | grep -v ']' | awk '{print $1}'
 	# various common commands
+    pff = pull --ff-only
 	sw = switch  # better checkout, only for branches
 	s = status
 	d = standard-diff-format
