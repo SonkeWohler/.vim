@@ -179,7 +179,8 @@ if status is-interactive
     abbr -a --position anywhere -- sshNXT 'ssh $nextcloud_server_ip'
     abbr -a --position anywhere -- tre 'tree-without-symlinks-etc'
     abbr -a --position anywhere -- viNXT 'cd $nextcloud_synch_PATH/vault && nvim Index.md'
-    abbr -a --position anywhere -- pvt 'pv -t'
+    abbr -a --position anywhere -- pvt 'pv --timer'
+    abbr -a --position anywhere --set-cursor -- slpt 'sleep % | pv --timer'
     abbr -a --position anywhere -- kk 'k9s'
     abbr -a --position anywhere -- klog 'kubernetes-log-template'
     abbr -a --position anywhere -- klogj 'kubernetes-log-template --job'
@@ -199,6 +200,6 @@ if status is-interactive
     # start plasma when in terminal
     abbr -a --position command -- plasmaup "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
     # AUR
-    abbr -a --position command -- makeaur 'makepkg --syncdeps && sudo pacman -U *.pkg.tar.zst && rm -rvI *.pkg.tar.zst'
+    abbr -a --position command -- makeaur 'makepkg --syncdeps && sudo pacman -U *.pkg.tar.zst && rm -rv *.pkg.tar.zst'
 
 end
