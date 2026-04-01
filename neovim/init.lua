@@ -6,23 +6,27 @@ keyopt = { noremap = true }
 -- commands
 cmd = vim.api.nvim_create_user_command
 -- basically nnoremap
-function nmap(trigger, target)
-  keymap('n', trigger, target, keyopt)
+function nmap(trigger, target, options)
+  options = options or keyopt
+  keymap('n', trigger, target, options)
 end
 
 -- basically inoremap
-function imap(trigger, target)
-  keymap('i', trigger, target, keyopt)
+function imap(trigger, target, options)
+  options = options or keyopt
+  keymap('i', trigger, target, options)
 end
 
 -- basically cnoremap
-function cmap(trigger, target)
-  keymap('c', trigger, target, keyopt)
+function cmap(trigger, target, options)
+  options = options or keyopt
+  keymap('c', trigger, target, options)
 end
 
 -- basically vnoremap
-function vmap(trigger, target)
-  keymap('v', trigger, target, keyopt)
+function vmap(trigger, target, options)
+  options = options or keyopt
+  keymap('v', trigger, target, options)
 end
 
 -- ### other lua files
