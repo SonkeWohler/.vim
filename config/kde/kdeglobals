@@ -137,6 +137,8 @@ AccentColor=146,110,228
 BrowserApplication=vivaldi-stable.desktop
 ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
 LastUsedCustomAccentColor=146,110,228
+TerminalApplication=alacritty
+TerminalService=Alacritty.desktop
 UseSystemBell=true
 
 [KDE]
