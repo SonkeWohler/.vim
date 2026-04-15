@@ -37,9 +37,8 @@ require('mason-lspconfig').setup({
     "texlab",
     "ts_ls",
     "yamlls",
-    "pylsp",
-    -- "docformatter",
-    -- "isort",
+    "ruff",
+    "ty",
   },
   automatic_installation = true,
 })

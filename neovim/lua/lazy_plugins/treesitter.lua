@@ -13,10 +13,11 @@ return {
   -- the main treesitter config
   -- those listed here under dependencies are interconnected in their config, so
   -- they are to me part of the main treesitter installation, not just an extension
+  -- TODO specify parsers to install on new setup
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
-    event = "VeryLazy",
+    lazy=false,
     branch="master",
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
