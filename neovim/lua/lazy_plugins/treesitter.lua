@@ -73,20 +73,26 @@ return {
       'drybalka/tree-climber.nvim',
     },
     config = function()
+      local function start_ts(buf)
+        if pcall(vim.treesitter.start, buf) then
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+        if vim.bo[buf].filetype == "markdown" then
+          -- run vim regex highlighting alongside treesitter for markdown
+          vim.bo[buf].syntax = "on"
+        end
+      end
+
       vim.api.nvim_create_autocmd("FileType", {
-        callback = function(args)
-          if pcall(vim.treesitter.start, args.buf) then
-            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-          end
-        end,
+        callback = function(args) start_ts(args.buf) end,
       })
-      -- run vim regex highlighting alongside treesitter for markdown
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
-        callback = function(args)
-          vim.bo[args.buf].syntax = "on"
-        end,
-      })
+
+      -- also handle any buffer already open when the plugin loads
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype ~= "" then
+          start_ts(buf)
+        end
+      end
     end,
   },
 
