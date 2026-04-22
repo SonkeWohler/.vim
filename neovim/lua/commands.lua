@@ -7,6 +7,8 @@ cmd('Y', 'CopyMainYankToSystemClipboard', {})
 ----- Buffer -----
 cmd('Qa', 'cq 77', { desc = 'quit all buffers, exit with code 77' })
 cmd('QQQ', 'Qa', { desc = 'wrapper for Qa' })
+cmd('Qb', 'bd!', { desc = 'quit current buffer (not window, buffer)' })
+cmd('QB', 'Qb', { desc = 'wrapper for Qb' })
 cmd('YY', 'let @" = expand("%") | Y', {})
 cmd('WW', 'wqa', { desc = 'save and quit all buffers' })
 
