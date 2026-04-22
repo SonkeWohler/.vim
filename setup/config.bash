@@ -134,11 +134,7 @@ mkdir --parents --verbose ~/.config/nvim
 ln --symbolic --verbose $vimCD/neovim/* ~/.config/nvim --interactive
 
 # NOTE treesitter should be triggered by Lazy
-nvim -c "lua require('lazy').sync({wait = true})" -c 'autocmd User VeryLazy MasonUpdateAll'
-# https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/server_configurations/pylsp/README.md
-# if that moves, here is a commit that added this file
-# https://github.com/williamboman/mason-lspconfig.nvim/blob/1d459b6d19118b9944d5313e4439cb361d607366/lua/mason-lspconfig/server_configurations/pylsp/README.md
-nvim -c 'PylspInstall pylsp-mypy pyls-isort python-lsp-black pylsp-rope'
+nvim -c "lua require('lazy').sync({wait = true})" -c 'autocmd User VeryLazy MasonUpdateAll' -c 'TSInstall python lua yaml make cmake bash fish rust typescript html javascript css go ssh_config git_config editorconfig json markdown sql angular awk bibtex c comment csv diff dockerfile dot git_rebase gitcommit gitignore gitattributes gomod gosum helm http jq just latex nginx perl php regex readline requirements tmux toml udev vim vimdoc xml'
 
 #-- keyboard
 

@@ -42,7 +42,9 @@ rust-analyzer \
 go \
 ts-node \
 luarocks \
-cmake
+cmake \
+tree-sitter \
+tree-sitter-cli
 # command line emulator
 sudo pacman --noconfirm -S \
 alacritty \

@@ -62,7 +62,6 @@ return {
   },
 
   -- the main treesitter config
-  -- TODO specify parsers to install on new setup
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
