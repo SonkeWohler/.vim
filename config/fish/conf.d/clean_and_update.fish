@@ -90,7 +90,7 @@ function update_aur_repo
     echo '...'
     sleep 1s
 
-    git diff origin/$current_branch
+    git diff $current_branch origin/$current_branch
     echo 'are you comfortable going ahead (y/n)?'
     read --nchars 1 --function yesno
     set yesno (string lower $yesno)
