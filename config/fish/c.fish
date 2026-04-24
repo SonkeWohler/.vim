@@ -97,6 +97,16 @@ if status is-interactive
     function notify-me-later --description 'this does not currently work as intended, see above'
         wait-and-remind-me $argv &>/dev/null &
     end
+    function slpt --description 'sleep with proper info, so when I have long strings of commands, I know whats up'
+        if set -q argv[1]
+            set duration "$argv[1]"
+        else
+            set duration '10s'
+        end
+
+        echo "INFO waiting for $duration..."
+        sleep $duration | pv --timer
+    end
     # --- being time blind sucks
     function work-timer --description 'try to schedule a 3-ish hour focus window, without getting stuck in focus'
         if set -q argv[1]
@@ -180,7 +190,6 @@ if status is-interactive
     abbr -a --position anywhere -- tre 'tree-without-symlinks-etc'
     abbr -a --position anywhere -- viNXT 'cd $nextcloud_synch_PATH/vault && nvim Index.md'
     abbr -a --position anywhere -- pvt 'pv --timer'
-    abbr -a --position anywhere --set-cursor -- slpt 'sleep % | pv --timer'
     abbr -a --position anywhere -- kk 'k9s'
     abbr -a --position anywhere -- klog 'kubernetes-log-template'
     abbr -a --position anywhere -- klogj 'kubernetes-log-template --job'
@@ -190,6 +199,7 @@ if status is-interactive
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
     abbr -a --position anywhere --set-cursor -- rgg "rg --json '%' | delta-template"
+    abbr -a --position anywhere -- fd-file-types 'fd -t f . | sed -En "s/^.*\.//p" | sort | uniq' # sometimes useful, never remembered, always tedious to reconstruct
     abbr -a --position anywhere -- nogit "not test (git status --porcelain)"
     # wait for pid to complete, then do other stuff
     # useful with <C-M-p> from fzf.fish
