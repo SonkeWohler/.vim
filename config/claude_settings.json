@@ -1,16 +1,24 @@
 {
-  "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
-  },
-  "permissions": {
-    "defaultMode": "default",
-    "allow": [
-      "Bash(gh pr view*)",
-      "Bash(gh pr diff*)",
-      "WebFetch(domain:github.com)"
-    ]
-  },
-  "effortLevel": "medium",
-  "verbose": true,
-  "remoteControlAtStartup": false
+    "env": {
+        "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
+    },
+    "permissions": {
+        "allow": [
+            "Bash(gh pr view*)",
+            "Bash(gh pr diff*)",
+            "WebFetch(domain:github.com)"
+        ],
+        "defaultMode": "default"
+    },
+    "enabledPlugins": {
+        "typescript-lsp@claude-plugins-official": true,
+        "pyright-lsp@claude-plugins-official": true,
+        "gopls-lsp@claude-plugins-official": true,
+        "rust-analyzer-lsp@claude-plugins-official": true,
+        "clangd-lsp@claude-plugins-official": true,
+        "lua-lsp@claude-plugins-official": true
+    },
+    "effortLevel": "medium",
+    "verbose": true,
+    "remoteControlAtStartup": false
 }

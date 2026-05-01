@@ -44,7 +44,13 @@ ts-node \
 luarocks \
 cmake \
 tree-sitter \
-tree-sitter-cli
+tree-sitter-cli \
+gopls \
+pyright \
+gcc \
+clang \
+lua-language-server \
+typescript-language-server
 # command line emulator
 sudo pacman --noconfirm -S \
 alacritty \
