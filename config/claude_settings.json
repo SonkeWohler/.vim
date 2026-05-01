@@ -1,8 +1,16 @@
 {
-    "permissions": {
-        "defaultMode": "default"
-    },
-    "env": {
-        "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": 70
-    }
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
+  },
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Bash(gh pr view*)",
+      "Bash(gh pr diff*)",
+      "WebFetch(domain:github.com)"
+    ]
+  },
+  "effortLevel": "medium",
+  "verbose": true,
+  "remoteControlAtStartup": false
 }
