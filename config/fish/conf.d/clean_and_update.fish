@@ -19,7 +19,6 @@ function update-side-note --description 'update stuff that does not require dock
     # these can run without supervision once I have authenticated
     flatpak update  --assumeyes
     rustup update
-    uv self update
     # fish plugins, which should go into dotfiles
     # echo "--- updating fish plugins and committing them to dotfiles!!!"
     # cd $dotfiles_PATH
