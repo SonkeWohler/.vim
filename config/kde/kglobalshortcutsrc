@@ -3,7 +3,9 @@ _k_friendly_name=Activity Manager
 switch-to-activity-f30e3d3b-5ec3-4d23-95f4-9effcee69489=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
-Switch to Last-Used Keyboard Layout=none,Meta+Alt+L,Switch to Last-Used Keyboard Layout
+Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
+Switch keyboard layout to German (QWERTY)=none,none,Switch keyboard layout to German (QWERTY)
+Switch to Last-Used Keyboard Layout=,Meta+Alt+L,Switch to Last-Used Keyboard Layout
 Switch to Next Keyboard Layout=Meta+Shift+Return,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
@@ -41,7 +43,7 @@ Cycle Overview=none,none,Cycle through Overview and Grid View
 Cycle Overview Opposite=none,none,Cycle through Grid View and Overview
 Decrease Opacity=,,Decrease Opacity of Active Window by 5%
 Edit Tiles=none,Meta+T,Toggle Tiles Editor
-Expose=none,Meta+F9\tCtrl+F9,Toggle Present Windows (Current desktop)
+Expose=Meta+Tab,Meta+F9\tCtrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=none,Meta+F10\tLaunch (C)\tCtrl+F10,Toggle Present Windows (All desktops)
 ExposeClass=none,Meta+F7\tCtrl+F7,Toggle Present Windows (Window class)
 ExposeClassCurrentDesktop=none,none,Toggle Present Windows (Window class on current desktop)
@@ -278,6 +280,10 @@ _launch=Meta+Shift+B
 [services][obsidian.desktop]
 _launch=Meta+Shift+D
 
+[services][org.kde.krunner.desktop]
+RunClipboard=none
+_launch=none
+
 [services][org.kde.kscreen.desktop]
 ShowOSD=none
 
@@ -285,7 +291,6 @@ ShowOSD=none
 ActiveWindowScreenShot=
 CurrentMonitorScreenShot=Meta+Shift+Print
 FullScreenScreenShot=none
-OpenWithoutScreenshot=
 RecordRegion=none
 RecordScreen=none
 RecordWindow=none
