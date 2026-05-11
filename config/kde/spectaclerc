@@ -1,0 +1,21 @@
+[Annotations]
+annotationToolType=6
+arrowStrokeColor=83,9,135
+ellipseFillColor=83,9,135
+lineStrokeColor=83,9,135
+rectangleFillColor=255,0,0,0
+rectangleStrokeColor=83,9,135
+textFont=Noto Sans,14,-1,0,400,0,0,0,0,0,0,0,0,0,0,1
+textFontColor=101,11,166
+
+[General]
+ocrLanguages=afr
+
+[GuiConfig]
+includePointer=true
+
+[ImageSave]
+translatedScreenshotsFolder=Screenshots
+
+[VideoSave]
+translatedScreencastsFolder=Screencasts
