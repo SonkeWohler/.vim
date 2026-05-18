@@ -71,6 +71,16 @@ if status is-interactive
     function tree-without-symlinks-etc --description 'tree with my default gitignore and with symlinks grepped out'
         tree -aC -I '.git' --gitignore --gitfile="$dotfiles_PATH/config/gitignore" $argv | grep -v "\->"
     end
+    function slpt --description 'sleep with proper info, so when I have long strings of commands, I know whats up'
+        if set -q argv[1]
+            set duration "$argv[1]"
+        else
+            set duration '10s'
+        end
+
+        echo "INFO waiting for $duration..."
+        sleep $duration | pv --timer
+    end
     # remindme in 5mins, or so
     # currently, this cannot be send in the background normally, because fish
     # functions cannot be managed that way.
@@ -84,7 +94,7 @@ if status is-interactive
             echo "wait-and-remind-me requires argv[2] to be the notification message"
             return
         end
-        sleep $argv[1]
+        slpt $argv[1]
         set code (notify-send $argv[2] --action 'done' --action '+1min' --action 'repeat' --app-name "timer $time" --wait --expire-time 300000)
         if test "$code" -eq 1
             wait-and-remind-me "1m" $argv[2]
@@ -96,16 +106,6 @@ if status is-interactive
     end
     function notify-me-later --description 'this does not currently work as intended, see above'
         wait-and-remind-me $argv &>/dev/null &
-    end
-    function slpt --description 'sleep with proper info, so when I have long strings of commands, I know whats up'
-        if set -q argv[1]
-            set duration "$argv[1]"
-        else
-            set duration '10s'
-        end
-
-        echo "INFO waiting for $duration..."
-        sleep $duration | pv --timer
     end
     # --- being time blind sucks
     function work-timer --description 'try to schedule a 3-ish hour focus window, without getting stuck in focus'
@@ -119,7 +119,7 @@ if status is-interactive
         # TODO allow interrupt in this time, which should record that as the end
         # of duration to time_tracking.txt, instead of the predicted time
         echo trying to notifying you $duration from $start_time
-        sleep "$duration" || notify-send "your work tracker did not sleep very well"
+        slpt "$duration" || notify-send "your work tracker did not sleep very well"
         # TODO I should make this more interactive, allowing me to add 10mins or
         # something
         set response (notify-send "you have worked for $duration, it is time to stop" --action "no I didn't!" --action "ok, I'm done" --action "one more minute" --action "10 more minutes" --action "30 more minutes" --wait --expire-time 300000)
