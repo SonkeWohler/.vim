@@ -29,6 +29,7 @@ set -g nextcloud_server_ip 'root@2a01:4f8:c0c:59f8::1'
 set -gx EDITOR 'nvim'
 set -gx SUDO_EDITOR 'nvim'
 set -gx LESS '-RS --mouse'
+set -gx RIPGREP_CONFIG_PATH "$dotfiles_PATH/config/ripgreprc" # ripgrep is weird
 
 if status is-interactive
     if test $PWD -ef ~
