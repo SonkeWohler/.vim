@@ -18,7 +18,20 @@
     "clangd-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "verbose": true,
-  "remoteControlAtStartup": false
+  "remoteControlAtStartup": false,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude Code' 'ready or requires more input' --icon=dialog-information",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
 }
