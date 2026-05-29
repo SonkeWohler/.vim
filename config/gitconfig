@@ -21,6 +21,8 @@
 	autoStash = true
 [pull]
 	rebase = false
+[push]
+	autoSetupRemote = true
 [fetch]
 	prune = false
 [delta]
