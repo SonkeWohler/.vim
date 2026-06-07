@@ -10,18 +10,18 @@
     ],
     "defaultMode": "default"
   },
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
-  },
-  "effortLevel": "high",
-  "verbose": true,
-  "remoteControlAtStartup": false,
   "hooks": {
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude Code' 'permission required' --icon=dialog-question",
+            "async": true
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
@@ -33,5 +33,16 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "verbose": true,
+  "remoteControlAtStartup": false
 }
