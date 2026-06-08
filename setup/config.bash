@@ -158,6 +158,7 @@ ln --symbolic --verbose --interactive $vimCD/config/kde/* ~/.config/
 
 mkdir --parents --verbose ~/.claude
 ln --symbolic --verbose --interactive $vimCD/config/claude/claude_settings.json ~/.claude/settings.json
+ln --symbolic --verbose --interactive $vimCD/config/claude/commands ~/.claude/commands
 
 #-- track further .config for reference
 # I like to keep ~/.config as a local-only git-repo, so I can diff changes to it
