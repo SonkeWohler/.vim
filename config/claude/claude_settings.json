@@ -6,6 +6,9 @@
     "allow": [
       "Bash(gh pr view*)",
       "Bash(gh pr diff*)",
+      "Bash(python -m py_compile:*)",
+      "Bash(python3 -m py_compile:*)",
+      "Bash(echo \"OK: compiles\")",
       "WebFetch(domain:github.com)"
     ],
     "defaultMode": "default"
