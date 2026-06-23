@@ -50,7 +50,7 @@ To update plugins: `nvim -c "lua require('lazy').sync({wait = true})" -c 'autocm
 
 - `claude_settings.json` → `~/.claude/settings.json`
 - `commands/` → `~/.claude/commands/` (slash commands)
-- `skills/` → `~/.claude/skills/` (not yet wired by setup script as of last check)
+- `skills/` → `~/.claude/skills/` (slash skills)
 
 **Active hooks** in `claude_settings.json`:
 - `PreToolUse[Bash]` — `notify-send` with command preview (async)
@@ -76,6 +76,7 @@ Changes to any of these files may require adaptations in relevant `setup/*` file
 | `neovim/*` | `~/.config/nvim/` |
 | `config/claude/claude_settings.json` | `~/.claude/settings.json` |
 | `config/claude/commands` | `~/.claude/commands` |
+| `config/claude/skills` | `~/.claude/skills` |
 
 ## Committing conventions
 
