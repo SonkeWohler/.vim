@@ -192,6 +192,7 @@ if status is-interactive
     abbr -a --position anywhere -- viNXT 'cd $nextcloud_synch_PATH/vault && nvim Index.md'
     abbr -a --position anywhere -- pvt 'pv --timer'
     abbr -a --position anywhere -- kk 'k9s'
+    abbr -a --position anywhere -- kk-production 'k9s --kubeconfig ~/.kube/production.config'
     abbr -a --position anywhere -- klog 'kubernetes-log-template'
     abbr -a --position anywhere -- klogj 'kubernetes-log-template --job'
     abbr -a --position anywhere -- klogp 'kubernetes-log-template --pod'
