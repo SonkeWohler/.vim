@@ -18,6 +18,7 @@
     ],
     "defaultMode": "default"
   },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -65,5 +66,5 @@
   "effortLevel": "high",
   "verbose": true,
   "remoteControlAtStartup": false,
-  "model": "opus"
+  "tui": "fullscreen"
 }
