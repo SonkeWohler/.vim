@@ -6,6 +6,9 @@
     "allow": [
       "Bash(gh pr view*)",
       "Bash(gh pr diff*)",
+      "Write(~/Documents/claude-scratch/*)",
+      "Edit(~/Documents/claude-scratch/*)",
+      "Read(~/Documents/claude-refs/*)",
       "Bash(python -m py_compile:*)",
       "Bash(python3 -m py_compile:*)",
       "Bash(echo \"OK: compiles\")",
