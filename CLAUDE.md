@@ -48,6 +48,7 @@ To update plugins: `nvim -c "lua require('lazy').sync({wait = true})" -c 'autocm
 
 ## Claude config (`config/claude/`)
 
+- `claude-context.md` → `~/.claude/CLAUDE.md`
 - `claude_settings.json` → `~/.claude/settings.json`
 - `commands/` → `~/.claude/commands/` (slash commands)
 - `skills/` → `~/.claude/skills/` (slash skills)
