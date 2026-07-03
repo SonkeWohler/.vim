@@ -53,8 +53,11 @@ To update plugins: `nvim -c "lua require('lazy').sync({wait = true})" -c 'autocm
 - `commands/` → `~/.claude/commands/` (slash commands)
 - `skills/` → `~/.claude/skills/` (slash skills)
 
+`claude_settings.json` keys must stay alphabetically sorted (recursively) to avoid diff noise/merge conflicts when synced across machines. Run `format-settings.bash` (abbreviated `fmt-claude-settings`) before committing changes to it; a `PostToolUse[Edit|Write]` hook also re-sorts it automatically whenever Claude edits it.
+
 **Active hooks** in `claude_settings.json`:
 - `PreToolUse[Bash]` — `notify-send` with command preview (async)
+- `PostToolUse[Edit|Write]` — re-sorts `claude_settings.json` keys via `jq --sort-keys` when it's the edited file
 - `PermissionRequest` — `notify-send` alert (async)
 - `UserPromptSubmit` — `kdialog` warning if there are uncommitted changes
 - `Stop` — `notify-send` when Claude finishes (async)
@@ -78,6 +81,10 @@ Changes to any of these files may require adaptations in relevant `setup/*` file
 | `config/claude/claude_settings.json` | `~/.claude/settings.json` |
 | `config/claude/commands` | `~/.claude/commands` |
 | `config/claude/skills` | `~/.claude/skills` |
+
+## Verifying risky changes
+
+Before wiring a new shell command into a hook, cron job, or other automation that's hard to dry-run in place, test its exact logic against a disposable copy first (e.g. under `/tmp/claude-scratchpad/`) — especially when it writes to a shared/global config file like `claude_settings.json` or anything under `~/.config`.
 
 ## Committing conventions
 

@@ -197,6 +197,7 @@ if status is-interactive
     abbr -a --position anywhere -- klogj 'kubernetes-log-template --job'
     abbr -a --position anywhere -- klogp 'kubernetes-log-template --pod'
     abbr -a --position anywhere -- kloga 'kubernetes-log-template --app'
+    abbr -a --position anywhere -- fmt-claude-settings 'bash $dotfiles_PATH/config/claude/format-settings.bash'
     abbr -a --position anywhere -- gg gitui
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'

@@ -33,6 +33,28 @@
   },
   "model": "opus",
   "hooks": {
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude Code' 'permission required' --icon=dialog-question --urgency=normal",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "fp=$(jq -r '.tool_input.file_path // empty'); case \"$fp\" in *config/claude/claude_settings.json|*/.claude/settings.json) real=$(readlink -f \"$fp\" 2>/dev/null || echo \"$fp\"); tmp=$(mktemp) && jq --sort-keys . \"$real\" > \"$tmp\" && cat \"$tmp\" > \"$real\" && rm -f \"$tmp\" ;; esac"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -40,17 +62,6 @@
           {
             "type": "command",
             "command": "notify-send 'claude code tooling' \"$(jq -r '.tool_input.command // \"unknown\"' | head -c 150)\" --icon=utilities-terminal --urgency=low",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "notify-send 'Claude Code' 'permission required' --icon=dialog-question --urgency=normal",
             "async": true
           }
         ]
@@ -69,15 +80,15 @@
     ]
   },
   "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
+  "tui": "fullscreen",
   "verbose": true,
-  "remoteControlAtStartup": false,
-  "tui": "fullscreen"
+  "remoteControlAtStartup": false
 }
