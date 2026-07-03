@@ -27,6 +27,7 @@
       "Bash(git fetch:*)",
       "Bash(git show:*)",
       "Bash(git log:*)",
+      "Bash(git status:*)",
       "WebFetch(domain:github.com)"
     ],
     "defaultMode": "default"

@@ -10,7 +10,7 @@
 ## Shell commands
 
 - Respect file-path rules specified above.
-- Do **not** prefix Bash commands with `cd` unless absolutely necessary — scope commands using the tool's own path argument instead (e.g. `rg PATTERN sub/dir`, `grep -rn PATTERN sub/dir`), not by changing directory.
+- Do **not** prefix Bash commands with `cd` unless absolutely necessary — scope commands using the tool's own path argument instead (e.g. `rg PATTERN sub/dir`, `grep -rn PATTERN sub/dir`), not by changing directory. When you use path arguments, add them to the end of the command.
 - Use `cd` only when a tool genuinely requires a different working directory (build/test runners, npm scripts, tools that resolve config relative to cwd, a monorepo subproject).
 - When `cd` is genuinely needed, use a **relative** path from the current directory (e.g. `cd rest-api`), never an absolute path — it must be obvious at a glance that the target is in-scope.
 
