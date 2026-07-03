@@ -1,4 +1,5 @@
 ---
+name: scratch-context
 description: When writing any file to ~/Documents/claude-scratch/, include a project context header so the file remains interpretable after being copied to ~/Documents/claude-refs/ without needing to reopen the original project.
 ---
 
