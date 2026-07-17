@@ -58,7 +58,7 @@
       }
     ]
   },
-  "model": "Sonnet",
+  "model": "sonnet",
   "permissions": {
     "allow": [
       "Bash(gh pr view*)",
@@ -85,11 +85,13 @@
       "Bash(git show:*)",
       "Bash(git log:*)",
       "Bash(git status:*)",
+      "BASH(kubectl logs:*)",
       "WebFetch(domain:github.com)"
     ],
     "defaultMode": "default"
   },
   "remoteControlAtStartup": false,
+  "skipWorkflowUsageWarning": true,
   "tui": "fullscreen",
   "verbose": true
 }
