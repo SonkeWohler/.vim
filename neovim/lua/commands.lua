@@ -1,5 +1,8 @@
 -- ## commands
 
+----- View -----
+cmd('WRAP', 'set wrap!', { desc = 'invert wrap option' })
+
 ----- Registers -----
 cmd('CopyMainYankToSystemClipboard', 'let @+ = @" | let @* = @" | call system("wl-copy", @")', { desc = 'copy main register to system clipboard' })
 cmd('Y', 'CopyMainYankToSystemClipboard', {})
