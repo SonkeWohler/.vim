@@ -185,5 +185,5 @@ function update-all --description 'well, not necessarily all, but regular mainte
 end
 
 function update-NXT --description 'update server that runs nextcloud'
-    ssh $nextcloud_server_ip 'bash -c "sudo apt update && sudo apt upgrade && sudo -E -u www-data php /var/www/nextcloud/updater/updater.phar && sudo -E -u www-data php ./occ upgrade && sudo -E -u www-data php ./cron.php && cat version.php"'
+    ssh $nextcloud_server_ip 'bash -c "sudo apt update && sudo apt upgrade && cd /var/www/nextcloud && sudo -E -u www-data php updater/updater.phar && sudo -E -u www-data php ./occ upgrade && sudo -E -u www-data php ./cron.php && cat version.php"'
 end
