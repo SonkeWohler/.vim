@@ -17,7 +17,7 @@
         "hooks": [
           {
             "async": true,
-            "command": "notify-send 'Claude Code' 'permission required' --icon=dialog-question --urgency=normal",
+            "command": "notify-send 'Claude Code' 'permission required' --icon=dialog-question --urgency=normal --expire-time=15000",
             "type": "command"
           }
         ]
@@ -39,7 +39,7 @@
         "hooks": [
           {
             "async": true,
-            "command": "notify-send 'claude code tooling' \"$(jq -r '.tool_input.command // \"unknown\"' | head -c 150)\" --icon=utilities-terminal --urgency=low",
+            "command": "notify-send 'claude code tooling' \"$(jq -r '.tool_input.command // \"unknown\"' | head -c 150)\" --icon=utilities-terminal --urgency=low --expire-time=2000",
             "type": "command"
           }
         ],
@@ -51,7 +51,7 @@
         "hooks": [
           {
             "async": true,
-            "command": "notify-send 'Claude Code' 'ready or requires more input' --icon=dialog-information --urgency=normal",
+            "command": "notify-send 'Claude Code' 'ready or requires more input' --icon=dialog-information --urgency=normal --expire-time=10000",
             "type": "command"
           }
         ]
