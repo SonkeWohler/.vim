@@ -13,6 +13,7 @@
 - Do **not** prefix Bash commands with `cd` unless absolutely necessary — scope commands using the tool's own path argument instead (e.g. `rg PATTERN sub/dir`, `grep -rn PATTERN sub/dir`), not by changing directory. When you use path arguments, add them to the end of the command.
 - Use `cd` only when a tool genuinely requires a different working directory (build/test runners, npm scripts, tools that resolve config relative to cwd, a monorepo subproject).
 - When `cd` is genuinely needed, use a **relative** path from the current directory (e.g. `cd rest-api`), never an absolute path — it must be obvious at a glance that the target is in-scope.
+- Never use a flag that relocates a command's working context *before* its subcommand (e.g. `git -C <path>`, `git --git-dir=<path>`) — permission allow-rules like `Bash(git log:*)` prefix-match the literal command string, so `git -C <path> log` silently falls outside them and forces a prompt even though `git log` is explicitly permitted. Plain `git <command>` already operates on the current working tree; if you must scope to a subdirectory, append it as a trailing pathspec instead (e.g. `git log -- sub/dir`), never as a leading flag.
 
 ## Formatting
 
