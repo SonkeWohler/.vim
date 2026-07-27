@@ -76,6 +76,7 @@
       "Bash(wc:*)",
       "Bash(sort:*)",
       "Bash(cut:*)",
+      "Bash(jq:*)",
       "Bash(find:*)",
       "Bash(cat:*)",
       "Bash(ls:*)",
@@ -85,7 +86,7 @@
       "Bash(git show:*)",
       "Bash(git log:*)",
       "Bash(git status:*)",
-      "BASH(kubectl logs:*)",
+      "Bash(kubectl logs:*)",
       "WebFetch(domain:github.com)"
     ],
     "defaultMode": "default"
