@@ -53,7 +53,7 @@ To update plugins: `nvim -c "lua require('lazy').sync({wait = true})" -c 'autocm
 - `commands/` → `~/.claude/commands/` (slash commands)
 - `skills/` → `~/.claude/skills/` (slash skills)
 
-`claude_settings.json` keys must stay alphabetically sorted (recursively) to avoid diff noise/merge conflicts when synced across machines. Run `format-settings.bash` (abbreviated `fmt-claude-settings`) before committing changes to it; a `PostToolUse[Edit|Write]` hook also re-sorts it automatically whenever Claude edits it.
+`claude_settings.json` keys must stay alphabetically sorted (recursively) to avoid diff noise/merge conflicts when synced across machines. Run `format-settings.bash` (abbreviated in fish as `claude-settings-format`) before committing changes to it; a `PostToolUse[Edit|Write]` hook also re-sorts it automatically whenever Claude edits it.
 
 **Active hooks** in `claude_settings.json`:
 - `PreToolUse[Bash]` — `notify-send` with command preview (async)
