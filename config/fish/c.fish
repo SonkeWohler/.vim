@@ -209,8 +209,8 @@ if status is-interactive
     # useful with <C-M-p> from fzf.fish
     abbr -a --position anywhere --set-cursor -- ww "tail --pid % -f /dev/null && "
     # work vpn
-    abbr -a --position command -- tailup "sudo systemctl start tailscaled && sudo tailscale up"
-    abbr -a --position command -- taildown "sudo tailscale down && sudo systemctl stop tailscaled"
+    abbr -a --position command -- tailup "sudo systemctl start tailscaled && sudo tailscale up && ping ping.archlinux.org -c 1"
+    abbr -a --position command -- taildown "sudo tailscale down && ping ping.archlinux.org -c 1 && sudo systemctl stop tailscaled"
     # start plasma when in terminal
     abbr -a --position command -- plasmaup "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
     # AUR
