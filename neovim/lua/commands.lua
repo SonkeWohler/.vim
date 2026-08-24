@@ -11,6 +11,15 @@ cmd('Y', 'CopyMainYankToSystemClipboard', {})
 cmd('QQQ', 'cq 77', { desc = 'wrapper for Qa' })
 cmd('Qb', 'bd!', { desc = 'quit current buffer (not window, buffer)' })
 cmd('QB', 'Qb', { desc = 'wrapper for Qb' })
+cmd('Qt', function()
+  local bufs = {}
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    table.insert(bufs, vim.api.nvim_win_get_buf(win))
+  end
+  for _, buf in ipairs(bufs) do
+    vim.api.nvim_buf_delete(buf, { force = true })
+  end
+end, { desc = 'quit all buffers in current tab (not windows)' })
 cmd('YY', 'let @" = expand("%") | Y', {})
 cmd('WW', 'wqa', { desc = 'save and quit all buffers' })
 
