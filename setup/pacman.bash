@@ -118,7 +118,7 @@ sudo pacman --noconfirm -S \
 pandoc \
 texlive \
 mupdf \
-skanlite \
+sane-airscan ipp-usb hplip cups skanlite \
 libreoffice-still \
 libreoffice-still-ro \
 libreoffice-still-de \
