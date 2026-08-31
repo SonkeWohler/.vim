@@ -203,7 +203,8 @@ if status is-interactive
     abbr -a awww --position command --set-cursor --regex   "aww+"  "awk '{print \$%}'"
     abbr -a --position anywhere -- dlt '| delta-template'
     abbr -a --position anywhere --set-cursor -- rgg "rg --json '%' | delta-template"
-    abbr -a --position anywhere -- fd-file-types 'fd -t f . | sed -En "s/^.*\.//p" | sort | uniq' # sometimes useful, never remembered, always tedious to reconstruct
+    abbr -a --position anywhere --set-cursor -- fd-file-types 'fd -t f .% | sed -En "s/^.*\.//p" | sort | uniq' # sometimes useful, but not so much that remembering it is useful
+    abbr -a --position anywhere --set-cursor -- fd-file-types-all 'fd -H -t f .% | sed -En "s/^.*\.//p" | sort | uniq'
     abbr -a --position anywhere -- nogit "not test (git status --porcelain)"
     # wait for pid to complete, then do other stuff
     # useful with <C-M-p> from fzf.fish
