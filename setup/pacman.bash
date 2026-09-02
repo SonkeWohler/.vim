@@ -13,7 +13,6 @@ sudo pacman -S pacman-contrib --noconfirm
 # present on any system
 sudo pacman --noconfirm -S \
 curl \
-curl \
 wget \
 git \
 vi \
@@ -83,6 +82,7 @@ ttf-iosevka-nerd \
 otf-droid-nerd
 # other cli
 sudo pacman --noconfirm -S \
+reflector \
 newsboat \
 xclip \
 zip \
