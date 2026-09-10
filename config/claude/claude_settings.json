@@ -82,6 +82,7 @@
       "Bash(find:*)",
       "Bash(cat:*)",
       "Bash(ls:*)",
+      "Bash(awk:*)",
       "Bash(git merge-base:*)",
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
