@@ -104,5 +104,5 @@
   "remoteControlAtStartup": false,
   "skipWorkflowUsageWarning": true,
   "tui": "fullscreen",
-  "verbose": true
+  "verbose": false
 }
