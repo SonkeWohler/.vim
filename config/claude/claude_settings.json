@@ -1,5 +1,4 @@
 {
-  "effortLevel": "high",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
@@ -59,6 +58,14 @@
     ]
   },
   "model": "opus",
+  "modelSettings": {
+    "claude-haiku-4-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5": {
+      "effortLevel": "high"
+    }
+  },
   "permissions": {
     "allow": [
       "Bash(gh pr view*)",
