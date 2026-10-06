@@ -46,7 +46,7 @@ dateDisplayFormat=BelowTime
 enabledCalendarPlugins=astronomicalevents,holidaysevents
 firstDayOfWeek=1
 fontWeight=400
-selectedTimeZones=Pacific/Honolulu,America/New_York,Etc/UTC,Europe/London,Local,Asia/Singapore
+selectedTimeZones=Pacific/Honolulu,America/Los_Angeles,America/New_York,Etc/UTC,Local,Europe/London,Asia/Hong_Kong,Asia/Shanghai,Asia/Seoul,Australia/Sydney
 showSeconds=Always
 showWeekNumbers=true
 
