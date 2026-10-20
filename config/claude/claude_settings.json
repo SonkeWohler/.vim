@@ -64,6 +64,9 @@
     },
     "claude-opus-5": {
       "effortLevel": "high"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
     }
   },
   "permissions": {
@@ -97,7 +100,9 @@
       "Bash(git log:*)",
       "Bash(git status:*)",
       "Bash(kubectl logs:*)",
-      "WebFetch(domain:github.com)"
+      "Bash(kubectl get:*)",
+      "WebFetch(domain:github.com)",
+      "mcp__claude_ai_Atlassian"
     ],
     "defaultMode": "default"
   },
