@@ -53,16 +53,45 @@ function clean-docker-storage --description 'prune docker images and rebuild mai
         echo 'skipping clean-docker-storage'
         return 1
     end
-    # I haven't been able to set up docker garbage collect yet...
-    # so I do this instead
-    docker system prune --all --force --volumes  # I haven't been able to set up docker garbage collect right yet...
-    cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make all-dev && git sw -
-    sleep 1m  # just to be sure nothing breaks with the above restart
-    # clean the local kind cluster's image store as well, if that exists
+
+    # clear kind image storage as well
     if contains docker-desktop (kind get clusters 2>/dev/null)
+        echo 'clearing kind image storage first...'
         docker exec docker-desktop-control-plane crictl rmi --prune
     else
         echo 'no docker-desktop kind cluster found, skipping its image cleanup'
+    end
+    # I haven't been able to set up docker garbage collect yet...
+    # so I do this instead
+    echo 'clearing docker image storage...'
+    docker system prune --all --force --volumes
+    cd $work_main_PATH
+    or return 1
+
+    set work_branch (git branch --show-current)
+    test -n "$work_branch"; or set work_branch "detached HEAD at "(git rev-parse --short HEAD)
+    set proceed true
+    set stashed false
+    if test -n "$(git status --porcelain)"
+        echo "WARNING there are unsaved changes in $work_main_PATH on branch '$work_branch':"
+        git status --short
+        echo "stash them (from branch '$work_branch') and rebuild, or abort the rebuild? (y = stash / anything else = abort)"
+        read --nchars 1 stash_answer
+        if test (string lower "$stash_answer") = y
+            git add -A
+            and git stash -m "chore(*): prune and rebuild stash (from $work_branch)"
+            and set stashed = true
+            or set proceed false
+        else
+            echo "WARNING aborting rebuild of $work_main_PATH, changes on '$work_branch' left untouched"
+            set proceed false
+        end
+    end
+    if test $proceed = true
+        git sw development && git pull && make all-dev && git sw -
+        if test $stashed = true
+            git stash pop
+        end
     end
     echo ""
     echo "--- docker has been pruned ---"
