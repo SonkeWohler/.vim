@@ -58,6 +58,12 @@ function clean-docker-storage --description 'prune docker images and rebuild mai
     docker system prune --all --force --volumes  # I haven't been able to set up docker garbage collect right yet...
     cd $work_main_PATH && git stash -m 'chore(*): prune and rebuild stash' && git sw development && git pull && make all-dev && git sw -
     sleep 1m  # just to be sure nothing breaks with the above restart
+    # clean the local kind cluster's image store as well, if that exists
+    if contains docker-desktop (kind get clusters 2>/dev/null)
+        docker exec docker-desktop-control-plane crictl rmi --prune
+    else
+        echo 'no docker-desktop kind cluster found, skipping its image cleanup'
+    end
     echo ""
     echo "--- docker has been pruned ---"
 end
