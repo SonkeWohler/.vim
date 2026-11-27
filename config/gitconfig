@@ -136,3 +136,5 @@
 	rb = !bash -c 'git switch "$1" && git pull && git switch - && git rebase "$1"' -
 	rbd = rb development
 	rdb = rbd  # typos
+	# patch comparison
+	lpatch = !bash -c 'git log-message-default "$1"...development --cherry-pick'
